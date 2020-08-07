@@ -1,0 +1,27 @@
+html {
+    color: black;
+}
+
+@keyframes backgroundmove {
+    50% {background-position: right;}
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    border: none;
+    padding-left: 26px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+option {
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    padding-left: 26px;
+
+}
