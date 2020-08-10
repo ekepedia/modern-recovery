@@ -34,7 +34,7 @@ const Styles = {
         height: "11px",
         width: "11px",
         borderRadius: "100%",
-        background: "#9c9990",
+        background: "#a6a096",
         marginRight: "12px",
         display: "inline-block",
         cursor: "pointer",
@@ -153,24 +153,26 @@ class Home extends React.Component {
             <div style={{display: "flex", flexDirection: "column", height: "100vh", width: "100vw", overflow: "hidden"}}>
                 <div style={{background: "white", flex: "0 0 53px"}}>
                     <div style={{display: "flex", padding: "0 22px"}}>
-                        <div style={{flex: 1, fontFamily: "Roboto", fontSize: "16px"}}>
-                            <div style={{display: "inline-block", lineHeight: "53px"}}>
-                                Chapter Mode
-                            </div>
-                            <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "18px", cursor: "pointer", position: "relative", padding: "4px 6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "30px", width: "60px", borderRadius: "15px"}}>
-                                <div style={{display: "inline-block", marginRight: "10px", height: "18px", width: "18px", background: this.state.chapter ? "#7dc49b" : "red", borderRadius: "100%"}}>
 
-                                </div>
-                                <div style={{lineHeight: "22px", fontSize: "14px", position: "absolute", top: 4, right: 9, display: "inline-block"}}>
-                                    {this.state.chapter ? "On" : "Off"}
-                                </div>
-                            </div>
+                        <div style={{flex: 1, lineHeight: "53px", fontFamily: "GT-America-Mono-Trial-Regular", fontSize: "15px", position: "relative"}}>
+                            <span style={{fontFamily: "NoeDisplay Regular", marginRight: "50px", fontSize: "18px"}}>A Project By Tempest</span><div style={{height: "30px", marginLeft: "10px", left: "160px", marginRight: "30px", position: "absolute", top: "10", width: "1px", paddingTop: "0", display: "inline-block"}}><div style={{background: "black", width: "100%", height: "100%"}}></div></div>#modernrecovery
                         </div>
-                        <div style={{flex: 1, lineHeight: "53px", textAlign: "center", fontFamily: "Casta Black", fontSize: "24px", textTransform: "uppercase", letterSpacing: "-0.75px"}}>
+                        <div style={{flex: 1, lineHeight: "53px", textAlign: "center", fontFamily: "NoeDisplay Medium", fontSize: "24px", textTransform: "capitalize", letterSpacing: "-0.25px"}}>
                             Modern Recovery
                         </div>
-                        <div style={{flex: 1, lineHeight: "53px", textAlign: "right", fontFamily: "Roboto", fontSize: "15px"}}>
-                            #modernrecovery
+
+                        <div style={{flex: 1, fontFamily: "Roboto", textAlign: "right", fontSize: "18px"}}>
+                            <div style={{display: "inline-block", lineHeight: "53px", fontFamily: "NoeDisplay Regular"}}>
+                                {this.state.chapter ? "Chapter" : "Discover"} Mode
+                            </div>
+                            <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "8px", textAlign: "left", cursor: "pointer", position: "relative", padding: "4px 6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "30px", width: "60px", borderRadius: "15px"}}>
+                                <div style={{display: "inline-block", marginRight: "10px", height: "18px", width: "18px", background: this.state.chapter ? "#7dc49b" : "#7dc49b", borderRadius: "100%"}}>
+
+                                </div>
+                                <div style={{lineHeight: "22px", fontSize: "16px", fontFamily: "GT-America-Mono-Trial-Regular", position: "absolute", top: 2, right: 9, display: "inline-block"}}>
+                                    {this.state.chapter ? "On" : "On"}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -185,25 +187,29 @@ class Home extends React.Component {
                                     <div style={{flex: "1"}}>
                                         <div style={{paddingLeft: "100px", paddingRight: "60px", width: "100%", height: "100%"}}>
                                             <div style={{display: "flex", width: "100%", height: "100%"}}>
-                                                <div style={{flex: "0 0 285px", height: "100%", opacity: this.state.changingState ? 0 : 1, transition: "0.5s"}}>
+                                                <div style={{flex: "0 0 300px", height: "100%", opacity: this.state.changingState ? 0 : 1, transition: "0.5s"}}>
                                                     <div style={{paddingTop: "100px"}}>
-                                                        <div style={{fontSize: "18px", lineHeight: "24px", fontFamily: "Casta Medium Slanted"}}>
-                                                            <span style={{fontFamily: "Casta ExtraBold Slanted"}}>{this.state.stage.name}:</span> {this.state.stage.definition}
+                                                        <div style={{fontSize: "16px", maxWidth: "317px", lineHeight: "24px", fontFamily: "GT-America-Mono-Trial-Regular-Italic"}}>
+                                                            <span style={{textDecoration: "underline"}}>{this.state.stage.name}</span> {this.state.stage.definition}
                                                         </div>
-                                                        <div style={{marginTop: "60px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
-                                                            “
-                                                        </div>
-                                                        <div style={{marginTop: "30px", maxWidth: "223px", fontSize: "16px", lineHeight: "24px", fontFamily: "Albra Text Medium", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
-                                                            {this.state.stage.quotes[this.state.textIndex]}
-                                                        </div>
-                                                        <div style={{marginTop: "30px"}}>
-                                                            <div style={{display: "inline-block"}}>
-                                                                {this.state.stage.quotes.map((q, i) => {
-                                                                    return <div key={i} style={{background: this.state.textIndexBot === i ? "black" : null}} onClick={() => {this.setTextState(i)}} className={classes.dot}/>
-                                                                })}
+                                                        <div style={{paddingLeft: "35px", height: "410px", marginTop: "30px", position: "relative", paddingTop: "30px", paddingBottom: "25px", paddingRight: "25px", borderRadius: "7px", background: "rgba(255,255, 255, 0.1)"}}>
+                                                            <div style={{marginTop: "40px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
+                                                                “
                                                             </div>
-                                                            <div style={{display: "inline-block", marginLeft: "5px", fontFamily: "Casta Regular"}}>
-                                                                {this.state.textIndexBot + 1} of {this.state.stage.quotes.length}
+                                                            <div style={{marginTop: "30px", maxWidth: "240px", fontSize: "18px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
+                                                                {this.state.stage.quotes[this.state.textIndex]}
+                                                            </div>
+                                                            <div style={{marginTop: "30px", position: "absolute", width: "100%", bottom: "35px", left: "35px"}}>
+                                                                <div style={{display: "inline-block"}}>
+                                                                    {this.state.stage.quotes.map((q, i) => {
+                                                                        return <div key={i} style={{background: this.state.textIndexBot === i ? "black" : null}} onClick={() => {this.setTextState(i)}} className={classes.dot}/>
+                                                                    })}
+                                                                </div>
+                                                                <div style={{position: "absolute", cursor:"pointer", height: "36px", lineHeight: "36px", textAlign: "center", width: "36px", background: "#e4e0d9", bottom: "-15px", right: "61px", borderRadius: "100%"}}>
+                                                                    <img src={"/img/play.png"} style={{display: "inline-block", marginTop: "11px"}}>
+
+                                                                    </img>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -230,11 +236,11 @@ class Home extends React.Component {
                                         <div style={{transform: "rotate(-90deg)",
                                             margin: "auto",
                                             position: "absolute",
-                                            fontFamily: "Roboto",
-                                            fontSize: "16px",
+                                            fontSize: "18px",
                                             top: "50%",
-                                            width: "100px",
-                                            left: "-25px"}}>
+                                            fontFamily:"NoeDisplay Regular",
+                                            width: "120px",
+                                            left: "-35px"}}>
                                             <div style={{
                                                 display: "inline-block",
                                                 height: "15px",
@@ -266,32 +272,24 @@ class Home extends React.Component {
                                                 </div>
                                             </div>
                                             <div style={{flex: 1, color: "white", overflow: "scroll", height: "100%"}}>
-                                                <div style={{paddingLeft: "140px", paddingTop: "150px", background: "linear-gradient(#8693a7,#ccbeae)"}}>
-                                                    <div style={{marginBottom: "50px", fontSize: "40px", lineHeight: "40px", fontFamily: "Casta Regular"}}>
+                                                <div style={{paddingLeft: "140px", paddingBottom: "100px", paddingTop: "150px", background: "linear-gradient(#8693a7,#ccbeae)"}}>
+                                                    <div style={{marginBottom: "60px", fontSize: "40px", lineHeight: "40px", fontFamily: "Casta Regular"}}>
                                                         The Pillars of<br/>
                                                         Modern Recovery
                                                     </div>
                                                     {this.pillars.map((pillar) => {
                                                         return (
-                                                            <div key={pillar} style={{marginBottom: "100px"}}>
+                                                            <div key={pillar} style={{marginBottom: "70px"}}>
                                                                 <div style={{display: "flex"}}>
-                                                                    <div style={{flex: "0 0 60px"}}>
-
-                                                                    </div>
-                                                                    <div style={{flex: 1}}>
-                                                                        <div style={{height: "100px", width: "100px", border: "2px solid white", borderRadius: "100%"}}>
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div style={{marginTop: "30px", display: "flex"}}>
-                                                                    <div style={{flex: "0 0 60px"}}>
-                                                                        <div style={{fontSize: "72px", lineHeight: "60px", fontFamily: "Casta Regular"}}>
-                                                                            {pillar}.
+                                                                    <div style={{flex: "0 0 140px"}}>
+                                                                        <div style={{fontSize: "60px", lineHeight: "60px", fontFamily: "Casta Regular"}}>
+                                                                            <div style={{height: "112px", lineHeight: "112px", textAlign: "center", width: "112px", border: "2px solid white", borderRadius: "100%"}}>
+                                                                                0{pillar}.
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <div style={{flex: 1}}>
-                                                                        <div style={{fontFamily: "Albra Text Regular", maxWidth: "295px", fontSize: "14px", lineHeight: "20px"}}>
+                                                                        <div style={{fontFamily: "Albra Text Regular", maxWidth: "290px", fontSize: "16px", lineHeight: "20px"}}>
                                                                             Modern Recovery is for everyone. No matter where you are on your journey—if you want to quit drinking, you have some time sober, or you’re just reevaluating your relationship with alcohol—there’s a place for you.
                                                                         </div>
                                                                     </div>
