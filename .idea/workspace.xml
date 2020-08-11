@@ -11,17 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="720a9696-f5d7-4acf-9118-f695a01651bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/public/fonts/GIT-Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/fonts/GT-America-Mono-Trial-Regular-Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/fonts/GT-America-Mono-Trial-Regular.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/fonts/GT-America-Trial-Regular-Italic.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/fonts/NoeDisplay-Medium.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/public/fonts/NoeDisplay-Regular.otf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/public/js/script.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/script.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scenes/Home/copy.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/copy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scenes/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/main.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/main.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +59,8 @@
       <option name="presentableId" value="Default" />
       <updated>1574818548866</updated>
       <workItem from="1574818550034" duration="1938000" />
-      <workItem from="1596745753188" duration="20198000" />
+      <workItem from="1596745753188" duration="20621000" />
+      <workItem from="1597162611022" duration="3155000" />
     </task>
     <servers />
   </component>
@@ -84,6 +77,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="323" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1597018437472">

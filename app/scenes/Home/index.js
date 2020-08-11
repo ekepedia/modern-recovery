@@ -7,6 +7,7 @@ import { STAGES } from "./copy";
 
 const Styles = {
     container: {
+        cursor: "auto"
     },
     tabName: {
         fontFamily: "Casta Regular",
@@ -42,7 +43,8 @@ const Styles = {
         transition: "0.5s",
         "&:hover": {
             opacity: "0.5",
-        }
+        },
+        marginTop: "12.5px"
     },
     pillarBar: {
         borderLeft: "1px solid",
@@ -73,16 +75,7 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
 
-        this.texts = [
-            "1: One night out, I saw a lady my age guzzling beer one after another, and it hit me that I do that with wine at home, but out at a bar, I'd drink \"respectably\" slower, then go home and guzzle.  Seeing her that night, I saw myself and thought yuck, this isn't pretty.",
-            "2: One night out, I saw a lady my age guzzling beer one after another, and it hit me that I do that with wine at home, but out at a bar, I'd drink \"respectably\" slower, then go home and guzzle.  Seeing her that night, I saw myself and thought yuck, this isn't pretty.",
-            "3: One night out, I saw a lady my age guzzling beer one after another, and it hit me that I do that with wine at home, but out at a bar, I'd drink \"respectably\" slower, then go home and guzzle.  Seeing her that night, I saw myself and thought yuck, this isn't pretty.",
-            "4: One night out, I saw a lady my age guzzling beer one after another, and it hit me that I do that with wine at home, but out at a bar, I'd drink \"respectably\" slower, then go home and guzzle.  Seeing her that night, I saw myself and thought yuck, this isn't pretty."
-        ]
-
-        this.pillars = [
-            1,2,3,4
-        ]
+        this.pillars = [1,2,3,4]
 
         this.state = {
             textIndex: 0,
@@ -131,6 +124,16 @@ class Home extends React.Component {
                 mounted: true
             })
         }, 500);
+
+        window.onmousemove = (event) => {
+            console.log(event);
+            setTimeout(() => {
+                let follower = document.getElementById('custom-cursor');
+                follower.style.display = "block";
+                follower.style.top = (event.clientY - 25)+ 'px'
+                follower.style.left = (event.clientX -25) + 'px'
+            }, 0)
+        }
     }
 
     setTextState(textIndex) {
@@ -150,27 +153,31 @@ class Home extends React.Component {
         let { classes } = this.props;
 
         return (<div className={classes.container} style={{background: "linear-gradient(#66a1b6,#ccbeae)", transition: "1s"}}>
+            <div id={"custom-cursor"} style={{opacity: 0.5, display: "none", pointerEvents: "none", zIndex: 1000, position: "fixed", height: "50px", width: "50px", background: "grey", borderRadius: "100%"}}></div>
             <div style={{display: "flex", flexDirection: "column", height: "100vh", width: "100vw", overflow: "hidden"}}>
-                <div style={{background: "white", flex: "0 0 53px"}}>
-                    <div style={{display: "flex", padding: "0 22px"}}>
+                <div style={{background: "white", flex: "0 0 53px", overflow: "hidden"}}>
+                    <div style={{display: "flex", padding: "0 22px", height: "100%"}}>
 
-                        <div style={{flex: 1, lineHeight: "53px", fontFamily: "GT-America-Mono-Trial-Regular", fontSize: "15px", position: "relative"}}>
-                            <span style={{fontFamily: "NoeDisplay Regular", marginRight: "50px", fontSize: "18px"}}>A Project By Tempest</span><div style={{height: "30px", marginLeft: "10px", left: "160px", marginRight: "30px", position: "absolute", top: "10", width: "1px", paddingTop: "0", display: "inline-block"}}><div style={{background: "black", width: "100%", height: "100%"}}></div></div>#modernrecovery
+                        <div style={{flex: 1, lineHeight: "53px", fontFamily: "GT-America-Mono-Trial-Regular", fontSize: "14px", position: "relative"}}>
+                            <span style={{fontFamily: "NoeDisplay Regular", marginRight: "26px", fontSize: "14px"}}>A Project By Tempest</span><div style={{height: "22px", left: "136px", marginRight: "30px", position: "absolute", top: "15", width: "1px", paddingTop: "0", display: "inline-block"}}><div style={{background: "black", width: "100%", height: "100%"}}></div></div>#modernrecovery
                         </div>
+
                         <div style={{flex: 1, lineHeight: "53px", textAlign: "center", fontFamily: "NoeDisplay Medium", fontSize: "24px", textTransform: "capitalize", letterSpacing: "-0.25px"}}>
                             Modern Recovery
                         </div>
 
-                        <div style={{flex: 1, fontFamily: "Roboto", textAlign: "right", fontSize: "18px"}}>
-                            <div style={{display: "inline-block", lineHeight: "53px", fontFamily: "NoeDisplay Regular"}}>
+                        <div style={{flex: 1, fontFamily: "Roboto", height: "100%", overflow: "hidden", textAlign: "right", fontSize: "14px"}}>
+                            <div style={{display: "inline-block", lineHeight: "53px", fontFamily: "NoeDisplay Regular", overflow: "hidden"}}>
                                 {this.state.chapter ? "Chapter" : "Discover"} Mode
                             </div>
-                            <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "8px", textAlign: "left", cursor: "pointer", position: "relative", padding: "4px 6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "30px", width: "60px", borderRadius: "15px"}}>
-                                <div style={{display: "inline-block", marginRight: "10px", height: "18px", width: "18px", background: this.state.chapter ? "#7dc49b" : "#7dc49b", borderRadius: "100%"}}>
+                            <div style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
+                                <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "5.5px 6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "60px", borderRadius: "15px"}}>
+                                    <div style={{display: "inline-block", marginRight: "10px", height: "18px", width: "18px", background: this.state.chapter ? "#7dc49b" : "#7dc49b", borderRadius: "100%"}}>
 
-                                </div>
-                                <div style={{lineHeight: "22px", fontSize: "16px", fontFamily: "GT-America-Mono-Trial-Regular", position: "absolute", top: 2, right: 9, display: "inline-block"}}>
-                                    {this.state.chapter ? "On" : "On"}
+                                    </div>
+                                    <div style={{lineHeight: "30px", fontSize: "16px", fontFamily: "GT-America-Mono-Trial-Regular", position: "absolute", top: -2, right: 10, display: "inline-block"}}>
+                                        {this.state.chapter ? "On" : "On"}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -181,35 +188,38 @@ class Home extends React.Component {
                         <div style={{display: "flex", height: "100%", width: "100%"}}>
                             <div style={{flex: this.state.pillars ? 0 : 1, transition: "1s", overflow: "hidden", height: "100%"}}>
                                 <div style={{display: "flex", height: "100%", width: "calc(100vw - 46px)"}}>
-                                    <div style={{flex: "0 0 390px", transition: "background 0.5s", background: `url(${STAGES[this.state.stageIndex].img})`}}>
+                                    <div style={{flex: "0 0 390px", transition: "background 0.5s", background: `url(${STAGES[this.state.stageIndex].img}) no-repeat`, backgroundSize: "cover"}}>
 
                                     </div>
                                     <div style={{flex: "1"}}>
-                                        <div style={{paddingLeft: "100px", paddingRight: "60px", width: "100%", height: "100%"}}>
+                                        <div style={{paddingLeft: "60px", paddingRight: "60px", width: "100%", height: "100%"}}>
                                             <div style={{display: "flex", width: "100%", height: "100%"}}>
-                                                <div style={{flex: "0 0 300px", height: "100%", opacity: this.state.changingState ? 0 : 1, transition: "0.5s"}}>
-                                                    <div style={{paddingTop: "100px"}}>
-                                                        <div style={{fontSize: "16px", maxWidth: "317px", lineHeight: "24px", fontFamily: "GT-America-Mono-Trial-Regular-Italic"}}>
-                                                            <span style={{textDecoration: "underline"}}>{this.state.stage.name}</span> {this.state.stage.definition}
-                                                        </div>
-                                                        <div style={{paddingLeft: "35px", height: "410px", marginTop: "30px", position: "relative", paddingTop: "30px", paddingBottom: "25px", paddingRight: "25px", borderRadius: "7px", background: "rgba(255,255, 255, 0.1)"}}>
-                                                            <div style={{marginTop: "40px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
+                                                <div style={{flex: "0 0 327px", height: "100%", opacity: this.state.changingState ? 0 : 1, transition: "0.5s"}}>
+                                                    <div style={{paddingTop: "95px"}}>
+                                                        <div style={{padding: "30px", width: "100%", height: "fit-content", position: "relative", borderRadius: "7px", background: "rgba(255,255, 255, 0.1)"}}>
+                                                            <div style={{fontSize: "14px", maxWidth: "264px", lineHeight: "20px", fontFamily: "GT-America-Mono-Trial-Regular-Italic"}}>
+                                                                <span style={{textDecoration: "underline"}}>{this.state.stage.name}</span> {this.state.stage.definition}
+                                                            </div>
+                                                            <div style={{marginTop: "80px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
                                                                 “
                                                             </div>
-                                                            <div style={{marginTop: "30px", maxWidth: "240px", fontSize: "18px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
+                                                            <div style={{marginTop: "20px", height: "235px", overflow: "scroll", maxWidth: "240px", fontSize: "18px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
                                                                 {this.state.stage.quotes[this.state.textIndex]}
                                                             </div>
-                                                            <div style={{marginTop: "30px", position: "absolute", width: "100%", bottom: "35px", left: "35px"}}>
-                                                                <div style={{display: "inline-block"}}>
+                                                            <div style={{marginTop: "20px", width: "100%", display: "flex"}}>
+                                                                <div style={{flex: 1}}>
                                                                     {this.state.stage.quotes.map((q, i) => {
                                                                         return <div key={i} style={{background: this.state.textIndexBot === i ? "black" : null}} onClick={() => {this.setTextState(i)}} className={classes.dot}/>
                                                                     })}
                                                                 </div>
-                                                                <div style={{position: "absolute", cursor:"pointer", height: "36px", lineHeight: "36px", textAlign: "center", width: "36px", background: "#e4e0d9", bottom: "-15px", right: "61px", borderRadius: "100%"}}>
-                                                                    <img src={"/img/play.png"} style={{display: "inline-block", marginTop: "11px"}}>
+                                                                <div style={{flex: "0 0 36px", textAlign: "right"}}>
+                                                                    <div style={{ display: "inline-block", cursor:"pointer", height: "36px", lineHeight: "36px", textAlign: "center", width: "36px", background: "#e4e0d9", borderRadius: "100%"}}>
+                                                                        <img src={"/img/play.png"} style={{display: "inline-block", marginTop: "11px"}}>
 
-                                                                    </img>
+                                                                        </img>
+                                                                    </div>
                                                                 </div>
+
                                                             </div>
                                                         </div>
                                                     </div>
