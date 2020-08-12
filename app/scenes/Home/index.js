@@ -197,8 +197,8 @@ class Home extends React.Component {
                                                 <div style={{flex: "0 0 489.12px", height: "100%", opacity: this.state.changingState ? 0 : 1, transition: "0.5s"}}>
                                                     <div style={{paddingTop: "117px"}}>
                                                         <div style={{padding: "30px", width: "100%", height: "476.88px", position: "relative", borderRadius: "7px", background: "rgba(255,255, 255, 0.1)"}}>
-                                                            <div style={{fontSize: "15px", maxWidth: "300px", lineHeight: "24px", fontFamily: "GT-America-Mono-Trial-Regular-Italic"}}>
-                                                                <span style={{textDecoration: "underline"}}>{this.state.stage.name}</span> {this.state.stage.definition}
+                                                            <div style={{fontSize: "15px", maxWidth: "300px", lineHeight: "24px", fontFamily: "DomaineDisplayTest-MediumItalic"}}>
+                                                                <span style={{textDecoration: ""}}>{this.state.stage.name}</span> {this.state.stage.definition}
                                                             </div>
                                                             <div style={{marginTop: "80px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
                                                                 “
