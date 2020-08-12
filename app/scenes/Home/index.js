@@ -317,7 +317,7 @@ class Home extends React.Component {
                     </div>
                     :
                     <div style={{flex: 1, height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
-                        <div style={{padding: "50px", height: "100%", width: "100%", background: "url('/img/explore-light.jpg')", backgroundSize: "cover", backgroundPosition: "center"}}>
+                        <div style={{padding: "50px", height: "100%", width: "100%", background: "url('https://i.imgur.com/lGumm9N.jpg')", backgroundSize: "cover", backgroundPosition: "center"}}>
                         </div>
                     </div>
                 }
