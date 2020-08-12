@@ -13,7 +13,7 @@ const Styles = {
         fontFamily: "Casta Regular",
         fontSize: "25px",
         lineHeight: "17px",
-        marginBottom: "calc(100vh/9)",
+        marginBottom: "65px",
         cursor: "pointer",
         transition: "0.25s",
         "&:hover": {
@@ -22,13 +22,13 @@ const Styles = {
     },
     tabBigName: {
         fontFamily: "Casta Regular",
-        fontSize: "100px",
+        fontSize: "68px",
         lineHeight: "64px",
-        marginBottom: "calc(100vh/9)",
+        marginBottom: "65px",
         cursor: "pointer",
         transition: "0.25s",
         "&:hover": {
-            fontSize: "105px",
+            fontSize: "70px",
         }
     },
     dot: {
@@ -194,19 +194,19 @@ class Home extends React.Component {
                                     <div style={{flex: "1"}}>
                                         <div style={{paddingLeft: "60px", paddingRight: "60px", width: "100%", height: "100%"}}>
                                             <div style={{display: "flex", width: "100%", height: "100%"}}>
-                                                <div style={{flex: "0 0 327px", height: "100%", opacity: this.state.changingState ? 0 : 1, transition: "0.5s"}}>
-                                                    <div style={{paddingTop: "95px"}}>
-                                                        <div style={{padding: "30px", width: "100%", height: "fit-content", position: "relative", borderRadius: "7px", background: "rgba(255,255, 255, 0.1)"}}>
-                                                            <div style={{fontSize: "14px", maxWidth: "264px", lineHeight: "20px", fontFamily: "GT-America-Mono-Trial-Regular-Italic"}}>
+                                                <div style={{flex: "0 0 489.12px", height: "100%", opacity: this.state.changingState ? 0 : 1, transition: "0.5s"}}>
+                                                    <div style={{paddingTop: "117px"}}>
+                                                        <div style={{padding: "30px", width: "100%", height: "476.88px", position: "relative", borderRadius: "7px", background: "rgba(255,255, 255, 0.1)"}}>
+                                                            <div style={{fontSize: "15px", maxWidth: "300px", lineHeight: "24px", fontFamily: "GT-America-Mono-Trial-Regular-Italic"}}>
                                                                 <span style={{textDecoration: "underline"}}>{this.state.stage.name}</span> {this.state.stage.definition}
                                                             </div>
                                                             <div style={{marginTop: "80px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
                                                                 “
                                                             </div>
-                                                            <div style={{marginTop: "20px", height: "235px", overflow: "scroll", maxWidth: "240px", fontSize: "18px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
+                                                            <div style={{marginTop: "20px", height: "200px", overflow: "scroll", maxWidth: "395px", fontSize: "16px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
                                                                 {this.state.stage.quotes[this.state.textIndex]}
                                                             </div>
-                                                            <div style={{marginTop: "20px", width: "100%", display: "flex"}}>
+                                                            <div style={{width: "100%", display: "flex", position: "absolute", bottom: 0, left: 0, padding: "30px"}}>
                                                                 <div style={{flex: 1}}>
                                                                     {this.state.stage.quotes.map((q, i) => {
                                                                         return <div key={i} style={{background: this.state.textIndexBot === i ? "black" : null}} onClick={() => {this.setTextState(i)}} className={classes.dot}/>
@@ -226,7 +226,7 @@ class Home extends React.Component {
 
                                                 </div>
                                                 <div style={{flex: 1, textAlign: "right", overflow: "hidden", height: "100%"}}>
-                                                    <div style={{paddingTop: "63px"}}>
+                                                    <div style={{paddingTop: "117px"}}>
                                                         {STAGES.map((stage, i) => {
                                                             return (<div onClick={() => {this.setIndex(i)}} className={this.state.stageIndex === i ? classes.tabBigName : classes.tabName}>{stage.name}</div>);
                                                         })}
@@ -249,8 +249,8 @@ class Home extends React.Component {
                                             fontSize: "18px",
                                             top: "50%",
                                             fontFamily:"NoeDisplay Regular",
-                                            width: "120px",
-                                            left: "-35px"}}>
+                                            width: "225px",
+                                            left: "-88.5"}}>
                                             <div style={{
                                                 display: "inline-block",
                                                 height: "15px",
@@ -261,7 +261,7 @@ class Home extends React.Component {
                                                 marginRight: "10px",
                                                 border: "1px solid"
                                             }}/>
-                                            The Pillars
+                                            What is Modern Reocvery?
                                         </div>
                                     </div>
                                     <div style={{flex: "1", overflow: "hidden"}}>
