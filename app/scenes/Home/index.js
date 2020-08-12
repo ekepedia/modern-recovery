@@ -188,7 +188,7 @@ class Home extends React.Component {
                         <div style={{display: "flex", height: "100%", width: "100%"}}>
                             <div style={{flex: this.state.pillars ? 0 : 1, transition: "1s", overflow: "hidden", height: "100%"}}>
                                 <div style={{display: "flex", height: "100%", width: "calc(100vw - 46px)"}}>
-                                    <div style={{flex: "0 0 390px", transition: "background 0.5s", background: `url(${STAGES[this.state.stageIndex].img}) no-repeat`, backgroundSize: "cover"}}>
+                                    <div style={{flex: "0 0 390px", transition: "background 0.5s", background: `url(${STAGES[this.state.stageIndex].img}) 0% 0% / cover no-repeat`}}>
 
                                     </div>
                                     <div style={{flex: "1"}}>
