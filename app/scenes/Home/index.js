@@ -317,8 +317,7 @@ class Home extends React.Component {
                     </div>
                     :
                     <div style={{flex: 1, height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
-                        <div style={{padding: "50px", height: "100%", width: "100%", background: "linear-gradient(#8693a7,#ccbeae)"}}>
-                            <img src={"https://media.agoodson.com/wp-content/uploads/2018/11/ICON-map.png"} style={{display: "inline-block", margin: "auto", height: "100%"}} />
+                        <div style={{padding: "50px", height: "100%", width: "100%", background: "url('/img/explore-light.jpg')", backgroundSize: "cover", backgroundPosition: "center"}}>
                         </div>
                     </div>
                 }
