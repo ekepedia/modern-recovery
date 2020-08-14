@@ -15,9 +15,9 @@ const Styles = {
         lineHeight: "17px",
         marginBottom: "65px",
         cursor: "pointer",
-        transition: "0.25s",
+        transition: "0.5s",
         "&:hover": {
-            fontSize: "30px",
+            fontSize: "50px",
         }
     },
     tabBigName: {
@@ -28,28 +28,45 @@ const Styles = {
         cursor: "pointer",
         transition: "0.25s",
         "&:hover": {
-            fontSize: "70px",
+            fontSize: "68px",
         }
     },
     dot: {
         height: "11px",
         width: "11px",
         borderRadius: "100%",
-        background: "#a6a096",
-        marginRight: "12px",
-        display: "inline-block",
+        background: "#0e0e0e",
         cursor: "pointer",
-        opacity: 1,
+        marginBottom: "9px",
+        opacity: 0.2,
         transition: "0.5s",
         "&:hover": {
             opacity: "0.5",
         },
-        marginTop: "12.5px"
     },
     pillarBar: {
         borderLeft: "1px solid",
         position: "relative",
-        cursor: "pointer"
+        cursor: "pointer",
+        transition: "background 0.25s",
+        "&:hover": {
+            background: "rgba(0,0,0,0.3)",
+        },
+    },
+    playButton: {
+        background: "#e4e0d9",
+        transition: "all 0.25s",
+        "&:hover": {
+            background: "black",
+        },
+    },
+    playButtonContainer: {
+        background: "url('/img/play.png') center no-repeat",
+        transition: "all 0.25s",
+
+        "&:hover": {
+            background: "url('/img/play-white.png') center no-repeat",
+        },
     },
     joinButton: {
         fontFamily: "Roboto",
@@ -83,7 +100,9 @@ class Home extends React.Component {
             pillars: false,
             stage: STAGES[0],
             stageIndex: 0,
-            chapter: true
+            chapter: true,
+            chapterBot: true,
+            changingMode: false
         }
     }
 
@@ -107,11 +126,14 @@ class Home extends React.Component {
     toggleChapter() {
         this.setState({
             mounted: false,
+            chapterBot: !this.state.chapterBot,
+            changingMode: true,
         });
         setTimeout(() => {
             this.setState({
                 chapter: !this.state.chapter,
                 mounted: true,
+                changingMode: false
             })
         }, 1000);
     }
@@ -167,16 +189,16 @@ class Home extends React.Component {
                         </div>
 
                         <div style={{flex: 1, fontFamily: "Roboto", height: "100%", overflow: "hidden", textAlign: "right", fontSize: "14px"}}>
-                            <div style={{display: "inline-block", lineHeight: "53px", fontFamily: "NoeDisplay Regular", overflow: "hidden"}}>
-                                {this.state.chapter ? "Chapter" : "Discover"} Mode
-                            </div>
+
                             <div style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
-                                <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "5.5px 6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "60px", borderRadius: "15px"}}>
-                                    <div style={{display: "inline-block", marginRight: "10px", height: "18px", width: "18px", background: this.state.chapter ? "#7dc49b" : "#7dc49b", borderRadius: "100%"}}>
+                                <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "5.5px 6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
+                                    <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.chapterBot ? 96 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapter ? "#7dc49b" : "#7dc49b", borderRadius: "100%"}}>
 
                                     </div>
-                                    <div style={{lineHeight: "30px", fontSize: "16px", fontFamily: "GT-America-Mono-Trial-Regular", position: "absolute", top: -2, right: 10, display: "inline-block"}}>
-                                        {this.state.chapter ? "On" : "On"}
+                                    <div style={{lineHeight: "30px", fontSize: "12px", fontFamily: "DomaineDisplayTest-MediumItalic", position: "absolute", top: 0, right: this.state.chapter ? 35 : 10, opacity: this.state.changingMode ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
+                                        <div style={{display: "inline-block", overflow: "hidden"}}>
+                                            {this.state.chapter ? "Chapter" : "Discover"} Mode
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -195,8 +217,13 @@ class Home extends React.Component {
                                         <div style={{paddingLeft: "60px", paddingRight: "60px", width: "100%", height: "100%"}}>
                                             <div style={{display: "flex", width: "100%", height: "100%"}}>
                                                 <div style={{flex: "0 0 489.12px", height: "100%", opacity: this.state.changingState ? 0 : 1, transition: "0.5s"}}>
-                                                    <div style={{paddingTop: "117px"}}>
-                                                        <div style={{padding: "30px", width: "100%", height: "476.88px", position: "relative", borderRadius: "7px", background: "rgba(255,255, 255, 0.1)"}}>
+                                                    <div style={{paddingTop: "calc((100vh - 476.88px - 53px)/2)"}}>
+                                                        <div style={{padding: "50px", width: "100%", height: "476.88px", position: "relative", borderRadius: "7px", background: "rgba(255,255, 255, 0.1)"}}>
+                                                            <div style={{position: "absolute", top: 50, right: 40}}>
+                                                                {this.state.stage.quotes.map((q, i) => {
+                                                                    return <div key={i} style={{opacity: this.state.textIndexBot === i ? 1 : null}} onClick={() => {this.setTextState(i)}} className={classes.dot}/>
+                                                                })}
+                                                            </div>
                                                             <div style={{fontSize: "15px", maxWidth: "300px", lineHeight: "24px", fontFamily: "DomaineDisplayTest-MediumItalic"}}>
                                                                 <span style={{textDecoration: ""}}>{this.state.stage.name}</span> {this.state.stage.definition}
                                                             </div>
@@ -206,17 +233,12 @@ class Home extends React.Component {
                                                             <div style={{marginTop: "20px", height: "200px", overflow: "scroll", maxWidth: "395px", fontSize: "16px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
                                                                 {this.state.stage.quotes[this.state.textIndex]}
                                                             </div>
-                                                            <div style={{width: "100%", display: "flex", position: "absolute", bottom: 0, left: 0, padding: "30px"}}>
-                                                                <div style={{flex: 1}}>
-                                                                    {this.state.stage.quotes.map((q, i) => {
-                                                                        return <div key={i} style={{background: this.state.textIndexBot === i ? "black" : null}} onClick={() => {this.setTextState(i)}} className={classes.dot}/>
-                                                                    })}
-                                                                </div>
-                                                                <div style={{flex: "0 0 36px", textAlign: "right"}}>
-                                                                    <div style={{ display: "inline-block", cursor:"pointer", height: "36px", lineHeight: "36px", textAlign: "center", width: "36px", background: "#e4e0d9", borderRadius: "100%"}}>
-                                                                        <img src={"/img/play.png"} style={{display: "inline-block", marginTop: "11px"}}>
+                                                            <div style={{width: "100%", display: "flex", position: "absolute", bottom: 0, left: 0, padding: "50px", paddingRight: "26px"}}>
+                                                                <div style={{flex: 1, textAlign: "right"}}>
+                                                                    <div className={classes.playButton} style={{ display: "inline-block", cursor:"pointer", height: "36px", lineHeight: "36px", textAlign: "center", width: "36px", borderRadius: "100%"}}>
+                                                                        <div className={classes.playButtonContainer} style={{display: "inline-block", height: "100%", width: "100%"}}>
 
-                                                                        </img>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
 
@@ -226,7 +248,7 @@ class Home extends React.Component {
 
                                                 </div>
                                                 <div style={{flex: 1, textAlign: "right", overflow: "hidden", height: "100%"}}>
-                                                    <div style={{paddingTop: "117px"}}>
+                                                    <div style={{paddingTop: "calc((100vh - 476.88px - 53px)/2)"}}>
                                                         {STAGES.map((stage, i) => {
                                                             return (<div onClick={() => {this.setIndex(i)}} className={this.state.stageIndex === i ? classes.tabBigName : classes.tabName}>{stage.name}</div>);
                                                         })}
@@ -239,15 +261,15 @@ class Home extends React.Component {
                             </div>
                             <div style={{transition: "1s", flex: this.state.pillars ? 1 : "0 0 46px", overflow: "hidden", height: "100%"}}>
                                 <div style={{display: "flex", height: "100%"}}>
-                                    <div className={classes.pillarBar} style={{flex: "0 0 46px", border: this.state.pillars ? "none" : null, background: this.state.pillars ? "white" : "none", transition: "1s", height: "100%"}} onClick={() => {this.setState({pillars: !this.state.pillars})}}>
+                                    <div className={classes.pillarBar} style={{flex: "0 0 46px", border: this.state.pillars ? "none" : null, background: this.state.pillars ? "white" : null, transition: this.state.pillars ? "1s" : "0.25s", height: "100%"}} onClick={() => {this.setState({pillars: !this.state.pillars})}}>
                                         <div style={{textAlign: "center"}}>
                                             <img src={"/img/close-button.png"} style={{width: "16px", transition: "1s", opacity: this.state.pillars ? 1 : 0, marginTop: "15px", display: "inline-block"}}/>
                                         </div>
                                         <div style={{transform: "rotate(-90deg)",
                                             margin: "auto",
                                             position: "absolute",
-                                            fontSize: "18px",
-                                            top: "50%",
+                                            fontSize: "16px",
+                                            top: "calc((100vh - 53px)/2 + 80px - 225px/2)",
                                             fontFamily:"NoeDisplay Regular",
                                             width: "225px",
                                             left: "-88.5"}}>
@@ -256,7 +278,6 @@ class Home extends React.Component {
                                                 height: "15px",
                                                 width: "15px",
                                                 background: this.state.pillars ? "black" : "none",
-                                                transition: "1s",
                                                 borderRadius: "100%",
                                                 marginRight: "10px",
                                                 border: "1px solid"
