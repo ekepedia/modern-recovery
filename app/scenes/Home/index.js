@@ -9,6 +9,18 @@ const Styles = {
     container: {
         cursor: "auto"
     },
+    heroBackground: {
+        flex: "0 0 390px",
+        '@media (max-width: 1370px)': {
+            flex: "0 0 250px",
+        },
+    },
+    mainBoxContainer: {
+        flex: "0 0 489.12px",
+        '@media (max-width: 1370px)': {
+            flex: 1
+        },
+    },
     tabName: {
         fontFamily: "Casta Regular",
         fontSize: "25px",
@@ -18,7 +30,12 @@ const Styles = {
         transition: "0.5s",
         "&:hover": {
             fontSize: "50px",
-        }
+        },
+        '@media (max-width: 1370px)': {
+            "&:hover": {
+                fontSize: "40px",
+            },
+        },
     },
     tabBigName: {
         fontFamily: "Casta Regular",
@@ -27,9 +44,9 @@ const Styles = {
         marginBottom: "65px",
         cursor: "pointer",
         transition: "0.25s",
-        "&:hover": {
-            fontSize: "68px",
-        }
+        '@media (max-width: 1370px)': {
+            fontSize: "55px",
+        },
     },
     dot: {
         height: "11px",
@@ -138,6 +155,19 @@ class Home extends React.Component {
         }, 1000);
     }
 
+    toggleLightDark() {
+        this.setState({
+            darkBot: !this.state.darkBot,
+            changingDark: true,
+        });
+        setTimeout(() => {
+            this.setState({
+                dark: !this.state.dark,
+                changingDark: false
+            })
+        }, 1000);
+    }
+
     componentDidMount() {
         window.screenTop = 0;
         this.setIndex(0);
@@ -189,7 +219,18 @@ class Home extends React.Component {
                         </div>
 
                         <div style={{flex: 1, fontFamily: "Roboto", height: "100%", overflow: "hidden", textAlign: "right", fontSize: "14px"}}>
+                            <div style={{display: "inline-block", opacity: this.state.chapterBot ? 0 : 1, transition: "1s", padding: "11px 0", height: "100%", overflow: "hidden"}}>
+                                <div onClick={() => {this.toggleLightDark()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "5.5px 6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "100px", borderRadius: "15px"}}>
+                                    <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.darkBot ? 76 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.darkBot ? "black" : "white", borderRadius: "100%"}}>
 
+                                    </div>
+                                    <div style={{lineHeight: "30px", fontSize: "12px", fontFamily: "DomaineDisplayTest-MediumItalic", position: "absolute", top: 0, right: this.state.dark ? 30 : 10, opacity: this.state.changingDark ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
+                                        <div style={{display: "inline-block", overflow: "hidden"}}>
+                                            {this.state.dark ? "Dark" : "Light"} Mode
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
                                 <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "5.5px 6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
                                     <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.chapterBot ? 96 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapter ? "#7dc49b" : "#7dc49b", borderRadius: "100%"}}>
@@ -210,13 +251,13 @@ class Home extends React.Component {
                         <div style={{display: "flex", height: "100%", width: "100%"}}>
                             <div style={{flex: this.state.pillars ? 0 : 1, transition: "1s", overflow: "hidden", height: "100%"}}>
                                 <div style={{display: "flex", height: "100%", width: "calc(100vw - 46px)"}}>
-                                    <div style={{flex: "0 0 390px", transition: "background 0.5s", background: `url(${STAGES[this.state.stageIndex].img}) 0% 0% / cover no-repeat`}}>
+                                    <div className={classes.heroBackground} style={{transition: "background 0.5s", background: `url(${STAGES[this.state.stageIndex].img}) 0% 0% / cover no-repeat`}}>
 
                                     </div>
                                     <div style={{flex: "1"}}>
                                         <div style={{paddingLeft: "60px", paddingRight: "60px", width: "100%", height: "100%"}}>
                                             <div style={{display: "flex", width: "100%", height: "100%"}}>
-                                                <div style={{flex: "0 0 489.12px", height: "100%", opacity: this.state.changingState ? 0 : 1, transition: "0.5s"}}>
+                                                <div className={classes.mainBoxContainer} style={{height: "100%", opacity: this.state.changingState ? 0 : 1, transition: "0.5s"}}>
                                                     <div style={{paddingTop: "calc((100vh - 476.88px - 53px)/2)"}}>
                                                         <div style={{padding: "50px", width: "100%", height: "476.88px", position: "relative", borderRadius: "7px", background: "rgba(255,255, 255, 0.1)"}}>
                                                             <div style={{position: "absolute", top: 50, right: 40}}>
@@ -230,7 +271,7 @@ class Home extends React.Component {
                                                             <div style={{marginTop: "80px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
                                                                 “
                                                             </div>
-                                                            <div style={{marginTop: "20px", height: "200px", overflow: "scroll", maxWidth: "395px", fontSize: "16px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
+                                                            <div style={{marginTop: "20px", height: "150px", overflow: "scroll", maxWidth: "395px", fontSize: "16px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
                                                                 {this.state.stage.quotes[this.state.textIndex]}
                                                             </div>
                                                             <div style={{width: "100%", display: "flex", position: "absolute", bottom: 0, left: 0, padding: "50px", paddingRight: "26px"}}>
@@ -282,7 +323,7 @@ class Home extends React.Component {
                                                 marginRight: "10px",
                                                 border: "1px solid"
                                             }}/>
-                                            What is Modern Reocvery?
+                                            What is Modern Recovery?
                                         </div>
                                     </div>
                                     <div style={{flex: "1", overflow: "hidden"}}>
@@ -338,7 +379,7 @@ class Home extends React.Component {
                     </div>
                     :
                     <div style={{flex: 1, height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
-                        <div style={{padding: "50px", height: "100%", width: "100%", background: "url('https://i.imgur.com/lGumm9N.jpg')", backgroundSize: "cover", backgroundPosition: "center"}}>
+                        <div style={{padding: "50px", height: "100%", width: "100%", transition: "1s", background: this.state.darkBot ? "url('img/IMG_1557.JPG') 0% 0% / cover no-repeat" :"url('https://i.imgur.com/lGumm9N.jpg') 0% 0% / cover no-repeat",}}>
                         </div>
                     </div>
                 }
