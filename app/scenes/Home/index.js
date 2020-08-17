@@ -5,6 +5,12 @@ import { withRouter, Link } from 'react-router-dom';
 
 import { STAGES } from "./copy";
 
+const SANS_SERIF_FONT = {
+    fontFamily: "UntitledSans-Regular",
+    //fontFamily: "'Montserrat', sans-serif",
+    letterSpacing: "-1px",
+}
+
 const Styles = {
     container: {
         cursor: "auto"
@@ -86,21 +92,62 @@ const Styles = {
         },
     },
     joinButton: {
-        fontFamily: "Roboto",
         textAlign: "center",
         fontSize: "12px",
-        height: "45px",
-        lineHeight: "45px",
+        height: "47px",
+        lineHeight: "47px",
         border: "1px solid white",
         borderRadius:"23px",
-        width: "166px",
+        width: "198px",
         margin: "auto",
         cursor: "pointer",
         transition: "0.5s",
+        fontFamily: "UntitledSans-Medium",
+        letterSpacing: "1px",
+        textTransform: "uppercase",
         "&:hover": {
             background: "white",
             color: "black"
         }
+    },
+    signUpButton:  {
+        textAlign: "center",
+        fontSize: "12px",
+        height: "47px",
+        lineHeight: "47px",
+        borderRadius:"23px",
+        width: "198px",
+        margin: "auto",
+        cursor: "pointer",
+        border: "1px solid white",
+        transition: "0.5s",
+        fontFamily: "UntitledSans-Medium",
+        letterSpacing: "1px",
+        textTransform: "uppercase",
+        "&:hover": {
+            background: "white",
+            color: "black"
+        }
+    },
+    modernRecoveryText: {
+        ...SANS_SERIF_FONT
+    },
+    inputBox: {
+        width: "100%",
+        maxWidth: "326px",
+        margin: "auto",
+        marginBottom: "28px",
+        border: "1px solid white",
+        ...SANS_SERIF_FONT,
+        height: "47px",
+        lineHeight: "47px",
+        background: "none",
+        borderRadius: "25px",
+        paddingLeft: "33px",
+        "&:focus": {
+            outline: "none"
+        },
+        display: "block"
     }
 };
 
@@ -109,7 +156,7 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
 
-        this.pillars = [1,2,3,4]
+        this.pillars = [1,2,3,4,5,6]
 
         this.state = {
             textIndex: 0,
@@ -207,11 +254,11 @@ class Home extends React.Component {
         return (<div className={classes.container} style={{background: "linear-gradient(#66a1b6,#ccbeae)", transition: "1s"}}>
             <div id={"custom-cursor"} style={{opacity: 0.5, display: "none", pointerEvents: "none", zIndex: 1000, position: "fixed", height: "50px", width: "50px", background: "grey", borderRadius: "100%"}}></div>
             <div style={{display: "flex", flexDirection: "column", height: "100vh", width: "100vw", overflow: "hidden"}}>
-                <div style={{background: "white", flex: "0 0 53px", overflow: "hidden"}}>
+                <div style={{background: "white", flex: "0 0 53px", zIndex: 99, boxShadow: "0px 1px 4px #00000011", overflow: "hidden"}}>
                     <div style={{display: "flex", padding: "0 22px", height: "100%"}}>
 
                         <div style={{flex: 1, lineHeight: "53px", fontFamily: "GT-America-Mono-Trial-Regular", fontSize: "14px", position: "relative"}}>
-                            <span style={{fontFamily: "NoeDisplay Regular", marginRight: "26px", fontSize: "14px"}}>A Project By Tempest</span><div style={{height: "22px", left: "136px", marginRight: "30px", position: "absolute", top: "15", width: "1px", paddingTop: "0", display: "inline-block"}}><div style={{background: "black", width: "100%", height: "100%"}}></div></div>#modernrecovery
+                            <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><img style={{height: "12px", position: "absolute", top: 22, left: 72}} src={"/img/tempest-logo.png"}/>
                         </div>
 
                         <div style={{flex: 1, lineHeight: "53px", textAlign: "center", fontFamily: "NoeDisplay Medium", fontSize: "24px", textTransform: "capitalize", letterSpacing: "-0.25px"}}>
@@ -221,10 +268,10 @@ class Home extends React.Component {
                         <div style={{flex: 1, fontFamily: "Roboto", height: "100%", overflow: "hidden", textAlign: "right", fontSize: "14px"}}>
                             <div style={{display: "inline-block", opacity: this.state.chapterBot ? 0 : 1, transition: "1s", padding: "11px 0", height: "100%", overflow: "hidden"}}>
                                 <div onClick={() => {this.toggleLightDark()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "5.5px 6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "100px", borderRadius: "15px"}}>
-                                    <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.darkBot ? 76 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.darkBot ? "black" : "white", borderRadius: "100%"}}>
+                                    <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.darkBot ? 76 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.darkBot ? "black" : "#7dc49b", borderRadius: "100%"}}>
 
                                     </div>
-                                    <div style={{lineHeight: "30px", fontSize: "12px", fontFamily: "DomaineDisplayTest-MediumItalic", position: "absolute", top: 0, right: this.state.dark ? 30 : 10, opacity: this.state.changingDark ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
+                                    <div style={{lineHeight: "30px", fontSize: "12px", ...SANS_SERIF_FONT, position: "absolute", top: 0, right: this.state.dark ? 30 : 10, opacity: this.state.changingDark ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
                                         <div style={{display: "inline-block", overflow: "hidden"}}>
                                             {this.state.dark ? "Dark" : "Light"} Mode
                                         </div>
@@ -233,11 +280,11 @@ class Home extends React.Component {
                             </div>
                             <div style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
                                 <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "5.5px 6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
-                                    <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.chapterBot ? 96 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapter ? "#7dc49b" : "#7dc49b", borderRadius: "100%"}}>
+                                    <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 96 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "#f19e44" : "#7dc49b", borderRadius: "100%"}}>
 
                                     </div>
-                                    <div style={{lineHeight: "30px", fontSize: "12px", fontFamily: "DomaineDisplayTest-MediumItalic", position: "absolute", top: 0, right: this.state.chapter ? 35 : 10, opacity: this.state.changingMode ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
-                                        <div style={{display: "inline-block", overflow: "hidden"}}>
+                                    <div style={{lineHeight: "30px", fontSize: "14px", whiteSpace: "nowrap", ...SANS_SERIF_FONT, position: "absolute", top: 0, right: !this.state.chapter ? 27 : 10, opacity: this.state.changingMode ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
+                                        <div style={{display: "inline-block"}}>
                                             {this.state.chapter ? "Chapter" : "Discover"} Mode
                                         </div>
                                     </div>
@@ -265,7 +312,7 @@ class Home extends React.Component {
                                                                     return <div key={i} style={{opacity: this.state.textIndexBot === i ? 1 : null}} onClick={() => {this.setTextState(i)}} className={classes.dot}/>
                                                                 })}
                                                             </div>
-                                                            <div style={{fontSize: "15px", maxWidth: "300px", lineHeight: "24px", fontFamily: "DomaineDisplayTest-MediumItalic"}}>
+                                                            <div style={{fontSize: "16px", maxWidth: "300px", lineHeight: "24px", ...SANS_SERIF_FONT}}>
                                                                 <span style={{textDecoration: ""}}>{this.state.stage.name}</span> {this.state.stage.definition}
                                                             </div>
                                                             <div style={{marginTop: "80px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
@@ -309,11 +356,11 @@ class Home extends React.Component {
                                         <div style={{transform: "rotate(-90deg)",
                                             margin: "auto",
                                             position: "absolute",
-                                            fontSize: "16px",
-                                            top: "calc((100vh - 53px)/2 + 80px - 225px/2)",
-                                            fontFamily:"NoeDisplay Regular",
-                                            width: "225px",
-                                            left: "-88.5"}}>
+                                            fontSize: "14px",
+                                            top: "calc((100vh - 53px)/2 + 95px - 200px/2)",
+                                            ...SANS_SERIF_FONT,
+                                            width: "200px",
+                                            left: "-77"}}>
                                             <div style={{
                                                 display: "inline-block",
                                                 height: "15px",
@@ -328,40 +375,85 @@ class Home extends React.Component {
                                     </div>
                                     <div style={{flex: "1", overflow: "hidden"}}>
                                         <div style={{display: "flex", height: "100%", width: "calc(100vw - 46px)"}}>
-                                            <div style={{flex: 1, background: "black", color: "white", textAlign: "center", height: "100%"}}>
-                                                <div style={{paddingTop: "150px"}}>
-                                                    <div style={{fontSize: "40px", fontFamily: "Casta Regular"}}>What is Modern Recovery?</div>
-                                                    <div style={{maxWidth: "415px", margin: "auto", marginTop: "20px", fontSize: "16px", lineHeight: "24px", fontFamily: "Albra Text Regular"}}>
+                                            <div style={{flex: 1, overflow: "scroll", color: "white", textAlign: "center", height: "100%"}}>
+                                                <div style={{paddingTop: "150px", paddingBottom: "150px", background: "black",}}>
+                                                    <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px"}}>What is Modern<br/> Recovery?</div>
+                                                    <div className={classes.modernRecoveryText} style={{maxWidth: "350px", margin: "auto", marginTop: "20px", fontSize: "14px", lineHeight: "24px", }}>
                                                         Modern Recovery isn’t a linear path. Looking inward, examining the reasons why we drink, and breaking the cycle of addiction is a profoundly personal process. We all take different routes, yet we’re on the same journey. At Tempest, we celebrate both the individuality of recovery, as well as the universal experiences that unite us.<br/>
                                                         <br/>
                                                         We believe you should be at the center of your own healing. We believe that you should be empowered to write your own story. And we believe that it’s more than just quitting alcohol—it’s about gaining back your life.
                                                     </div>
                                                     <div style={{marginTop: "30px"}}>
                                                         <div className={classes.joinButton}>
-                                                            Join the Conversation
+                                                            Join the Movement
                                                         </div>
                                                     </div>
+                                                    <div style={{width: "1.5px", height: "102px", background: "white", margin:"auto", marginTop: "25px", marginBottom: "40px"}}>
+
+                                                    </div>
+                                                    <div>
+                                                        <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Join In</div>
+                                                        <div className={classes.modernRecoveryText} style={{maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>In honor of Recovery Month, we’ll be hosting events that embody a vision of Modern Recovery.</div>
+                                                        {[0,1].map(() => {
+                                                            return (
+                                                                <div style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>
+                                                                    <div style={{flex: "0 0 117px"}}>
+                                                                        <div style={{height: "92px", width: "92px", background: "white", borderRadius: "100%"}}></div>
+                                                                    </div>
+                                                                    <div style={{flex: 1}}>
+                                                                        <div className={classes.modernRecoveryText} style={{textAlign: "left", fontSize: "12px"}}>Join MadHappy and Tempest for a Tie Dyeing Class</div>
+                                                                        <div style={{height: "40px", fontFamily: "UntitledSans-Medium", letterSpacing: "1px", marginTop: "20px", width: "83px", fontSize: "12px", borderRadius: "20px", border: "1px solid white", lineHeight: "40px"}}>RSVP</div>
+                                                                    </div>
+                                                                </div>
+                                                            )
+                                                        })}
+                                                    </div>
+                                                    <hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>
+                                                    <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Share</div>
+                                                    <div className={classes.modernRecoveryText} style={{maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>Tell us what modern recovery means to you using the hashtag <span style={{textDecoration: "underline"}}>#modernrecovery</span>, and download + share these posts on social media to spread awareness.</div>
+                                                    <div style={{display: "flex", padding: "0 40px"}}>
+                                                        <div style={{flex: "0 0 34px", cursor: "pointer"}}>
+                                                            <img style={{width: "100%", marginTop: "94px"}} src={"/img/left-arrow.png"}/>
+                                                        </div>
+                                                        <div style={{flex: 1, textAlign: "center"}}>
+                                                            <img style={{border: "1px solid white", width: "100%", maxWidth: "211px", margin: "auto"}} src={"/img/share2.png"}/>
+                                                        </div>
+                                                        <div style={{flex: 1, textAlign: "center"}}>
+                                                            <img style={{border: "1px solid white", width: "100%", maxWidth: "211px", margin: "auto"}} src={"/img/share-1.png"}/>
+                                                        </div>
+                                                        <div style={{flex: "0 0 34px", cursor: "pointer"}}>
+                                                            <img style={{width: "100%", marginTop: "94px"}} src={"/img/right-arrow.png"}/>
+                                                        </div>
+                                                    </div>
+                                                    <hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>
+                                                    <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Sign Up</div>
+                                                    <div className={classes.modernRecoveryText} style={{maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>to learn more about the Modern Recovery Event series, plus, a 15% discount to the Tempest Membership plan of your choice.</div>
+                                                    <input placeholder={"Enter Your Name"} className={classes.inputBox}/>
+                                                    <input placeholder={"Enter Your Email"} className={classes.inputBox}/>
+                                                    <div className={classes.signUpButton}>
+                                                        Sign Up
+                                                    </div>
+
                                                 </div>
                                             </div>
                                             <div style={{flex: 1, color: "white", overflow: "scroll", height: "100%"}}>
-                                                <div style={{paddingLeft: "140px", paddingBottom: "100px", paddingTop: "150px", background: "linear-gradient(#8693a7,#ccbeae)"}}>
-                                                    <div style={{marginBottom: "60px", fontSize: "40px", lineHeight: "40px", fontFamily: "Casta Regular"}}>
-                                                        The Pillars of<br/>
-                                                        Modern Recovery
+                                                <div style={{paddingLeft: "140px", paddingBottom: "100px", paddingTop: "150px", background: "linear-gradient(#8b99af,#bab8b4)"}}>
+                                                    <div style={{marginBottom: "50px", fontSize: "48px", lineHeight: "48px", fontFamily: "NoeDisplay Regular"}}>
+                                                        The Pillars
                                                     </div>
                                                     {this.pillars.map((pillar) => {
                                                         return (
                                                             <div key={pillar} style={{marginBottom: "70px"}}>
                                                                 <div style={{display: "flex"}}>
                                                                     <div style={{flex: "0 0 140px"}}>
-                                                                        <div style={{fontSize: "60px", lineHeight: "60px", fontFamily: "Casta Regular"}}>
+                                                                        <div style={{fontSize: "60px", lineHeight: "60px", fontFamily: "NoeDisplay Regular"}}>
                                                                             <div style={{height: "112px", lineHeight: "112px", textAlign: "center", width: "112px", border: "2px solid white", borderRadius: "100%"}}>
-                                                                                0{pillar}.
+                                                                                0{pillar}
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div style={{flex: 1}}>
-                                                                        <div style={{fontFamily: "Albra Text Regular", maxWidth: "290px", fontSize: "16px", lineHeight: "20px"}}>
+                                                                        <div style={{...SANS_SERIF_FONT, maxWidth: "290px", fontSize: "14px", lineHeight: "20px"}}>
                                                                             Modern Recovery is for everyone. No matter where you are on your journey—if you want to quit drinking, you have some time sober, or you’re just reevaluating your relationship with alcohol—there’s a place for you.
                                                                         </div>
                                                                     </div>

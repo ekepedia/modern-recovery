@@ -87,7 +87,29 @@
             font-family: "DomaineDisplayTest-MediumItalic";
             src: url(/fonts/DomaineDisplayTest-MediumItalic.otf) format("opentype");
         }
+        @font-face {
+            font-family: "UntitledSans-Regular";
+            src: url(/fonts/UntitledSans-Regular.otf) format("opentype");
+        }
+        @font-face {
+            font-family: "UntitledSans-Medium";
+            src: url(/fonts/UntitledSans-Medium.otf) format("opentype");
+        }
+
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: rgba(255,255,255, 0.7);
+            opacity: 1; /* Firefox */
+        }
+
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: rgba(255,255,255, 0.7);
+        }
+
+        ::-ms-input-placeholder { /* Microsoft Edge */
+            color: rgba(255,255,255, 0.7);
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
 <body>
