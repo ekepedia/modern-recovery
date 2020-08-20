@@ -349,7 +349,7 @@ class Home extends React.Component {
                                                 <div style={{flex: 1, textAlign: "right", overflow: "hidden", height: "100%"}}>
                                                     <div style={{paddingTop: "calc((100vh - 476.88px - 53px)/2)"}}>
                                                         {STAGES.map((stage, i) => {
-                                                            return (<div onClick={() => {this.setIndex(i)}} className={this.state.stageIndex === i ? classes.tabBigName : classes.tabName}>{stage.name}</div>);
+                                                            return (<div key={stage} onClick={() => {this.setIndex(i)}} className={this.state.stageIndex === i ? classes.tabBigName : classes.tabName}>{stage.name}</div>);
                                                         })}
                                                     </div>
                                                 </div>
@@ -463,7 +463,7 @@ class Home extends React.Component {
                                                     </div>
                                                     {this.pillars.map((pillar, index) => {
                                                         return (
-                                                            <div key={pillar} style={{marginBottom: "70px"}}>
+                                                            <div key={index} style={{marginBottom: "70px"}}>
                                                                 <div style={{display: "flex"}}>
                                                                     <div style={{flex: "0 0 140px"}}>
                                                                         <div style={{fontSize: "60px", lineHeight: "60px", fontFamily: "NoeDisplay Regular"}}>
