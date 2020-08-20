@@ -5,12 +5,18 @@ import { withRouter, Link } from 'react-router-dom';
 
 import Canvas from './Canvas';
 
-import { STAGES } from "./copy";
+import { STAGES, PILLARS } from "./copy";
 
 const SANS_SERIF_FONT = {
     fontFamily: "UntitledSans-Regular",
     //fontFamily: "'Montserrat', sans-serif",
     letterSpacing: "-1px",
+}
+
+const SANS_SERIF_FONT_BODY = {
+    fontFamily: "UntitledSans-Regular",
+    //fontFamily: "'Montserrat', sans-serif",
+    letterSpacing: "-0.25px",
 }
 
 const Styles = {
@@ -119,17 +125,20 @@ const Styles = {
         height: "47px",
         lineHeight: "47px",
         borderRadius:"23px",
-        width: "198px",
+        width: "100%",
+        maxWidth: "326px",
         margin: "auto",
         cursor: "pointer",
-        border: "1px solid white",
+        // border: "1px solid white",
+        background: "white",
+        color: "black",
         transition: "0.5s",
         fontFamily: "UntitledSans-Medium",
         letterSpacing: "1px",
         textTransform: "uppercase",
         "&:hover": {
-            background: "white",
-            color: "black"
+            background: "black",
+            color: "white"
         }
     },
     modernRecoveryText: {
@@ -159,7 +168,7 @@ class Home extends React.Component {
     constructor(props) {
         super(props);
 
-        this.pillars = [1,2,3,4,5,6]
+        this.pillars = PILLARS;
 
         this.state = {
             textIndex: 0,
@@ -379,11 +388,13 @@ class Home extends React.Component {
                                         <div style={{display: "flex", height: "100%", width: "calc(100vw - 46px)"}}>
                                             <div style={{flex: 1, overflow: "scroll", color: "white", textAlign: "center", height: "100%"}}>
                                                 <div style={{paddingTop: "150px", paddingBottom: "150px", background: "black",}}>
-                                                    <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px"}}>What is Modern<br/> Recovery?</div>
-                                                    <div className={classes.modernRecoveryText} style={{maxWidth: "350px", margin: "auto", marginTop: "20px", fontSize: "14px", lineHeight: "24px", }}>
-                                                        Modern Recovery isn’t a linear path. Looking inward, examining the reasons why we drink, and breaking the cycle of addiction is a profoundly personal process. We all take different routes, yet we’re on the same journey. At Tempest, we celebrate both the individuality of recovery, as well as the universal experiences that unite us.<br/>
-                                                        <br/>
-                                                        We believe you should be at the center of your own healing. We believe that you should be empowered to write your own story. And we believe that it’s more than just quitting alcohol—it’s about gaining back your life.
+                                                    <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "50px"}}>What is this<br/> project about?</div>
+                                                    <div style={{maxWidth: "400px", ...SANS_SERIF_FONT_BODY, margin: "auto", fontSize: "14px", lineHeight: "24px", }}>
+                                                        We’re empowering folks at every stage of their journey—whether you’re just exploring your relationship with alcohol, recently sober, or have been alcohol-free for years. Recovery is a profoundly personal process, and everyone’s path is valid.
+                                                        <br/><br/>
+                                                        We hope this campaign inspires you to question drinking culture and shed outdated ideas and stereotypes around what it means to be sober or in recovery.
+                                                        <br/><br/>
+                                                        This is Modern Recovery, and all are welcome.
                                                     </div>
                                                     <div style={{marginTop: "30px"}}>
                                                         <div className={classes.joinButton}>
@@ -394,7 +405,7 @@ class Home extends React.Component {
 
                                                     </div>
                                                     <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Sign Up</div>
-                                                    <div className={classes.modernRecoveryText} style={{maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>to learn more about the Modern Recovery Event series, plus, a 15% discount to the Tempest Membership plan of your choice.</div>
+                                                    <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>Learn more about our Modern Recovery event series and get a 15% discount to the Tempest Membership plan of your choice.</div>
                                                     <input placeholder={"Enter Your Name"} className={classes.inputBox}/>
                                                     <input placeholder={"Enter Your Email"} className={classes.inputBox}/>
                                                     <div className={classes.signUpButton}>
@@ -403,7 +414,9 @@ class Home extends React.Component {
 
                                                     <hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>
                                                     <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Share</div>
-                                                    <div className={classes.modernRecoveryText} style={{maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>Tell us what modern recovery means to you using the hashtag <span style={{textDecoration: "underline"}}>#modernrecovery</span>, and download + share these posts on social media to spread awareness.</div>
+                                                    <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>
+                                                        Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you. Download and share these posts to spread awareness.
+                                                    </div>
                                                     <div style={{display: "flex", padding: "0 40px"}}>
                                                         <div style={{flex: "0 0 34px", cursor: "pointer"}}>
                                                             <img style={{width: "100%", marginTop: "94px"}} src={"/img/left-arrow.png"}/>
@@ -421,7 +434,8 @@ class Home extends React.Component {
                                                     <hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>
                                                     <div>
                                                         <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Join In</div>
-                                                        <div className={classes.modernRecoveryText} style={{maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>In honor of Recovery Month, we’ll be hosting events that embody a vision of Modern Recovery.</div>
+                                                        <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>We’ll be hosting a series of virtual events in honor of Recovery Month. RSVP to save your spot!
+                                                        </div>
                                                         {[0,1].map(() => {
                                                             return (
                                                                 <div style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>
@@ -429,7 +443,7 @@ class Home extends React.Component {
                                                                         <div style={{height: "92px", width: "92px", background: "white", borderRadius: "100%"}}></div>
                                                                     </div>
                                                                     <div style={{flex: 1}}>
-                                                                        <div className={classes.modernRecoveryText} style={{textAlign: "left", fontSize: "12px"}}>Join MadHappy and Tempest for a Tie Dyeing Class</div>
+                                                                        <div style={{...SANS_SERIF_FONT_BODY, textAlign: "left", fontSize: "12px"}}>Join MadHappy and Tempest for a Tie Dyeing Class</div>
                                                                         <div style={{height: "40px", fontFamily: "UntitledSans-Medium", letterSpacing: "1px", marginTop: "20px", width: "83px", fontSize: "12px", borderRadius: "20px", border: "1px solid white", lineHeight: "40px"}}>RSVP</div>
                                                                     </div>
                                                                 </div>
@@ -440,24 +454,28 @@ class Home extends React.Component {
                                                 </div>
                                             </div>
                                             <div style={{flex: 1, color: "white", overflow: "scroll", height: "100%"}}>
-                                                <div style={{paddingLeft: "140px", paddingBottom: "100px", paddingTop: "150px", background: "linear-gradient(#8b99af,#bab8b4)"}}>
-                                                    <div style={{marginBottom: "50px", fontSize: "48px", lineHeight: "48px", fontFamily: "NoeDisplay Regular"}}>
-                                                        The Pillars
+                                                <div style={{paddingLeft: "100px", paddingRight: "100px", paddingBottom: "100px", paddingTop: "150px", background: "linear-gradient(#8b99af,#bab8b4)"}}>
+                                                    <div style={{marginBottom: "50px", textAlign: "center", fontSize: "48px", lineHeight: "60px", fontFamily: "NoeDisplay Regular"}}>
+                                                        What is Modern<br/> Recovery?
                                                     </div>
-                                                    {this.pillars.map((pillar) => {
+                                                    <div style={{margin: "auto", fontSize: "14px", ...SANS_SERIF_FONT, marginBottom: "50px", textAlign: "center", maxWidth: "350px", letterSpacing: "-0.25px"}}>
+                                                        We created these six pillars of Modern Recovery to encompass our mission to put individuals at the center of their own healing. This is more than just quitting alcohol—it’s about gaining back your life.
+                                                    </div>
+                                                    {this.pillars.map((pillar, index) => {
                                                         return (
                                                             <div key={pillar} style={{marginBottom: "70px"}}>
                                                                 <div style={{display: "flex"}}>
                                                                     <div style={{flex: "0 0 140px"}}>
                                                                         <div style={{fontSize: "60px", lineHeight: "60px", fontFamily: "NoeDisplay Regular"}}>
                                                                             <div style={{height: "112px", lineHeight: "112px", textAlign: "center", width: "112px", border: "2px solid white", borderRadius: "100%"}}>
-                                                                                0{pillar}
+                                                                                0{index + 1}
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div style={{flex: 1}}>
-                                                                        <div style={{...SANS_SERIF_FONT, maxWidth: "290px", fontSize: "14px", lineHeight: "20px"}}>
-                                                                            Modern Recovery is for everyone. No matter where you are on your journey—if you want to quit drinking, you have some time sober, or you’re just reevaluating your relationship with alcohol—there’s a place for you.
+                                                                        <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", fontSize: "14px", lineHeight: "20px"}}>
+                                                                            <div style={{marginBottom: "6px", fontFamily: "UntitledSans-Medium",}}>{pillar.title}</div>
+                                                                            {pillar.body}
                                                                         </div>
                                                                     </div>
                                                                 </div>
