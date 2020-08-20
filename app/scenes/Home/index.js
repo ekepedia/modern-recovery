@@ -187,7 +187,7 @@ class Home extends React.Component {
         this.setState({
             changingState: true,
             stageIndex: index,
-        })
+        });
 
         setTimeout(() => {
             this.setState({
@@ -195,11 +195,38 @@ class Home extends React.Component {
                 changingState: false,
                 textIndex: 0,
                 textIndexBot: 0,
+
             })
         }, 500);
     }
 
+    setDiscoverMode() {
+
+        if (!this.state.chapter) return;
+
+        this.setState({
+            mounted: false,
+            chapterBot: false,
+            changingMode: true,
+        });
+        setTimeout(() => {
+            this.setState({
+                chapter: false,
+                mounted: true,
+                changingMode: false,
+                pillars: false
+            });
+
+            this.setTextState(0);
+            this.setIndex(0);
+        }, 1000);
+    }
+
     toggleChapter() {
+
+        if (this.state.chapter)
+            return this.setDiscoverMode();
+
         this.setState({
             mounted: false,
             chapterBot: !this.state.chapterBot,
@@ -212,6 +239,7 @@ class Home extends React.Component {
                 changingMode: false
             })
         }, 1000);
+
     }
 
     toggleLightDark() {
@@ -269,11 +297,11 @@ class Home extends React.Component {
                     <div style={{display: "flex", padding: "0 22px", height: "100%"}}>
 
                         <div style={{flex: 1, lineHeight: "53px", fontFamily: "GT-America-Mono-Trial-Regular", fontSize: "14px", position: "relative"}}>
-                            <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><img style={{height: "12px", position: "absolute", top: 22, left: 72}} src={"/img/tempest-logo.png"}/>
+                            <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><img onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer", position: "absolute", top: 22, left: 72}} src={"/img/tempest-logo.png"}/>
                         </div>
 
                         <div style={{flex: 1, lineHeight: "53px", textAlign: "center", fontFamily: "NoeDisplay Medium", fontSize: "24px", textTransform: "capitalize", letterSpacing: "-0.25px"}}>
-                            Modern Recovery
+                            <span style={{cursor: "pointer"}} onClick={() => {this.setDiscoverMode()}}>Modern Recovery</span>
                         </div>
 
                         <div style={{flex: 1, fontFamily: "Roboto", height: "100%", overflow: "hidden", textAlign: "right", fontSize: "14px"}}>

@@ -40,7 +40,8 @@ class Canvas extends React.Component {
         this.instance = panzoom(element, {
             zoomSpeed: 0.95,
             pinchSpeed: 1,
-            minZoom: width/IMG_WIDTH
+            minZoom: width/IMG_WIDTH,
+            bounds: true,
         });
 
         this.instance.zoomAbs(
