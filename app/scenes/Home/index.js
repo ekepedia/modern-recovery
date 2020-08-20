@@ -3,6 +3,8 @@ import React from "react";
 import injectSheet from 'react-jss';
 import { withRouter, Link } from 'react-router-dom';
 
+import Canvas from './Canvas';
+
 import { STAGES } from "./copy";
 
 const SANS_SERIF_FONT = {
@@ -13,7 +15,8 @@ const SANS_SERIF_FONT = {
 
 const Styles = {
     container: {
-        cursor: "auto"
+        cursor: "auto",
+        color: "black",
     },
     heroBackground: {
         flex: "0 0 390px",
@@ -225,7 +228,6 @@ class Home extends React.Component {
         }, 500);
 
         window.onmousemove = (event) => {
-            console.log(event);
             setTimeout(() => {
                 let follower = document.getElementById('custom-cursor');
                 follower.style.display = "block";
@@ -251,7 +253,7 @@ class Home extends React.Component {
     render() {
         let { classes } = this.props;
 
-        return (<div className={classes.container} style={{background: "linear-gradient(#66a1b6,#ccbeae)", transition: "1s"}}>
+        return (<div className={classes.container} style={{background: STAGES[this.state.stageIndex].gradient, transition: "1s"}}>
             <div id={"custom-cursor"} style={{opacity: 0.5, display: "none", pointerEvents: "none", zIndex: 1000, position: "fixed", height: "50px", width: "50px", background: "grey", borderRadius: "100%"}}></div>
             <div style={{display: "flex", flexDirection: "column", height: "100vh", width: "100vw", overflow: "hidden"}}>
                 <div style={{background: "white", flex: "0 0 53px", zIndex: 99, boxShadow: "0px 1px 4px #00000011", overflow: "hidden"}}>
@@ -267,8 +269,8 @@ class Home extends React.Component {
 
                         <div style={{flex: 1, fontFamily: "Roboto", height: "100%", overflow: "hidden", textAlign: "right", fontSize: "14px"}}>
                             <div style={{display: "inline-block", opacity: this.state.chapterBot ? 0 : 1, transition: "1s", padding: "11px 0", height: "100%", overflow: "hidden"}}>
-                                <div onClick={() => {this.toggleLightDark()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "5.5px 6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "100px", borderRadius: "15px"}}>
-                                    <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.darkBot ? 76 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.darkBot ? "black" : "#7dc49b", borderRadius: "100%"}}>
+                                <div onClick={() => {this.toggleLightDark()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "100px", borderRadius: "15px"}}>
+                                    <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.darkBot ? 74 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.darkBot ? "black" : "#7dc49b", borderRadius: "100%"}}>
 
                                     </div>
                                     <div style={{lineHeight: "30px", fontSize: "12px", ...SANS_SERIF_FONT, position: "absolute", top: 0, right: this.state.dark ? 30 : 10, opacity: this.state.changingDark ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
@@ -279,8 +281,8 @@ class Home extends React.Component {
                                 </div>
                             </div>
                             <div style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
-                                <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "5.5px 6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
-                                    <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 96 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "#f19e44" : "#7dc49b", borderRadius: "100%"}}>
+                                <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
+                                    <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 94 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "#f19e44" : "#7dc49b", borderRadius: "100%"}}>
 
                                     </div>
                                     <div style={{lineHeight: "30px", fontSize: "14px", whiteSpace: "nowrap", ...SANS_SERIF_FONT, position: "absolute", top: 0, right: !this.state.chapter ? 27 : 10, opacity: this.state.changingMode ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
@@ -313,7 +315,7 @@ class Home extends React.Component {
                                                                 })}
                                                             </div>
                                                             <div style={{fontSize: "16px", maxWidth: "300px", lineHeight: "24px", ...SANS_SERIF_FONT}}>
-                                                                <span style={{textDecoration: ""}}>{this.state.stage.name}</span> {this.state.stage.definition}
+                                                                {this.state.stage.definition}
                                                             </div>
                                                             <div style={{marginTop: "80px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
                                                                 “
@@ -391,23 +393,14 @@ class Home extends React.Component {
                                                     <div style={{width: "1.5px", height: "102px", background: "white", margin:"auto", marginTop: "25px", marginBottom: "40px"}}>
 
                                                     </div>
-                                                    <div>
-                                                        <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Join In</div>
-                                                        <div className={classes.modernRecoveryText} style={{maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>In honor of Recovery Month, we’ll be hosting events that embody a vision of Modern Recovery.</div>
-                                                        {[0,1].map(() => {
-                                                            return (
-                                                                <div style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>
-                                                                    <div style={{flex: "0 0 117px"}}>
-                                                                        <div style={{height: "92px", width: "92px", background: "white", borderRadius: "100%"}}></div>
-                                                                    </div>
-                                                                    <div style={{flex: 1}}>
-                                                                        <div className={classes.modernRecoveryText} style={{textAlign: "left", fontSize: "12px"}}>Join MadHappy and Tempest for a Tie Dyeing Class</div>
-                                                                        <div style={{height: "40px", fontFamily: "UntitledSans-Medium", letterSpacing: "1px", marginTop: "20px", width: "83px", fontSize: "12px", borderRadius: "20px", border: "1px solid white", lineHeight: "40px"}}>RSVP</div>
-                                                                    </div>
-                                                                </div>
-                                                            )
-                                                        })}
+                                                    <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Sign Up</div>
+                                                    <div className={classes.modernRecoveryText} style={{maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>to learn more about the Modern Recovery Event series, plus, a 15% discount to the Tempest Membership plan of your choice.</div>
+                                                    <input placeholder={"Enter Your Name"} className={classes.inputBox}/>
+                                                    <input placeholder={"Enter Your Email"} className={classes.inputBox}/>
+                                                    <div className={classes.signUpButton}>
+                                                        Sign Up
                                                     </div>
+
                                                     <hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>
                                                     <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Share</div>
                                                     <div className={classes.modernRecoveryText} style={{maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>Tell us what modern recovery means to you using the hashtag <span style={{textDecoration: "underline"}}>#modernrecovery</span>, and download + share these posts on social media to spread awareness.</div>
@@ -426,12 +419,22 @@ class Home extends React.Component {
                                                         </div>
                                                     </div>
                                                     <hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>
-                                                    <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Sign Up</div>
-                                                    <div className={classes.modernRecoveryText} style={{maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>to learn more about the Modern Recovery Event series, plus, a 15% discount to the Tempest Membership plan of your choice.</div>
-                                                    <input placeholder={"Enter Your Name"} className={classes.inputBox}/>
-                                                    <input placeholder={"Enter Your Email"} className={classes.inputBox}/>
-                                                    <div className={classes.signUpButton}>
-                                                        Sign Up
+                                                    <div>
+                                                        <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Join In</div>
+                                                        <div className={classes.modernRecoveryText} style={{maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>In honor of Recovery Month, we’ll be hosting events that embody a vision of Modern Recovery.</div>
+                                                        {[0,1].map(() => {
+                                                            return (
+                                                                <div style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>
+                                                                    <div style={{flex: "0 0 117px"}}>
+                                                                        <div style={{height: "92px", width: "92px", background: "white", borderRadius: "100%"}}></div>
+                                                                    </div>
+                                                                    <div style={{flex: 1}}>
+                                                                        <div className={classes.modernRecoveryText} style={{textAlign: "left", fontSize: "12px"}}>Join MadHappy and Tempest for a Tie Dyeing Class</div>
+                                                                        <div style={{height: "40px", fontFamily: "UntitledSans-Medium", letterSpacing: "1px", marginTop: "20px", width: "83px", fontSize: "12px", borderRadius: "20px", border: "1px solid white", lineHeight: "40px"}}>RSVP</div>
+                                                                    </div>
+                                                                </div>
+                                                            )
+                                                        })}
                                                     </div>
 
                                                 </div>
@@ -470,9 +473,8 @@ class Home extends React.Component {
                         </div>
                     </div>
                     :
-                    <div style={{flex: 1, height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
-                        <div style={{padding: "50px", height: "100%", width: "100%", transition: "1s", background: this.state.darkBot ? "url('img/IMG_1557.JPG') 0% 0% / cover no-repeat" :"url('https://i.imgur.com/lGumm9N.jpg') 0% 0% / cover no-repeat",}}>
-                        </div>
+                    <div id="canvas-holder" style={{flex: 1, background: this.state.darkBot ? "#272F46" : "#E4D7C4", height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
+                        <Canvas src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
                     </div>
                 }
             </div>
