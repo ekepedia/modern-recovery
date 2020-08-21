@@ -20,9 +20,12 @@ class Canvas extends React.Component {
 
         this.state = {};
         this.instance = null;
+        this.id = Math.round(Math.random() * 10000);
     }
 
     componentDidMount() {
+
+        const holder = this.props.holder;
 
         myaudio.addEventListener('ended',() => {
             this.setState({
@@ -30,10 +33,10 @@ class Canvas extends React.Component {
             })
         })
 
-        const element = document.querySelector('#scene');
+        const element = document.querySelector('#scene' + this.id);
 
-        const width = document.getElementById("canvas-holder").clientWidth;
-        const height = document.getElementById("canvas-holder").clientHeight;
+        const width  = document.getElementById(holder).clientWidth;
+        const height = document.getElementById(holder).clientHeight;
 
         console.log(width, height, (height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2, (width/(IMG_WIDTH/IMG_HEIGHT)));
 
@@ -60,7 +63,7 @@ class Canvas extends React.Component {
     render() {
         let { classes, src } = this.props;
 
-        return (<div id={"scene"} style={{height: `${IMG_HEIGHT}px`, position: "relative", width: `${IMG_WIDTH}px`, transition: "background 1s", background: `url('${src}') 0% 0% / contain no-repeat`, }}>
+        return (<div id={"scene" + this.id} style={{height: `${IMG_HEIGHT}px`, position: "relative", width: `${IMG_WIDTH}px`, transition: "background 1s", background: `url('${src}') 0% 0% / contain no-repeat`, }}>
             <div>
                 <div onClick={() => {
                     if (this.state.playing)
