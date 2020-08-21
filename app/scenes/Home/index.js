@@ -149,16 +149,16 @@ const Styles = {
         maxWidth: "326px",
         margin: "auto",
         cursor: "pointer",
-        // border: "1px solid white",
-        background: "white",
-        color: "black",
+        border: "1px solid white",
+        color: "white",
+        background: "black",
         transition: "0.5s",
         fontFamily: "UntitledSans-Medium",
         letterSpacing: "1px",
         textTransform: "uppercase",
         "&:hover": {
-            background: "black",
-            color: "white"
+            background: "white",
+            color: "black"
         }
     },
     modernRecoveryText: {
@@ -295,14 +295,14 @@ class Home extends React.Component {
 
     }
 
-    toggleLightDark() {
+    toggleLightDark(mode) {
         this.setState({
-            darkBot: !this.state.darkBot,
+            darkBot: mode !== undefined ? mode : !this.state.darkBot,
             changingDark: true,
         });
         setTimeout(() => {
             this.setState({
-                dark: !this.state.dark,
+                dark: mode !== undefined ? mode : !this.state.dark,
                 changingDark: false
             })
         }, 1000);
@@ -413,7 +413,7 @@ class Home extends React.Component {
                                                                     })}
                                                                 </div>
                                                                 <div style={{fontSize: "16px", maxWidth: "300px", lineHeight: "24px", ...SANS_SERIF_FONT}}>
-                                                                    {this.state.stage.definition}
+                                                                    <span style={{fontFamily: null}}>{this.state.stage.name}:</span> {this.state.stage.definition}
                                                                 </div>
                                                                 <div style={{marginTop: "80px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
                                                                     “
@@ -524,17 +524,21 @@ class Home extends React.Component {
                                                             Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you. Download and share these posts to spread awareness.
                                                         </div>
                                                         <div style={{display: "flex", padding: "0 40px"}}>
-                                                            <div style={{flex: "0 0 34px", cursor: "pointer"}}>
-                                                                <img style={{width: "100%", marginTop: "94px"}} src={"/img/left-arrow.png"}/>
+                                                            <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
+                                                                <img style={{width: "100%", position: "absolute", left: 0, top: "calc(50% - 10px)"}} src={"/img/left-arrow.png"}/>
                                                             </div>
                                                             <div style={{flex: 1, textAlign: "center"}}>
-                                                                <img style={{border: "1px solid white", width: "100%", maxWidth: "211px", margin: "auto"}} src={"/img/share2.png"}/>
+                                                                <div style={{padding: "0 10px"}}>
+                                                                    <img style={{border: "1px solid white", width: "100%", margin: "auto"}} src={"/img/share2.png"}/>
+                                                                </div>
                                                             </div>
                                                             <div style={{flex: 1, textAlign: "center"}}>
-                                                                <img style={{border: "1px solid white", width: "100%", maxWidth: "211px", margin: "auto"}} src={"/img/share-1.png"}/>
+                                                                <div style={{padding: "0 10px"}}>
+                                                                    <img style={{border: "1px solid white", width: "100%", margin: "auto"}} src={"/img/share-1.png"}/>
+                                                                </div>
                                                             </div>
-                                                            <div style={{flex: "0 0 34px", cursor: "pointer"}}>
-                                                                <img style={{width: "100%", marginTop: "94px"}} src={"/img/right-arrow.png"}/>
+                                                            <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
+                                                                <img style={{width: "100%", position: "absolute", right: 0, top: "calc(50% - 10px)"}} src={"/img/right-arrow.png"}/>
                                                             </div>
                                                         </div>
                                                         <hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>
@@ -614,7 +618,7 @@ class Home extends React.Component {
                                 <span style={{...SANS_SERIF_FONT, cursor: "pointer", fontSize: "14px", marginRight: "4px"}}>A Project by</span><img onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer",}} src={"/img/tempest-logo.png"}/>
                             </div>
                         </div>
-                        <div style={{...SANS_SERIF_FONT_BODY, cursor: "pointer", fontSize: "12px", height: "36px", lineHeight: "36px", display: "flex", borderTop: "1px solid black"}}>
+                        <div style={{...SANS_SERIF_FONT_BODY, cursor: "pointer", fontSize: "12px", height: "36px", lineHeight: "36px", display: "flex", borderTop: "1px solid black", borderBottom: this.state.pillars ? null : "1px solid black"}}>
                             <div style={{flex: 1, textAlign: "center", background: this.state.chapterBot ? "white" : "black", color: this.state.chapterBot ? "black" : "white" }} onClick={() => {this.setDiscoverMode()}}>
                                 Discover Mode
                             </div>
@@ -625,7 +629,7 @@ class Home extends React.Component {
                     </div>
                     <div style={{flex: 1, overflow: "hidden"}}>
                         {this.state.chapter ?
-                            <div style={{height: "100%", width: "100%", overflowY: "scroll", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
+                            <div id="mobile-scroll-container" style={{height: "100%", width: "100%", overflowY: "scroll", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
                                 <div style={{display: "flex", flexDirection: "column"}}>
                                     <div style={{flex: this.state.pillars ? 0 : 1, overflow: this.state.pillars ? "hidden" : null, display: this.state.pillars ? "none" : null}}>
                                         <div style={{transition: "background 0.5s", width: "100%", height: "calc((100vh - 84px) * 0.70)", background: `url(${STAGES[this.state.stageIndex].img}) 0% 0% / cover no-repeat`}}/>
@@ -674,7 +678,7 @@ class Home extends React.Component {
                                                 <div style={{padding: "24px 30px"}}>
                                                     <div  style={{background: "rgba(255,255,255,0.1)", opacity: this.state.changingState ? 0 : 1, transition: "0.5s", padding: "30px", position: "relative", height: "411px", borderRadius: "8px"}}>
                                                         <div style={{fontSize: "14px", maxWidth: "300px", lineHeight: "22px", ...SANS_SERIF_FONT}}>
-                                                            {this.state.stage.definition}
+                                                            {this.state.stage.name}: {this.state.stage.definition}
                                                         </div>
                                                         <div style={{marginTop: "60px", fontSize: "80px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
                                                             “
@@ -713,7 +717,11 @@ class Home extends React.Component {
                                                 zIndex: this.state.pillars ? "100" : null,
 
 
-                                            }} onClick={() => {this.setState({pillars: !this.state.pillars})}}>
+                                            }} onClick={() => {
+                                                this.setState({pillars: !this.state.pillars})
+                                                const scroll = document.getElementById('mobile-scroll-container');
+                                                if (scroll) scroll.scrollTop = 0;
+                                            }}>
                                                 <div style={{
                                                     display: "inline-block",
                                                     height: "15px",
@@ -729,7 +737,7 @@ class Home extends React.Component {
                                             </div>
 
                                             <div style={{background: "black", paddingTop: this.state.pillars ? "53px" : null,
-                                                height: "calc(100vh - 84px - 53px)", color: "white", position: "relative"}}>
+                                                height: "calc(100vh - 84px)", color: "white", position: "relative"}}>
                                                 <div>
                                                     <div style={{height: "530px"}}>
                                                         <div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 0 ? null : "none"}}>
@@ -749,7 +757,7 @@ class Home extends React.Component {
                                                         </div>
                                                         <div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 1 ? null : "none"}}>
                                                             <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Sign Up</div>
-                                                            <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>Learn more about our Modern Recovery event series and get a 15% discount to the Tempest Membership plan of your choice.</div>
+                                                            <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>Learn more about our Modern Recovery event series and get a 15% discount to the Tempest Membership plan of your choice.</div>
                                                             <form
                                                                 action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
                                                                 method="POST">
@@ -773,27 +781,24 @@ class Home extends React.Component {
                                                         </div>
                                                         <div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 2 ? null : "none"}}>
                                                             <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Share</div>
-                                                            <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>
+                                                            <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>
                                                                 Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you. Download and share these posts to spread awareness.
                                                             </div>
                                                             <div style={{display: "flex", padding: "0"}}>
-                                                                <div style={{flex: "0 0 34px", cursor: "pointer"}}>
-                                                                    <img style={{width: "70%", marginTop: "52px"}} src={"/img/left-arrow.png"}/>
+                                                                <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
+                                                                    <img style={{width: "70%", position: "absolute", left: 0, top: "calc(50% - 7px)"}} src={"/img/left-arrow.png"}/>
                                                                 </div>
                                                                 <div style={{flex: 1, textAlign: "center"}}>
-                                                                    <img style={{border: "1px solid s", width: "100%", maxWidth: "211px", margin: "auto"}} src={"/img/share2.png"}/>
+                                                                    <img style={{border: "1px solid white", width: "100%", maxWidth: "211px", margin: "auto"}} src={"/img/share-1.png"}/>
                                                                 </div>
-                                                                <div style={{flex: 1, textAlign: "center"}}>
-                                                                    <img style={{border: "1px solid s", width: "100%", maxWidth: "211px", margin: "auto"}} src={"/img/share-1.png"}/>
-                                                                </div>
-                                                                <div style={{flex: "0 0 34px", cursor: "pointer"}}>
-                                                                    <img style={{width: "70%", marginTop: "52px"}} src={"/img/right-arrow.png"}/>
+                                                                <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
+                                                                    <img style={{width: "70%", position: "absolute", right: 0, top: "calc(50% - 7px)"}} src={"/img/right-arrow.png"}/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 3 ? null : "none"}}>
                                                             <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Join In</div>
-                                                            <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>We’ll be hosting a series of virtual events in honor of Recovery Month. RSVP to save your spot!
+                                                            <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>We’ll be hosting a series of virtual events in honor of Recovery Month. RSVP to save your spot!
                                                             </div>
                                                             {[0,1].map(() => {
                                                                 return (
@@ -836,7 +841,7 @@ class Home extends React.Component {
                                                     <div style={{fontSize: "24px", color: "white", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "24px"}}>
                                                         What is Modern Recovery?
                                                     </div>
-                                                    <div style={{...SANS_SERIF_FONT_BODY, fontSize: "14px"}}>
+                                                    <div style={{...SANS_SERIF_FONT_BODY, fontSize: "14px", maxWidth: "335px", margin: "auto"}}>
                                                         We created these six pillars of Modern Recovery to encompass our mission to put individuals at the center of their own healing. This is more than just quitting alcohol—it’s about gaining back your life.
                                                     </div>
                                                 </div>
@@ -883,6 +888,16 @@ class Home extends React.Component {
                             <div style={{opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
                                 <div id="canvas-holder-mobile" style={{background: this.state.darkBot ? "#272F46" : "#E4D7C4", height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
                                     <Canvas holder="canvas-holder-mobile" src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
+                                </div>
+                                <div style={{position: "fixed", bottom: "0", left: "0", width: "100%", height: "36px",}}>
+                                    <div style={{...SANS_SERIF_FONT_BODY, cursor: "pointer", fontSize: "12px", height: "36px", lineHeight: "36px", display: "flex", borderTop: "1px solid black"}}>
+                                        <div style={{flex: 1, textAlign: "center", background: this.state.darkBot ? "white" : "black", color: this.state.darkBot ? "black" : "white" }} onClick={() => {this.toggleLightDark(false)}}>
+                                            Light Mode
+                                        </div>
+                                        <div style={{flex: 1, textAlign: "center", background: this.state.darkBot ? "black" : "white", color: this.state.darkBot ? "white" : "black"}} onClick={() => {this.toggleLightDark(true)}}>
+                                            Dark Mode
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         }
