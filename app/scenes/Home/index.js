@@ -4,6 +4,7 @@ import injectSheet from 'react-jss';
 import { withRouter, Link } from 'react-router-dom';
 
 import Canvas from './Canvas';
+import DesktopChapterPlayer from "./DesktopChapterPlayer";
 
 import { STAGES, PILLARS } from "./copy";
 
@@ -105,21 +106,6 @@ const Styles = {
             background: "rgba(0,0,0,0.3)",
         },
     },
-    playButton: {
-        background: "#e4e0d9",
-        transition: "all 0.25s",
-        "&:hover": {
-            background: "black",
-        },
-    },
-    playButtonContainer: {
-        background: "url('/img/play.png') center no-repeat",
-        transition: "all 0.25s",
-
-        "&:hover": {
-            background: "url('/img/play-white.png') center no-repeat",
-        },
-    },
     joinButton: {
         textAlign: "center",
         fontSize: "12px",
@@ -180,6 +166,12 @@ const Styles = {
             outline: "none"
         },
         display: "block"
+    },
+    logoImage: {
+        "&:hover": {
+            animation: "wiggle infinite 1.5s alternate",
+            transformOrigin: "bottom"
+        }
     }
 };
 
@@ -358,7 +350,7 @@ class Home extends React.Component {
                         <div style={{display: "flex", padding: "0 22px", height: "100%"}}>
 
                             <div style={{flex: 1, lineHeight: "53px", fontFamily: "GT-America-Mono-Trial-Regular", fontSize: "14px", position: "relative"}}>
-                                <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><img onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer", position: "absolute", top: 22, left: 72}} src={"/img/tempest-logo.png"}/>
+                                <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><img className={classes.logoImage} onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer", position: "absolute", top: 22, left: 72, }} src={"/img/tempest-logo.png"}/>
                             </div>
 
                             <div style={{flex: 1, lineHeight: "53px", textAlign: "center", fontFamily: "NoeDisplay Medium", fontSize: "24px", textTransform: "capitalize", letterSpacing: "-0.25px"}}>
@@ -380,7 +372,11 @@ class Home extends React.Component {
                                 </div>
                                 <div style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
                                     <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
-                                        <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 94 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "#f19e44" : "#7dc49b", borderRadius: "100%"}}>
+                                        <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 94 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "url('https://www.covid19tracker.news/img/gradient.png')" : "#7dc49b",
+                                            animation: "backgroundmove 5s infinite",
+                                            backgroundPosition: "left",
+                                            animationTimingFunction: "ease-in-out",
+                                            borderRadius: "100%"}}>
 
                                         </div>
                                         <div style={{lineHeight: "30px", fontSize: "14px", whiteSpace: "nowrap", ...SANS_SERIF_FONT, position: "absolute", top: 0, right: !this.state.chapter ? 27 : 10, opacity: this.state.changingMode ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
@@ -419,17 +415,13 @@ class Home extends React.Component {
                                                                     “
                                                                 </div>
                                                                 <div style={{marginTop: "20px", height: "150px", overflow: "scroll", maxWidth: "395px", fontSize: "16px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
-                                                                    {this.state.stage.quotes[this.state.textIndex]}
+                                                                    {this.state.stage.quotes[this.state.textIndex].quote ? this.state.stage.quotes[this.state.textIndex].quote : this.state.stage.quotes[this.state.textIndex] }
                                                                 </div>
                                                                 <div style={{width: "100%", display: "flex", position: "absolute", bottom: 0, left: 0, padding: "50px", paddingRight: "26px"}}>
                                                                     <div style={{flex: 1, textAlign: "right"}}>
-                                                                        <div className={classes.playButton} style={{ display: "inline-block", cursor:"pointer", height: "36px", lineHeight: "36px", textAlign: "center", width: "36px", borderRadius: "100%"}}>
-                                                                            <div className={classes.playButtonContainer} style={{display: "inline-block", height: "100%", width: "100%"}}>
+                                                                        <DesktopChapterPlayer audio={this.state.stage.quotes[this.state.textIndexBot].audio ? this.state.stage.quotes[this.state.textIndexBot].audio : "/img/test-audio.m4a"}/>
 
-                                                                            </div>
-                                                                        </div>
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -684,13 +676,12 @@ class Home extends React.Component {
                                                             “
                                                         </div>
                                                         <div style={{marginTop: "10px", height: "180px", overflow: "scroll", maxWidth: "395px", fontSize: "14px", lineHeight: "22px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
-                                                            {this.state.stage.quotes[this.state.mobileIndex1]}
+                                                            {this.state.stage.quotes[this.state.mobileIndex1].quote ? this.state.stage.quotes[this.state.mobileIndex1].quote : this.state.stage.quotes[this.state.mobileIndex1] }
                                                         </div>
-                                                        <div style={{position: "absolute", bottom: 18, right: 30,}}>
-                                                            <div className={classes.playButton} style={{ display: "inline-block", cursor:"pointer", height: "36px", lineHeight: "36px", width: "36px", borderRadius: "100%"}}>
-                                                                <div className={classes.playButtonContainer} style={{display: "inline-block", height: "100%", width: "100%"}}>
 
-                                                                </div>
+                                                        <div style={{width: "100%", display: "flex", position: "absolute", bottom: 18, left: 0, padding: "0 30px", paddingRight: "30px"}}>
+                                                            <div style={{flex: 1, textAlign: "right"}}>
+                                                                <DesktopChapterPlayer audio={this.state.stage.quotes[this.state.mobileIndex1].audio ? this.state.stage.quotes[this.state.mobileIndex1].audio : "/img/test-audio.m4a"}/>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -1,19 +1,35 @@
 export const STAGES = [
     {
-        img: "https://draperu.s3.amazonaws.com/public/hero-ether.JPG",
+        img: "https://draperu.s3.amazonaws.com/public/Ether.jpg",
         gradient: "linear-gradient(#7d7d7d,#c8bdb4)",
         name: "Ether",
         definition: "The first stage in our journey, when drinking is a normal coping mechanism.",
         quotes: [
-            "I used alcohol as a lubricant for my social anxiety. After college, drinking progressively became a part of every aspect of my life. Eventually it became something I was doing nearly every night, alone in my room, as a reward for making it through the day and an attempt to drown out my own reality. - Nicole P, Tempest Member 2019",
-            "I drank till I didn't feel. I blacked out often and had sex with new people most evenings. Throwing up was normal. Panic attacks were normal. - Valentine, Tempest Member Winter 2019",
-            "I started binge drinking at age 16 . I was a daily drinker through most of my late teens to mid 20s before I became more of a stay-at-home ‘shame pit’ drinker. I still drank nearly every day  but my main goal was to keep that hidden from everyone around me. - Lisa, Tempest Member, Winter 2018\n",
-            "I never really thought about my alcohol consumption. It was like coffee—just something that you have around that helps you feel better and get stuff done. - Alex, Tempest Member 2020\n",
-            "Throughout most of my life, starting at highschool football games, college dorm rooms, and all the way through early days in the workforce, drinking was just something we always did. It was always around—participating didn’t occur as a choice, but more an assumption. - Abby, Tempest 2018"
+            {
+                quote: "I used alcohol as a lubricant for my social anxiety. After college, drinking progressively became a part of every aspect of my life. Eventually it became something I was doing nearly every night, alone in my room, as a reward for making it through the day and an attempt to drown out my own reality. - Nicole P, Tempest Member 2019",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Nicole+P.+Ether.m4a"
+            },
+            {
+                quote: "I drank till I didn't feel. I blacked out often and had sex with new people most evenings. Throwing up was normal. Panic attacks were normal. - Valentine, Tempest Member Winter 2019",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Valentine+Ether.mp3"
+            },
+            {
+                quote: "I started binge drinking at age 16 . I was a daily drinker through most of my late teens to mid 20s before I became more of a stay-at-home ‘shame pit’ drinker. I still drank nearly every day  but my main goal was to keep that hidden from everyone around me. - Lisa, Tempest Member, Winter 2018\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Lisa+Ether.m4a"
+            },
+            {
+                quote: "I never really thought about my alcohol consumption. It was like coffee—just something that you have around that helps you feel better and get stuff done. - Alex, Tempest Member 2020\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Alex+Ether.m4a"
+            },
+            {
+                quote: "Throughout most of my life, starting at highschool football games, college dorm rooms, and all the way through early days in the workforce, drinking was just something we always did. It was always around—participating didn’t occur as a choice, but more an assumption. - Abby, Tempest 2018",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Abby+ether.m4a"
+            },
+
         ]
     },
     {
-        img: "https://draperu.s3.amazonaws.com/public/hero-ink.JPG",
+        img: "https://draperu.s3.amazonaws.com/public/Inkling.jpg",
         gradient: "linear-gradient(#4390a5,#c8bdb4)",
         name: "Inkling",
         definition: "We begin to suspect that our relationship with alcohol may not be good for us.",
@@ -27,7 +43,7 @@ export const STAGES = [
         ]
     },
     {
-        img: "https://draperu.s3.amazonaws.com/public/hero-aware.JPG",
+        img: "https://draperu.s3.amazonaws.com/public/Awareness.jpg",
         gradient: "linear-gradient(#efa17a,#c8bdb4)",
         name: "Awareness",
         definition: "We see our drinking in a new light and we wonder if things could be different.",
@@ -43,7 +59,7 @@ export const STAGES = [
     {
         name: "Reckoning",
         gradient: "linear-gradient(#8491a4,#c8bdb4)",
-        img: "https://draperu.s3.amazonaws.com/public/hero-reck.JPG",
+        img: "https://draperu.s3.amazonaws.com/public/Reckoning.jpg",
         definition: "The pivotal point in our journey when we realize we need to make a change.",
         quotes: [
             "I never hit a rock bottom. I didn’t need to detox or go to rehab and I wasn’t physically dependent. But I was stuck in an endless cycle. I knew the answer was to remove alcohol from my life and after one last terrifying blackout, I surrendered and finally chose myself. - Nicole P, Tempest Member 2019",
@@ -59,7 +75,7 @@ export const STAGES = [
     {
         name: "Rebuilding",
         gradient: "linear-gradient(#779584,#c8bdb4)",
-        img: "https://draperu.s3.amazonaws.com/public/hero-rebuild.JPG",
+        img: "https://draperu.s3.amazonaws.com/public/Rebuilding.jpg",
         definition: "We begin the healing process, we learn new ways to cope, and we build a life we no longer want to escape from.",
         quotes: [
             "The rebuilding process has been challenging, but it is one I am proud of. I wear sobriety like a badge of honor, I have immense gratitude and I cherish my sobriety. I do the work and I would not want it any other way. - Ruth, Tempest Member 2018\n",
@@ -74,7 +90,7 @@ export const STAGES = [
     {
         name: "Outpouring",
         gradient: "linear-gradient(#ce924d,#c8bdb4)",
-        img: "https://draperu.s3.amazonaws.com/public/hero-out.JPG",
+        img: "https://draperu.s3.amazonaws.com/public/Outpouring.jpg",
         definition: "The final stage in our journey—we’re living alcohol-free, and we’re proud of it.",
         quotes: [
             "I feel so much [outpouring] when I read Instagram postings and sobriety memoirs for sure. I think back to all of my day ones and wonder if showing others that I have been there too might be helpful to them in making this change. I am always looking for ways to be of service to others in recovery. - Amy, Tempest Member 2019\n",

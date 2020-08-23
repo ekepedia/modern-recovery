@@ -111,6 +111,21 @@
         ::-ms-input-placeholder { /* Microsoft Edge */
             color: rgba(255,255,255, 0.7);
         }
+
+
+        @keyframes backgroundmove {
+            50% {background-position: right;}
+        }
+
+        @keyframes wiggle {
+            0% {transform: rotate(0deg);}
+            25% {transform: rotate(-6deg);}
+            50% {transform: rotate(10deg);}
+            75% {transform: rotate(-2deg);}
+            100% {transform: rotate(4deg);}
+        }
+
+
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>

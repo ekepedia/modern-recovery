@@ -40,17 +40,19 @@ class Canvas extends React.Component {
 
         console.log(width, height, (height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2, (width/(IMG_WIDTH/IMG_HEIGHT)));
 
+        const minZoom = width < 768 ? height/IMG_HEIGHT : width/IMG_WIDTH;
+
         this.instance = panzoom(element, {
             zoomSpeed: 0.95,
             pinchSpeed: 1,
-            minZoom: width/IMG_WIDTH,
+            minZoom,
             bounds: true,
         });
 
         this.instance.zoomAbs(
-            0, // initial x position
-            (height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2 - 53/2,//(width/2), // initial y position
-            width/IMG_WIDTH // initial zoom
+            width < 768 ? -150 : 0, // initial x position
+            width < 768 ? -35: (height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2 - 53/2,//(width/2), // initial y position
+            minZoom // initial zoom
         );
 
     }
