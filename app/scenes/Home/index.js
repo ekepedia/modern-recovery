@@ -624,7 +624,7 @@ class Home extends React.Component {
                             <div id="mobile-scroll-container" style={{height: "100%", width: "100%", overflowY: "scroll", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
                                 <div style={{display: "flex", flexDirection: "column"}}>
                                     <div style={{flex: this.state.pillars ? 0 : 1, overflow: this.state.pillars ? "hidden" : null, display: this.state.pillars ? "none" : null}}>
-                                        <div style={{transition: "background 0.5s", width: "100%", height: "calc((100vh - 84px) * 0.70)", background: `url(${STAGES[this.state.stageIndex].img}) 0% 0% / cover no-repeat`}}/>
+                                        <div style={{transition: "background 0.5s", width: "100%", height: "calc((100vh - 84px) * 0.60)", background: `url(${STAGES[this.state.stageIndex].img}) 0% 0% / cover no-repeat`}}/>
                                         <div style={{height: "fit-content", background: STAGES[this.state.stageIndex].gradient}}>
                                             <div style={{padding: "24px 30px"}}>
                                                 <div style={{display: "flex"}}>
