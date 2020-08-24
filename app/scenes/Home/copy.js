@@ -34,12 +34,31 @@ export const STAGES = [
         name: "Inkling",
         definition: "We begin to suspect that our relationship with alcohol may not be good for us.",
         quotes: [
-            "My drinking was social at first, then when I noticed I was drinking much more than my friends, I started pre-outing drinking, then added in post-outing drinking. -Tina, Tempest Member 2018",
-            "I recall having a nagging feeling that I was too dependent on alcohol but could not envision getting through my days without my daily wine habit. At the time I was caught in the middle of a major family breakdown and thought alcohol was my only ally. - Amy C, Tempest Member 2019\n",
-            "I remember being incredibly cognizant of the fact that everyone else seemed to be enjoying themselves while I frantically schemed how to get as much booze as possible before the bottle ran out. - Lisa, Tempest Member, Winter 2018\n",
-            "The moment I knew that I had to do something about my drinking, although it was a while before I actually did anything about it, was when I snuck tequila into the office, left work early, and took a cab home. It was a Tuesday. - Irina, Tempest Member 2019 \n",
-            "I didn’t have any concrete evidence, it was more just this pervasive feeling of unease about my drinking. -Alex, Tempest Member 2020\n",
-            "I remember sitting in a cozy booth with my best friends. Rather than feeling full and good, I was counting the drinks on the table calculating the cost, ‘chatting’ about our normal updates but feeling oddly disconnected to my people and out of my body. Nothing was wrong, so why was I so in my head? But I knew something wasn’t working for me. I quickly covered up the feeling from myself—this was about a year before I started to change my relationship to alcohol.  - Abby, Tempest 2018\n",
+            {
+                quote: "My drinking was social at first, then when I noticed I was drinking much more than my friends, I started pre-outing drinking, then added in post-outing drinking. -Tina, Tempest Member 2018",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Tina+-+Inkling.m4a"
+            },
+            {
+                quote: "I recall having a nagging feeling that I was too dependent on alcohol but could not envision getting through my days without my daily wine habit. At the time I was caught in the middle of a major family breakdown and thought alcohol was my only ally. - Amy C, Tempest Member 2019\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Amy+C+awareness.m4a"
+            },
+            {
+                quote: "I remember being incredibly cognizant of the fact that everyone else seemed to be enjoying themselves while I frantically schemed how to get as much booze as possible before the bottle ran out. - Lisa, Tempest Member, Winter 2018\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Lisa+Inkling.m4a"
+            },
+            // {
+            //     quote: "The moment I knew that I had to do something about my drinking, although it was a while before I actually did anything about it, was when I snuck tequila into the office, left work early, and took a cab home. It was a Tuesday. - Irina, Tempest Member 2019 \n",
+            //     audio: ""
+            // },
+            {
+                quote: "I didn’t have any concrete evidence, it was more just this pervasive feeling of unease about my drinking. -Alex, Tempest Member 2020\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Alex+Inkling.m4a"
+            },
+            {
+                quote: "I remember sitting in a cozy booth with my best friends. Rather than feeling full and good, I was counting the drinks on the table calculating the cost, ‘chatting’ about our normal updates but feeling oddly disconnected to my people and out of my body. Nothing was wrong, so why was I so in my head? But I knew something wasn’t working for me. I quickly covered up the feeling from myself—this was about a year before I started to change my relationship to alcohol.  - Abby, Tempest 2018\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Abby+inkling.m4a"
+            },
+
         ]
     },
     {
@@ -48,12 +67,26 @@ export const STAGES = [
         name: "Awareness",
         definition: "We see our drinking in a new light and we wonder if things could be different.",
         quotes: [
-            "I was unhappy with most things in my life, and on top of that, my dad had suddenly passed away in a car accident a month after we had a painful and uncomfortable argument that made me question if he was proud of who I was. I knew I was limiting my potential, and my addiction was getting in the way. - Nicole P, Tempest Member 2019\n",
-            "One night out, I saw a lady my age guzzling beer one after another, and it hit me that I did that with wine at home. Out at a bar, I'd drink ‘respectably’ slower, then go home and guzzle. Seeing her that night, I saw myself and thought,  ‘Yuck, this isn't pretty.’ - Tina, Tempest Member 2018\n",
-            "I recall needing a change in my life. A positive change that would give me the keys to control my own journey. - Victoria, Winter 2019\n",
-            "I wanted to remember kissing my kids goodnight. I wanted to breathe on them and have them nuzzle their faces in my neck without worrying how I smelled. I wanted to BE in those moments and not mentally half there because I wanted back to my beverage. - Syd, Tempest Member 2018\n",
-            "I watched myself show up everywhere armored with liquids. Some traveled in bladders hidden by cardboard boxes and others in giant glass bottles. And although this was nothing new, it was my fierce protection, and the tie I felt to booze had me wondering. \n",
-            "One day I asked myself, ‘What do I actually want my life to look like? What’s getting in the way of that?’ - Alex, Tempest Member 2020\n",
+            {
+                quote: "I was unhappy with most things in my life, and on top of that, my dad had suddenly passed away in a car accident a month after we had a painful and uncomfortable argument that made me question if he was proud of who I was. I knew I was limiting my potential, and my addiction was getting in the way. - Nicole P, Tempest Member 2019\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Awareness/Nicole+P.+Awareness.m4a"
+            },
+            {
+                quote: "One night out, I saw a lady my age guzzling beer one after another, and it hit me that I did that with wine at home. Out at a bar, I'd drink ‘respectably’ slower, then go home and guzzle. Seeing her that night, I saw myself and thought,  ‘Yuck, this isn't pretty.’ - Tina, Tempest Member 2018\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Awareness/Tina+-+Awareness.m4a"
+            },
+            {
+                quote: "I recall needing a change in my life. A positive change that would give me the keys to control my own journey. - Victoria, Winter 2019\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Awareness/Victoria+awareness.m4a"
+            },
+            {
+                quote: "I wanted to remember kissing my kids goodnight. I wanted to breathe on them and have them nuzzle their faces in my neck without worrying how I smelled. I wanted to BE in those moments and not mentally half there because I wanted back to my beverage. - Syd, Tempest Member 2018\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Awareness/Syd-Awareness+(1+again).m4a"
+            },
+            {
+                quote: "One day I asked myself, ‘What do I actually want my life to look like? What’s getting in the way of that?’ - Alex, Tempest Member 2020\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Awareness/Alex+Awareness.m4a"
+            },
         ]
     },
     {

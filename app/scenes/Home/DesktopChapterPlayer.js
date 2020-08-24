@@ -63,6 +63,7 @@ class DesktopChapterPlayer extends React.Component {
         });
 
         this.audio.ontimeupdate = () => {
+            console.log(this.audio.currentTime);
             this.updateProgress();
         };
     }
@@ -72,6 +73,7 @@ class DesktopChapterPlayer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(prevProps.audio, this.props.audio);
         if (prevProps.audio !== this.props.audio) {
             this.pauseAudio();
             this.audio = new Audio(this.props.audio);
