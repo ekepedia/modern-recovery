@@ -48,6 +48,10 @@ class Canvas extends React.Component {
             pinchSpeed: 1,
             minZoom,
             bounds: true,
+            onTouch: function(e) {
+                return false;
+            }
+
         });
 
         this.instance.zoomAbs(
