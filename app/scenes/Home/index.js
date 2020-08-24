@@ -188,13 +188,15 @@ class Home extends React.Component {
             pillars: false,
             stage: STAGES[0],
             stageIndex: 0,
-            chapter: true,
-            chapterBot: true,
+            chapter: false,
+            chapterBot: false,
             changingMode: false,
 
             mobileIndex1: 0,
             mobileIndex2: 0,
             mobileIndex3: 0,
+
+            showInfoModal: true
         }
     }
 
@@ -595,6 +597,29 @@ class Home extends React.Component {
                         :
                         <div id="canvas-holder" style={{flex: 1, background: this.state.darkBot ? "#272F46" : "#E4D7C4", height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
                             <Canvas holder="canvas-holder" src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
+                            <div style={{position: "fixed", top: 77, left: 44, cursor: "pointer", height: "19px", width: "19px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
+                                <img style={{height: "100%", width: "100%"}} src={"/img/info-icon.png"}/>
+                            </div>
+                            <div style={{...SANS_SERIF_FONT_BODY, opacity: this.state.showInfoModal ? 1 : 0, transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "11px", color: "white", position: "fixed", bottom: 53, left: 92, height: "305px", width: "270px", boxShadow: "0px 1px 4px #00000011", background: "rgba(0, 0, 0, 0.9)"}}>
+                                <div style={{position: "absolute", height: "10px", width: "10px", top: 12, right: 17, cursor: "pointer"}} onClick={() => {this.setState({showInfoModal: false})}}>
+                                    <img style={{height: "100%", width: "100%"}} src={"/img/white-x.png"}/>
+                                </div>
+                                <div style={{fontFamily: "Albra Text Regular", marginTop: "8px", fontSize: "14px"}}>
+                                    Exploring the Recovery Journey
+                                </div>
+                                <div style={{marginTop: "8px"}}>
+                                    The Recovery Journey captures a few of the many experiences people move through on their personal recovery paths. It is not meant to be linear, and there’s no one way or right way to move along it. Take your time and immerse yourself in the stories.
+                                </div>
+                                <div style={{ marginTop: "8px"}}>
+                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Discover:</span> Use your track pad or mouse to pull, press and hold to  drag and  zoom into the mural.
+                                </div>
+                                <div style={{ marginTop: "8px"}}>
+                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Listen:</span> Press play to listen to audio stories of real people.
+                                </div>
+                                <div style={{ marginTop: "8px"}}>
+                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Click:</span> On different parts of mural to read which part of the recovery journey it is.
+                                </div>
+                            </div>
                         </div>
                     }
                 </div>
@@ -879,6 +904,29 @@ class Home extends React.Component {
                             <div style={{opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
                                 <div id="canvas-holder-mobile" style={{background: this.state.darkBot ? "#272F46" : "#E4D7C4", height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
                                     <Canvas holder="canvas-holder-mobile" src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
+                                </div>
+                                <div style={{position: "fixed", top: 100, left: 20, cursor: "pointer", height: "19px", width: "19px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
+                                    <img style={{height: "100%", width: "100%"}} src={"/img/info-icon.png"}/>
+                                </div>
+                                <div style={{...SANS_SERIF_FONT_BODY, opacity: this.state.showInfoModal ? 1 : 0, transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "11px", color: "white", position: "fixed", bottom: "calc(50% - 176px)", left: "calc( 50% - 135px)", height: "305px", width: "270px", boxShadow: "0px 1px 4px #00000011", background: "rgba(0, 0, 0, 0.9)"}}>
+                                    <div style={{position: "absolute", height: "10px", width: "10px", top: 12, right: 17, cursor: "pointer"}} onClick={() => {this.setState({showInfoModal: false})}}>
+                                        <img style={{height: "100%", width: "100%"}} src={"/img/white-x.png"}/>
+                                    </div>
+                                    <div style={{fontFamily: "Albra Text Regular", marginTop: "8px", fontSize: "14px"}}>
+                                        Exploring the Recovery Journey
+                                    </div>
+                                    <div style={{marginTop: "8px"}}>
+                                        The Recovery Journey captures a few of the many experiences people move through on their personal recovery paths. It is not meant to be linear, and there’s no one way or right way to move along it. Take your time and immerse yourself in the stories.
+                                    </div>
+                                    <div style={{ marginTop: "8px"}}>
+                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Discover:</span> Use your track pad or mouse to pull, press and hold to  drag and  zoom into the mural.
+                                    </div>
+                                    <div style={{ marginTop: "8px"}}>
+                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Listen:</span> Press play to listen to audio stories of real people.
+                                    </div>
+                                    <div style={{ marginTop: "8px"}}>
+                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Click:</span> On different parts of mural to read which part of the recovery journey it is.
+                                    </div>
                                 </div>
                                 <div style={{position: "fixed", bottom: "0", left: "0", width: "100%", height: "36px",}}>
                                     <div style={{...SANS_SERIF_FONT_BODY, cursor: "pointer", fontSize: "12px", height: "36px", lineHeight: "36px", display: "flex", borderTop: "1px solid black"}}>
