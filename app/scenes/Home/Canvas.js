@@ -55,6 +55,29 @@ class Canvas extends React.Component {
             minZoom // initial zoom
         );
 
+        this.instance.on('pan', (e) => {
+            const transform = e.getTransform();
+            //
+            // console.log(transform);
+            // console.log(transform.x, transform.x < 0, transform.x / transform.scale, IMG_WIDTH);
+
+            // if (transform.x < 0) {
+            //     this.instance.moveTo(0, transform.y);
+            //
+            //     if (transform.y < 0) {
+            //         this.instance.moveTo(0, 0);
+            //     }
+            // }
+            // if (transform.y < 0) {
+            //     this.instance.moveTo(transform.x, 0);
+            //
+            //     if (transform.x < 0) {
+            //         this.instance.moveTo(0, 0);
+            //     }
+            // }
+
+        })
+
     }
 
     componentWillUnmount() {
@@ -65,7 +88,9 @@ class Canvas extends React.Component {
     render() {
         let { classes, src } = this.props;
 
-        return (<div id={"scene" + this.id} style={{height: `${IMG_HEIGHT}px`, position: "relative", width: `${IMG_WIDTH}px`, transition: "background 1s", background: `url('${src}') 0% 0% / contain no-repeat`, }}>
+        return (<div id={"scene" + this.id} onClick={(e) => {
+            console.log("CLICK", e)
+        }} style={{height: `${IMG_HEIGHT}px`, position: "relative", width: `${IMG_WIDTH}px`, transition: "background 1s", background: `url('${src}') 0% 0% / contain no-repeat`, }}>
             <div>
                 <div onClick={() => {
                     if (this.state.playing)

@@ -132,7 +132,7 @@ class DesktopChapterPlayer extends React.Component {
                         backgroundPosition: "left",
                         animationTimingFunction: "ease-in-out"
                     }}>
-                        <div className={classes.playButtonContainer} style={{display: "inline-block", height: "100%", width: "100%", backgroundImage: this.state.playing ? "url('/img/play-white.png')" : null }}>
+                        <div className={classes.playButtonContainer} style={{display: "inline-block", height: "100%", width: "100%", backgroundImage: this.state.playing ? "url('/img/pause-icon.png')" : null, backgroundPositionX: this.state.playing ? "center" : null }}>
 
                         </div>
                     </div>
