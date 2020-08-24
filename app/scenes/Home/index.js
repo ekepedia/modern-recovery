@@ -255,6 +255,8 @@ class Home extends React.Component {
             mounted: false,
             chapterBot: false,
             changingMode: true,
+            dark: false,
+            darkBot: false,
         });
         setTimeout(() => {
             this.setState({
@@ -273,19 +275,8 @@ class Home extends React.Component {
 
         if (this.state.chapter)
             return this.setDiscoverMode();
-
-        this.setState({
-            mounted: false,
-            chapterBot: !this.state.chapterBot,
-            changingMode: true,
-        });
-        setTimeout(() => {
-            this.setState({
-                chapter: !this.state.chapter,
-                mounted: true,
-                changingMode: false
-            })
-        }, 1000);
+        else
+            return this.setChapterMode();
 
     }
 
@@ -596,7 +587,7 @@ class Home extends React.Component {
                         </div>
                         :
                         <div id="canvas-holder" style={{flex: 1, background: this.state.darkBot ? "#272F46" : "#E4D7C4", height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
-                            <Canvas holder="canvas-holder" src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
+                            <Canvas holder="canvas-holder" dark={this.state.darkBot} src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
                             <div style={{position: "fixed", top: 77, left: 44, cursor: "pointer", height: "19px", width: "19px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
                                 <img style={{height: "100%", width: "100%"}} src={"/img/info-icon.png"}/>
                             </div>
@@ -629,7 +620,7 @@ class Home extends React.Component {
                     <div style={{flex: "0 0 84px", background: "white"}}>
                         <div style={{height: "48px", lineHeight: "48px", padding: "0 18px", display: "flex"}}>
                             <div style={{flex: 1, fontFamily: "NoeDisplay Medium", fontSize: "18px", letterSpacing: "-0.25px"}}>
-                                <span style={{cursor: "pointer"}}>Modern Recovery</span>
+                                <span style={{cursor: "pointer"}} onClick={() => {this.setDiscoverMode()}}>Modern Recovery</span>
                             </div>
                             <div style={{flex: 1, textAlign: "right", postion: "relative"}}>
                                 <span style={{...SANS_SERIF_FONT, cursor: "pointer", fontSize: "14px", marginRight: "4px"}}>A Project by</span><img onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer",}} src={"/img/tempest-logo.png"}/>
@@ -903,7 +894,7 @@ class Home extends React.Component {
                             :
                             <div style={{opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
                                 <div id="canvas-holder-mobile" style={{background: this.state.darkBot ? "#272F46" : "#E4D7C4", height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
-                                    <Canvas holder="canvas-holder-mobile" src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
+                                    <Canvas holder="canvas-holder-mobile" dark={this.state.darkBot} src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
                                 </div>
                                 <div style={{position: "fixed", top: 100, left: 20, cursor: "pointer", height: "19px", width: "19px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
                                     <img style={{height: "100%", width: "100%"}} src={"/img/info-icon.png"}/>
