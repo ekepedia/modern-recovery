@@ -714,9 +714,9 @@ class Home extends React.Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div style={{flex: this.state.pillars ? 1 : "0 0 53px", overflow: this.state.pillars ? null : "hidden"}}>
+                                    <div style={{flex: this.state.pillars ? 1 : "0 0 140px", overflow: this.state.pillars ? null : "hidden"}}>
                                         <div style={{height: "fit-content"}}>
-                                            <div style={{...SANS_SERIF_FONT_BODY, height: "53px", textAlign: "center", lineHeight: "53px", borderTop: "1px solid black", background: this.state.pillars ? "white" : "none", color: "black",
+                                            <div style={{...SANS_SERIF_FONT_BODY, height: this.state.pillars ? "53px" : "140px", textAlign: "center", lineHeight: "53px", borderTop: "1px solid black", background: this.state.pillars ? "white" : "none", color: "black",
 
                                                 position: this.state.pillars ? "absolute" : null,
                                                 top: this.state.pillars ? "84px" : null,
