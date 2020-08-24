@@ -48,7 +48,14 @@ class Canvas extends React.Component {
             pinchSpeed: 1,
             minZoom,
             bounds: true,
-            onTouch: function(e) {
+            onTouch: (e) => {
+                console.log(e);
+                console.log(e.target)
+                console.log(e.target.id, `scene${this.id}`);
+
+                if (e.target.id === `scene${this.id}`)
+                    return true;
+
                 return false;
             }
 
