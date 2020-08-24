@@ -95,14 +95,38 @@ export const STAGES = [
         img: "https://draperu.s3.amazonaws.com/public/Reckoning.jpg",
         definition: "The pivotal point in our journey when we realize we need to make a change.",
         quotes: [
-            "I never hit a rock bottom. I didn’t need to detox or go to rehab and I wasn’t physically dependent. But I was stuck in an endless cycle. I knew the answer was to remove alcohol from my life and after one last terrifying blackout, I surrendered and finally chose myself. - Nicole P, Tempest Member 2019",
-            "I had a journal I wrote in a few times a year. When I checked it I saw that my only entries for years had been about drinking regrets and things that happened while intoxicated. - Valentine Tempest Winter 2019\n",
-            "I knew I'd quit when I turned 40, until that day came and I couldn't. I spent the next 10 years devising plans to quit or moderate, until I gave that up and started hiding it. At 52, laying on the bathroom floor crying, I googled recovery methods other than AA and found Holly and Tempest.\" - Tina, Tempest Member 2018\n",
-            "There was the time my husband suggested I skip another glass of wine at a family party, the time I spilled my wine all over my son in Spain, and the time I fell flat on my face while entertaining friends. However, the final straw was losing our 20-year-old daughter and self medicating through the grief. -Amy, Tempest Member 2019\n",
-            "A terrible hangover after a family party and a two-hour long car ride home trying not to puke was my moment of reckoning. It was the last time I was so sick I thought I might die. It would take me seven months more to quit, but it served as the catalyst for me to start exploring options. - Lisa, Tempest Member 2018\n",
-            "I was  two  months into the pandemic and I drank through everything that I could because I could. I thought to myself, ‘What just happened?’\" - Victoria, Winter 2019\n",
-            "A friend sat me down and let me know that they couldn't be around me if I was going to keep drinking. I did not want to lose one more fucking person due to alcohol. I didn't want to continue to ruin all of my connections, friendships, and relationships. And I was just so tired of hating myself.  - DL\n",
-            "The biggest consequence of my drinking was the estrangement from my three adult children. With  support from Tempest and my therapist, I made the decision that my drinking would no longer depend on whether or not my children returned in my life and if they should return. - Ruth, Tempest Member 2018\n",
+            {
+                quote: "I never hit a rock bottom. I didn’t need to detox or go to rehab and I wasn’t physically dependent. But I was stuck in an endless cycle. I knew the answer was to remove alcohol from my life and after one last terrifying blackout, I surrendered and finally chose myself. - Nicole P, Tempest Member 2019",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Reckoninig/Nicole+P.+Reckoning.m4a"
+            },
+            {
+                quote: "I had a journal I wrote in a few times a year. When I checked it I saw that my only entries for years had been about drinking regrets and things that happened while intoxicated. - Valentine Tempest Winter 2019\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Reckoninig/Valentine+Reckoning.mp3"
+            },
+            // {
+            //     quote: "I knew I'd quit when I turned 40, until that day came and I couldn't. I spent the next 10 years devising plans to quit or moderate, until I gave that up and started hiding it. At 52, laying on the bathroom floor crying, I googled recovery methods other than AA and found Holly and Tempest.\" - Tina, Tempest Member 2018\n",
+            //     audio: ""
+            // },
+            {
+                quote: "There was the time my husband suggested I skip another glass of wine at a family party, the time I spilled my wine all over my son in Spain, and the time I fell flat on my face while entertaining friends. However, the final straw was losing our 20-year-old daughter and self medicating through the grief. -Amy, Tempest Member 2019\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Reckoninig/Amy+C.+reckoning.m4a"
+            },
+            {
+                quote: "A terrible hangover after a family party and a two-hour long car ride home trying not to puke was my moment of reckoning. It was the last time I was so sick I thought I might die. It would take me seven months more to quit, but it served as the catalyst for me to start exploring options. - Lisa, Tempest Member 2018\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Reckoninig/Lisa+Reckoning+.m4a"
+            },
+            {
+                quote: "I was  two  months into the pandemic and I drank through everything that I could because I could. I thought to myself, ‘What just happened?’\" - Victoria, Winter 2019\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Reckoninig/Victoria+Reckoning.m4a"
+            },
+            {
+                quote: "A friend sat me down and let me know that they couldn't be around me if I was going to keep drinking. I did not want to lose one more fucking person due to alcohol. I didn't want to continue to ruin all of my connections, friendships, and relationships. And I was just so tired of hating myself.  - DL\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Reckoninig/DL-Reckoning.m4a"
+            },
+            {
+                quote: "The biggest consequence of my drinking was the estrangement from my three adult children. With  support from Tempest and my therapist, I made the decision that my drinking would no longer depend on whether or not my children returned in my life and if they should return. - Ruth, Tempest Member 2018\n",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Reckoninig/Ruth+Reckoning.m4a"
+            },
         ]
     },
     {
