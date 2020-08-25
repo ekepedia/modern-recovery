@@ -102,7 +102,7 @@ class Canvas extends React.Component {
 
         return (<div id={"scene" + this.id} style={{height: `${IMG_HEIGHT}px`, position: "relative", width: `${IMG_WIDTH}px`, transition: "background 1s", background: `url('${src}') 0% 0% / contain no-repeat`, }}>
             <div>
-                <div style={{position: "absolute", top: "850px", left: "475px"}}>
+                <div style={{position: "absolute", top: "850px", left: "441px"}}>
                     <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Ether/Nicole+P.+Ether.m4a'} chapter={"Ether"}/>
                 </div>
             </div>

@@ -3,11 +3,15 @@ import React from "react";
 import injectSheet from 'react-jss';
 import { withRouter } from 'react-router-dom';
 
+const height = 92*2;
+const width = 476.04*2;
+
+
 const Styles = {
     container: {
-        width: "92px",
+        width: `${height}px`,
         "&:hover": {
-            width: "476.04px",
+            width: `${width}px`,
         },
     },
     playButton: {
@@ -19,7 +23,7 @@ const Styles = {
     },
     playButtonContainer: {
         background: "url('/img/play-white.png') center no-repeat",
-        backgroundSize: "20px",
+        backgroundSize: "40px",
         transition: "all 0.25s",
     },
 };
@@ -114,14 +118,16 @@ class DesktopDiscoverPlayer extends React.Component {
         const { progress, time } = this.state;
         const end = this.calculateTotalValue(this.audio.duration || 0);
 
-        return (<div id={"audio" + this.id} className={classes.container} style={{fontFamily: "UntitledSans-Regular", letterSpacing: "-0.25px", width: this.state.playing ? "476.04px" : null, transition: "0.5s", overflow: "hidden", borderRadius: "92px"}}>
-            <div style={{display: "flex", width: "476.04px", transition: "0.5s", overflow: "hidden", borderRadius: "92px", background: this.state.playing ? "url('https://www.covid19tracker.news/img/gradient.png')" : (dark ? "white" : "black"),
+
+
+        return (<div id={"audio" + this.id} className={classes.container} style={{fontFamily: "UntitledSans-Regular", letterSpacing: "-0.25px", width: this.state.playing ? `${width}px` : null, transition: "0.5s", overflow: "hidden", borderRadius: `${height}px`}}>
+            <div style={{display: "flex", width: `${width}px`, transition: "0.5s", overflow: "hidden", borderRadius: `${height}px`, background: this.state.playing ? "url('https://www.covid19tracker.news/img/gradient.png')" : (dark ? "white" : "black"),
                 animation: "backgroundmove 5s infinite",
                 backgroundPosition: "left",
                 animationTimingFunction: "ease-in-out",
-                color: (dark ? (this.state.playing ? "white" : "black") : "white"), height: "92px"}}>
-                <div style={{flex: "0 0 92px", marginRight: "10px"}}>
-                    <div onClick={() => {this.toggleAudio()}} className={classes.playButton} style={{ display: "inline-block", cursor:"pointer", height: "92px", lineHeight: "92px", textAlign: "center", width: "92px", borderRadius: "100%",
+                color: (dark ? (this.state.playing ? "white" : "black") : "white"), height: `${height}px`}}>
+                <div style={{flex: `0 0 ${height}px`, marginRight: "10px"}}>
+                    <div onClick={() => {this.toggleAudio()}} className={classes.playButton} style={{ display: "inline-block", cursor:"pointer", height: `${height}px`, lineHeight: `${height}px`, textAlign: "center", width: `${height}px`, borderRadius: "100%",
                         animation: "backgroundmove 5s infinite",
                         backgroundPosition: "left",
                         animationTimingFunction: "ease-in-out"

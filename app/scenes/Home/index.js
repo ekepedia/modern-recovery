@@ -343,7 +343,7 @@ class Home extends React.Component {
                         <div style={{display: "flex", padding: "0 22px", height: "100%"}}>
 
                             <div style={{flex: 1, lineHeight: "53px", fontFamily: "GT-America-Mono-Trial-Regular", fontSize: "14px", position: "relative"}}>
-                                <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><img className={classes.logoImage} onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer", position: "absolute", top: 22, left: 72, }} src={"/img/tempest-logo.png"}/>
+                                <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><img className={classes.logoImage} onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer", position: "absolute", top: 21, left: 72, }} src={"/img/tempest-logo.png"}/>
                             </div>
 
                             <div style={{flex: 1, lineHeight: "53px", textAlign: "center", fontFamily: "NoeDisplay Medium", fontSize: "24px", textTransform: "capitalize", letterSpacing: "-0.25px"}}>
@@ -401,8 +401,8 @@ class Home extends React.Component {
                                                                         return <div key={i} style={{opacity: this.state.textIndexBot === i ? 1 : null}} onClick={() => {this.setTextState(i)}} className={classes.dot}/>
                                                                     })}
                                                                 </div>
-                                                                <div style={{fontSize: "16px", maxWidth: "300px", lineHeight: "24px", ...SANS_SERIF_FONT}}>
-                                                                    <span style={{fontFamily: null}}>{this.state.stage.name}:</span> {this.state.stage.definition}
+                                                                <div style={{fontSize: "16px", maxWidth: "300px", lineHeight: "24px",  fontFamily: "Albra Text Regular",}}>
+                                                                    <span style={{fontFamily: "Albra Text Bold"}}>{this.state.stage.name}:</span> {this.state.stage.definition}
                                                                 </div>
                                                                 <div style={{marginTop: "80px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
                                                                     “
@@ -591,11 +591,11 @@ class Home extends React.Component {
                             <div style={{position: "fixed", top: 77, left: 44, cursor: "pointer", height: "19px", width: "19px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
                                 <img style={{height: "100%", width: "100%", transition: "0.5s"}} src={this.state.darkBot ? "/img/info-icon-white.png" : "/img/info-icon.png"}/>
                             </div>
-                            <div style={{...SANS_SERIF_FONT_BODY, opacity: this.state.showInfoModal ? 1 : 0, transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "11px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: 53, left: 92, height: "305px", width: "270px", boxShadow: "0px 1px 4px #00000011"}}>
+                            <div style={{...SANS_SERIF_FONT_BODY, letterSpacing: "0", opacity: this.state.showInfoModal ? 1 : 0, transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "12px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: 53, left: 92, height: "fit-content", width: "300px", boxShadow: "0px 1px 4px #00000011"}}>
                                 <div style={{position: "absolute", height: "10px", width: "10px", top: 12, right: 17, cursor: "pointer"}} onClick={() => {this.setState({showInfoModal: false})}}>
                                     <img style={{height: "100%", width: "100%", transition: "0.5s"}} src={this.state.darkBot ? "/img/close-button.png" : "/img/white-x.png"}/>
                                 </div>
-                                <div style={{fontFamily: "Albra Text Regular", marginTop: "8px", fontSize: "16px"}}>
+                                <div style={{fontFamily: "Albra Text Regular", marginTop: "8px", fontSize: "18px"}}>
                                     Exploring the Recovery Journey
                                 </div>
                                 <div style={{marginTop: "8px"}}>
