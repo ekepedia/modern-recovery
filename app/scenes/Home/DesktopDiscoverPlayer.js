@@ -65,6 +65,8 @@ class DesktopDiscoverPlayer extends React.Component {
     }
 
     setListeners() {
+
+        console.log("SETTING LSITER", this.audio);
         this.audio.addEventListener('ended',() => {
             this.pauseAudio();
         });
@@ -82,9 +84,10 @@ class DesktopDiscoverPlayer extends React.Component {
         if (prevProps.audio !== this.props.audio) {
             this.pauseAudio();
             this.audio = new Audio(this.props.audio);
+            this.setListeners();
             this.setState({
                 progress: 0
-            })
+            });
         }
     }
 

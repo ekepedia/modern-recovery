@@ -367,10 +367,8 @@ class Home extends React.Component {
                                     <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
                                         <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 94 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "url('https://www.covid19tracker.news/img/gradient.png')" : "#7dc49b",
                                             animation: "backgroundmove 5s infinite",
-                                            backgroundPosition: "left",
                                             animationTimingFunction: "ease-in-out",
                                             borderRadius: "100%"}}>
-
                                         </div>
                                         <div style={{lineHeight: "30px", fontSize: "14px", whiteSpace: "nowrap", ...SANS_SERIF_FONT, position: "absolute", top: 0, right: !this.state.chapter ? 27 : 10, opacity: this.state.changingMode ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
                                             <div style={{display: "inline-block"}}>
@@ -398,7 +396,7 @@ class Home extends React.Component {
                                                             <div style={{padding: "50px", width: "100%", height: "476.88px", position: "relative", borderRadius: "7px", background: "rgba(255,255, 255, 0.1)"}}>
                                                                 <div style={{position: "absolute", top: 50, right: 40}}>
                                                                     {this.state.stage.quotes.map((q, i) => {
-                                                                        return <div key={i} style={{opacity: this.state.textIndexBot === i ? 1 : null}} onClick={() => {this.setTextState(i)}} className={classes.dot}/>
+                                                                        return <div key={"q" + i} style={{opacity: this.state.textIndexBot === i ? 1 : null}} onClick={() => {this.setTextState(i)}} className={classes.dot}/>
                                                                     })}
                                                                 </div>
                                                                 <div style={{fontSize: "16px", maxWidth: "300px", lineHeight: "24px",  fontFamily: "Albra Text Regular",}}>
@@ -423,7 +421,7 @@ class Home extends React.Component {
                                                     <div style={{flex: 1, textAlign: "right", overflow: "hidden", height: "100%"}}>
                                                         <div style={{paddingTop: "calc((100vh - 476.88px - 53px)/2)"}}>
                                                             {STAGES.map((stage, i) => {
-                                                                return (<div key={stage} onClick={() => {this.setIndex(i)}} className={this.state.stageIndex === i ? classes.tabBigName : classes.tabName}>{stage.name}</div>);
+                                                                return (<div key={stage.name} onClick={() => {this.setIndex(i)}} className={this.state.stageIndex === i ? classes.tabBigName : classes.tabName}>{stage.name}</div>);
                                                             })}
                                                         </div>
                                                     </div>
@@ -531,9 +529,9 @@ class Home extends React.Component {
                                                             <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Join In</div>
                                                             <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>We’ll be hosting a series of virtual events in honor of Recovery Month. RSVP to save your spot!
                                                             </div>
-                                                            {[0,1].map(() => {
+                                                            {[0,1].map((i) => {
                                                                 return (
-                                                                    <div style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>
+                                                                    <div key={"mmj" + i} style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>
                                                                         <div style={{flex: "0 0 117px"}}>
                                                                             <div style={{height: "92px", width: "92px", background: "white", borderRadius: "100%"}}></div>
                                                                         </div>
@@ -558,7 +556,7 @@ class Home extends React.Component {
                                                         </div>
                                                         {this.pillars.map((pillar, index) => {
                                                             return (
-                                                                <div key={index} style={{marginBottom: "70px"}}>
+                                                                <div key={"p" + index} style={{marginBottom: "70px"}}>
                                                                     <div style={{display: "flex"}}>
                                                                         <div style={{flex: "0 0 140px"}}>
                                                                             <div style={{fontSize: "60px", lineHeight: "60px", fontFamily: "NoeDisplay Regular"}}>
@@ -705,7 +703,7 @@ class Home extends React.Component {
                                                 <div style={{textAlign: "center", paddingBottom: "100px"}}>
                                                     {this.state.stage.quotes.map((pillar, index) => {
                                                         return (
-                                                            <div  onClick={() => this.setState({mobileIndex1: index})} key={index} style={{marginRight: "15px", height: "7px", width: "7px", borderRadius: "100%", background: "black", opacity: index === this.state.mobileIndex1 ? 1 : 0.2, transition: "1s", display: "inline-block",}}>
+                                                            <div  onClick={() => this.setState({mobileIndex1: index})} key={"qm" + index} style={{marginRight: "15px", height: "7px", width: "7px", borderRadius: "100%", background: "black", opacity: index === this.state.mobileIndex1 ? 1 : 0.2, transition: "1s", display: "inline-block",}}>
 
                                                             </div>
                                                         )
@@ -807,9 +805,9 @@ class Home extends React.Component {
                                                             <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Join In</div>
                                                             <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>We’ll be hosting a series of virtual events in honor of Recovery Month. RSVP to save your spot!
                                                             </div>
-                                                            {[0,1].map(() => {
+                                                            {[0,1].map((i) => {
                                                                 return (
-                                                                    <div style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>
+                                                                    <div key={"j" + i} style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>
                                                                         <div style={{flex: "0 0 117px"}}>
                                                                             <div style={{height: "92px", width: "92px", background: "white", borderRadius: "100%"}}></div>
                                                                         </div>
@@ -825,7 +823,7 @@ class Home extends React.Component {
                                                     <div style={{textAlign: "center"}}>
                                                         {[1,2,3,4].map((pillar, index) => {
                                                             return (
-                                                                <div  onClick={() => this.setState({mobileIndex2: index})} key={index} style={{marginRight: index === 3 ? 0 : "15px", height: "7px", width: "7px", borderRadius: "100%", background: "white", opacity: index === this.state.mobileIndex2 ? 1 : 0.2, transition: "1s", display: "inline-block",}}>
+                                                                <div  onClick={() => this.setState({mobileIndex2: index})} key={"mp" + index} style={{marginRight: index === 3 ? 0 : "15px", height: "7px", width: "7px", borderRadius: "100%", background: "white", opacity: index === this.state.mobileIndex2 ? 1 : 0.2, transition: "1s", display: "inline-block",}}>
 
                                                                 </div>
                                                             )
@@ -873,7 +871,7 @@ class Home extends React.Component {
                                                     <div style={{textAlign: "center", paddingBottom: "100px"}}>
                                                         {this.pillars.map((pillar, index) => {
                                                             return (
-                                                                <div  onClick={() => this.setState({mobileIndex3: index})} key={index} style={{marginRight: "15px", height: "7px", width: "7px", borderRadius: "100%", background: "white", opacity: index === this.state.mobileIndex3 ? 1 : 0.2, transition: "1s", display: "inline-block",}}>
+                                                                <div  onClick={() => this.setState({mobileIndex3: index})} key={"mmp" + index} style={{marginRight: "15px", height: "7px", width: "7px", borderRadius: "100%", background: "white", opacity: index === this.state.mobileIndex3 ? 1 : 0.2, transition: "1s", display: "inline-block",}}>
 
                                                                 </div>
                                                             )

@@ -77,6 +77,7 @@ class DesktopChapterPlayer extends React.Component {
         if (prevProps.audio !== this.props.audio) {
             this.pauseAudio();
             this.audio = new Audio(this.props.audio);
+            this.setListeners();
             this.setState({
                 progress: 0
             })
