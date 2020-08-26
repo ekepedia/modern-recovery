@@ -122,11 +122,11 @@ class DesktopDiscoverPlayer extends React.Component {
         const end = this.calculateTotalValue(this.audio.duration || 0);
 
 
-
         return (<div id={"audio" + this.id} className={classes.container} style={{fontFamily: "UntitledSans-Regular", letterSpacing: "-0.25px", width: this.state.playing ? `${width}px` : null, transition: "0.5s", overflow: "hidden", borderRadius: `${height}px`}}>
-            <div style={{display: "flex", width: `${width}px`, transition: "0.5s", overflow: "hidden", borderRadius: `${height}px`, background: this.state.playing ? "url('https://www.covid19tracker.news/img/gradient.png')" : (dark ? "white" : "black"),
+            <div style={{display: "flex", width: `${width}px`, transition: "0.5s", overflow: "hidden", borderRadius: `${height}px`, background: this.state.playing ? "url('https://www.covid19tracker.news/img/gradient.png') left center / 300% no-repeat" : (dark ? "white" : "black"),
                 animation: "backgroundmove 5s infinite",
                 backgroundPosition: "left",
+                backgroundSize: "300%",
                 animationTimingFunction: "ease-in-out",
                 color: (dark ? (this.state.playing ? "white" : "black") : "white"), height: `${height}px`}}>
                 <div style={{flex: `0 0 ${height}px`, marginRight: "10px"}}>
@@ -140,17 +140,19 @@ class DesktopDiscoverPlayer extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div style={{flex: 1, paddingRight: "50px", fontSize: "20px"}}>
-                    <div style={{marginTop: "12px", marginBottom: "6px"}}><span style={{fontFamily: "UntitledSans-Bold"}}>Chapter:</span> {chapter}</div>
-                    <div style={{width: "100%",}}>
-                        <div style={{display: "flex", fontFamily: "UntitledSans-Regular", lineHeight: "20px", fontSize: "18px"}}>
-                            <div style={{flex: "0 0 15px"}}>{time}</div>
-                            <div style={{flex: 1, margin: "0 8px", position: "relative"}}>
-                                <div style={{height: "3px", position: "absolute", top: "calc(50% - 1.5px)", width: "100%", background: "#84827b50", borderRadius: "5px"}}>
-                                    <div style={{height: "100%", background: (dark ? "black" : "white"), width: `${progress * 100}%`, borderRadius: "5px", transition: "all 0.5s cubic-bezier(0.39, 0.58, 0.57, 1) 0s"}}/>
+                <div style={{flex: 1, paddingRight: "50px", fontSize: "40px", position: "relative"}}>
+                    <div style={{position: "absolute", left: 0, width: "calc(100% - 50px)", top: "calc(50% - 61px)"}}>
+                        <div style={{marginTop: "12px", marginBottom: "6px"}}><span style={{fontFamily: "UntitledSans-Bold"}}>Chapter:</span> {chapter}</div>
+                        <div style={{width: "100%",}}>
+                            <div style={{display: "flex", fontFamily: "UntitledSans-Regular", lineHeight: "20px", fontSize: "36px"}}>
+                                <div style={{flex: "0 0 15px"}}>{time}</div>
+                                <div style={{flex: 1, margin: "0 16px", position: "relative"}}>
+                                    <div style={{height: "6px", position: "absolute", top: "calc(50% - 1.5px)", width: "100%", background: "#84827b50", borderRadius: "5px"}}>
+                                        <div style={{height: "100%", background: (dark ? "black" : "white"), width: `${progress * 100}%`, borderRadius: "5px", transition: "all 0.5s cubic-bezier(0.39, 0.58, 0.57, 1) 0s"}}/>
+                                    </div>
                                 </div>
+                                <div style={{flex: "0 0 15px"}}>{end}</div>
                             </div>
-                            <div style={{flex: "0 0 15px"}}>{end}</div>
                         </div>
                     </div>
                 </div>
