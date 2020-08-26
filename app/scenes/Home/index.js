@@ -186,14 +186,17 @@ const Styles = {
         animation: "backgroundmove2 1.5s infinite",
         backgroundPosition: "left",
         animationTimingFunction: "ease-in-out"
-            // top: 0,
-            // transform: "translateX(100%)",
-            // width: "100%",
-            // height: "220px",
-            // position: "absolute",
-            // zIndex: 1,
-            // animation: "slide 2s infinite",
-            // background: "linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 50%,rgba(128,186,232,0) 99%,rgba(125,185,232,0) 100%)",
+    },
+    modernHeader: {
+        "&:hover": {
+            background: "url('/img/chapter-gradient.png')",
+            backgroundSize: "600% 600%",
+            animation: "backgroundmove 10s infinite",
+            backgroundPosition: "left",
+            animationTimingFunction: "ease-in-out",
+            "-webkit-background-clip": "text",
+            "-webkit-text-fill-color": "transparent",
+        }
     }
 };
 
@@ -369,7 +372,7 @@ class Home extends React.Component {
                             </div>
 
                             <div style={{flex: 1, lineHeight: "53px", textAlign: "center", fontFamily: "NoeDisplay Medium", fontSize: "24px", textTransform: "capitalize", letterSpacing: "-0.25px"}}>
-                                <span style={{cursor: "pointer"}} onClick={() => {this.setDiscoverMode()}}>Modern Recovery</span>
+                                <span className={classes.modernHeader} style={{cursor: "pointer"}} onClick={() => {this.setDiscoverMode()}}>Modern Recovery</span>
                             </div>
 
                             <div style={{flex: 1, fontFamily: "Roboto", height: "100%", overflow: "hidden", textAlign: "right", fontSize: "14px"}}>
@@ -386,7 +389,7 @@ class Home extends React.Component {
                                     </div>
                                 </div>
                                 <div  style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
-                                    <div className={classes.buttonShine} onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
+                                    <div className={classes.buttonShine} onClick={() => {this.toggleChapter()}} style={{background: this.state.chapter ? "none" : null, marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
                                         <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 94 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "url('/img/chapter-gradient.png')" : "url('/img/chapter-gradient.png')",
                                             animation: "backgroundmove 10s infinite",
                                             animationTimingFunction: "ease-in-out",
