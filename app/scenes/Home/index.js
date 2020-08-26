@@ -524,25 +524,25 @@ class Home extends React.Component {
                                                                 <img style={{width: "100%", position: "absolute", right: 0, top: "calc(50% - 10px)"}} src={"/img/right-arrow.png"}/>
                                                             </div>
                                                         </div>
-                                                        <hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>
-                                                        <div>
-                                                            <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Join In</div>
-                                                            <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>We’ll be hosting a series of virtual events in honor of Recovery Month. RSVP to save your spot!
-                                                            </div>
-                                                            {[0,1].map((i) => {
-                                                                return (
-                                                                    <div key={"mmj" + i} style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>
-                                                                        <div style={{flex: "0 0 117px"}}>
-                                                                            <div style={{height: "92px", width: "92px", background: "white", borderRadius: "100%"}}></div>
-                                                                        </div>
-                                                                        <div style={{flex: 1}}>
-                                                                            <div style={{...SANS_SERIF_FONT_BODY, textAlign: "left", fontSize: "12px"}}>Join MadHappy and Tempest for a Tie Dyeing Class</div>
-                                                                            <div style={{height: "40px", fontFamily: "UntitledSans-Medium", letterSpacing: "1px", marginTop: "20px", width: "83px", fontSize: "12px", borderRadius: "20px", border: "1px solid white", lineHeight: "40px"}}>RSVP</div>
-                                                                        </div>
-                                                                    </div>
-                                                                )
-                                                            })}
-                                                        </div>
+                                                        {/*<hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>*/}
+                                                        {/*<div>*/}
+                                                        {/*    <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Join In</div>*/}
+                                                        {/*    <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>We’ll be hosting a series of virtual events in honor of Recovery Month. RSVP to save your spot!*/}
+                                                        {/*    </div>*/}
+                                                        {/*    {[0,1].map((i) => {*/}
+                                                        {/*        return (*/}
+                                                        {/*            <div key={"mmj" + i} style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>*/}
+                                                        {/*                <div style={{flex: "0 0 117px"}}>*/}
+                                                        {/*                    <div style={{height: "92px", width: "92px", background: "white", borderRadius: "100%"}}></div>*/}
+                                                        {/*                </div>*/}
+                                                        {/*                <div style={{flex: 1}}>*/}
+                                                        {/*                    <div style={{...SANS_SERIF_FONT_BODY, textAlign: "left", fontSize: "12px"}}>Join MadHappy and Tempest for a Tie Dyeing Class</div>*/}
+                                                        {/*                    <div style={{height: "40px", fontFamily: "UntitledSans-Medium", letterSpacing: "1px", marginTop: "20px", width: "83px", fontSize: "12px", borderRadius: "20px", border: "1px solid white", lineHeight: "40px"}}>RSVP</div>*/}
+                                                        {/*                </div>*/}
+                                                        {/*            </div>*/}
+                                                        {/*        )*/}
+                                                        {/*    })}*/}
+                                                        {/*</div>*/}
 
                                                     </div>
                                                 </div>
@@ -801,27 +801,27 @@ class Home extends React.Component {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 3 ? null : "none"}}>
-                                                            <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Join In</div>
-                                                            <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>We’ll be hosting a series of virtual events in honor of Recovery Month. RSVP to save your spot!
-                                                            </div>
-                                                            {[0,1].map((i) => {
-                                                                return (
-                                                                    <div key={"j" + i} style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>
-                                                                        <div style={{flex: "0 0 117px"}}>
-                                                                            <div style={{height: "92px", width: "92px", background: "white", borderRadius: "100%"}}></div>
-                                                                        </div>
-                                                                        <div style={{flex: 1}}>
-                                                                            <div style={{...SANS_SERIF_FONT_BODY, textAlign: "left", fontSize: "12px"}}>Join MadHappy and Tempest for a Tie Dyeing Class</div>
-                                                                            <div style={{height: "40px", fontFamily: "UntitledSans-Medium", letterSpacing: "1px", marginTop: "20px", width: "83px", fontSize: "12px", borderRadius: "20px", border: "1px solid white", lineHeight: "40px"}}>RSVP</div>
-                                                                        </div>
-                                                                    </div>
-                                                                )
-                                                            })}
-                                                        </div>
+                                                        {/*<div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 3 ? null : "none"}}>*/}
+                                                        {/*    <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Join In</div>*/}
+                                                        {/*    <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>We’ll be hosting a series of virtual events in honor of Recovery Month. RSVP to save your spot!*/}
+                                                        {/*    </div>*/}
+                                                        {/*    {[0,1].map((i) => {*/}
+                                                        {/*        return (*/}
+                                                        {/*            <div key={"j" + i} style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>*/}
+                                                        {/*                <div style={{flex: "0 0 117px"}}>*/}
+                                                        {/*                    <div style={{height: "92px", width: "92px", background: "white", borderRadius: "100%"}}></div>*/}
+                                                        {/*                </div>*/}
+                                                        {/*                <div style={{flex: 1}}>*/}
+                                                        {/*                    <div style={{...SANS_SERIF_FONT_BODY, textAlign: "left", fontSize: "12px"}}>Join MadHappy and Tempest for a Tie Dyeing Class</div>*/}
+                                                        {/*                    <div style={{height: "40px", fontFamily: "UntitledSans-Medium", letterSpacing: "1px", marginTop: "20px", width: "83px", fontSize: "12px", borderRadius: "20px", border: "1px solid white", lineHeight: "40px"}}>RSVP</div>*/}
+                                                        {/*                </div>*/}
+                                                        {/*            </div>*/}
+                                                        {/*        )*/}
+                                                        {/*    })}*/}
+                                                        {/*</div>*/}
                                                     </div>
                                                     <div style={{textAlign: "center"}}>
-                                                        {[1,2,3,4].map((pillar, index) => {
+                                                        {[1,2,3].map((pillar, index) => {
                                                             return (
                                                                 <div  onClick={() => this.setState({mobileIndex2: index})} key={"mp" + index} style={{marginRight: index === 3 ? 0 : "15px", height: "7px", width: "7px", borderRadius: "100%", background: "white", opacity: index === this.state.mobileIndex2 ? 1 : 0.2, transition: "1s", display: "inline-block",}}>
 

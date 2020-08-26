@@ -47,9 +47,9 @@ class Canvas extends React.Component {
             bounds: false,
             // boundsPadding: 0.5,
             onTouch: (e) => {
-                console.log(e);
-                console.log(e.target)
-                console.log(e.target.id, `scene${this.id}`);
+                // console.log(e);
+                // console.log(e.target)
+                // console.log(e.target.id, `scene${this.id}`);
 
                 if (e.target.id === `scene${this.id}`)
                     return true;
@@ -141,8 +141,6 @@ class Canvas extends React.Component {
 
     setModal(e) {
 
-        console.log(e.nativeEvent);
-
         const x = e.nativeEvent.offsetX;
         const y = e.nativeEvent.offsetY;
 
@@ -181,13 +179,10 @@ class Canvas extends React.Component {
 
         return (<div id={"scene" + this.id} onMouseDown={(e) => {this.move = false; this.moveTime = new Date().getTime()}} onMouseMove={(e) => {this.move = true; }} onMouseUp={(e) => {
             if (!this.move || (new Date().getTime() - this.moveTime) < 150) {
-                console.log("CLICKKK")
                 this.setModal(e);
-            } else {
-                console.log("DRAGGGG", new Date().getTime() - this.moveTime);
-
             }
             this.move = false;
+            this.moveTime = 0;
         }} style={{height: `${IMG_HEIGHT}px`, position: "relative", width: `${IMG_WIDTH}px`, transition: "background 1s", background: `url('${src}') 0% 0% / contain no-repeat`, }}>
             <div>
                 <div style={{position: "absolute", top: "850px", left: "441px"}}>
