@@ -172,6 +172,13 @@ const Styles = {
             animation: "wiggle infinite 1.5s alternate",
             transformOrigin: "bottom"
         }
+    },
+    pillarsX: {
+        background: "url('/img/close-button.png') center / cover",
+        "&:hover": {
+            background: "url('/img/close-button-blue.png') center / cover",
+
+        }
     }
 };
 
@@ -352,12 +359,12 @@ class Home extends React.Component {
 
                             <div style={{flex: 1, fontFamily: "Roboto", height: "100%", overflow: "hidden", textAlign: "right", fontSize: "14px"}}>
                                 <div style={{display: "inline-block", opacity: this.state.chapterBot ? 0 : 1, transition: "1s", padding: "11px 0", height: "100%", overflow: "hidden"}}>
-                                    <div onClick={() => {this.toggleLightDark()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "100px", borderRadius: "15px"}}>
-                                        <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.darkBot ? 74 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.darkBot ? "black" : "#efb83e", borderRadius: "100%"}}>
+                                    <div onClick={() => {this.toggleLightDark()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "110px", borderRadius: "15px"}}>
+                                        <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.darkBot ? 84 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.darkBot ? "black" : "#efb83e", borderRadius: "100%"}}>
 
                                         </div>
-                                        <div style={{lineHeight: "30px", fontSize: "12px", ...SANS_SERIF_FONT, position: "absolute", top: 0, right: this.state.dark ? 30 : 10, opacity: this.state.changingDark ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
-                                            <div style={{display: "inline-block", overflow: "hidden"}}>
+                                        <div style={{lineHeight: "30px", fontSize: "14px", ...SANS_SERIF_FONT, position: "absolute", top: 0, right: this.state.dark ? 40 : 15, opacity: this.state.changingDark ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
+                                            <div style={{display: "inline-block",}}>
                                                 {this.state.dark ? "Dark" : "Light"} Mode
                                             </div>
                                         </div>
@@ -434,7 +441,7 @@ class Home extends React.Component {
                                     <div style={{display: "flex", height: "100%"}}>
                                         <div className={classes.pillarBar} style={{flex: "0 0 46px", border: this.state.pillars ? "none" : null, background: this.state.pillars ? "white" : null, transition: this.state.pillars ? "1s" : "0.25s", height: "100%"}} onClick={() => {this.setState({pillars: !this.state.pillars})}}>
                                             <div style={{textAlign: "center"}}>
-                                                <img src={"/img/close-button.png"} style={{width: "16px", transition: "1s", opacity: this.state.pillars ? 1 : 0, marginTop: "15px", display: "inline-block"}}/>
+                                                <div className={classes.pillarsX} style={{width: "16px", height: "17px", transition: "opacity 1s, background 0.25s", opacity: this.state.pillars ? 1 : 0, marginTop: "15px", display: "inline-block", }}/>
                                             </div>
                                             <div style={{transform: "rotate(-90deg)",
                                                 margin: "auto",
