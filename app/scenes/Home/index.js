@@ -179,6 +179,21 @@ const Styles = {
             background: "url('/img/close-button-blue.png') center / cover",
 
         }
+    },
+    buttonShine: {
+        background: "linear-gradient(90deg, rgba(107,214,197,0) 40%, rgba(215,215,215,0.7) 49%, rgba(60,190,89,0) 60%)",
+        backgroundSize: "600% 600%",
+        animation: "backgroundmove2 1.5s infinite",
+        backgroundPosition: "left",
+        animationTimingFunction: "ease-in-out"
+            // top: 0,
+            // transform: "translateX(100%)",
+            // width: "100%",
+            // height: "220px",
+            // position: "absolute",
+            // zIndex: 1,
+            // animation: "slide 2s infinite",
+            // background: "linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.8) 50%,rgba(128,186,232,0) 99%,rgba(125,185,232,0) 100%)",
     }
 };
 
@@ -370,8 +385,8 @@ class Home extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-                                <div style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
-                                    <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
+                                <div  style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
+                                    <div className={classes.buttonShine} onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
                                         <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 94 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "url('/img/chapter-gradient.png')" : "url('/img/chapter-gradient.png')",
                                             animation: "backgroundmove 10s infinite",
                                             animationTimingFunction: "ease-in-out",
