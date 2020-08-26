@@ -5,6 +5,8 @@ import { withRouter } from 'react-router-dom';
 import panzoom from "panzoom";
 import DesktopDiscoverPlayer from "./DesktopDiscoverPlayer";
 
+import { STAGES } from "./copy";
+
 const Styles = {
 };
 
@@ -12,16 +14,14 @@ const ZOOM_FACTOR = 0.05;
 const IMG_HEIGHT = 3072;
 const IMG_WIDTH = 5760;
 
-var myaudio = new Audio('/img/test-audio.m4a');
-
 class Canvas extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            ether: false
-
+            showChapterModal: false,
+            showChapterModalIndex: 0
         };
         this.instance = null;
         this.id = Math.round(Math.random() * 10000);
@@ -30,12 +30,6 @@ class Canvas extends React.Component {
     componentDidMount() {
 
         const holder = this.props.holder;
-
-        myaudio.addEventListener('ended',() => {
-            this.setState({
-                playing: false
-            })
-        })
 
         const element = document.querySelector('#scene' + this.id);
 
@@ -145,25 +139,55 @@ class Canvas extends React.Component {
             this.instance.pause();
     }
 
+    setModal(e) {
+
+        console.log(e.nativeEvent);
+
+        const x = e.nativeEvent.offsetX;
+        const y = e.nativeEvent.offsetY;
+
+        console.log("(", e.nativeEvent.offsetX, ",", e.nativeEvent.offsetY, ")")
+
+        let index = 0;
+
+        if (y < 1500 ) {
+            if (x < 1930) {
+                index = 0;
+            } else if ( x < 3840) {
+                index = 2;
+            } else {
+                index = 5;
+            }
+        } else {
+            if (x < 1930) {
+                index = 1;
+            } else if ( x < 3840) {
+                index = 3;
+            } else {
+                index = 4;
+            }
+        }
+
+        this.setState({
+            showChapterModal: true,
+            showChapterModalIndex: index,
+            lastX: x,
+            lastY: y
+        })
+    }
+
     render() {
         let { classes, src, dark } = this.props;
 
-        return (<div id={"scene" + this.id} onClick={(e) => {
+        return (<div id={"scene" + this.id} onMouseDown={(e) => {this.move = false; this.moveTime = new Date().getTime()}} onMouseMove={(e) => {this.move = true; }} onMouseUp={(e) => {
+            if (!this.move || (new Date().getTime() - this.moveTime) < 150) {
+                console.log("CLICKKK")
+                this.setModal(e);
+            } else {
+                console.log("DRAGGGG", new Date().getTime() - this.moveTime);
 
-            const x = e.nativeEvent.offsetX;
-            const y = e.nativeEvent.offsetY;
-
-            console.log("(", e.nativeEvent.offsetX, ",", e.nativeEvent.offsetY, ")")
-
-            if (y > 1000 && x < 1000) {
-                this.setState({
-                    ether: true,
-                    lastX: x,
-                    lastY: y
-                })
             }
-
-
+            this.move = false;
         }} style={{height: `${IMG_HEIGHT}px`, position: "relative", width: `${IMG_WIDTH}px`, transition: "background 1s", background: `url('${src}') 0% 0% / contain no-repeat`, }}>
             <div>
                 <div style={{position: "absolute", top: "850px", left: "441px"}}>
@@ -188,9 +212,18 @@ class Canvas extends React.Component {
                 <div style={{position: "absolute", top: "217px", left: "5250px"}}>
                     <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Outpouring/Valentine+Outpouring.mp3'} chapter={"Outpouring"}/>
                 </div>
-                <div style={{position: "absolute", top: `${this.state.lastY}px`, left: `${this.state.lastX}px`}}>
-                    <div style={{height: "100px", width: "300px", background: "black", display: this.state.ether ? "block" : "none"}}>
-                        <div onClick={() => {this.setState({ether: false})}}>CLOSE</div>
+                <div style={{position: "absolute", top: `${this.state.lastY}px`, left: `${this.state.lastX}px`, }}>
+                    <div style={{height: "fit-content", position: "relative", width: "1250px", textAlign: "left", padding: "78px", background: dark ? "white" : "black", color: dark ? "black" : "white", display: this.state.showChapterModal ? "block" : "none"}}>
+                        <div style={{position: "absolute", top: 52, right: 52, cursor: "pointer", height: "46px", width: "46px"}} onClick={() => {this.setState({showChapterModal: false})}}>
+                            <img style={{height: "100%", width: "100%"}} src={this.state.darkBot ? "/img/close-button.png" : "/img/white-x.png"}/>
+                        </div>
+
+                        <div style={{fontSize: "60px", width: "fit-content", marginBottom: "25px", fontFamily: "Albra Text Regular", color: dark ? "white" : "black", background: dark ? "black" : "white", padding: "0 50px", height: "92px", lineHeight: "92px", borderRadius: "100px"}}>
+                            {STAGES[this.state.showChapterModalIndex].name}
+                        </div>
+                        <div style={{fontFamily: "UntitledSans-Regular", fontSize: "55px"}}>
+                            We see our drinking in a new light and we wonder if things could be different.
+                        </div>
                     </div>
                 </div>
             </div>
