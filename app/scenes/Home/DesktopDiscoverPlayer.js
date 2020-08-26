@@ -123,10 +123,10 @@ class DesktopDiscoverPlayer extends React.Component {
 
 
         return (<div id={"audio" + this.id} className={classes.container} style={{fontFamily: "UntitledSans-Regular", letterSpacing: "-0.25px", width: this.state.playing ? `${width}px` : null, transition: "0.5s", overflow: "hidden", borderRadius: `${height}px`}}>
-            <div style={{display: "flex", width: `${width}px`, transition: "0.5s", overflow: "hidden", borderRadius: `${height}px`, background: this.state.playing ? "url('https://www.covid19tracker.news/img/gradient.png') left center / 300% no-repeat" : (dark ? "white" : "black"),
+            <div style={{display: "flex", width: `${width}px`, transition: "0.5s", overflow: "hidden", borderRadius: `${height}px`, background: this.state.playing ? "url('/img/discover-gradient.png') left center / 300% no-repeat" : (dark ? "white" : "black"),
                 animation: "backgroundmove 5s infinite",
                 backgroundPosition: "left",
-                backgroundSize: "300%",
+                backgroundSize: "500%",
                 animationTimingFunction: "ease-in-out",
                 color: (dark ? (this.state.playing ? "white" : "black") : "white"), height: `${height}px`}}>
                 <div style={{flex: `0 0 ${height}px`, marginRight: "10px"}}>

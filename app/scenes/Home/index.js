@@ -372,8 +372,8 @@ class Home extends React.Component {
                                 </div>
                                 <div style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
                                     <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
-                                        <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 94 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "url('https://www.covid19tracker.news/img/gradient.png')" : "url('https://www.covid19tracker.news/img/gradient.png')",
-                                            animation: "backgroundmove 5s infinite",
+                                        <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 94 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "url('/img/chapter-gradient.png')" : "url('/img/chapter-gradient.png')",
+                                            animation: "backgroundmove 10s infinite",
                                             animationTimingFunction: "ease-in-out",
                                             borderRadius: "100%"}}>
                                         </div>

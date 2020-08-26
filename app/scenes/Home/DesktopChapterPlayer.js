@@ -130,8 +130,8 @@ class DesktopChapterPlayer extends React.Component {
                     </div>
                 </div>
                 <div style={{flex: "0 0 50px"}}>
-                    <div onClick={() => {this.toggleAudio()}} className={classes.playButton} style={{ display: "inline-block", background: this.state.playing ? "url('https://www.covid19tracker.news/img/gradient.png')" : null, cursor:"pointer", height: "36px", lineHeight: "36px", textAlign: "center", width: "36px", borderRadius: "100%",
-                        animation: "backgroundmove 5s infinite",
+                    <div onClick={() => {this.toggleAudio()}} className={classes.playButton} style={{ display: "inline-block", background: this.state.playing ? "url('/img/chapter-gradient.png')" : null, cursor:"pointer", height: "36px", lineHeight: "36px", textAlign: "center", width: "36px", borderRadius: "100%",
+                        animation: "backgroundmove 10s infinite",
                         backgroundPosition: "left",
                         animationTimingFunction: "ease-in-out"
                     }}>

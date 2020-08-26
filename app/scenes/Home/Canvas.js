@@ -141,6 +141,9 @@ class Canvas extends React.Component {
 
     setModal(e) {
 
+        if (e.target.id !== `scene${this.id}`)
+            return;
+
         const x = e.nativeEvent.offsetX;
         const y = e.nativeEvent.offsetY;
 
