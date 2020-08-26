@@ -176,6 +176,18 @@ class Canvas extends React.Component {
                 <div style={{position: "absolute", top: "264px", left: "2822px"}}>
                     <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Awareness/Nicole+P.+Awareness.m4a'} chapter={"Awareness"}/>
                 </div>
+
+                <div style={{position: "absolute", top: "2657px", left: "2990px"}}>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Reckoninig/Nicole+P.+Reckoning.m4a'} chapter={"Reckoning"}/>
+                </div>
+
+                <div style={{position: "absolute", top: "2417px", left: "4510px"}}>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Rebuilding/Tina+-+Rebuilding.m4a'} chapter={"Rebuilding"}/>
+                </div>
+
+                <div style={{position: "absolute", top: "217px", left: "5250px"}}>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Outpouring/Valentine+Outpouring.mp3'} chapter={"Outpouring"}/>
+                </div>
                 <div style={{position: "absolute", top: `${this.state.lastY}px`, left: `${this.state.lastX}px`}}>
                     <div style={{height: "100px", width: "300px", background: "black", display: this.state.ether ? "block" : "none"}}>
                         <div onClick={() => {this.setState({ether: false})}}>CLOSE</div>

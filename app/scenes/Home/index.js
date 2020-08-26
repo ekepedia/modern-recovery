@@ -353,7 +353,7 @@ class Home extends React.Component {
                             <div style={{flex: 1, fontFamily: "Roboto", height: "100%", overflow: "hidden", textAlign: "right", fontSize: "14px"}}>
                                 <div style={{display: "inline-block", opacity: this.state.chapterBot ? 0 : 1, transition: "1s", padding: "11px 0", height: "100%", overflow: "hidden"}}>
                                     <div onClick={() => {this.toggleLightDark()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "100px", borderRadius: "15px"}}>
-                                        <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.darkBot ? 74 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.darkBot ? "black" : "#7dc49b", borderRadius: "100%"}}>
+                                        <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.darkBot ? 74 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.darkBot ? "black" : "#efb83e", borderRadius: "100%"}}>
 
                                         </div>
                                         <div style={{lineHeight: "30px", fontSize: "12px", ...SANS_SERIF_FONT, position: "absolute", top: 0, right: this.state.dark ? 30 : 10, opacity: this.state.changingDark ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
@@ -365,7 +365,7 @@ class Home extends React.Component {
                                 </div>
                                 <div style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
                                     <div onClick={() => {this.toggleChapter()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
-                                        <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 94 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "url('https://www.covid19tracker.news/img/gradient.png')" : "#7dc49b",
+                                        <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 94 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "url('https://www.covid19tracker.news/img/gradient.png')" : "url('https://www.covid19tracker.news/img/gradient.png')",
                                             animation: "backgroundmove 5s infinite",
                                             animationTimingFunction: "ease-in-out",
                                             borderRadius: "100%"}}>
@@ -485,8 +485,8 @@ class Home extends React.Component {
                                                             <input type="hidden" name="retURL"
                                                                    value="http://jointempest.com/"/>
 
-                                                            <input type="hidden" name="debug" value="1"/>
-                                                            <input type="hidden" name="debugEmail"/>
+                                                            {/*<input type="hidden" name="debug" value="1"/>*/}
+                                                            {/*<input type="hidden" name="debugEmail"/>*/}
 
                                                             <input id="last_name" maxLength="80" name="last_name" size="20"
                                                                    type="text" placeholder={"Enter Your Name"} className={classes.inputBox}/>
@@ -586,7 +586,7 @@ class Home extends React.Component {
                         :
                         <div id="canvas-holder" style={{flex: 1, background: this.state.darkBot ? "#272F46" : "#E4D7C4", height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
                             <Canvas holder="canvas-holder" dark={this.state.darkBot} src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
-                            <div style={{position: "fixed", top: 77, left: 44, cursor: "pointer", height: "19px", width: "19px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
+                            <div style={{position: "fixed", top: 77, left: 44, cursor: "pointer", height: "25px", width: "25px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
                                 <img style={{height: "100%", width: "100%", transition: "0.5s"}} src={this.state.darkBot ? "/img/info-icon-white.png" : "/img/info-icon.png"}/>
                             </div>
                             <div style={{...SANS_SERIF_FONT_BODY, letterSpacing: "0", display: this.state.showInfoModal ? null : "none", opacity: this.state.showInfoModal ? 1 : 0, transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "12px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: 53, left: 92, height: "fit-content", width: "300px", boxShadow: "0px 1px 4px #00000011"}}>
@@ -770,8 +770,8 @@ class Home extends React.Component {
                                                                 <input type="hidden" name="retURL"
                                                                        value="http://jointempest.com/"/>
 
-                                                                <input type="hidden" name="debug" value="1"/>
-                                                                <input type="hidden" name="debugEmail"/>
+                                                                {/*<input type="hidden" name="debug" value="1"/>*/}
+                                                                {/*<input type="hidden" name="debugEmail"/>*/}
 
                                                                 <input id="last_name" maxLength="80" name="last_name" size="20"
                                                                        type="text" placeholder={"Enter Your Name"} className={classes.inputBox}/>
