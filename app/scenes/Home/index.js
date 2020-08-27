@@ -197,6 +197,34 @@ const Styles = {
             "-webkit-background-clip": "text",
             "-webkit-text-fill-color": "transparent",
         }
+    },
+    imgHoverContainer: {
+        fontFamily: "UntitledSans-Medium",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        background: "rgba(0,0,0,0.3)",
+        height: "100%",
+        width: "100%",
+        opacity: 0,
+        transition: "0.5s",
+        "&:hover": {
+            opacity: 1
+        }
+    },
+    imgHover: {
+        position: "absolute",
+        top: "calc(50% - 15px)",
+        left: "calc(50% - 55px)",
+        width: "110px",
+        padding: "0 15px",
+        height: "30px",
+        fontSize: "11px",
+        borderRadius: "100px",
+        lineHeight: "30px",
+        letterSpacing: "1px",
+        background: "white",
+        color: "black"
     }
 };
 
@@ -539,13 +567,27 @@ class Home extends React.Component {
                                                                 <img style={{width: "100%", position: "absolute", left: 0, top: "calc(50% - 10px)"}} src={"/img/left-arrow.png"}/>
                                                             </div>
                                                             <div style={{flex: 1, textAlign: "center"}}>
-                                                                <div style={{padding: "0 10px"}}>
-                                                                    <img style={{border: "1px solid white", width: "100%", margin: "auto"}} src={"/img/share2.png"}/>
+                                                                <div style={{padding: "0 10px", position: "relative"}}>
+                                                                    <a href={"/img/share2.png"} download={true}>
+                                                                        <div className={classes.imgHoverContainer}>
+                                                                            <div style={{position: "relative", height: "100%", width: "100%"}}>
+                                                                                <div className={classes.imgHover}>DOWNLOAD</div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <img style={{border: "1px solid white", width: "100%", margin: "auto"}} src={"/img/share2.png"}/>
+                                                                    </a>
                                                                 </div>
                                                             </div>
                                                             <div style={{flex: 1, textAlign: "center"}}>
-                                                                <div style={{padding: "0 10px"}}>
-                                                                    <img style={{border: "1px solid white", width: "100%", margin: "auto"}} src={"/img/share-1.png"}/>
+                                                                <div style={{padding: "0 10px",  position: "relative"}}>
+                                                                    <a href={"/img/share-1.png"} download={true}>
+                                                                        <div className={classes.imgHoverContainer}>
+                                                                            <div style={{position: "relative", height: "100%", width: "100%"}}>
+                                                                                <div className={classes.imgHover}>DOWNLOAD</div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <img style={{border: "1px solid white", width: "100%", margin: "auto"}} src={"/img/share-1.png"}/>
+                                                                    </a>
                                                                 </div>
                                                             </div>
                                                             <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
@@ -825,7 +867,9 @@ class Home extends React.Component {
                                                                     <img style={{width: "70%", position: "absolute", left: 0, top: "calc(50% - 7px)"}} src={"/img/left-arrow.png"}/>
                                                                 </div>
                                                                 <div style={{flex: 1, textAlign: "center"}}>
-                                                                    <img style={{border: "1px solid white", width: "100%", maxWidth: "211px", margin: "auto"}} src={"/img/share-1.png"}/>
+                                                                    <a href={"/img/share-1.png"} download={true}>
+                                                                        <img style={{border: "1px solid white", width: "100%", maxWidth: "211px", margin: "auto"}} src={"/img/share-1.png"}/>
+                                                                    </a>
                                                                 </div>
                                                                 <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
                                                                     <img style={{width: "70%", position: "absolute", right: 0, top: "calc(50% - 7px)"}} src={"/img/right-arrow.png"}/>
