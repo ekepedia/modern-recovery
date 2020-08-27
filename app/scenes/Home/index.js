@@ -510,6 +510,9 @@ class Home extends React.Component {
                                                             <input type="hidden" name="retURL"
                                                                    value="http://jointempest.com/"/>
 
+                                                            <input type="hidden" name="Campaign_ID" value="7012H000001OpghQAC" />
+                                                            <input type="hidden" name="member_status" value="Responded" />
+
                                                             {/*<input type="hidden" name="debug" value="1"/>*/}
                                                             {/*<input type="hidden" name="debugEmail"/>*/}
 
@@ -794,6 +797,9 @@ class Home extends React.Component {
                                                                 <input type="hidden" name="oid" value="00D1U000000rAh6"/>
                                                                 <input type="hidden" name="retURL"
                                                                        value="http://jointempest.com/"/>
+
+                                                                <input type="hidden" name="Campaign_ID" value="7012H000001OpghQAC" />
+                                                                <input type="hidden" name="member_status" value="Responded" />
 
                                                                 {/*<input type="hidden" name="debug" value="1"/>*/}
                                                                 {/*<input type="hidden" name="debugEmail"/>*/}
