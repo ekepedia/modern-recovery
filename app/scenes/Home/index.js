@@ -615,7 +615,7 @@ class Home extends React.Component {
                         <div id="canvas-holder" style={{flex: 1, background: this.state.darkBot ? "#272F46" : "#E4D7C4", height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
                             <Canvas holder="canvas-holder" dark={this.state.darkBot} src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
                             <div style={{position: "fixed", top: 77, left: 44, cursor: "pointer", height: "25px", width: "25px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
-                                <img style={{height: "100%", width: "100%", transition: "0.5s"}} src={this.state.darkBot ? "/img/info-icon-white.png" : "/img/info-icon.png"}/>
+                                <img style={{height: "100%", width: "100%", transition: "0.5s"}} src={this.state.darkBot ? "/img/info-icon-white.svg" : "/img/info-icon-black.svg"}/>
                             </div>
                             <div style={{...SANS_SERIF_FONT_BODY, letterSpacing: "0", display: this.state.showInfoModal ? null : "none", opacity: this.state.showInfoModal ? 1 : 0, transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "12px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: 53, left: 92, height: "fit-content", width: "300px", boxShadow: "0px 1px 4px #00000011"}}>
                                 <div style={{position: "absolute", height: "10px", width: "10px", top: 12, right: 17, cursor: "pointer"}} onClick={() => {this.setState({showInfoModal: false})}}>
@@ -926,7 +926,7 @@ class Home extends React.Component {
                                     <Canvas holder="canvas-holder-mobile" dark={this.state.darkBot} src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
                                 </div>
                                 <div style={{position: "fixed", top: 100, left: 20, cursor: "pointer", height: "19px", width: "19px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
-                                    <img style={{height: "100%", width: "100%"}} src={this.state.darkBot ? "/img/info-icon-white.png" : "/img/info-icon.png"}/>
+                                    <img style={{height: "100%", width: "100%"}} src={this.state.darkBot ? "/img/info-icon-white.svg" : "/img/info-icon-black.svg"}/>
                                 </div>
                                 <div style={{...SANS_SERIF_FONT_BODY, display: this.state.showInfoModal ? null : "none", transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "11px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: "calc(50% - 176px)", left: "calc( 50% - 135px)", height: "305px", width: "270px", boxShadow: "0px 1px 4px #00000011"}}>
                                     <div style={{position: "absolute", height: "10px", width: "10px", top: 12, right: 17, cursor: "pointer"}} onClick={() => {this.setState({showInfoModal: false})}}>

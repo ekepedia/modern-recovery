@@ -3,9 +3,8 @@ import React from "react";
 import injectSheet from 'react-jss';
 import { withRouter } from 'react-router-dom';
 
-const height = 92*2;
-const width = 476.04*2;
-
+const height = 92*1.5;
+const width = 476.04*1.5;
 
 const Styles = {
     container: {
@@ -22,9 +21,7 @@ const Styles = {
         },
     },
     playButtonContainer: {
-        background: "url('/img/play-white.png') center no-repeat",
-        backgroundSize: "40px",
-        transition: "all 0.25s",
+        background: "url('/img/play-icon-black.svg') center / cover",
     },
 };
 
@@ -135,20 +132,20 @@ class DesktopDiscoverPlayer extends React.Component {
                         backgroundPosition: "left",
                         animationTimingFunction: "ease-in-out"
                     }}>
-                        <div className={classes.playButtonContainer} style={{display: "inline-block", height: "100%", width: "100%", backgroundImage: (this.state.playing ? "url('/img/pause-icon.png')" : ( dark ? "url('/img/play.png')" : null)), backgroundPositionX: this.state.playing ? "center" : null }}>
+                        <div className={classes.playButtonContainer} style={{display: "inline-block", height: "100%", width: "100%", background: (this.state.playing ? "url('/img/pause-icon.svg') center / 37px no-repeat" : ( dark ? "url('/img/play-icon-white.svg') center / cover" : null)), }}>
 
                         </div>
                     </div>
                 </div>
-                <div style={{flex: 1, paddingRight: "50px", fontSize: "40px", position: "relative"}}>
+                <div style={{flex: 1, paddingRight: "50px", fontSize: "30px", position: "relative"}}>
                     <div style={{position: "absolute", left: 0, width: "calc(100% - 50px)", top: "calc(50% - 61px)"}}>
-                        <div style={{marginTop: "12px", marginBottom: "6px"}}><span style={{fontFamily: "UntitledSans-Bold"}}>Chapter:</span> {chapter}</div>
+                        <div style={{marginTop: "23px", marginBottom: "3px"}}><span style={{fontFamily: "UntitledSans-Bold"}}>Chapter:</span> {chapter}</div>
                         <div style={{width: "100%",}}>
-                            <div style={{display: "flex", fontFamily: "UntitledSans-Regular", lineHeight: "20px", fontSize: "36px"}}>
+                            <div style={{display: "flex", fontFamily: "UntitledSans-Regular", lineHeight: "20px", fontSize: "27px"}}>
                                 <div style={{flex: "0 0 15px"}}>{time}</div>
                                 <div style={{flex: 1, margin: "0 16px", position: "relative"}}>
                                     <div style={{height: "6px", position: "absolute", top: "calc(50% - 1.5px)", width: "100%", background: "#84827b50", borderRadius: "5px"}}>
-                                        <div style={{height: "100%", background: (dark ? "black" : "white"), width: `${progress * 100}%`, borderRadius: "5px", transition: "all 0.5s cubic-bezier(0.39, 0.58, 0.57, 1) 0s"}}/>
+                                        <div style={{height: "100%", background: "white", width: `${progress * 100}%`, borderRadius: "5px", transition: "all 0.5s cubic-bezier(0.39, 0.58, 0.57, 1) 0s"}}/>
                                     </div>
                                 </div>
                                 <div style={{flex: "0 0 15px"}}>{end}</div>

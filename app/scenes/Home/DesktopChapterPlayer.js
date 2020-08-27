@@ -12,12 +12,10 @@ const Styles = {
         },
     },
     playButtonContainer: {
-        background: "url('/img/play.png') center no-repeat",
-        backgroundPositionX: "14px",
-        transition: "all 0.25s",
+        background: "url('/img/play-icon-beige.svg') center / cover",
+        // transition: "background-image 0.25s",
         "&:hover": {
-            background: "url('/img/play-white.png') center no-repeat",
-            backgroundPositionX: "14px",
+            background: "url('/img/play-icon-black.svg') center / cover",
         },
     },
 };
@@ -135,7 +133,7 @@ class DesktopChapterPlayer extends React.Component {
                         backgroundPosition: "left",
                         animationTimingFunction: "ease-in-out"
                     }}>
-                        <div className={classes.playButtonContainer} style={{display: "inline-block", height: "100%", width: "100%", backgroundImage: this.state.playing ? "url('/img/pause-icon.png')" : null, backgroundPositionX: this.state.playing ? "center" : null }}>
+                        <div className={classes.playButtonContainer} style={{display: "inline-block", height: "100%", width: "100%", background: this.state.playing ? "url('/img/pause-icon.svg') center / 10px no-repeat" : null, }}>
 
                         </div>
                     </div>
