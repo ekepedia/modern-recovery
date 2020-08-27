@@ -138,7 +138,7 @@ const Styles = {
         border: "1px solid white",
         color: "white",
         background: "black",
-        transition: "0.5s",
+        transition: "background 0.5s, color 0.15s",
         fontFamily: "UntitledSans-Medium",
         letterSpacing: "1px",
         textTransform: "uppercase",
@@ -346,6 +346,46 @@ class Home extends React.Component {
         }, 1000);
     }
 
+    handleSalesForceSubmit(e) {
+        e.preventDefault();
+
+        console.log(e);
+
+        if (this.state.sent) return;
+
+        const form = e.target;
+        const data = new FormData(form);
+
+        fetch('https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8', {
+            method: 'POST',
+            body: data,
+            mode: 'no-cors'
+        }).then((e) => {
+            console.log("SS", e);
+
+            this.setState({
+                sent: true
+            });
+
+            setTimeout(() => {
+                this.setState({
+                    changeSentText: true
+                });
+            }, 600);
+
+            setTimeout(() => {
+                this.setState({
+                    sentBot: true
+                });
+            }, 750);
+
+            setTimeout(() => {
+                this.setState({
+                    changeSentText: false
+                });
+            }, 900);
+        })
+    }
     componentDidMount() {
         window.screenTop = 0;
         this.setIndex(0);
@@ -531,7 +571,7 @@ class Home extends React.Component {
                                                         </div>
                                                         <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Sign Up</div>
                                                         <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>Learn more about our Modern Recovery event series and get a 15% discount to the Tempest Membership plan of your choice.</div>
-                                                        <form
+                                                        <form onSubmit={(e) => this.handleSalesForceSubmit(e)}
                                                             action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
                                                             method="POST">
                                                             <input type="hidden" name="oid" value="00D1U000000rAh6"/>
@@ -551,7 +591,15 @@ class Home extends React.Component {
                                                                    size="20"
                                                                    type="text" placeholder={"Enter Your Email"} className={classes.inputBox}/>
 
-                                                            <input type="submit" name="submit" value={"Sign Up"} className={classes.signUpButton} />
+                                                            <input type="submit" name="submit" value={this.state.sentBot ? "Sent" : "Sign Up"} className={classes.signUpButton}
+                                                                   style={{
+                                                                       background: this.state.sent ? "linear-gradient(90deg, rgba(107,214,197,0) 30%, rgba(255,255,255,0.7) 49%, rgba(60,190,89,0) 70%) left / 600%" : null,
+                                                                       animationName: this.state.sent ? "backgroundmove2" : null,
+                                                                       animationDuration: "1.5s",
+                                                                       animationDelay: "0",
+                                                                       color: this.state.changeSentText ? "rgba(0,0,0,0)" : (this.state.sent ? "white" : null),
+                                                                       animationTimingFunction: "ease-in-out"}}
+                                                            />
 
                                                         </form>
 
@@ -833,7 +881,7 @@ class Home extends React.Component {
                                                         <div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 1 ? null : "none"}}>
                                                             <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Sign Up</div>
                                                             <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>Learn more about our Modern Recovery event series and get a 15% discount to the Tempest Membership plan of your choice.</div>
-                                                            <form
+                                                            <form onSubmit={(e) => this.handleSalesForceSubmit(e)}
                                                                 action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
                                                                 method="POST">
                                                                 <input type="hidden" name="oid" value="00D1U000000rAh6"/>
@@ -853,7 +901,16 @@ class Home extends React.Component {
                                                                        size="20"
                                                                        type="text" placeholder={"Enter Your Email"} className={classes.inputBox}/>
 
-                                                                <input type="submit" name="submit" value={"Sign Up"} className={classes.signUpButton} />
+                                                                <input type="submit" name="submit" value={this.state.sentBot ? "Sent" : "Sign Up"} className={classes.signUpButton}
+                                                                       style={{
+                                                                           background: this.state.sent ? "linear-gradient(90deg, rgba(107,214,197,0) 30%, rgba(255,255,255,0.7) 49%, rgba(60,190,89,0) 70%) left / 600%" : null,
+                                                                           animationName: this.state.sent ? "backgroundmove2" : null,
+                                                                           animationDuration: "1.5s",
+                                                                           animationDelay: "0",
+                                                                           color: this.state.changeSentText ? "rgba(0,0,0,0)" : (this.state.sent ? "white" : null),
+                                                                           animationTimingFunction: "ease-in-out"}}
+                                                                />
+
 
                                                             </form>
                                                         </div>
