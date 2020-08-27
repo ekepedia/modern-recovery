@@ -174,9 +174,9 @@ const Styles = {
         }
     },
     pillarsX: {
-        background: "url('/img/close-button.png') center / cover",
+        background: "url('/img/close-icon-black.svg') center / contain no-repeat",
         "&:hover": {
-            background: "url('/img/close-button-blue.png') center / cover",
+            background: "url('/img/close-icon-blue.svg') center / contain no-repeat",
 
         }
     },
