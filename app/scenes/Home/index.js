@@ -553,11 +553,11 @@ class Home extends React.Component {
                                             <div style={{display: "flex", height: "100%", width: "calc(100vw - 46px)"}}>
                                                 <div style={{flex: 1, overflow: "scroll", color: "white", textAlign: "center", height: "100%"}}>
                                                     <div style={{paddingTop: "150px", paddingBottom: "150px", background: "black",}}>
-                                                        <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "50px"}}>What is this<br/> project about?</div>
+                                                        <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "50px"}}>We do recovery <br/>differently.</div>
                                                         <div style={{maxWidth: "400px", ...SANS_SERIF_FONT_BODY, margin: "auto", fontSize: "14px", lineHeight: "24px", }}>
-                                                            We’re empowering folks at every stage of their journey—whether you’re just exploring your relationship with alcohol, recently sober, or have been alcohol-free for years. Recovery is a profoundly personal process, and everyone’s path is valid.
+                                                            We’re empowering folks at every stage of their journey to examine their relationship with alcohol— on their own terms. If alcohol is no longer serving you or helping you live the life you want, now’s the time to try something new.
                                                             <br/><br/>
-                                                            We hope this campaign inspires you to question drinking culture and shed outdated ideas and stereotypes around what it means to be sober or in recovery.
+                                                            We hope this movement inspires you to question drinking culture and shed outdated ideas around what it means to be sober or in recovery.
                                                             <br/><br/>
                                                             This is Modern Recovery, and all are welcome.
                                                         </div>
@@ -570,7 +570,9 @@ class Home extends React.Component {
 
                                                         </div>
                                                         <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Sign Up</div>
-                                                        <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>Learn more about our Modern Recovery event series and get a 15% discount to the Tempest Membership plan of your choice.</div>
+                                                        <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>
+                                                            Get involved with Modern Recovery, with stories and resources sent straight to your inbox. You’ll also receive a 15% discount to the Tempest Membership plan of your choice.
+                                                        </div>
                                                         <form onSubmit={(e) => this.handleSalesForceSubmit(e)}
                                                             action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
                                                             method="POST">
@@ -608,7 +610,7 @@ class Home extends React.Component {
                                                         <hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>
                                                         <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Share</div>
                                                         <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>
-                                                            Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you. Download and share these posts to spread awareness.
+                                                            Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you, use our new Instagram filter to share your recovery story, and download and share these posts to spread awareness.
                                                         </div>
                                                         <div style={{display: "flex", padding: "0 40px"}}>
                                                             <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
@@ -670,7 +672,7 @@ class Home extends React.Component {
                                                             What is Modern<br/> Recovery?
                                                         </div>
                                                         <div style={{margin: "auto", fontSize: "14px", ...SANS_SERIF_FONT, marginBottom: "50px", textAlign: "center", maxWidth: "350px", letterSpacing: "-0.25px"}}>
-                                                            We created these six pillars of Modern Recovery to encompass our mission to put individuals at the center of their own healing. This is more than just quitting alcohol—it’s about gaining back your life.
+                                                            We have expanded the definition of what it means to be in recovery to include a diverse range of experiences and approaches to care. These six pillars of Modern Recovery encompass our mission to provide a holistic, trauma-informed approach to healing.
                                                         </div>
                                                         {this.pillars.map((pillar, index) => {
                                                             return (
@@ -715,16 +717,16 @@ class Home extends React.Component {
                                     Exploring the Recovery Journey
                                 </div>
                                 <div style={{marginTop: "8px"}}>
-                                    The Recovery Journey captures a few of the many experiences people move through on their personal recovery paths. It is not meant to be linear, and there’s no one way or right way to move along it. Take your time and immerse yourself in the stories.
+                                    At Tempest, we believe the recovery process begins the moment we become willing to question our relationship with alcohol. This mural captures a few of the many stories of personal recovery, and the key moments of clarity that occur before we stop drinking. We’re here to celebrate the individuality of recovery, as well as the universal experiences that unite us.
                                 </div>
                                 <div style={{ marginTop: "8px"}}>
-                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Discover:</span> Use your track pad or mouse to pull, press and hold to  drag and  zoom into the mural.
+                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Discover:</span> Immerse yourself in these stories by clicking around on the mural.
                                 </div>
                                 <div style={{ marginTop: "8px"}}>
-                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Listen:</span> Press play to listen to audio stories of real people.
+                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Read:</span> Each section contains a different story from a Tempest member.
                                 </div>
                                 <div style={{ marginTop: "8px"}}>
-                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Click:</span> On different parts of mural to read which part of the recovery journey it is.
+                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Listen:</span> Press the play icon to hear audio narratives by our contributors.
                                 </div>
                             </div>
                         </div>
@@ -865,12 +867,12 @@ class Home extends React.Component {
                                                     <div style={{height: "530px"}}>
                                                         <div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 0 ? null : "none"}}>
                                                             <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "24px"}}>
-                                                                What is this project about?
+                                                                We do recovery differently.
                                                             </div>
                                                             <div style={{...SANS_SERIF_FONT_BODY, fontSize: "14px", maxWidth: "280px", margin: "auto"}}>
-                                                                We’re empowering folks at every stage of their journey—whether you’re just exploring your relationship with alcohol, recently sober, or have been alcohol-free for years. Recovery is a profoundly personal process, and everyone’s path is valid.
+                                                                We’re empowering folks at every stage of their journey to examine their relationship with alcohol— on their own terms. If alcohol is no longer serving you or helping you live the life you want, now’s the time to try something new.
                                                                 <br/><br/>
-                                                                We hope this campaign inspires you to question drinking culture and shed outdated ideas and stereotypes around what it means to be sober or in recovery.
+                                                                We hope this movement inspires you to question drinking culture and shed outdated ideas around what it means to be sober or in recovery.
                                                                 <br/><br/>
                                                                 This is Modern Recovery, and all<br/> are welcome.
                                                             </div>
@@ -880,7 +882,9 @@ class Home extends React.Component {
                                                         </div>
                                                         <div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 1 ? null : "none"}}>
                                                             <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Sign Up</div>
-                                                            <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>Learn more about our Modern Recovery event series and get a 15% discount to the Tempest Membership plan of your choice.</div>
+                                                            <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>
+                                                                Get involved with Modern Recovery, with stories and resources sent straight to your inbox. You’ll also receive a 15% discount to the Tempest Membership plan of your choice.
+                                                            </div>
                                                             <form onSubmit={(e) => this.handleSalesForceSubmit(e)}
                                                                 action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
                                                                 method="POST">
@@ -917,7 +921,7 @@ class Home extends React.Component {
                                                         <div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 2 ? null : "none"}}>
                                                             <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Share</div>
                                                             <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>
-                                                                Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you. Download and share these posts to spread awareness.
+                                                                Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you, use our new Instagram filter to share your recovery story, and download and share these posts to spread awareness.
                                                             </div>
                                                             <div style={{display: "flex", padding: "0"}}>
                                                                 <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
@@ -979,7 +983,7 @@ class Home extends React.Component {
                                                         What is Modern Recovery?
                                                     </div>
                                                     <div style={{...SANS_SERIF_FONT_BODY, fontSize: "14px", maxWidth: "335px", margin: "auto"}}>
-                                                        We created these six pillars of Modern Recovery to encompass our mission to put individuals at the center of their own healing. This is more than just quitting alcohol—it’s about gaining back your life.
+                                                        We have expanded the definition of what it means to be in recovery to include a diverse range of experiences and approaches to care. These six pillars of Modern Recovery encompass our mission to provide a holistic, trauma-informed approach to healing.
                                                     </div>
                                                 </div>
                                                 <div style={{width: "100%", overflow: "hidden"}}>
@@ -1029,7 +1033,7 @@ class Home extends React.Component {
                                 <div style={{position: "fixed", top: 100, left: 20, cursor: "pointer", height: "19px", width: "19px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
                                     <img style={{height: "100%", width: "100%"}} src={this.state.darkBot ? "/img/info-icon-white.svg" : "/img/info-icon-black.svg"}/>
                                 </div>
-                                <div style={{...SANS_SERIF_FONT_BODY, display: this.state.showInfoModal ? null : "none", transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "11px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: "calc(50% - 176px)", left: "calc( 50% - 135px)", height: "305px", width: "270px", boxShadow: "0px 1px 4px #00000011"}}>
+                                <div style={{...SANS_SERIF_FONT_BODY, display: this.state.showInfoModal ? null : "none", transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "11px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: "calc(50% - 176px)", left: "calc( 50% - 135px)", height: "fit-content", width: "270px", boxShadow: "0px 1px 4px #00000011"}}>
                                     <div style={{position: "absolute", height: "10px", width: "10px", top: 12, right: 17, cursor: "pointer"}} onClick={() => {this.setState({showInfoModal: false})}}>
                                         <img style={{height: "100%", width: "100%"}} src={this.state.darkBot ? "/img/close-button.png" : "/img/white-x.png"}/>
                                     </div>
@@ -1037,16 +1041,16 @@ class Home extends React.Component {
                                         Exploring the Recovery Journey
                                     </div>
                                     <div style={{marginTop: "8px"}}>
-                                        The Recovery Journey captures a few of the many experiences people move through on their personal recovery paths. It is not meant to be linear, and there’s no one way or right way to move along it. Take your time and immerse yourself in the stories.
+                                        At Tempest, we believe the recovery process begins the moment we become willing to question our relationship with alcohol. This mural captures a few of the many stories of personal recovery, and the key moments of clarity that occur before we stop drinking. We’re here to celebrate the individuality of recovery, as well as the universal experiences that unite us.
                                     </div>
                                     <div style={{ marginTop: "8px"}}>
-                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Discover:</span> Use your track pad or mouse to pull, press and hold to  drag and  zoom into the mural.
+                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Discover:</span> Immerse yourself in these stories by clicking around on the mural.
                                     </div>
                                     <div style={{ marginTop: "8px"}}>
-                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Listen:</span> Press play to listen to audio stories of real people.
+                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Read:</span> Each section contains a different story from a Tempest member.
                                     </div>
                                     <div style={{ marginTop: "8px"}}>
-                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Click:</span> On different parts of mural to read which part of the recovery journey it is.
+                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Listen:</span> Press the play icon to hear audio narratives by our contributors.
                                     </div>
                                 </div>
                                 <div style={{position: "fixed", bottom: "0", left: "0", width: "100%", height: "36px",}}>

@@ -201,27 +201,27 @@ export const STAGES = [
 
 export const PILLARS = [
     {
-        title: "Modern Recovery is for anyone who wants it.",
-        body: "No matter where you are on your journey—if you want to quit drinking, you have some time sober, or you’re just reevaluating your relationship with alcohol—there’s a place for you."
+        title: "Modern Recovery puts you at the center.",
+        body: "We start with the individual and build a program around their unique needs, preferences, and identities. We believe individuals are the experts in their own recovery.",
     },
     {
-        title: "Modern Recovery doesn’t require a label.",
-        body: "We need to be seen as individuals, not a diagnosis. Any reason is a good reason to start exploring our relationship with alcohol—no qualification necessary. We encourage people to use whatever labels or identities empower them or solidify their path."
-    },
-    {
-        title: "Modern Recovery is a proud choice.",
-        body: "Sobriety isn’t a sad consequence; it’s a beautiful gift. Recovery gives us a foundation to build the life we want. The mistakes we make on our journey are part of the process, and they give us an opportunity to learn something new."
+        title: "Modern Recovery is personalized and contextual.",
+        body: "We draw on evidence-based, existing traditional, and emerging models of care. We encourage folks to draw from a constellation of treatments to create a uniquely suited model of recovery."
     },
     {
         title: "Modern Recovery treats the whole person.",
-        body: "We need a holistic, integrated approach to recovery that addresses the root causes of our alcohol use. Drinking affected every part of our lives, so should the healing. We seek to include all dimensions of an individual, including psychology, spirituality, physiology, biology, creativity, sociology, environment, identity, and more."
+        body: "We need a holistic, integrated approach to recovery that addresses the root causes of our alcohol use. Drinking affected every part of our lives, so should the healing. We seek to include all dimensions of an individual, including psychology, spirituality, biology, environment, identity, and more."
     },
     {
-        title: "Modern Recovery evolves as you do.",
-        body: "We need a dynamic kind of recovery that grows with us, taking into account where we’re coming from, where we are right now, and what we want for the future. We believe that you are the expert on your own recovery. We trust you, and we want to help you develop a sense of agency in your own healing."
+        title: "Modern Recovery is made for everyone.",
+        body: "We make real connections, real friendships, and we work together in a place free from judgement and shame. We’re continuously adjusting to include and center non-dominant identities in order to encourage a sense of belonging and ownership for everyone.",
     },
     {
-        title: "Modern Recovery is a shared journey.",
-        body: "We make real connections, real friendships, and we work together in a place free from judgement and shame. We’re continuously adjusting to include and center non-dominant identities in order to encourage a sense of belonging and ownership for everyone."
+        title: "Modern Recovery is label optional.",
+        body: "We need to be seen as individuals, not a diagnosis. Any reason is a good reason to start exploring our relationship with alcohol—no qualification necessary. We encourage people to use whatever labels or identities empower them or solidify their path.",
+    },
+    {
+        title: "Modern Recovery is for anyone who wants it.",
+        body: "We believe addiction lives on a spectrum, and models of care should be built to include those with less severe forms of addiction. Recovery is for everyone and “hitting bottom” is never a requirement.",
     }
 ]
