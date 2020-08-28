@@ -24,6 +24,9 @@ const Styles = {
     container: {
         cursor: "none",
         color: "black",
+        '@media (max-width: 1024px)': {
+            cursor: "auto"
+        },
     },
     Desktop: {
         height: "100%",
@@ -183,7 +186,7 @@ const Styles = {
     buttonShine: {
         background: "linear-gradient(90deg, rgba(107,214,197,0) 40%, rgba(150,150,150,0.7) 49%, rgba(60,190,89,0) 60%)",
         backgroundSize: "300% 300%",
-        animation: "backgroundmove2 0.75s infinite",
+        animation: "backgroundmove2 1.5s infinite",
         backgroundPosition: "left",
         animationTimingFunction: "ease-in-out"
     },
@@ -431,7 +434,7 @@ class Home extends React.Component {
         return (<div className={classes.container} style={{background: STAGES[this.state.stageIndex].gradient, transition: "1s"}}>
             <div className={classes.Desktop}>
                 <div id={"custom-cursor"} style={{
-                     display: "none", pointerEvents: "none", zIndex: 1000, position: "fixed", height: "20px", width: "20px", border: "3px solid #65a885", borderRadius: "100%"
+                     display: "none", pointerEvents: "none", zIndex: 1000, position: "fixed", height: "20px", width: "20px", border: "3px solid #4e5259", borderRadius: "100%"
                 }}/>
                 <div style={{display: "flex", flexDirection: "column", height: "100vh", width: "100vw", overflow: "hidden"}}>
                     <div style={{background: "white", flex: "0 0 53px", zIndex: 99, boxShadow: "0px 1px 4px #00000011", overflow: "hidden"}}>
@@ -461,7 +464,7 @@ class Home extends React.Component {
                                 <div  style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
                                     <div className={classes.buttonShine} onClick={() => {this.toggleChapter()}} style={{background: this.state.chapter ? "none" : null, marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
                                         <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 94 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "url('/img/chapter-gradient.png')" : "url('/img/chapter-gradient.png')",
-                                            animation: "backgroundmove 10s infinite",
+                                            animation: this.state.chapter ? "backgroundmove 5s infinite" : "backgroundmove 10s infinite",
                                             animationTimingFunction: "ease-in-out",
                                             borderRadius: "100%"}}>
                                         </div>

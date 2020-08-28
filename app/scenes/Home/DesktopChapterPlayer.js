@@ -141,7 +141,7 @@ class DesktopChapterPlayer extends React.Component {
                         backgroundPosition: "left",
                         animationTimingFunction: "ease-in-out"
                     }}>
-                        <div className={classes.playButtonContainer} style={{display: "inline-block", height: "100%", width: "100%", background: this.state.playing ? "url('/img/pause-icon.svg') center / 10px no-repeat" : null, }}>
+                        <div className={classes.playButtonContainer} style={{display: "inline-block", height: "100%", width: "100%", background: this.state.playing ? "url('/img/pause-icon.svg') center 11px / 10px no-repeat" : null, }}>
 
                         </div>
                     </div>
