@@ -6,24 +6,29 @@ export const STAGES = [
         definition: "The first stage in our journey, when drinking is a normal coping mechanism.",
         quotes: [
             {
-                quote: "I used alcohol as a lubricant for my social anxiety. After college, drinking progressively became a part of every aspect of my life. Eventually it became something I was doing nearly every night, alone in my room, as a reward for making it through the day and an attempt to drown out my own reality. - Nicole P, Tempest Member 2019",
-                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Nicole+P.+Ether.m4a"
+                quote: "I used alcohol as a lubricant for my social anxiety. After college, drinking progressively became a part of every aspect of my life. Eventually it became something I was doing nearly every night, alone in my room, as a reward for making it through the day and an attempt to drown out my own reality.",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Nicole+P.+Ether.m4a",
+                author: "Nicole P, Tempest Member 2019"
             },
             {
-                quote: "I drank till I didn't feel. I blacked out often and had sex with new people most evenings. Throwing up was normal. Panic attacks were normal. - Valentine, Tempest Member Winter 2019",
-                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Valentine+Ether.mp3"
+                quote: "I drank till I didn't feel. I blacked out often and had sex with new people most evenings. Throwing up was normal. Panic attacks were normal.",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Valentine+Ether.mp3",
+                author: "Valentine, Tempest Member Winter 2019"
             },
             {
-                quote: "I started binge drinking at age 16 . I was a daily drinker through most of my late teens to mid 20s before I became more of a stay-at-home ‘shame pit’ drinker. I still drank nearly every day  but my main goal was to keep that hidden from everyone around me. - Lisa, Tempest Member, Winter 2018\n",
-                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Lisa+Ether.m4a"
+                quote: "I started binge drinking at age 16 . I was a daily drinker through most of my late teens to mid 20s before I became more of a stay-at-home ‘shame pit’ drinker. I still drank nearly every day  but my main goal was to keep that hidden from everyone around me.",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Lisa+Ether.m4a",
+                author: "Lisa, Tempest Member, Winter 2018"
             },
             {
-                quote: "I never really thought about my alcohol consumption. It was like coffee—just something that you have around that helps you feel better and get stuff done. - Alex, Tempest Member 2020\n",
-                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Alex+Ether.m4a"
+                quote: "I never really thought about my alcohol consumption. It was like coffee—just something that you have around that helps you feel better and get stuff done.",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Alex+Ether.m4a",
+                author: "Alex, Tempest Member 2020"
             },
             {
-                quote: "Throughout most of my life, starting at highschool football games, college dorm rooms, and all the way through early days in the workforce, drinking was just something we always did. It was always around—participating didn’t occur as a choice, but more an assumption. - Abby, Tempest 2018",
-                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Abby+ether.m4a"
+                quote: "Throughout most of my life, starting at highschool football games, college dorm rooms, and all the way through early days in the workforce, drinking was just something we always did. It was always around—participating didn’t occur as a choice, but more an assumption.",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Ether/Abby+ether.m4a",
+                author: "Abby, Tempest 2018"
             },
 
         ]
@@ -35,28 +40,33 @@ export const STAGES = [
         definition: "We begin to suspect that our relationship with alcohol may not be good for us.",
         quotes: [
             {
-                quote: "My drinking was social at first, then when I noticed I was drinking much more than my friends, I started pre-outing drinking, then added in post-outing drinking. -Tina, Tempest Member 2018",
-                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Tina+-+Inkling.m4a"
+                quote: "My drinking was social at first, then when I noticed I was drinking much more than my friends, I started pre-outing drinking, then added in post-outing drinking.",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Tina+-+Inkling.m4a",
+                author: "Tina, Tempest Member 2018"
             },
             {
-                quote: "I recall having a nagging feeling that I was too dependent on alcohol but could not envision getting through my days without my daily wine habit. At the time I was caught in the middle of a major family breakdown and thought alcohol was my only ally. - Amy C, Tempest Member 2019\n",
-                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Amy+C+awareness.m4a"
+                quote: "I recall having a nagging feeling that I was too dependent on alcohol but could not envision getting through my days without my daily wine habit. At the time I was caught in the middle of a major family breakdown and thought alcohol was my only ally.",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Amy+C+awareness.m4a",
+                author: "Amy C, Tempest Member 2019"
             },
             {
-                quote: "I remember being incredibly cognizant of the fact that everyone else seemed to be enjoying themselves while I frantically schemed how to get as much booze as possible before the bottle ran out. - Lisa, Tempest Member, Winter 2018\n",
-                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Lisa+Inkling.m4a"
+                quote: "I remember being incredibly cognizant of the fact that everyone else seemed to be enjoying themselves while I frantically schemed how to get as much booze as possible before the bottle ran out.",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Lisa+Inkling.m4a",
+                author: "Lisa, Tempest Member, Winter 2018"
             },
             // {
             //     quote: "The moment I knew that I had to do something about my drinking, although it was a while before I actually did anything about it, was when I snuck tequila into the office, left work early, and took a cab home. It was a Tuesday. - Irina, Tempest Member 2019 \n",
             //     audio: ""
             // },
             {
-                quote: "I didn’t have any concrete evidence, it was more just this pervasive feeling of unease about my drinking. -Alex, Tempest Member 2020\n",
-                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Alex+Inkling.m4a"
+                quote: "I didn’t have any concrete evidence, it was more just this pervasive feeling of unease about my drinking.",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Alex+Inkling.m4a",
+                author: "Alex, Tempest Member 2020"
             },
             {
-                quote: "I remember sitting in a cozy booth with my best friends. Rather than feeling full and good, I was counting the drinks on the table calculating the cost, ‘chatting’ about our normal updates but feeling oddly disconnected to my people and out of my body. Nothing was wrong, so why was I so in my head? But I knew something wasn’t working for me. I quickly covered up the feeling from myself—this was about a year before I started to change my relationship to alcohol.  - Abby, Tempest 2018\n",
-                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Abby+inkling.m4a"
+                quote: "I remember sitting in a cozy booth with my best friends. Rather than feeling full and good, I was counting the drinks on the table calculating the cost, ‘chatting’ about our normal updates but feeling oddly disconnected to my people and out of my body. Nothing was wrong, so why was I so in my head? But I knew something wasn’t working for me. I quickly covered up the feeling from myself—this was about a year before I started to change my relationship to alcohol.",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Abby+inkling.m4a",
+                author: "Abby, Tempest 2018"
             },
 
         ]

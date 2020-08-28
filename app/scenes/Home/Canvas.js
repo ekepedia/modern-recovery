@@ -189,14 +189,14 @@ class Canvas extends React.Component {
         }} style={{height: `${IMG_HEIGHT}px`, position: "relative", width: `${IMG_WIDTH}px`, transition: "background 1s", background: `url('${src}') 0% 0% / contain no-repeat`, }}>
             <div>
                 <div style={{position: "absolute", top: "850px", left: "441px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Ether/Nicole+P.+Ether.m4a'} chapter={"Ether"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_Ether_v1.mp3'} chapter={"Ether"}/>
                 </div>
 
                 <div style={{position: "absolute", top: "1678px", left: "1092px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Inkling/Tina+-+Inkling.m4a'} chapter={"Inkling"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_Inkling_v2.mp3'} chapter={"Inkling"}/>
                 </div>
                 <div style={{position: "absolute", top: "264px", left: "2822px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Awareness/Nicole+P.+Awareness.m4a'} chapter={"Awareness"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_Awareness_v1.mp3'} chapter={"Awareness"}/>
                 </div>
 
                 <div style={{position: "absolute", top: "2657px", left: "2990px"}}>
@@ -207,7 +207,7 @@ class Canvas extends React.Component {
                     <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Rebuilding/Tina+-+Rebuilding.m4a'} chapter={"Rebuilding"}/>
                 </div>
 
-                <div style={{position: "absolute", top: "217px", left: "5250px"}}>
+                <div style={{position: "absolute", top: "300px", left: "4700px"}}>
                     <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Outpouring/Valentine+Outpouring.mp3'} chapter={"Outpouring"}/>
                 </div>
                 <div style={{position: "absolute", top: `${this.state.lastY}px`, left: `${this.state.lastX}px`, }}>

@@ -22,13 +22,13 @@ const SANS_SERIF_FONT_BODY = {
 
 const Styles = {
     container: {
-        cursor: "auto",
+        cursor: "none",
         color: "black",
     },
     Desktop: {
         height: "100%",
         width: "100%",
-        '@media (max-width: 798px)': {
+        '@media (max-width: 1024px)': {
             display: "none"
         },
     },
@@ -36,7 +36,7 @@ const Styles = {
         height: "100%",
         width: "100%",
         display: "none",
-        '@media (max-width: 798px)': {
+        '@media (max-width: 1024px)': {
             display: "block"
         },
     },
@@ -181,9 +181,9 @@ const Styles = {
         }
     },
     buttonShine: {
-        background: "linear-gradient(90deg, rgba(107,214,197,0) 40%, rgba(215,215,215,0.7) 49%, rgba(60,190,89,0) 60%)",
-        backgroundSize: "600% 600%",
-        animation: "backgroundmove2 1.5s infinite",
+        background: "linear-gradient(90deg, rgba(107,214,197,0) 40%, rgba(150,150,150,0.7) 49%, rgba(60,190,89,0) 60%)",
+        backgroundSize: "300% 300%",
+        animation: "backgroundmove2 0.75s infinite",
         backgroundPosition: "left",
         animationTimingFunction: "ease-in-out"
     },
@@ -399,8 +399,8 @@ class Home extends React.Component {
             setTimeout(() => {
                 let follower = document.getElementById('custom-cursor');
                 follower.style.display = "block";
-                follower.style.top = (event.clientY - 25)+ 'px'
-                follower.style.left = (event.clientX -25) + 'px'
+                follower.style.top = (event.clientY - 5)+ 'px'
+                follower.style.left = (event.clientX - 5) + 'px'
             }, 0)
         }
 
@@ -430,13 +430,15 @@ class Home extends React.Component {
 
         return (<div className={classes.container} style={{background: STAGES[this.state.stageIndex].gradient, transition: "1s"}}>
             <div className={classes.Desktop}>
-                <div id={"custom-cursor"} style={{opacity: 0.5, display: "none", pointerEvents: "none", zIndex: 1000, position: "fixed", height: "50px", width: "50px", background: "grey", borderRadius: "100%"}}></div>
+                <div id={"custom-cursor"} style={{
+                     display: "none", pointerEvents: "none", zIndex: 1000, position: "fixed", height: "20px", width: "20px", border: "3px solid #65a885", borderRadius: "100%"
+                }}/>
                 <div style={{display: "flex", flexDirection: "column", height: "100vh", width: "100vw", overflow: "hidden"}}>
                     <div style={{background: "white", flex: "0 0 53px", zIndex: 99, boxShadow: "0px 1px 4px #00000011", overflow: "hidden"}}>
                         <div style={{display: "flex", padding: "0 22px", height: "100%"}}>
 
                             <div style={{flex: 1, lineHeight: "53px", fontFamily: "GT-America-Mono-Trial-Regular", fontSize: "14px", position: "relative"}}>
-                                <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><img className={classes.logoImage} onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer", position: "absolute", top: 21, left: 72, }} src={"/img/tempest-logo.png"}/>
+                                <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><img className={classes.logoImage} onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer", position: "absolute", top: 21, left: 72, }} src={"/img/tempest-logo.svg"}/>
                             </div>
 
                             <div style={{flex: 1, lineHeight: "53px", textAlign: "center", fontFamily: "NoeDisplay Medium", fontSize: "24px", textTransform: "capitalize", letterSpacing: "-0.25px"}}>
@@ -449,7 +451,7 @@ class Home extends React.Component {
                                         <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.darkBot ? 84 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.darkBot ? "black" : "#efb83e", borderRadius: "100%"}}>
 
                                         </div>
-                                        <div style={{lineHeight: "30px", fontSize: "14px", ...SANS_SERIF_FONT, position: "absolute", top: 0, right: this.state.dark ? 40 : 15, opacity: this.state.changingDark ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
+                                        <div style={{lineHeight: "30px", fontSize: "14px", ...SANS_SERIF_FONT, position: "absolute", top: 0, right: this.state.dark ? 35 : 15, opacity: this.state.changingDark ? 0 : 1, transition: "opacity 0.5s", display: "inline-block"}}>
                                             <div style={{display: "inline-block",}}>
                                                 {this.state.dark ? "Dark" : "Light"} Mode
                                             </div>
@@ -501,7 +503,7 @@ class Home extends React.Component {
                                                                 <div style={{marginTop: "20px", height: "150px", overflow: "scroll", maxWidth: "395px", fontSize: "16px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
                                                                     {this.state.stage.quotes[this.state.textIndex].quote ? this.state.stage.quotes[this.state.textIndex].quote : this.state.stage.quotes[this.state.textIndex] }
                                                                 </div>
-                                                                <div style={{width: "100%", display: "flex", position: "absolute", bottom: 0, left: 0, padding: "50px", paddingRight: "26px"}}>
+                                                                <div style={{width: "100%", display: "flex", position: "absolute", bottom: 0, left: 0, padding: "30px", paddingLeft: "50px", paddingRight: "26px"}}>
                                                                     <div style={{flex: 1, textAlign: "right"}}>
                                                                         <DesktopChapterPlayer audio={this.state.stage.quotes[this.state.textIndexBot].audio ? this.state.stage.quotes[this.state.textIndexBot].audio : "/img/test-audio.m4a"}/>
 
@@ -570,7 +572,7 @@ class Home extends React.Component {
 
                                                         </div>
                                                         <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Sign Up</div>
-                                                        <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>
+                                                        <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "320px", margin: "auto", marginBottom: "50px"}}>
                                                             Get involved with Modern Recovery, with stories and resources sent straight to your inbox. You’ll also receive a 15% discount to the Tempest Membership plan of your choice.
                                                         </div>
                                                         <form onSubmit={(e) => this.handleSalesForceSubmit(e)}
@@ -741,7 +743,7 @@ class Home extends React.Component {
                                 <span style={{cursor: "pointer"}} onClick={() => {this.setDiscoverMode()}}>Modern Recovery</span>
                             </div>
                             <div style={{flex: 1, textAlign: "right", postion: "relative"}}>
-                                <span style={{...SANS_SERIF_FONT, cursor: "pointer", fontSize: "14px", marginRight: "4px"}}>A Project by</span><img onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer",}} src={"/img/tempest-logo.png"}/>
+                                <span style={{...SANS_SERIF_FONT, cursor: "pointer", fontSize: "14px", marginRight: "4px"}}>A Project by</span><img onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer",}} src={"/img/tempest-logo.svg"}/>
                             </div>
                         </div>
                         <div style={{...SANS_SERIF_FONT_BODY, cursor: "pointer", fontSize: "12px", height: "36px", lineHeight: "36px", display: "flex", borderTop: "1px solid black", borderBottom: this.state.pillars ? null : "1px solid black"}}>
