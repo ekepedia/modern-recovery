@@ -672,7 +672,7 @@ class Home extends React.Component {
                                                     </div>
                                                 </div>
                                                 <div style={{flex: 1, color: "white", overflow: "scroll", height: "100%"}}>
-                                                    <div style={{paddingLeft: "100px", paddingRight: "100px", paddingBottom: "100px", paddingTop: "150px", background: "linear-gradient(#8b99af,#bab8b4)"}}>
+                                                    <div style={{paddingLeft: "100px", paddingRight: "100px", paddingBottom: "100px", paddingTop: "150px", background: "linear-gradient(#8b99af 20%,#bab8b4 60%)"}}>
                                                         <div style={{marginBottom: "50px", textAlign: "center", fontSize: "48px", lineHeight: "60px", fontFamily: "NoeDisplay Regular"}}>
                                                             What is Modern<br/> Recovery?
                                                         </div>

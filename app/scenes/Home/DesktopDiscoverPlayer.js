@@ -52,6 +52,8 @@ class DesktopDiscoverPlayer extends React.Component {
             playing: true
         });
         this.audio.play();
+
+
     }
 
     pauseAudio() {
