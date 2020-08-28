@@ -14,8 +14,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/public/js/script.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/script.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scenes/Home/Canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/Canvas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scenes/Home/copy.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/copy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/Home/DesktopChapterPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/DesktopChapterPlayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/Home/DesktopDiscoverPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/DesktopDiscoverPlayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scenes/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/main.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/main.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +70,7 @@
       <workItem from="1597264619733" duration="22025000" />
       <workItem from="1597708259665" duration="184000" />
       <workItem from="1597851187476" duration="56513000" />
-      <workItem from="1598360692507" duration="25444000" />
+      <workItem from="1598360692507" duration="27305000" />
     </task>
     <servers />
   </component>

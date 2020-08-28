@@ -156,6 +156,42 @@
             100% {transform:translateX(100%);}
         }
 
+        input[type='range'] {
+            overflow: hidden;
+            width: 100%;
+            -webkit-appearance: none;
+            background-color: #84827b50;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        input[type='range']::-webkit-slider-runnable-track {
+            height: 3px;
+            -webkit-appearance: none;
+            border-radius: 5px;
+        }
+
+        input[type='range']::-webkit-slider-thumb {
+            width: 0px;
+            -webkit-appearance: none;
+            height: 100%;
+            cursor: pointer;
+            background: #434343;
+            box-shadow: -1000px 0 0 1000px black;
+            border-radius: 5px;
+        }
+
+        input[type='range'].discover {
+            border-radius: 6px;
+        }
+
+        input[type='range'].discover::-webkit-slider-runnable-track {
+            height: 6px;
+        }
+
+        input[type='range'].discover::-webkit-slider-thumb {
+            box-shadow: -1000px 0 0 1000px white;
+        }
 
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">

@@ -49,9 +49,20 @@ class Canvas extends React.Component {
             onTouch: (e) => {
                 // console.log(e);
                 // console.log(e.target)
-                // console.log(e.target.id, `scene${this.id}`);
+                // console.log(e.target);
 
                 if (e.target.id === `scene${this.id}`)
+                    return true;
+
+                return false;
+            },
+            beforeMouseDown: (e) => {
+                // allow mouse-down panning only if altKey is down. Otherwise - ignore
+                // var shouldIgnore = !e.altKey;
+
+                console.log(e.target.className);
+
+                if (e.target.id !== `scene${this.id}`)
                     return true;
 
                 return false;
@@ -193,22 +204,22 @@ class Canvas extends React.Component {
                 </div>
 
                 <div style={{position: "absolute", top: "1678px", left: "1092px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_Inkling_v2.mp3'} chapter={"Inkling"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_+Inkling_v3.mp3'} chapter={"Inkling"}/>
                 </div>
                 <div style={{position: "absolute", top: "264px", left: "2822px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_Awareness_v1.mp3'} chapter={"Awareness"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_+Awareness_v2.mp3'} chapter={"Awareness"}/>
                 </div>
 
                 <div style={{position: "absolute", top: "2657px", left: "2990px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Reckoninig/Nicole+P.+Reckoning.m4a'} chapter={"Reckoning"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_Reckoning_v2.mp3'} chapter={"Reckoning"}/>
                 </div>
 
                 <div style={{position: "absolute", top: "2417px", left: "4510px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Rebuilding/Tina+-+Rebuilding.m4a'} chapter={"Rebuilding"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_Rebuilding_v2.mp3'} chapter={"Rebuilding"}/>
                 </div>
 
                 <div style={{position: "absolute", top: "300px", left: "4700px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Outpouring/Valentine+Outpouring.mp3'} chapter={"Outpouring"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_Outpouring_V1.mp3'} chapter={"Outpouring"}/>
                 </div>
                 <div style={{position: "absolute", top: `${this.state.lastY}px`, left: `${this.state.lastX}px`, }}>
                     <div style={{height: "fit-content", position: "relative", width: "1250px", textAlign: "left", padding: "78px", background: dark ? "white" : "black", color: dark ? "black" : "white", display: this.state.showChapterModal ? "block" : "none"}}>

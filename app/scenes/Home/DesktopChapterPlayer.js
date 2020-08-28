@@ -93,6 +93,11 @@ class DesktopChapterPlayer extends React.Component {
         });
     }
 
+    setProgress(p) {
+        this.audio.currentTime = this.audio.duration * p;
+        this.updateProgress();
+    }
+
     calculateTotalValue(length) {
 
         var sec_num = parseInt(length, 10); // don't forget the second param
@@ -120,7 +125,10 @@ class DesktopChapterPlayer extends React.Component {
                             <div style={{flex: "0 0 15px"}}>{time}</div>
                             <div style={{flex: 1, margin: "0 8px", position: "relative"}}>
                                 <div style={{height: "3px", position: "absolute", top: "calc(50% - 1.5px)", width: "100%", background: "#84827b50", borderRadius: "5px"}}>
-                                    <div style={{height: "100%", background: "black", width: `${progress * 100}%`, borderRadius: "5px", transition: "all 0.5s cubic-bezier(0.39, 0.58, 0.57, 1) 0s"}}/>
+                                    <input onChange={(e) => {
+                                        console.log("CHANGE", e.target.value)
+                                        this.setProgress(e.target.value)
+                                    }} type={"range"} value={progress} min={0} max={1} step={0.0001}/>
                                 </div>
                             </div>
                             <div style={{flex: "0 0 15px"}}>{end}</div>
