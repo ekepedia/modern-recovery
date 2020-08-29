@@ -70,29 +70,33 @@ class Canvas extends React.Component {
 
         });
 
+        const initY = ((height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2 - 53/2);
         this.instance.zoomAbs(
             width < 768 ? -150 : 0, // initial x position
-            width < 768 ? -35: (height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2 - 53/2,//(width/2), // initial y position
+            width < 768 ? 0: initY < 0 ? 0 : initY,//(width/2), // initial y position
             minZoom // initial zoom
         );
 
         this.instance.on('pan', (e) => {
 
-            return;
-
             const width  = document.getElementById(holder).clientWidth;
+            const height = document.getElementById(holder).clientHeight;
+
             const transform = e.getTransform();
-            //
+            const navHeight = 53;
+
             // console.log(transform);
             // console.log(transform.x, transform.x / transform.scale, width, IMG_WIDTH);
             // console.log(transform.x / transform.scale + IMG_WIDTH, transform.x / transform.scale + IMG_WIDTH - width, transform.x + IMG_WIDTH);
 
-            const xBoundScale = transform.x / transform.scale + IMG_WIDTH - width / transform.scale;
-            const yBoundScale = transform.y / transform.scale + IMG_HEIGHT - height / transform.scale;
+            const xBoundScale = IMG_WIDTH * transform.scale - width + transform.x;
 
-            console.log("PANN")
-            console.log("bounds x:", transform.x, xBoundScale, width - IMG_WIDTH * transform.scale);
-            console.log("bounds y:", transform.y, yBoundScale, (height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2 - 53/2);
+            const yBoundScale = IMG_HEIGHT * transform.scale - height + transform.y;
+
+            // console.log("PANN")
+            // console.log(IMG_HEIGHT * transform.scale - height, "\n\n", IMG_HEIGHT * transform.scale, height, "\n\n");
+            // console.log("bounds y:", transform.y, yBoundScale, "\n", transform.scale, height - IMG_HEIGHT * transform.scale);
+            // console.log("bounds y:", transform.y, yBoundScale, (height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2 - 53/2);
 
             let xPos = transform.x;
             let yPos = transform.y;
@@ -101,45 +105,81 @@ class Canvas extends React.Component {
             const buffer = 0;
 
             if (transform.x > buffer) {
-                console.log("FIRST CASE: X");
+                // console.log("FIRST CASE: X");
 
                 xPos = 0;
                 change = true;
-            } else if (xBoundScale < (0 - buffer) && Math.abs(transform.x) > 10) {
-                console.log("SECOND CASE: X");
+            } else if (xBoundScale < (0 - buffer)) {
+                // console.log("SECOND CASE: X");
 
-                console.log("moving x", transform.x, "to", width - IMG_WIDTH * transform.scale)
+                // console.log("moving x", transform.x, "to", width - IMG_WIDTH * transform.scale)
                 xPos = width - IMG_WIDTH * transform.scale;//transform.x + 1;
                 change = true;
             }
 
-            // if (transform.y < buffer) {
-            //     console.log("FIRST CASE: Y");
-            //     yPos = 0;
-            //     change = true;
-            // }
-            // else if (yBoundScale < (0 - buffer) && Math.abs(transform.y) > 10) {
-            //     console.log("SECOND CASE: Y");
-            //     yPos = transform.y + 1;
-            //     change = true;
-            // }
+            // console.log("CHECK:", IMG_HEIGHT*transform.scale , height)
+
+            if (IMG_HEIGHT*transform.scale < height) {
+                // console.log("HEIGHT EXCEPTION!");
+                // console.log();
+
+                const YScale = height - IMG_HEIGHT*transform.scale - transform.y - navHeight;
+
+                if (transform.y < 0) {
+                    // console.log("FIRST CASE 2: Y");
+                    yPos = 0;
+                    change = true;
+                } else if (YScale < 0) {
+                    // console.log("SECOND CASE 2: Y")
+                    yPos = height - IMG_HEIGHT*transform.scale - navHeight;
+
+                    if (yPos < 0) {
+                        // console.warn("SENDING Y TO BAD PLACE:", yPos);
+                        yPos = 0;//transform.y
+                        if (transform.y !== yPos)
+                            change = true;
+                    } else {
+                        change = true;
+                    }
+                }
+            } else {
+                if (transform.y > buffer) {
+                    // console.log("FIRST CASE: Y");
+                    yPos = 0;
+                    change = true;
+                }
+                else if (yBoundScale < buffer) {
+                    // console.log("SECOND CASE: Y");
+                    yPos = height - IMG_HEIGHT * transform.scale;
+                    change = true;
+                }
+            }
 
             if (change) {
-                if (this.changes > 1000)
-                    return console.log("MAX CHANGES");
 
-                console.log(this.changes, "changiings to ", xPos, yPos, transform.x, transform.y)
+                if (this.changes > 1000) {
+                    if (!this.waitTimeout)
+                        setTimeout(() => {
+                            this.changes = 0;
+                            this.waitTimeout = null;
+                        }, 100);
 
-                //this.instance.moveTo(xPos, yPos);
+                    return console.log("too many changes");
+                }
+                // console.log(this.changes, "changiings to ", xPos, yPos, transform.x, transform.y)
+
+                this.instance.moveTo(xPos, yPos);
+
                 this.changes = this.changes || 0;
                 this.changes = this.changes + 1;
 
-                clearTimeout(this.timeout);
-                this.timeout = setTimeout(() => {
+                if (this.resetChanges)
+                    clearTimeout(this.resetChanges);
 
-                }, 0);
+                this.resetChanges = setTimeout(() => {
+                    this.changes = 0;
+                }, 1000);
             }
-
 
         })
 

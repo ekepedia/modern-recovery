@@ -5,13 +5,14 @@ class GlobalStore extends EventEmitter {
 
     constructor() {
         super();
+
+        this.setMaxListeners(30);
     }
 
     handleActions(action) {
         switch(action.type) {
-            case "RECEIVE_PUZZLES": {
-                this.puzzles = action.puzzles;
-                this.emit("change");
+            case "PLAY": {
+                this.emit("pause-all", {id: action.id});
                 break;
             }
         }

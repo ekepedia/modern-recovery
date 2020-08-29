@@ -464,7 +464,10 @@ class Home extends React.Component {
                                 <div  style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
                                     <div className={classes.buttonShine} onClick={() => {this.toggleChapter()}} style={{background: this.state.chapter ? "none" : null, marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
                                         <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 94 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "url('/img/chapter-gradient.png')" : "url('/img/chapter-gradient.png')",
-                                            animation: this.state.chapter ? "backgroundmove 5s infinite" : "backgroundmove 10s infinite",
+                                            animationName: "backgroundmove",
+                                            animationDuration:  this.state.chapter ? "5s" : "10s",
+                                            animationDelay: "0",
+                                            animationIterationCount: "inifinte",
                                             animationTimingFunction: "ease-in-out",
                                             borderRadius: "100%"}}>
                                         </div>
@@ -604,8 +607,9 @@ class Home extends React.Component {
                                                                        animationName: this.state.sent ? "backgroundmove2" : null,
                                                                        animationDuration: "1.5s",
                                                                        animationDelay: "0",
+                                                                       animationTimingFunction: "ease-in-out",
                                                                        color: this.state.changeSentText ? "rgba(0,0,0,0)" : (this.state.sent ? "white" : null),
-                                                                       animationTimingFunction: "ease-in-out"}}
+                                                                       }}
                                                             />
 
                                                         </form>
@@ -760,7 +764,7 @@ class Home extends React.Component {
                     </div>
                     <div style={{flex: 1, overflow: "hidden"}}>
                         {this.state.chapter ?
-                            <div id="mobile-scroll-container" style={{height: "100%", width: "100%", overflowY: "scroll", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
+                            <div id="mobile-scroll-container" style={{height: "100%", width: "100%", overflowY: "scroll", opacity: this.state.mounted ? 1 : 0, transition: "1s", outline: "none"}}>
                                 <div style={{display: "flex", flexDirection: "column"}}>
                                     <div style={{flex: this.state.pillars ? 0 : 1, overflow: this.state.pillars ? "hidden" : null, display: this.state.pillars ? "none" : null}}>
                                         <div style={{transition: "background 0.5s", width: "100%", height: "calc((100vh - 84px) * 0.60)", background: `url(${STAGES[this.state.stageIndex].img}) 0% 0% / cover no-repeat`}}/>

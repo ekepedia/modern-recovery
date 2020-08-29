@@ -2,6 +2,8 @@ import React from "react";
 
 import injectSheet from 'react-jss';
 import { withRouter } from 'react-router-dom';
+import dispatcher from "../../dispatcher";
+import GlobalStore from "../../store/GlobalStore";
 
 const height = 92*1.5;
 const width = 476.04*1.5;
@@ -38,6 +40,9 @@ class DesktopDiscoverPlayer extends React.Component {
         };
 
         this.audio = new Audio(props.audio);
+        this.id = Math.round(Math.random() * 10000);
+
+        this.handlePauseAll = this.handlePauseAll.bind(this);
     }
 
     toggleAudio() {
@@ -53,19 +58,24 @@ class DesktopDiscoverPlayer extends React.Component {
         });
         this.audio.play();
 
-
+        dispatcher.dispatch({
+            type: "PLAY",
+            id: this.id,
+        });
     }
 
-    pauseAudio() {
+    pauseAudio(reset) {
         this.audio.pause();
         this.setState({
             playing: false
         });
+
+        if (reset) {
+            this.audio.currentTime = 0;
+        }
     }
 
     setListeners() {
-
-        console.log("SETTING LSITER", this.audio);
         this.audio.addEventListener('ended',() => {
             this.pauseAudio();
         });
@@ -75,8 +85,15 @@ class DesktopDiscoverPlayer extends React.Component {
         };
     }
 
+    handlePauseAll(e) {
+        console.log("PAUSE", e);
+        if (e.id !== this.id)
+            this.pauseAudio(true);
+    }
     componentDidMount() {
         this.setListeners();
+
+        GlobalStore.on("pause-all", this.handlePauseAll)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -92,6 +109,7 @@ class DesktopDiscoverPlayer extends React.Component {
 
     componentWillUnmount() {
         this.pauseAudio();
+        GlobalStore.removeListener("pause-all", this.handlePauseAll);
     }
 
     updateProgress() {
@@ -129,8 +147,6 @@ class DesktopDiscoverPlayer extends React.Component {
         return (<div id={"audio" + this.id} className={classes.container} style={{fontFamily: "UntitledSans-Regular", letterSpacing: "-0.25px", width: this.state.playing ? `${width}px` : null, transition: "0.5s", overflow: "hidden", borderRadius: `${height}px`}}>
             <div style={{display: "flex", width: `${width}px`, transition: "0.5s", overflow: "hidden", borderRadius: `${height}px`, background: this.state.playing ? "url('/img/discover-gradient.png') left center / 300% no-repeat" : (dark ? "white" : "black"),
                 animation: "backgroundmove 5s infinite",
-                backgroundPosition: "left",
-                backgroundSize: "500%",
                 animationTimingFunction: "ease-in-out",
                 color: (dark ? (this.state.playing ? "white" : "black") : "white"), height: `${height}px`}}>
                 <div style={{flex: `0 0 ${height}px`, marginRight: "10px"}}>
