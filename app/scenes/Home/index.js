@@ -48,11 +48,23 @@ const Styles = {
         '@media (max-width: 1370px)': {
             flex: "0 0 250px",
         },
+        '@media (min-width: 1500px)': {
+            flex: 0.75
+        },
     },
     mainBoxContainer: {
         flex: "0 0 489.12px",
         '@media (max-width: 1370px)': {
             flex: 1
+        },
+        '@media (min-width: 1500px)': {
+            flex: 1,
+        },
+    },
+    sideNavContainer: {
+        flex: 1,
+        '@media (min-width: 1500px)': {
+            flex: "0 0 360px"
         },
     },
     tabNameMobile: {
@@ -244,8 +256,9 @@ class Home extends React.Component {
             pillars: false,
             stage: STAGES[0],
             stageIndex: 0,
-            chapter: false,
-            chapterBot: false,
+            stageIndexDelayed: 0,
+            chapter: true,
+            chapterBot: true,
             changingMode: false,
 
             mobileIndex1: 0,
@@ -264,12 +277,21 @@ class Home extends React.Component {
         });
 
         setTimeout(() => {
+
             this.setState({
-                stage,
-                changingState: false,
-                textIndex: 0,
-                textIndexBot: 0,
+                stageIndexDelayed: index,
+
             });
+
+            setTimeout(() => {
+                this.setState({
+                    stage,
+                    changingState: false,
+                    textIndex: 0,
+                    textIndexBot: 0,
+                });
+            }, 1);
+
 
             // $(document).ready(function(){
             //     $('.quotes-mobile').slick({
@@ -438,7 +460,7 @@ class Home extends React.Component {
                 }}/>
                 <div style={{display: "flex", flexDirection: "column", height: "100vh", width: "100vw", overflow: "hidden"}}>
                     <div style={{background: "white", flex: "0 0 53px", zIndex: 99, boxShadow: "0px 1px 4px #00000011", overflow: "hidden"}}>
-                        <div style={{display: "flex", padding: "0 22px", height: "100%"}}>
+                        <div style={{display: "flex", padding: "0 22px", height: "53px"}}>
 
                             <div style={{flex: 1, lineHeight: "53px", fontFamily: "GT-America-Mono-Trial-Regular", fontSize: "14px", position: "relative"}}>
                                 <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><img className={classes.logoImage} onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer", position: "absolute", top: 21, left: 72, }} src={"/img/tempest-logo.svg"}/>
@@ -486,7 +508,7 @@ class Home extends React.Component {
                             <div style={{display: "flex", height: "100%", width: "100%"}}>
                                 <div style={{flex: this.state.pillars ? 0 : 1, transition: "1s", overflow: "hidden", height: "100%"}}>
                                     <div style={{display: "flex", height: "100%", width: "calc(100vw - 46px)"}}>
-                                        <div className={classes.heroBackground} style={{transition: "background 0.5s", background: `url(${STAGES[this.state.stageIndex].img}) 0% 0% / cover no-repeat`}}>
+                                        <div className={classes.heroBackground} style={{transition: "opacity 0.5s", opacity: this.state.changingState ? 0 : 1, background: `url(${STAGES[this.state.stageIndexDelayed].img}) 0% 0% / cover no-repeat`}}>
 
                                         </div>
                                         <div style={{flex: "1"}}>
@@ -519,7 +541,7 @@ class Home extends React.Component {
                                                         </div>
 
                                                     </div>
-                                                    <div style={{flex: 1, textAlign: "right", overflow: "hidden", height: "100%"}}>
+                                                    <div className={classes.sideNavContainer} style={{textAlign: "right", overflow: "hidden", height: "100%"}}>
                                                         <div style={{paddingTop: "calc((100vh - 476.88px - 53px)/2)"}}>
                                                             {STAGES.map((stage, i) => {
                                                                 return (<div key={stage.name} onClick={() => {this.setIndex(i)}} className={this.state.stageIndex === i ? classes.tabBigName : classes.tabName}>{stage.name}</div>);
@@ -765,7 +787,7 @@ class Home extends React.Component {
                     <div style={{flex: 1, overflow: "hidden"}}>
                         {this.state.chapter ?
                             <div id="mobile-scroll-container" style={{height: "100%", width: "100%", overflowY: "scroll", opacity: this.state.mounted ? 1 : 0, transition: "1s", outline: "none"}}>
-                                <div style={{display: "flex", flexDirection: "column"}}>
+                                <div style={{display: "flex", flexDirection: "column", outline: "none"}}>
                                     <div style={{flex: this.state.pillars ? 0 : 1, overflow: this.state.pillars ? "hidden" : null, display: this.state.pillars ? "none" : null}}>
                                         <div style={{transition: "background 0.5s", width: "100%", height: "calc((100vh - 84px) * 0.60)", background: `url(${STAGES[this.state.stageIndex].img}) 0% 0% / cover no-repeat`}}/>
                                         <div style={{height: "fit-content", background: STAGES[this.state.stageIndex].gradient}}>

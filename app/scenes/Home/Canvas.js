@@ -77,112 +77,121 @@ class Canvas extends React.Component {
             minZoom // initial zoom
         );
 
+        this.instance.on('zoom', (e) => {
+            this.handleShift(e);
+
+        });
+
         this.instance.on('pan', (e) => {
-
-            const width  = document.getElementById(holder).clientWidth;
-            const height = document.getElementById(holder).clientHeight;
-
-            const transform = e.getTransform();
-            const navHeight = 53;
-
-            // console.log(transform);
-            // console.log(transform.x, transform.x / transform.scale, width, IMG_WIDTH);
-            // console.log(transform.x / transform.scale + IMG_WIDTH, transform.x / transform.scale + IMG_WIDTH - width, transform.x + IMG_WIDTH);
-
-            const xBoundScale = IMG_WIDTH * transform.scale - width + transform.x;
-
-            const yBoundScale = IMG_HEIGHT * transform.scale - height + transform.y;
-
-            // console.log("PANN")
-            // console.log(IMG_HEIGHT * transform.scale - height, "\n\n", IMG_HEIGHT * transform.scale, height, "\n\n");
-            // console.log("bounds y:", transform.y, yBoundScale, "\n", transform.scale, height - IMG_HEIGHT * transform.scale);
-            // console.log("bounds y:", transform.y, yBoundScale, (height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2 - 53/2);
-
-            let xPos = transform.x;
-            let yPos = transform.y;
-
-            let change = false;
-            const buffer = 0;
-
-            if (transform.x > buffer) {
-                // console.log("FIRST CASE: X");
-
-                xPos = 0;
-                change = true;
-            } else if (xBoundScale < (0 - buffer)) {
-                // console.log("SECOND CASE: X");
-
-                // console.log("moving x", transform.x, "to", width - IMG_WIDTH * transform.scale)
-                xPos = width - IMG_WIDTH * transform.scale;//transform.x + 1;
-                change = true;
-            }
-
-            // console.log("CHECK:", IMG_HEIGHT*transform.scale , height)
-
-            if (IMG_HEIGHT*transform.scale < height) {
-                // console.log("HEIGHT EXCEPTION!");
-                // console.log();
-
-                const YScale = height - IMG_HEIGHT*transform.scale - transform.y - navHeight;
-
-                if (transform.y < 0) {
-                    // console.log("FIRST CASE 2: Y");
-                    yPos = 0;
-                    change = true;
-                } else if (YScale < 0) {
-                    // console.log("SECOND CASE 2: Y")
-                    yPos = height - IMG_HEIGHT*transform.scale - navHeight;
-
-                    if (yPos < 0) {
-                        // console.warn("SENDING Y TO BAD PLACE:", yPos);
-                        yPos = 0;//transform.y
-                        if (transform.y !== yPos)
-                            change = true;
-                    } else {
-                        change = true;
-                    }
-                }
-            } else {
-                if (transform.y > buffer) {
-                    // console.log("FIRST CASE: Y");
-                    yPos = 0;
-                    change = true;
-                }
-                else if (yBoundScale < buffer) {
-                    // console.log("SECOND CASE: Y");
-                    yPos = height - IMG_HEIGHT * transform.scale;
-                    change = true;
-                }
-            }
-
-            if (change) {
-
-                if (this.changes > 1000) {
-                    if (!this.waitTimeout)
-                        setTimeout(() => {
-                            this.changes = 0;
-                            this.waitTimeout = null;
-                        }, 100);
-
-                    return console.log("too many changes");
-                }
-                // console.log(this.changes, "changiings to ", xPos, yPos, transform.x, transform.y)
-
-                this.instance.moveTo(xPos, yPos);
-
-                this.changes = this.changes || 0;
-                this.changes = this.changes + 1;
-
-                if (this.resetChanges)
-                    clearTimeout(this.resetChanges);
-
-                this.resetChanges = setTimeout(() => {
-                    this.changes = 0;
-                }, 1000);
-            }
-
+            this.handleShift(e);
         })
 
+    }
+
+    handleShift(e) {
+        const holder = this.props.holder;
+
+        const width  = document.getElementById(holder).clientWidth;
+        const height = document.getElementById(holder).clientHeight;
+
+        const transform = e.getTransform();
+        const navHeight = 53;
+
+        // console.log(transform);
+        // console.log(transform.x, transform.x / transform.scale, width, IMG_WIDTH);
+        // console.log(transform.x / transform.scale + IMG_WIDTH, transform.x / transform.scale + IMG_WIDTH - width, transform.x + IMG_WIDTH);
+
+        const xBoundScale = IMG_WIDTH * transform.scale - width + transform.x;
+
+        const yBoundScale = IMG_HEIGHT * transform.scale - height + transform.y;
+
+        // console.log("PANN")
+        // console.log(IMG_HEIGHT * transform.scale - height, "\n\n", IMG_HEIGHT * transform.scale, height, "\n\n");
+        // console.log("bounds y:", transform.y, yBoundScale, "\n", transform.scale, height - IMG_HEIGHT * transform.scale);
+        // console.log("bounds y:", transform.y, yBoundScale, (height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2 - 53/2);
+
+        let xPos = transform.x;
+        let yPos = transform.y;
+
+        let change = false;
+        const buffer = 0;
+
+        if (transform.x > buffer) {
+            // console.log("FIRST CASE: X");
+
+            xPos = 0;
+            change = true;
+        } else if (xBoundScale < (0 - buffer)) {
+            // console.log("SECOND CASE: X");
+
+            // console.log("moving x", transform.x, "to", width - IMG_WIDTH * transform.scale)
+            xPos = width - IMG_WIDTH * transform.scale;//transform.x + 1;
+            change = true;
+        }
+
+        // console.log("CHECK:", IMG_HEIGHT*transform.scale , height)
+
+        if (IMG_HEIGHT*transform.scale < height) {
+            // console.log("HEIGHT EXCEPTION!");
+            // console.log();
+
+            const YScale = height - IMG_HEIGHT*transform.scale - transform.y - navHeight;
+
+            if (transform.y < 0) {
+                // console.log("FIRST CASE 2: Y");
+                yPos = 0;
+                change = true;
+            } else if (YScale < 0) {
+                // console.log("SECOND CASE 2: Y")
+                yPos = height - IMG_HEIGHT*transform.scale - navHeight;
+
+                if (yPos < 0) {
+                    // console.warn("SENDING Y TO BAD PLACE:", yPos);
+                    yPos = 0;//transform.y
+                    if (transform.y !== yPos)
+                        change = true;
+                } else {
+                    change = true;
+                }
+            }
+        } else {
+            if (transform.y > buffer) {
+                // console.log("FIRST CASE: Y");
+                yPos = 0;
+                change = true;
+            }
+            else if (yBoundScale < buffer) {
+                // console.log("SECOND CASE: Y");
+                yPos = height - IMG_HEIGHT * transform.scale;
+                change = true;
+            }
+        }
+
+        if (change) {
+
+            if (this.changes > 1000) {
+                if (!this.waitTimeout)
+                    setTimeout(() => {
+                        this.changes = 0;
+                        this.waitTimeout = null;
+                    }, 100);
+
+                return console.log("too many changes");
+            }
+            // console.log(this.changes, "changiings to ", xPos, yPos, transform.x, transform.y)
+
+            this.instance.moveTo(xPos, yPos);
+
+            this.changes = this.changes || 0;
+            this.changes = this.changes + 1;
+
+            if (this.resetChanges)
+                clearTimeout(this.resetChanges);
+
+            this.resetChanges = setTimeout(() => {
+                this.changes = 0;
+            }, 1000);
+        }
     }
 
     componentWillUnmount() {
