@@ -135,9 +135,12 @@ const Styles = {
         fontFamily: "UntitledSans-Medium",
         letterSpacing: "1px",
         textTransform: "uppercase",
+        color: "white",
+        textDecoration: "none",
         "&:hover": {
             background: "white",
-            color: "black"
+            color: "black",
+            textDecoration: "none"
         }
     },
     signUpButton:  {
@@ -257,8 +260,8 @@ class Home extends React.Component {
             stage: STAGES[0],
             stageIndex: 0,
             stageIndexDelayed: 0,
-            chapter: true,
-            chapterBot: true,
+            chapter: false,
+            chapterBot: false,
             changingMode: false,
 
             mobileIndex1: 0,
@@ -522,14 +525,16 @@ class Home extends React.Component {
                                                                         return <div key={"q" + i} style={{opacity: this.state.textIndexBot === i ? 1 : null}} onClick={() => {this.setTextState(i)}} className={classes.dot}/>
                                                                     })}
                                                                 </div>
-                                                                <div style={{fontSize: "16px", maxWidth: "300px", lineHeight: "24px",  fontFamily: "Albra Text Regular",}}>
+                                                                <div style={{fontSize: "16px", maxWidth: "300px", lineHeight: "24px",  fontFamily: "Albra Text Regular", paddingRight: "5px"}}>
                                                                     <span style={{fontFamily: "Albra Text Bold"}}>{this.state.stage.name}:</span> {this.state.stage.definition}
                                                                 </div>
                                                                 <div style={{marginTop: "80px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
                                                                     “
                                                                 </div>
-                                                                <div style={{marginTop: "20px", height: "150px", overflow: "scroll", maxWidth: "395px", fontSize: "16px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
+                                                                <div className={`quotes-holder`} style={{marginTop: "20px", height: "145px", paddingRight: "10px", overflowY: "scroll", maxWidth: "395px", fontSize: "16px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
                                                                     {this.state.stage.quotes[this.state.textIndex].quote ? this.state.stage.quotes[this.state.textIndex].quote : this.state.stage.quotes[this.state.textIndex] }
+                                                                    <br/>
+                                                                    <span style={{fontFamily: "Albra Text Bold"}}>-{this.state.stage.quotes[this.state.textIndex].author ? this.state.stage.quotes[this.state.textIndex].author : null }</span>
                                                                 </div>
                                                                 <div style={{width: "100%", display: "flex", position: "absolute", bottom: 0, left: 0, padding: "30px", paddingLeft: "50px", paddingRight: "26px"}}>
                                                                     <div style={{flex: 1, textAlign: "right"}}>
@@ -674,6 +679,13 @@ class Home extends React.Component {
                                                             <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
                                                                 <img style={{width: "100%", position: "absolute", right: 0, top: "calc(50% - 10px)"}} src={"/img/right-arrow.png"}/>
                                                             </div>
+                                                        </div>
+                                                        <div style={{marginTop: "50px"}}>
+                                                            <a href={"/img/share-1.png"} style={{textDecoration: "none"}} download={true}>
+                                                                <div className={classes.joinButton}>
+                                                                    Download All
+                                                                </div>
+                                                            </a>
                                                         </div>
                                                         {/*<hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>*/}
                                                         {/*<div>*/}
@@ -840,8 +852,10 @@ class Home extends React.Component {
                                                         <div style={{marginTop: "60px", fontSize: "80px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
                                                             “
                                                         </div>
-                                                        <div style={{marginTop: "10px", height: "180px", overflow: "scroll", maxWidth: "395px", fontSize: "14px", lineHeight: "22px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
+                                                        <div  className={`quotes-holder`} style={{marginTop: "10px", height: "180px", overflowY: "scroll", paddingRight: "10px", maxWidth: "395px", fontSize: "14px", lineHeight: "22px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
                                                             {this.state.stage.quotes[this.state.mobileIndex1].quote ? this.state.stage.quotes[this.state.mobileIndex1].quote : this.state.stage.quotes[this.state.mobileIndex1] }
+                                                            <br/>
+                                                            <span style={{fontFamily: "Albra Text Bold"}}>-{this.state.stage.quotes[this.state.textIndex].author ? this.state.stage.quotes[this.state.textIndex].author : null }</span>
                                                         </div>
 
                                                         <div style={{width: "100%", display: "flex", position: "absolute", bottom: 18, left: 0, padding: "0 30px", paddingRight: "30px"}}>
@@ -967,6 +981,12 @@ class Home extends React.Component {
                                                                     <img style={{width: "70%", position: "absolute", right: 0, top: "calc(50% - 7px)"}} src={"/img/right-arrow.png"}/>
                                                                 </div>
                                                             </div>
+
+                                                                <a href={"/img/share-1.png"} style={{textDecoration: "none",}} download={true}>
+                                                                    <div style={{marginTop: "50px"}} className={classes.joinButton}>
+                                                                    Download All
+                                                                    </div>
+                                                                </a>
                                                         </div>
                                                         {/*<div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 3 ? null : "none"}}>*/}
                                                         {/*    <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Join In</div>*/}
