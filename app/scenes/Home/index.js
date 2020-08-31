@@ -526,7 +526,7 @@ class Home extends React.Component {
                                                                     })}
                                                                 </div>
                                                                 <div style={{fontSize: "16px", maxWidth: "300px", lineHeight: "24px",  fontFamily: "Albra Text Regular", paddingRight: "5px"}}>
-                                                                    <span style={{fontFamily: "Albra Text Bold"}}>{this.state.stage.name}:</span> {this.state.stage.definition}
+                                                                    <span style={{fontFamily: null}}>{this.state.stage.name}:</span> {this.state.stage.definition}
                                                                 </div>
                                                                 <div style={{marginTop: "80px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
                                                                     “
@@ -534,7 +534,7 @@ class Home extends React.Component {
                                                                 <div className={`quotes-holder`} style={{marginTop: "20px", height: "145px", paddingRight: "10px", overflowY: "scroll", maxWidth: "395px", fontSize: "16px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
                                                                     {this.state.stage.quotes[this.state.textIndex].quote ? this.state.stage.quotes[this.state.textIndex].quote : this.state.stage.quotes[this.state.textIndex] }
                                                                     <br/>
-                                                                    <span style={{fontFamily: "Albra Text Bold"}}>-{this.state.stage.quotes[this.state.textIndex].author ? this.state.stage.quotes[this.state.textIndex].author : null }</span>
+                                                                    <span style={{fontFamily: null}}>-{this.state.stage.quotes[this.state.textIndex].author ? this.state.stage.quotes[this.state.textIndex].author : null }</span>
                                                                 </div>
                                                                 <div style={{width: "100%", display: "flex", position: "absolute", bottom: 0, left: 0, padding: "30px", paddingLeft: "50px", paddingRight: "26px"}}>
                                                                     <div style={{flex: 1, textAlign: "right"}}>
