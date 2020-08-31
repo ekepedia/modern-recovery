@@ -22,7 +22,7 @@ const SANS_SERIF_FONT_BODY = {
 
 const Styles = {
     container: {
-        cursor: "none",
+        cursor: "auto",
         color: "black",
         '@media (max-width: 1024px)': {
             cursor: "auto"
@@ -492,7 +492,7 @@ class Home extends React.Component {
                                             animationName: "backgroundmove",
                                             animationDuration:  this.state.chapter ? "5s" : "10s",
                                             animationDelay: "0",
-                                            animationIterationCount: "inifinte",
+                                            animationIterationCount: "infinite",
                                             animationTimingFunction: "ease-in-out",
                                             borderRadius: "100%"}}>
                                         </div>
@@ -719,7 +719,7 @@ class Home extends React.Component {
                                                         </div>
                                                         {this.pillars.map((pillar, index) => {
                                                             return (
-                                                                <div key={"p" + index} style={{marginBottom: "70px"}}>
+                                                                <div key={"p" + index} style={{maxWidth: "500px", margin: "auto", marginBottom: "70px"}}>
                                                                     <div style={{display: "flex"}}>
                                                                         <div style={{flex: "0 0 140px"}}>
                                                                             <div style={{fontSize: "60px", lineHeight: "60px", fontFamily: "NoeDisplay Regular"}}>
@@ -846,13 +846,13 @@ class Home extends React.Component {
                                             <div className={"quotes-mobile"}>
                                                 <div style={{padding: "24px 30px"}}>
                                                     <div  style={{background: "rgba(255,255,255,0.1)", opacity: this.state.changingState ? 0 : 1, transition: "0.5s", padding: "30px", position: "relative", height: "411px", borderRadius: "8px"}}>
-                                                        <div style={{fontSize: "14px", maxWidth: "300px", lineHeight: "22px", ...SANS_SERIF_FONT}}>
+                                                        <div style={{fontSize: "14px", maxWidth: "300px", lineHeight: "22px", fontFamily: "Albra Text Regular"}}>
                                                             {this.state.stage.name}: {this.state.stage.definition}
                                                         </div>
                                                         <div style={{marginTop: "60px", fontSize: "80px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
                                                             “
                                                         </div>
-                                                        <div  className={`quotes-holder`} style={{marginTop: "10px", height: "180px", overflowY: "scroll", paddingRight: "10px", maxWidth: "395px", fontSize: "14px", lineHeight: "22px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
+                                                        <div  className={`quotes-holder`} style={{marginTop: "10px", height: "165px", overflowY: "scroll", paddingRight: "10px", maxWidth: "395px", fontSize: "14px", lineHeight: "22px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
                                                             {this.state.stage.quotes[this.state.mobileIndex1].quote ? this.state.stage.quotes[this.state.mobileIndex1].quote : this.state.stage.quotes[this.state.mobileIndex1] }
                                                             <br/>
                                                             <span style={{fontFamily: "Albra Text Bold"}}>-{this.state.stage.quotes[this.state.textIndex].author ? this.state.stage.quotes[this.state.textIndex].author : null }</span>
