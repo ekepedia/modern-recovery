@@ -86,10 +86,10 @@ class DesktopDiscoverPlayer extends React.Component {
     }
 
     handlePauseAll(e) {
-        console.log("PAUSE", e);
         if (e.id !== this.id)
             this.pauseAudio(true);
     }
+
     componentDidMount() {
         this.setListeners();
 

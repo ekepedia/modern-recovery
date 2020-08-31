@@ -7,6 +7,7 @@ import Canvas from './Canvas';
 import DesktopChapterPlayer from "./DesktopChapterPlayer";
 
 import { STAGES, PILLARS } from "./copy";
+import MobileQuotes from "./MobileQuotes";
 
 const SANS_SERIF_FONT = {
     fontFamily: "UntitledSans-Regular",
@@ -260,8 +261,8 @@ class Home extends React.Component {
             stage: STAGES[0],
             stageIndex: 0,
             stageIndexDelayed: 0,
-            chapter: false,
-            chapterBot: false,
+            chapter: true,
+            chapterBot: true,
             changingMode: false,
 
             mobileIndex1: 0,
@@ -455,6 +456,7 @@ class Home extends React.Component {
 
     render() {
         let { classes } = this.props;
+        const { changingState, stage, changeText, textIndex, mobileIndex1 } = this.state;
 
         return (<div className={classes.container} style={{background: STAGES[this.state.stageIndex].gradient, transition: "1s"}}>
             <div className={classes.Desktop}>
@@ -843,37 +845,8 @@ class Home extends React.Component {
                                             </div>
                                             <div style={{height: "282px", width: "1px", margin: "auto", background: "black"}} />
 
-                                            <div className={"quotes-mobile"}>
-                                                <div style={{padding: "24px 30px"}}>
-                                                    <div  style={{background: "rgba(255,255,255,0.1)", opacity: this.state.changingState ? 0 : 1, transition: "0.5s", padding: "30px", position: "relative", height: "411px", borderRadius: "8px"}}>
-                                                        <div style={{fontSize: "14px", maxWidth: "300px", lineHeight: "22px", fontFamily: "Albra Text Regular"}}>
-                                                            {this.state.stage.name}: {this.state.stage.definition}
-                                                        </div>
-                                                        <div style={{marginTop: "60px", fontSize: "80px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
-                                                            “
-                                                        </div>
-                                                        <div  className={`quotes-holder`} style={{marginTop: "10px", height: "165px", overflowY: "scroll", paddingRight: "10px", maxWidth: "395px", fontSize: "14px", lineHeight: "22px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
-                                                            {this.state.stage.quotes[this.state.mobileIndex1].quote ? this.state.stage.quotes[this.state.mobileIndex1].quote : this.state.stage.quotes[this.state.mobileIndex1] }
-                                                            <br/>
-                                                            <span style={{fontFamily: "Albra Text Bold"}}>-{this.state.stage.quotes[this.state.textIndex].author ? this.state.stage.quotes[this.state.textIndex].author : null }</span>
-                                                        </div>
-
-                                                        <div style={{width: "100%", display: "flex", position: "absolute", bottom: 18, left: 0, padding: "0 30px", paddingRight: "30px"}}>
-                                                            <div style={{flex: 1, textAlign: "right"}}>
-                                                                <DesktopChapterPlayer audio={this.state.stage.quotes[this.state.mobileIndex1].audio ? this.state.stage.quotes[this.state.mobileIndex1].audio : "/img/test-audio.m4a"}/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div style={{textAlign: "center", paddingBottom: "100px"}}>
-                                                    {this.state.stage.quotes.map((pillar, index) => {
-                                                        return (
-                                                            <div  onClick={() => this.setState({mobileIndex1: index})} key={"qm" + index} style={{marginRight: "15px", height: "7px", width: "7px", borderRadius: "100%", background: "black", opacity: index === this.state.mobileIndex1 ? 1 : 0.2, transition: "1s", display: "inline-block",}}>
-
-                                                            </div>
-                                                        )
-                                                    })}
-                                                </div>
+                                            <div style={{paddingBottom: "100px"}}>
+                                                <MobileQuotes {...{changingState, stage, changeText, textIndex, mobileIndex1}}/>
                                             </div>
                                         </div>
                                     </div>

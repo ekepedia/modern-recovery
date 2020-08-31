@@ -3,6 +3,9 @@ import React from "react";
 import injectSheet from 'react-jss';
 import { withRouter } from 'react-router-dom';
 
+import dispatcher from "../../dispatcher";
+import GlobalStore from "../../store/GlobalStore";
+
 const Styles = {
     playButton: {
         background: "#e4e0d9",
@@ -32,6 +35,9 @@ class DesktopChapterPlayer extends React.Component {
         };
 
         this.audio = new Audio(props.audio);
+        this.id = Math.round(Math.random() * 10000);
+
+        this.handlePauseAll = this.handlePauseAll.bind(this);
     }
 
     toggleAudio() {
@@ -46,13 +52,22 @@ class DesktopChapterPlayer extends React.Component {
             playing: true
         });
         this.audio.play();
+
+        dispatcher.dispatch({
+            type: "PLAY",
+            id: this.id,
+        });
     }
 
-    pauseAudio() {
+    pauseAudio(reset) {
         this.audio.pause();
         this.setState({
             playing: false
         });
+
+        if (reset) {
+            this.audio.currentTime = 0;
+        }
     }
 
     setListeners() {
@@ -66,8 +81,14 @@ class DesktopChapterPlayer extends React.Component {
         };
     }
 
+    handlePauseAll(e) {
+        if (e.id !== this.id)
+            this.pauseAudio(true);
+    }
+
     componentDidMount() {
         this.setListeners();
+        GlobalStore.on("pause-all", this.handlePauseAll)
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -84,6 +105,7 @@ class DesktopChapterPlayer extends React.Component {
 
     componentWillUnmount() {
         this.pauseAudio();
+        GlobalStore.removeListener("pause-all", this.handlePauseAll);
     }
 
     updateProgress() {
