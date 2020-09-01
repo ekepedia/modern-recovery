@@ -84,7 +84,7 @@ class MobileShare extends React.Component {
                         <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "24px"}}>
                             We do recovery differently.
                         </div>
-                        <div style={{...SANS_SERIF_FONT_BODY, fontSize: "14px", maxWidth: "280px", margin: "auto"}}>
+                        <div style={{...SANS_SERIF_FONT_BODY, fontSize: "14px", maxWidth: "315px", margin: "auto"}}>
                             We’re empowering folks at every stage of their journey to examine their relationship with alcohol— on their own terms. If alcohol is no longer serving you or helping you live the life you want, now’s the time to try something new.
                             <br/><br/>
                             We hope this movement inspires you to question drinking culture and shed outdated ideas around what it means to be sober or in recovery.
@@ -141,9 +141,9 @@ class MobileShare extends React.Component {
                             <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
                                 <img style={{width: "70%", position: "absolute", left: 0, top: "calc(50% - 7px)"}} src={"/img/left-arrow.png"}/>
                             </div>
-                            <div style={{flex: 1, textAlign: "center"}}>
-                                <a href={"/img/share-1.png"} download={true}>
-                                    <img style={{border: "1px solid white", width: "100%", maxWidth: "211px", margin: "auto"}} src={"/img/share-1.png"}/>
+                            <div style={{flex: 1, textAlign: "center", outline: "none",}}>
+                                <a style={{outline: "none"}} href={"/img/share-1.png"} download={true}>
+                                    <img style={{border: "1px solid white", outline: "none", width: "100%", maxWidth: "211px", margin: "auto"}} src={"/img/share-1.png"}/>
                                 </a>
                             </div>
                             <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
@@ -151,11 +151,11 @@ class MobileShare extends React.Component {
                             </div>
                         </div>
 
-                        <a href={"/img/share-1.png"} style={{textDecoration: "none",}} download={true}>
-                            <div style={{marginTop: "50px"}} className={classes.joinButton}>
-                                Download All
-                            </div>
-                        </a>
+                        {/*<a href={"/img/share-1.png"} style={{textDecoration: "none",}} download={true}>*/}
+                        {/*    <div style={{marginTop: "50px"}} className={classes.joinButton}>*/}
+                        {/*        Download All*/}
+                        {/*    </div>*/}
+                        {/*</a>*/}
                     </div>
                 </div>
                 <div style={{textAlign: "center"}}>

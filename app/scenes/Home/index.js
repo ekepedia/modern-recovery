@@ -843,7 +843,7 @@ class Home extends React.Component {
                                                     {STAGES[this.state.stageIndex].name}
                                                 </div>
                                             </div>
-                                            <div style={{height: "282px", width: "1px", margin: "auto", background: "black"}} />
+                                            <div style={{height: "100px", width: "1px", margin: "auto", background: "black"}} />
 
                                             <div style={{paddingBottom: "100px"}}>
                                                 <MobileQuotes {...{changingState, stage, changeText, textIndex, mobileIndex1, pillars: this.state.pillars, chapter: this.state.chapter}}/>
@@ -891,7 +891,7 @@ class Home extends React.Component {
                                             </div>
 
                                             <div style={{background: "linear-gradient(#8b99af,#bab8b4)", color: "white"}}>
-                                                <div style={{height: "235px", background: "white", width: "1px", margin: "auto"}}>
+                                                <div style={{height: "25px", background: "white", width: "1px", margin: "auto"}}>
 
                                                 </div>
                                                 <div style={{padding: "56px 30px", textAlign: "center"}}>
@@ -902,7 +902,7 @@ class Home extends React.Component {
                                                         We have expanded the definition of what it means to be in recovery to include a diverse range of experiences and approaches to care. These six pillars of Modern Recovery encompass our mission to provide a holistic, trauma-informed approach to healing.
                                                     </div>
                                                 </div>
-                                                <div style={{width: "100%", overflow: "hidden",  paddingBottom: "100px"}}>
+                                                <div style={{width: "100%", overflow: "hidden",  paddingBottom: "200px"}}>
                                                     <MobilePillars {...{chapter: this.state.chapter, pillars: this.state.pillars }}/>
                                                 </div>
 
