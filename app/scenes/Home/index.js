@@ -880,7 +880,7 @@ class Home extends React.Component {
                                             </div>
 
                                             <div style={{background: "black", paddingTop: this.state.pillars ? "53px" : null,
-                                                height: "calc(100vh - 84px)", color: "white", position: "relative"}}>
+                                                height: "calc(100vh - 84px)", minHeight: "750px", color: "white", position: "relative"}}>
                                                 <div>
                                                     <MobileShare {...{changingState, stage, changeText, textIndex, mobileIndex1, sentBot, sent, changeSentText, classes, chapter: this.state.chapter,handleSalesForceSubmit: this.handleSalesForceSubmit.bind(this), pillars: this.state.pillars}}/>
                                                 </div>
