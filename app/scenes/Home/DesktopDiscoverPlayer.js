@@ -169,7 +169,6 @@ class DesktopDiscoverPlayer extends React.Component {
                                 <div style={{flex: 1, margin: "0 16px", position: "relative"}}>
                                     <div style={{height: "6px", position: "absolute", top: "calc(50% - 1.5px)", width: "100%", background: "#84827b50", borderRadius: "5px"}}>
                                         <input className={"discover"} onChange={(e) => {
-                                            console.log("CHANGE", e.target.value)
                                             this.setProgress(e.target.value)
                                         }} type={"range"} value={progress} min={0} max={1} step={0.0001}/>
                                     </div>

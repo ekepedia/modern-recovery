@@ -8,16 +8,16 @@ import DesktopChapterPlayer from "./DesktopChapterPlayer";
 
 import { STAGES, PILLARS } from "./copy";
 import MobileQuotes from "./MobileQuotes";
+import MobileShare from "./MobileShare";
+import MobilePillars from "./MobilePillars";
 
 const SANS_SERIF_FONT = {
     fontFamily: "UntitledSans-Regular",
-    //fontFamily: "'Montserrat', sans-serif",
     letterSpacing: "-1px",
 }
 
 const SANS_SERIF_FONT_BODY = {
     fontFamily: "UntitledSans-Regular",
-    //fontFamily: "'Montserrat', sans-serif",
     letterSpacing: "-0.25px",
 }
 
@@ -261,8 +261,8 @@ class Home extends React.Component {
             stage: STAGES[0],
             stageIndex: 0,
             stageIndexDelayed: 0,
-            chapter: true,
-            chapterBot: true,
+            chapter: false,
+            chapterBot: false,
             changingMode: false,
 
             mobileIndex1: 0,
@@ -456,7 +456,7 @@ class Home extends React.Component {
 
     render() {
         let { classes } = this.props;
-        const { changingState, stage, changeText, textIndex, mobileIndex1 } = this.state;
+        const { changingState, stage, changeText, textIndex, mobileIndex1,  sentBot, sent, changeSentText, } = this.state;
 
         return (<div className={classes.container} style={{background: STAGES[this.state.stageIndex].gradient, transition: "1s"}}>
             <div className={classes.Desktop}>
@@ -803,8 +803,8 @@ class Home extends React.Component {
                             <div id="mobile-scroll-container" style={{height: "100%", width: "100%", overflowY: "scroll", opacity: this.state.mounted ? 1 : 0, transition: "1s", outline: "none"}}>
                                 <div style={{display: "flex", flexDirection: "column", outline: "none"}}>
                                     <div style={{flex: this.state.pillars ? 0 : 1, overflow: this.state.pillars ? "hidden" : null, display: this.state.pillars ? "none" : null}}>
-                                        <div style={{transition: "background 0.5s", width: "100%", height: "calc((100vh - 84px) * 0.60)", background: `url(${STAGES[this.state.stageIndex].img}) 0% 0% / cover no-repeat`}}/>
-                                        <div style={{height: "fit-content", background: STAGES[this.state.stageIndex].gradient}}>
+                                        <div style={{transition: "opacity 0.5s", opacity: this.state.changingState ? 0 : 1, width: "100%", height: "calc((100vh - 84px) * 0.60)", background: `url(${STAGES[this.state.stageIndexDelayed].img}) 0% 0% / cover no-repeat`}}/>
+                                        <div style={{height: "fit-content", background: false && STAGES[this.state.stageIndex].gradient}}>
                                             <div style={{padding: "24px 30px"}}>
                                                 <div style={{display: "flex"}}>
                                                     <div onClick={() => {
@@ -846,7 +846,7 @@ class Home extends React.Component {
                                             <div style={{height: "282px", width: "1px", margin: "auto", background: "black"}} />
 
                                             <div style={{paddingBottom: "100px"}}>
-                                                <MobileQuotes {...{changingState, stage, changeText, textIndex, mobileIndex1}}/>
+                                                <MobileQuotes {...{changingState, stage, changeText, textIndex, mobileIndex1, pillars: this.state.pillars, chapter: this.state.chapter}}/>
                                             </div>
                                         </div>
                                     </div>
@@ -882,117 +882,9 @@ class Home extends React.Component {
                                             <div style={{background: "black", paddingTop: this.state.pillars ? "53px" : null,
                                                 height: "calc(100vh - 84px)", color: "white", position: "relative"}}>
                                                 <div>
-                                                    <div style={{height: "530px"}}>
-                                                        <div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 0 ? null : "none"}}>
-                                                            <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "24px"}}>
-                                                                We do recovery differently.
-                                                            </div>
-                                                            <div style={{...SANS_SERIF_FONT_BODY, fontSize: "14px", maxWidth: "280px", margin: "auto"}}>
-                                                                We’re empowering folks at every stage of their journey to examine their relationship with alcohol— on their own terms. If alcohol is no longer serving you or helping you live the life you want, now’s the time to try something new.
-                                                                <br/><br/>
-                                                                We hope this movement inspires you to question drinking culture and shed outdated ideas around what it means to be sober or in recovery.
-                                                                <br/><br/>
-                                                                This is Modern Recovery, and all<br/> are welcome.
-                                                            </div>
-                                                            <div style={{marginTop: "18px"}} onClick={() => {this.setState({mobileIndex2: 1})}} className={classes.joinButton}>
-                                                                Join the movement
-                                                            </div>
-                                                        </div>
-                                                        <div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 1 ? null : "none"}}>
-                                                            <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Sign Up</div>
-                                                            <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>
-                                                                Get involved with Modern Recovery, with stories and resources sent straight to your inbox. You’ll also receive a 15% discount to the Tempest Membership plan of your choice.
-                                                            </div>
-                                                            <form onSubmit={(e) => this.handleSalesForceSubmit(e)}
-                                                                action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
-                                                                method="POST">
-                                                                <input type="hidden" name="oid" value="00D1U000000rAh6"/>
-                                                                <input type="hidden" name="retURL"
-                                                                       value="http://jointempest.com/"/>
-
-                                                                <input type="hidden" name="Campaign_ID" value="7012H000001OpghQAC" />
-                                                                <input type="hidden" name="member_status" value="Responded" />
-
-                                                                {/*<input type="hidden" name="debug" value="1"/>*/}
-                                                                {/*<input type="hidden" name="debugEmail"/>*/}
-
-                                                                <input id="last_name" maxLength="80" name="last_name" size="20"
-                                                                       type="text" placeholder={"Enter Your Name"} className={classes.inputBox}/>
-
-                                                                <input id="email" maxLength="80" name="email"
-                                                                       size="20"
-                                                                       type="text" placeholder={"Enter Your Email"} className={classes.inputBox}/>
-
-                                                                <input type="submit" name="submit" value={this.state.sentBot ? "Sent" : "Sign Up"} className={classes.signUpButton}
-                                                                       style={{
-                                                                           background: this.state.sent ? "linear-gradient(90deg, rgba(107,214,197,0) 30%, rgba(255,255,255,0.7) 49%, rgba(60,190,89,0) 70%) left / 600%" : null,
-                                                                           animationName: this.state.sent ? "backgroundmove2" : null,
-                                                                           animationDuration: "1.5s",
-                                                                           animationDelay: "0",
-                                                                           color: this.state.changeSentText ? "rgba(0,0,0,0)" : (this.state.sent ? "white" : null),
-                                                                           animationTimingFunction: "ease-in-out"}}
-                                                                />
-
-
-                                                            </form>
-                                                        </div>
-                                                        <div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 2 ? null : "none"}}>
-                                                            <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Share</div>
-                                                            <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>
-                                                                Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you, use our new Instagram filter to share your recovery story, and download and share these posts to spread awareness.
-                                                            </div>
-                                                            <div style={{display: "flex", padding: "0"}}>
-                                                                <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
-                                                                    <img style={{width: "70%", position: "absolute", left: 0, top: "calc(50% - 7px)"}} src={"/img/left-arrow.png"}/>
-                                                                </div>
-                                                                <div style={{flex: 1, textAlign: "center"}}>
-                                                                    <a href={"/img/share-1.png"} download={true}>
-                                                                        <img style={{border: "1px solid white", width: "100%", maxWidth: "211px", margin: "auto"}} src={"/img/share-1.png"}/>
-                                                                    </a>
-                                                                </div>
-                                                                <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
-                                                                    <img style={{width: "70%", position: "absolute", right: 0, top: "calc(50% - 7px)"}} src={"/img/right-arrow.png"}/>
-                                                                </div>
-                                                            </div>
-
-                                                                <a href={"/img/share-1.png"} style={{textDecoration: "none",}} download={true}>
-                                                                    <div style={{marginTop: "50px"}} className={classes.joinButton}>
-                                                                    Download All
-                                                                    </div>
-                                                                </a>
-                                                        </div>
-                                                        {/*<div style={{padding: "56px 30px", textAlign: "center", display: this.state.mobileIndex2 === 3 ? null : "none"}}>*/}
-                                                        {/*    <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Join In</div>*/}
-                                                        {/*    <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>We’ll be hosting a series of virtual events in honor of Recovery Month. RSVP to save your spot!*/}
-                                                        {/*    </div>*/}
-                                                        {/*    {[0,1].map((i) => {*/}
-                                                        {/*        return (*/}
-                                                        {/*            <div key={"j" + i} style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>*/}
-                                                        {/*                <div style={{flex: "0 0 117px"}}>*/}
-                                                        {/*                    <div style={{height: "92px", width: "92px", background: "white", borderRadius: "100%"}}></div>*/}
-                                                        {/*                </div>*/}
-                                                        {/*                <div style={{flex: 1}}>*/}
-                                                        {/*                    <div style={{...SANS_SERIF_FONT_BODY, textAlign: "left", fontSize: "12px"}}>Join MadHappy and Tempest for a Tie Dyeing Class</div>*/}
-                                                        {/*                    <div style={{height: "40px", fontFamily: "UntitledSans-Medium", letterSpacing: "1px", marginTop: "20px", width: "83px", fontSize: "12px", borderRadius: "20px", border: "1px solid white", lineHeight: "40px"}}>RSVP</div>*/}
-                                                        {/*                </div>*/}
-                                                        {/*            </div>*/}
-                                                        {/*        )*/}
-                                                        {/*    })}*/}
-                                                        {/*</div>*/}
-                                                    </div>
-                                                    <div style={{textAlign: "center"}}>
-                                                        {[1,2,3].map((pillar, index) => {
-                                                            return (
-                                                                <div  onClick={() => this.setState({mobileIndex2: index})} key={"mp" + index} style={{marginRight: index === 3 ? 0 : "15px", height: "7px", width: "7px", borderRadius: "100%", background: "white", opacity: index === this.state.mobileIndex2 ? 1 : 0.2, transition: "1s", display: "inline-block",}}>
-
-                                                                </div>
-                                                            )
-                                                        })}
-                                                    </div>
-
-
+                                                    <MobileShare {...{changingState, stage, changeText, textIndex, mobileIndex1, sentBot, sent, changeSentText, classes, chapter: this.state.chapter,handleSalesForceSubmit: this.handleSalesForceSubmit.bind(this), pillars: this.state.pillars}}/>
                                                 </div>
-                                                <div style={{position: "absolute", left: "calc(50% - 1px)", bottom: 0, height: "50px", background: "white", width: "1px"}}>
+                                                <div style={{position: "absolute", left: "calc(50% - 1px)", bottom: 0, height: "25px", background: "white", width: "1px"}}>
 
                                                 </div>
 
@@ -1010,34 +902,8 @@ class Home extends React.Component {
                                                         We have expanded the definition of what it means to be in recovery to include a diverse range of experiences and approaches to care. These six pillars of Modern Recovery encompass our mission to provide a holistic, trauma-informed approach to healing.
                                                     </div>
                                                 </div>
-                                                <div style={{width: "100%", overflow: "hidden"}}>
-                                                    <div style={{marginBottom: "70px", display: "inline-block", width: "100vw"}}>
-                                                        <div style={{display: "flex", flexDirection: "column", textAlign: "center"}}>
-                                                            <div style={{flex: "0 0 107px"}}>
-                                                                <div style={{fontSize: "48px", lineHeight: "87px", fontFamily: "NoeDisplay Regular"}}>
-                                                                    <div style={{height: "87px", lineHeight: "87px", textAlign: "center", width: "87px", margin: "auto", border: "2px solid white", borderRadius: "100%"}}>
-                                                                        0{this.state.mobileIndex3 + 1}
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div style={{flex: 1}}>
-                                                                <div style={{...SANS_SERIF_FONT_BODY, margin: "auto", maxWidth: "335px", height: "150px", fontSize: "14px", lineHeight: "20px"}}>
-                                                                    <div style={{marginBottom: "6px", fontFamily: "UntitledSans-Medium",}}>{this.pillars[this.state.mobileIndex3].title}</div>
-                                                                    {this.pillars[this.state.mobileIndex3].body}
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div style={{textAlign: "center", paddingBottom: "100px"}}>
-                                                        {this.pillars.map((pillar, index) => {
-                                                            return (
-                                                                <div  onClick={() => this.setState({mobileIndex3: index})} key={"mmp" + index} style={{marginRight: "15px", height: "7px", width: "7px", borderRadius: "100%", background: "white", opacity: index === this.state.mobileIndex3 ? 1 : 0.2, transition: "1s", display: "inline-block",}}>
-
-                                                                </div>
-                                                            )
-                                                        })}
-                                                    </div>
-
+                                                <div style={{width: "100%", overflow: "hidden",  paddingBottom: "100px"}}>
+                                                    <MobilePillars {...{chapter: this.state.chapter, pillars: this.state.pillars }}/>
                                                 </div>
 
 
@@ -1057,7 +923,7 @@ class Home extends React.Component {
                                 <div style={{position: "fixed", top: 100, left: 20, cursor: "pointer", height: "19px", width: "19px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
                                     <img style={{height: "100%", width: "100%"}} src={this.state.darkBot ? "/img/info-icon-white.svg" : "/img/info-icon-black.svg"}/>
                                 </div>
-                                <div style={{...SANS_SERIF_FONT_BODY, display: this.state.showInfoModal ? null : "none", transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "11px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: "calc(50% - 176px)", left: "calc( 50% - 135px)", height: "fit-content", width: "270px", boxShadow: "0px 1px 4px #00000011"}}>
+                                <div style={{...SANS_SERIF_FONT_BODY, display: this.state.showInfoModal ? null : "none", transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "11px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: "calc(50% - 183.5px)", left: "calc( 50% - 150px)", height: "320px", width: "300px", boxShadow: "0px 1px 4px #00000011"}}>
                                     <div style={{position: "absolute", height: "10px", width: "10px", top: 12, right: 17, cursor: "pointer"}} onClick={() => {this.setState({showInfoModal: false})}}>
                                         <img style={{height: "100%", width: "100%"}} src={this.state.darkBot ? "/img/close-button.png" : "/img/white-x.png"}/>
                                     </div>

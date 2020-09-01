@@ -15,6 +15,10 @@ class GlobalStore extends EventEmitter {
                 this.emit("pause-all", {id: action.id});
                 break;
             }
+            case "PAUSE-ALL": {
+                this.emit("pause-all", {id: 9999999999});
+                break;
+            }
         }
     }
 

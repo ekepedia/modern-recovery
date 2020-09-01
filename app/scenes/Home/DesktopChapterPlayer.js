@@ -76,7 +76,6 @@ class DesktopChapterPlayer extends React.Component {
         });
 
         this.audio.ontimeupdate = () => {
-            console.log(this.audio.currentTime);
             this.updateProgress();
         };
     }
@@ -92,7 +91,6 @@ class DesktopChapterPlayer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log(prevProps.audio, this.props.audio);
         if (prevProps.audio !== this.props.audio) {
             this.pauseAudio();
             this.audio = new Audio(this.props.audio);
@@ -148,7 +146,6 @@ class DesktopChapterPlayer extends React.Component {
                             <div style={{flex: 1, margin: "0 8px", position: "relative"}}>
                                 <div style={{height: "3px", position: "absolute", top: "calc(50% - 1.5px)", width: "100%", background: "#84827b50", borderRadius: "5px"}}>
                                     <input onChange={(e) => {
-                                        console.log("CHANGE", e.target.value)
                                         this.setProgress(e.target.value)
                                     }} type={"range"} value={progress} min={0} max={1} step={0.0001}/>
                                 </div>

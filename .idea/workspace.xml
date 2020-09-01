@@ -11,12 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="720a9696-f5d7-4acf-9118-f695a01651bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/scenes/Home/MobileQuotes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/scenes/Home/MobilePillars.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/scenes/Home/MobileShare.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/public/js/script.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/script.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scenes/Home/DesktopChapterPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/DesktopChapterPlayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scenes/Home/DesktopDiscoverPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/DesktopDiscoverPlayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/Home/MobileQuotes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/MobileQuotes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scenes/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/store/GlobalStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/store/GlobalStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,16 +42,16 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JavaScript" />
     <property name="com.intellij.lang.jsgraphql.ide.injection.JSGraphQLLanguageInjectionUtil.gql" value="apollo" />
     <property name="jsgraphql-schema-editor-notification" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/public/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/scenes/Home" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/scenes/Home" />
       <recent name="$PROJECT_DIR$/app/public/img" />
       <recent name="$PROJECT_DIR$/app/public/fonts" />
-      <recent name="$PROJECT_DIR$/app/scenes/Home" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/schema" />
     </key>
@@ -69,7 +72,7 @@
       <workItem from="1597264619733" duration="22025000" />
       <workItem from="1597708259665" duration="184000" />
       <workItem from="1597851187476" duration="56513000" />
-      <workItem from="1598360692507" duration="46045000" />
+      <workItem from="1598360692507" duration="51611000" />
     </task>
     <servers />
   </component>
@@ -93,10 +96,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="323" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1598889420214" />
-    <state x="421" y="205" width="598" height="490" key="find.popup" timestamp="1598903741610">
+    <state x="421" y="205" width="598" height="490" key="find.popup" timestamp="1598922974793">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="421" y="205" width="598" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1598903741610" />
+    <state x="421" y="205" width="598" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1598922974793" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1598903612362">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

@@ -4,6 +4,7 @@ import injectSheet from 'react-jss';
 import { withRouter, Link } from 'react-router-dom';
 
 import DesktopChapterPlayer from "./DesktopChapterPlayer";
+import dispatcher from "../../dispatcher";
 
 const Styles = {
 };
@@ -17,28 +18,57 @@ class MobileQuotes extends React.Component {
             quoteIndex: 0
         }
         this.id = Math.round(Math.random() * 10000);
+        this.slickClass = '.quotes-mobile' + this.id;
     }
 
     componentDidMount() {
         $(document).ready(() => {
-            $('.quotes-mobile' + this.id).slick({
-                arrows: false,
-                infinite: false
-            }).on('beforeChange', (event, slick, currentSlide, nextSlide) => {
-                console.log('edge was hit')
-                this.setState({
-                    quoteIndex: nextSlide
-                });
+            this.startSlick();
+        });
+    }
+
+    startSlick() {
+        $(this.slickClass).slick({
+            arrows: false,
+            infinite: true
+        }).on('beforeChange', (event, slick, currentSlide, nextSlide) => {
+            dispatcher.dispatch({
+                type: "PAUSE-ALL",
+            });
+            this.setState({
+                quoteIndex: nextSlide
             });
         });
     }
 
+    stopSlick() {
+        try {
+            if ($(this.slickClass).slick)
+                $(this.slickClass).slick('unslick');
+        } catch (e) {
+
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps.pillars !== this.props.pillars || prevProps.chapter !== this.props.chapter) {
+            if (this.props.pillars) {
+                this.stopSlick();
+            } else {
+                setTimeout(() => {
+                    this.stopSlick();
+                    this.startSlick();
+                }, 10)
+            }
+        }
+    }
+
     changeSlide(i) {
-        $('.quotes-mobile' + this.id).slick('slickGoTo', i);
+        $(this.slickClass).slick('slickGoTo', i);
     }
 
     componentWillUnmount() {
-        $('.quotes-mobile' + this.id).slick('unslick');
+        this.stopSlick();
     }
 
     render() {
@@ -120,13 +150,20 @@ class MobileQuotes extends React.Component {
                 <div style={{textAlign: "center"}}>
                     {stage.quotes.map((pillar, index) => {
                         return (
-                            <div key={"qm" + index} onClick={() => this.changeSlide(index)} style={{opacity: index === quoteIndex ? 1 : 0.2, marginRight: "15px", height: "7px", width: "7px", borderRadius: "100%", background: "black", transition: "1s", display: "inline-block",}}>
-
+                            <div key={"qm" + index} onClick={() => this.changeSlide(index)} style={{
+                                opacity: index === quoteIndex ? 1 : 0.2,
+                                marginRight: index === stage.quotes.length - 1 ? 0 : "20px",
+                                height: "10px",
+                                width: "10px",
+                                borderRadius: "100%",
+                                background: "black",
+                                transition: "1s",
+                                display: "inline-block",
+                            }}>
                             </div>
                         )
                     })}
                 </div>
-
             </div>
         );
     }
