@@ -54,10 +54,11 @@ export const STAGES = [
                 audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Lisa+Inkling.m4a",
                 author: "Lisa, Tempest Member, Winter 2018"
             },
-            // {
-            //     quote: "The moment I knew that I had to do something about my drinking, although it was a while before I actually did anything about it, was when I snuck tequila into the office, left work early, and took a cab home. It was a Tuesday. - Irina, Tempest Member 2019 \n",
-            //     audio: ""
-            // },
+            {
+                quote: "The moment I knew that I had to do something about my drinking, although it was a while before I actually did anything about it, was when I snuck tequila into the office, left work early, and took a cab home. It was a Tuesday.",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Irina+-+Innkling.m4a",
+                author: "Irina, Tempest Member 2019"
+            },
             {
                 quote: "I didn’t have any concrete evidence, it was more just this pervasive feeling of unease about my drinking.",
                 audio: "https://draperu.s3.amazonaws.com/public/audio/Inkling/Alex+Inkling.m4a",
@@ -120,10 +121,11 @@ export const STAGES = [
                 audio: "https://draperu.s3.amazonaws.com/public/audio/Reckoninig/Valentine+Reckoning.mp3",
                 author: "Valentine Tempest Winter 2019"
             },
-            // {
-            //     quote: "I knew I'd quit when I turned 40, until that day came and I couldn't. I spent the next 10 years devising plans to quit or moderate, until I gave that up and started hiding it. At 52, laying on the bathroom floor crying, I googled recovery methods other than AA and found Holly and Tempest.\" - Tina, Tempest Member 2018\n",
-            //     audio: ""
-            // },
+            {
+                quote: "I knew I'd quit when I turned 40, until that day came and I couldn't. I spent the next 10 years devising plans to quit or moderate, until I gave that up and started hiding it. At 52, laying on the bathroom floor crying, I googled recovery methods other than AA and found Holly and Tempest.",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Reckoninig/Tina+-+Reckoning.m4a",
+                author: "Tina, Tempest Member 2018"
+            },
             {
                 quote: "There was the time my husband suggested I skip another glass of wine at a family party, the time I spilled my wine all over my son in Spain, and the time I fell flat on my face while entertaining friends. However, the final straw was losing our 20-year-old daughter and self medicating through the grief.",
                 audio: "https://draperu.s3.amazonaws.com/public/audio/Reckoninig/Amy+C.+reckoning.m4a",
@@ -142,7 +144,7 @@ export const STAGES = [
             {
                 quote: "A friend sat me down and let me know that they couldn't be around me if I was going to keep drinking. I did not want to lose one more fucking person due to alcohol. I didn't want to continue to ruin all of my connections, friendships, and relationships. And I was just so tired of hating myself.",
                 audio: "https://draperu.s3.amazonaws.com/public/audio/Reckoninig/DL-Reckoning.m4a",
-                author: "DL"
+                author: "DL, Tempest Member, 2018"
             },
             {
                 quote: "The biggest consequence of my drinking was the estrangement from my three adult children. With  support from Tempest and my therapist, I made the decision that my drinking would no longer depend on whether or not my children returned in my life and if they should return.",
@@ -172,10 +174,11 @@ export const STAGES = [
                 audio: "https://draperu.s3.amazonaws.com/public/audio/Rebuilding/Tina+-+Rebuilding.m4a",
                 author: "Tina, Tempest Member 2018"
             },
-            // {
-            //     quote: "One of my favorite quotes is, ‘The opposite of addiction is not sobriety, it's connection.’ I've read plenty of books and listened to hundreds of podcasts, but the most essential tool has been the friendships I've made with other sober women. We hold each other up and keep each other accountable. - Nicole, Tempest Member 2019",
-            //     audio: ""
-            // },
+            {
+                quote: "One of my favorite quotes is, ‘The opposite of addiction is not sobriety, it's connection.’ I've read plenty of books and listened to hundreds of podcasts, but the most essential tool has been the friendships I've made with other sober women. We hold each other up and keep each other accountable.",
+                audio: "https://draperu.s3.amazonaws.com/public/audio/Rebuilding/Nicole+P.+Rebuilding.m4a",
+                author: "Nicole, Tempest Member 2019"
+            },
             {
                 quote: "I had a million ‘day ones’. I finally came into my first Tempest program with 90 days of white-knuckling under my belt. I needed support and tools and didn't know how to start. I was so disconnected from myself that my process has been a long journey home to who I was before the alcohol took over.",
                 audio: "https://draperu.s3.amazonaws.com/public/audio/Rebuilding/Lisa+Rebuilding.m4a",
@@ -184,7 +187,7 @@ export const STAGES = [
             {
                 quote: "My rebuilding process has made me more focused on not just quitting drinking but also what else I'm capable of. It's allowing me to expand my outlook and be positive during these uncertain times.",
                 audio: "https://draperu.s3.amazonaws.com/public/audio/Rebuilding/Victoria+Rebuilding+2.m4a",
-                author: "Victoria S. , Winter 2019"
+                author: "Victoria, Winter 2019"
             },
             {
                 quote: "It’s been a  long winding road back home to myself. Every once in a while you have to get out and reassess your path, but then you set yourself back up and on you go.",
@@ -200,7 +203,7 @@ export const STAGES = [
         definition: "The final stage in our journey—we’re living alcohol-free, and we’re proud of it.",
         quotes: [
             {
-                quote: "I feel so much [outpouring] when I read Instagram postings and sobriety memoirs for sure. I think back to all of my day ones and wonder if showing others that I have been there too might be helpful to them in making this change. I am always looking for ways to be of service to others in recovery.",
+                quote: "I feel so much outpouring when I read Instagram postings and sobriety memoirs for sure. I think back to all of my day ones and wonder if showing others that I have been there too might be helpful to them in making this change. I am always looking for ways to be of service to others in recovery.",
                 audio: "https://draperu.s3.amazonaws.com/public/audio/Outpouring/Amy+C+outpouring.m4a",
                 author: "Amy, Tempest Member 2019"
             },
@@ -209,10 +212,6 @@ export const STAGES = [
                 audio: "https://draperu.s3.amazonaws.com/public/audio/Outpouring/Valentine+Outpouring.mp3",
                 author: "Valentine, Tempest Member 2019"
             },
-            // {
-            //     quote: "I feel more comfortable sharing stories with those who don't know my drinking past. People I’m close with  don't seem to either know I had a problem or think this is just a phase.",
-            //     audio: ""
-            // },
             {
                 quote: "By being open about my own story, I met my friends Sarah and Jenny, which led to co-founding a womxn's sobriety collective based in Wisconsin. Our goal is to cultivate a safe space to foster authentic connection, and to aid in ending the stigma around addiction and sobriety.",
                 audio: "https://draperu.s3.amazonaws.com/public/audio/Outpouring/Nicole+P.+Outpouring.m4a",
