@@ -10,6 +10,7 @@ import { STAGES, PILLARS } from "./copy";
 import MobileQuotes from "./MobileQuotes";
 import MobileShare from "./MobileShare";
 import MobilePillars from "./MobilePillars";
+import DesktopSocial from "./DesktopSocial";
 
 const SANS_SERIF_FONT = {
     fontFamily: "UntitledSans-Regular",
@@ -257,12 +258,12 @@ class Home extends React.Component {
         this.state = {
             textIndex: 0,
             textIndexBot: 0,
-            pillars: false,
+            pillars: true,
             stage: STAGES[0],
             stageIndex: 0,
             stageIndexDelayed: 0,
-            chapter: false,
-            chapterBot: false,
+            chapter: true,
+            chapterBot: true,
             changingMode: false,
 
             mobileIndex1: 0,
@@ -650,65 +651,16 @@ class Home extends React.Component {
                                                         <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>
                                                             Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you, use our new Instagram filter to share your recovery story, and download and share these posts to spread awareness.
                                                         </div>
-                                                        <div style={{display: "flex", padding: "0 40px"}}>
-                                                            <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
-                                                                <img style={{width: "100%", position: "absolute", left: 0, top: "calc(50% - 10px)"}} src={"/img/left-arrow.png"}/>
-                                                            </div>
-                                                            <div style={{flex: 1, textAlign: "center"}}>
-                                                                <div style={{padding: "0 10px", position: "relative"}}>
-                                                                    <a href={"/img/share2.png"} download={true}>
-                                                                        <div className={classes.imgHoverContainer}>
-                                                                            <div style={{position: "relative", height: "100%", width: "100%"}}>
-                                                                                <div className={classes.imgHover}>DOWNLOAD</div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <img style={{border: "1px solid white", width: "100%", margin: "auto"}} src={"/img/share2.png"}/>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div style={{flex: 1, textAlign: "center"}}>
-                                                                <div style={{padding: "0 10px",  position: "relative"}}>
-                                                                    <a href={"/img/share-1.png"} download={true}>
-                                                                        <div className={classes.imgHoverContainer}>
-                                                                            <div style={{position: "relative", height: "100%", width: "100%"}}>
-                                                                                <div className={classes.imgHover}>DOWNLOAD</div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <img style={{border: "1px solid white", width: "100%", margin: "auto"}} src={"/img/share-1.png"}/>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
-                                                                <img style={{width: "100%", position: "absolute", right: 0, top: "calc(50% - 10px)"}} src={"/img/right-arrow.png"}/>
-                                                            </div>
+                                                        <div style={{padding: "0 40px"}}>
+                                                            <DesktopSocial {...{classes, chapter: this.state.chapter, pillars: this.state.pillars}}/>
                                                         </div>
                                                         <div style={{marginTop: "50px"}}>
-                                                            <a href={"/img/share-1.png"} style={{textDecoration: "none"}} download={true}>
+                                                            <a href={"https://draperu.s3.amazonaws.com/public/social+media+assets/Social+Media+Assets.zip"} style={{textDecoration: "none"}} download={true}>
                                                                 <div className={classes.joinButton}>
                                                                     Download All
                                                                 </div>
                                                             </a>
                                                         </div>
-                                                        {/*<hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>*/}
-                                                        {/*<div>*/}
-                                                        {/*    <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Join In</div>*/}
-                                                        {/*    <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>We’ll be hosting a series of virtual events in honor of Recovery Month. RSVP to save your spot!*/}
-                                                        {/*    </div>*/}
-                                                        {/*    {[0,1].map((i) => {*/}
-                                                        {/*        return (*/}
-                                                        {/*            <div key={"mmj" + i} style={{display: "flex", maxWidth: "290px", margin: "auto", marginBottom: "50px"}}>*/}
-                                                        {/*                <div style={{flex: "0 0 117px"}}>*/}
-                                                        {/*                    <div style={{height: "92px", width: "92px", background: "white", borderRadius: "100%"}}></div>*/}
-                                                        {/*                </div>*/}
-                                                        {/*                <div style={{flex: 1}}>*/}
-                                                        {/*                    <div style={{...SANS_SERIF_FONT_BODY, textAlign: "left", fontSize: "12px"}}>Join MadHappy and Tempest for a Tie Dyeing Class</div>*/}
-                                                        {/*                    <div style={{height: "40px", fontFamily: "UntitledSans-Medium", letterSpacing: "1px", marginTop: "20px", width: "83px", fontSize: "12px", borderRadius: "20px", border: "1px solid white", lineHeight: "40px"}}>RSVP</div>*/}
-                                                        {/*                </div>*/}
-                                                        {/*            </div>*/}
-                                                        {/*        )*/}
-                                                        {/*    })}*/}
-                                                        {/*</div>*/}
-
                                                     </div>
                                                 </div>
                                                 <div style={{flex: 1, color: "white", overflow: "scroll", height: "100%"}}>
@@ -882,7 +834,7 @@ class Home extends React.Component {
                                             <div style={{background: "black", paddingTop: this.state.pillars ? "53px" : null,
                                                 height: "calc(100vh - 84px)", minHeight: "750px", color: "white", position: "relative"}}>
                                                 <div>
-                                                    <MobileShare {...{changingState, stage, changeText, textIndex, mobileIndex1, sentBot, sent, changeSentText, classes, chapter: this.state.chapter,handleSalesForceSubmit: this.handleSalesForceSubmit.bind(this), pillars: this.state.pillars}}/>
+                                                    <MobileShare {...{changingState, stage, changeText, textIndex, mobileIndex1, sentBot, sent, changeSentText, classes, handleSalesForceSubmit: this.handleSalesForceSubmit.bind(this), chapter: this.state.chapter, pillars: this.state.pillars}}/>
                                                 </div>
                                                 <div style={{position: "absolute", left: "calc(50% - 1px)", bottom: 0, height: "25px", background: "white", width: "1px"}}>
 

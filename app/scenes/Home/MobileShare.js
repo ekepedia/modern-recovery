@@ -2,6 +2,7 @@ import React from "react";
 
 import injectSheet from 'react-jss';
 import { withRouter, Link } from 'react-router-dom';
+import MobileSocial from "./MobileSocial";
 
 const SANS_SERIF_FONT_BODY = {
     fontFamily: "UntitledSans-Regular",
@@ -29,6 +30,11 @@ class MobileShare extends React.Component {
             arrows: false,
             infinite: false,
         }).on('beforeChange', (event, slick, currentSlide, nextSlide) => {
+            console.log(event.target.className, event.target.className.indexOf('share-mobile') === -1);
+
+            if (event.target.className.indexOf('share-mobile') === -1)
+                return;
+
             this.setState({
                 shareIndex: nextSlide
             });
@@ -73,7 +79,7 @@ class MobileShare extends React.Component {
 
     render() {
 
-        let {classes, handleSalesForceSubmit, sentBot, sent, changeSentText} = this.props;
+        let {classes, handleSalesForceSubmit, sentBot, sent, changeSentText, pillars} = this.props;
 
         const { shareIndex } = this.state;
 
@@ -137,25 +143,9 @@ class MobileShare extends React.Component {
                         <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>
                             Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you, use our new Instagram filter to share your recovery story, and download and share these posts to spread awareness.
                         </div>
-                        <div style={{display: "flex", padding: "0"}}>
-                            <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
-                                <img style={{width: "70%", position: "absolute", left: 0, top: "calc(50% - 7px)"}} src={"/img/left-arrow.png"}/>
-                            </div>
-                            <div style={{flex: 1, textAlign: "center", outline: "none",}}>
-                                <a style={{outline: "none"}} href={"/img/share-1.png"} download={true}>
-                                    <img style={{border: "1px solid white", outline: "none", width: "100%", maxWidth: "211px", margin: "auto"}} src={"/img/share-1.png"}/>
-                                </a>
-                            </div>
-                            <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}}>
-                                <img style={{width: "70%", position: "absolute", right: 0, top: "calc(50% - 7px)"}} src={"/img/right-arrow.png"}/>
-                            </div>
+                        <div style={{padding: "0"}}>
+                            <MobileSocial {...{classes, pillars }}/>
                         </div>
-
-                        {/*<a href={"/img/share-1.png"} style={{textDecoration: "none",}} download={true}>*/}
-                        {/*    <div style={{marginTop: "50px"}} className={classes.joinButton}>*/}
-                        {/*        Download All*/}
-                        {/*    </div>*/}
-                        {/*</a>*/}
                     </div>
                 </div>
                 <div style={{textAlign: "center"}}>

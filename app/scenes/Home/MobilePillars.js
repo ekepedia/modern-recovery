@@ -85,7 +85,7 @@ class MobilePillars extends React.Component {
                 <div style={{outline: "none", }} className={'share-pillars' + this.id}>
                     {this.pillars.map((pillar, index) => {
                         return (
-                            <div style={{padding: "56px 30px", outline: "none", textAlign: "center"}}>
+                            <div key={index + "DSDs"} style={{padding: "56px 30px", outline: "none", textAlign: "center"}}>
                                 <div>
                                     <div style={{display: "flex", flexDirection: "column", textAlign: "center"}}>
                                         <div style={{flex: "0 0 107px"}}>
