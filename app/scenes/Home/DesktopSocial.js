@@ -92,7 +92,7 @@ class DesktopSocial extends React.Component {
             <div>
                 <div style={{display: "flex", padding: "0"}}>
                     <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}} onClick={() => {this.prevSlide()}}>
-                        <img style={{width: "100%", position: "absolute", left: 0, top: "calc(50% - 7px)"}} src={"/img/left-arrow.png"}/>
+                        <img style={{width: "100%", position: "absolute", left: 0, top: "calc(50% - 7px)"}} src={"/img/arrow-left.svg"}/>
                     </div>
                     <div style={{flex: 1, textAlign: "center", outline: "none", overflow: "hidden"}}>
                         <div className={'share-social-d' + this.id}>
@@ -113,7 +113,7 @@ class DesktopSocial extends React.Component {
                         </div>
                     </div>
                     <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}} onClick={() => {this.nextSlide()}}>
-                        <img style={{width: "100%", position: "absolute", right: 0, top: "calc(50% - 7px)"}} src={"/img/right-arrow.png"}/>
+                        <img style={{width: "100%", position: "absolute", right: 0, top: "calc(50% - 7px)"}} src={"/img/arrow-right.svg"}/>
                     </div>
                 </div>
             </div>

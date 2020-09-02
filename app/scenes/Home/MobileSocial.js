@@ -93,7 +93,7 @@ class MobileSocial extends React.Component {
             <div>
                 <div style={{display: "flex", padding: "0"}}>
                     <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}} onClick={() => {this.prevSlide()}}>
-                        <img style={{width: "70%", position: "absolute", left: 0, top: "calc(50% - 7px)"}} src={"/img/left-arrow.png"}/>
+                        <img style={{width: "70%", position: "absolute", left: 0, top: "calc(50% - 7px)"}} src={"/img/arrow-left.svg"}/>
                     </div>
                     <div style={{flex: 1, textAlign: "center", outline: "none", overflow: "hidden"}}>
                         <div className={'share-social-m' + this.id}>
@@ -101,7 +101,7 @@ class MobileSocial extends React.Component {
                                 return (
                                     <div key={media.link} style={{padding: "0 10px"}}>
                                         <a style={{outline: "none"}} href={media.link} download={true} target={"_blank"}>
-                                            <img style={{border: "1px solid white", height: "300px", margin: "auto"}} src={media.link}/>
+                                            <img style={{border: "1px solid white", width: "100%", maxWidth: "300px", margin: "auto"}} src={media.link}/>
                                         </a>
                                     </div>
                                 )
@@ -109,7 +109,7 @@ class MobileSocial extends React.Component {
                         </div>
                     </div>
                     <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}} onClick={() => {this.nextSlide()}}>
-                        <img style={{width: "70%", position: "absolute", right: 0, top: "calc(50% - 7px)"}} src={"/img/right-arrow.png"}/>
+                        <img style={{width: "70%", position: "absolute", right: 0, top: "calc(50% - 7px)"}} src={"/img/arrow-right.svg"}/>
                     </div>
                 </div>
             </div>
