@@ -51,6 +51,10 @@ class Canvas extends React.Component {
                 // console.log(e.target)
                 // console.log(e.target);
 
+                if (e.target.id === `scene${this.id}` && this.props.closeModal) {
+                    this.props.closeModal();
+                }
+
                 if (e.target.id === `scene${this.id}`)
                     return true;
 
@@ -60,7 +64,9 @@ class Canvas extends React.Component {
                 // allow mouse-down panning only if altKey is down. Otherwise - ignore
                 // var shouldIgnore = !e.altKey;
 
-                console.log(e.target.className);
+                if (e.target.id === `scene${this.id}` && this.props.closeModal) {
+                    this.props.closeModal();
+                }
 
                 if (e.target.id !== `scene${this.id}`)
                     return true;

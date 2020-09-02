@@ -11,6 +11,7 @@ import MobileQuotes from "./MobileQuotes";
 import MobileShare from "./MobileShare";
 import MobilePillars from "./MobilePillars";
 import DesktopSocial from "./DesktopSocial";
+import GlobalStore from "../../store/GlobalStore";
 
 const SANS_SERIF_FONT = {
     fontFamily: "UntitledSans-Regular",
@@ -272,6 +273,8 @@ class Home extends React.Component {
 
             showInfoModal: true
         }
+
+        this.closeModal = this.closeModal.bind(this);
     }
 
     setIndex(index) {
@@ -416,6 +419,15 @@ class Home extends React.Component {
             }, 900);
         })
     }
+
+    closeModal() {
+        if (this.state.showInfoModal) {
+            this.setState({
+                showInfoModal: false
+            })
+        }
+    }
+
     componentDidMount() {
         window.screenTop = 0;
         this.setIndex(0);
@@ -434,12 +446,10 @@ class Home extends React.Component {
             }, 0)
         }
 
-        // $(document).ready(function(){
-        //     $('.quotes-mobile').slick({
-        //         arrows: false,
-        //     });
-        // });
-
+        GlobalStore.on("pause-all", () => {
+            if (!this.state.chapter)
+                this.closeModal();
+        })
     }
 
     setTextState(textIndex) {
@@ -702,11 +712,11 @@ class Home extends React.Component {
                         </div>
                         :
                         <div id="canvas-holder" style={{flex: 1, background: this.state.darkBot ? "#272F46" : "#E4D7C4", height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s",  outline: "none"}}>
-                            <Canvas holder="canvas-holder" dark={this.state.darkBot} src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
+                            <Canvas closeModal={this.closeModal} holder="canvas-holder" dark={this.state.darkBot} src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
                             <div style={{position: "fixed", top: 77, left: 44, cursor: "pointer", height: "25px", width: "25px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
                                 <img style={{height: "100%", width: "100%", transition: "0.5s"}} src={this.state.darkBot ? "/img/info-icon-white.svg" : "/img/info-icon-black.svg"}/>
                             </div>
-                            <div style={{...SANS_SERIF_FONT_BODY, letterSpacing: "0", display: this.state.showInfoModal ? null : "none", opacity: this.state.showInfoModal ? 1 : 0, transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "12px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: 53, left: 92, height: "fit-content", width: "300px", boxShadow: "0px 1px 4px #00000011"}}>
+                            <div  style={{...SANS_SERIF_FONT_BODY, letterSpacing: "0", display: this.state.showInfoModal ? null : "none", opacity: this.state.showInfoModal ? 1 : 0, transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "12px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: 53, left: 92, height: "fit-content", width: "300px", boxShadow: "0px 1px 4px #00000011"}}>
                                 <div style={{position: "absolute", height: "10px", width: "10px", top: 12, right: 17, cursor: "pointer"}} onClick={() => {this.setState({showInfoModal: false})}}>
                                     <img style={{height: "100%", width: "100%", transition: "0.5s"}} src={this.state.darkBot ? "/img/close-button.png" : "/img/white-x.png"}/>
                                 </div>
@@ -870,7 +880,7 @@ class Home extends React.Component {
                             :
                             <div style={{opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
                                 <div id="canvas-holder-mobile" style={{background: this.state.darkBot ? "#272F46" : "#E4D7C4", height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
-                                    <Canvas holder="canvas-holder-mobile" dark={this.state.darkBot} src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
+                                    <Canvas closeModal={this.closeModal} holder="canvas-holder-mobile" dark={this.state.darkBot} src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
                                 </div>
                                 <div style={{position: "fixed", top: 100, left: 20, cursor: "pointer", height: "19px", width: "19px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
                                     <img style={{height: "100%", width: "100%"}} src={this.state.darkBot ? "/img/info-icon-white.svg" : "/img/info-icon-black.svg"}/>
