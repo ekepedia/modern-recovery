@@ -4,6 +4,7 @@ import injectSheet from 'react-jss';
 import { withRouter, Link } from 'react-router-dom';
 
 import { MEDIA } from "./copy";
+import GlobalStore from "../../store/GlobalStore";
 
 const SANS_SERIF_FONT_BODY = {
     fontFamily: "UntitledSans-Regular",
@@ -96,11 +97,11 @@ class DesktopSocial extends React.Component {
                     </div>
                     <div style={{flex: 1, textAlign: "center", outline: "none", overflow: "hidden"}}>
                         <div className={'share-social-d' + this.id}>
-                            {MEDIA.map((media) => {
+                            {MEDIA.map((media, i) => {
                                 return (
-                                    <div key={media.link} style={{padding: "0 10px", position: "relative"}}>
-                                        <a style={{outline: "none"}} href={media.link} download={true} target={"_blank"}>
-                                            <div className={classes.imgHoverContainer}>
+                                    <div key={media.link} style={{padding: "0 10px", position: "relative"}} onClick={() => {GlobalStore.track("Pillars", "Click", "Download Asset", i + 1)}}>
+                                        <a style={{outline: "none"}} href={media.link} download={true} target={"_blank"} >
+                                            <div className={classes.imgHoverContainer} >
                                                 <div style={{position: "relative", height: "100%", width: "100%"}}>
                                                     <div className={classes.imgHover}>DOWNLOAD</div>
                                                 </div>

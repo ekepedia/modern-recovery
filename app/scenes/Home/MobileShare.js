@@ -3,6 +3,7 @@ import React from "react";
 import injectSheet from 'react-jss';
 import { withRouter, Link } from 'react-router-dom';
 import MobileSocial from "./MobileSocial";
+import GlobalStore from "../../store/GlobalStore";
 
 const SANS_SERIF_FONT_BODY = {
     fontFamily: "UntitledSans-Regular",
@@ -97,7 +98,7 @@ class MobileShare extends React.Component {
                             <br/><br/>
                             This is Modern Recovery, and all<br/> are welcome.
                         </div>
-                        <div style={{marginTop: "18px"}} onClick={() => {this.setState({mobileIndex2: 1})}} className={classes.joinButton}>
+                        <div style={{marginTop: "18px"}} onClick={() => {GlobalStore.track("Pillars", "Click", "Join the Movement")}} className={classes.joinButton}>
                             Join the movement
                         </div>
                     </div>

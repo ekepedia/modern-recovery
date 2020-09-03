@@ -42,6 +42,8 @@ class MobileQuotes extends React.Component {
     }
 
     stopSlick() {
+        // console.log("STOPPING")
+        // console.log($(this.slickClass))
         try {
             if ($(this.slickClass).slick)
                 $(this.slickClass).slick('unslick');
@@ -61,6 +63,24 @@ class MobileQuotes extends React.Component {
                 }, 10)
             }
         }
+
+        // try {
+        //     if (prevProps.stage.name !== this.props.stage.name) {
+        //         if (this.props.pillars) {
+        //             this.stopSlick();
+        //         } else {
+        //             if (this.timetimeout)
+        //                 clearTimeout(this.timetimeout)
+        //             this.timetimeout = setTimeout(() => {
+        //                 this.stopSlick();
+        //                 this.startSlick();
+        //             }, 500);
+        //         }
+        //     }
+        // } catch (e) {
+        //
+        // }
+        
     }
 
     changeSlide(i) {
@@ -139,6 +159,8 @@ class MobileQuotes extends React.Component {
                                     }}>
                                         <div style={{flex: 1, textAlign: "right"}}>
                                             <DesktopChapterPlayer
+                                                stage={stage.name}
+                                                index={quoteIndex}
                                                 audio={quote.audio}/>
                                         </div>
                                     </div>

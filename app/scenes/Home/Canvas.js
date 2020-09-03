@@ -27,8 +27,7 @@ class Canvas extends React.Component {
         this.id = Math.round(Math.random() * 10000);
     }
 
-    componentDidMount() {
-
+    initPanZoom() {
         const holder = this.props.holder;
 
         const element = document.querySelector('#scene' + this.id);
@@ -91,6 +90,15 @@ class Canvas extends React.Component {
         this.instance.on('pan', (e) => {
             this.handleShift(e);
         })
+    }
+
+    componentDidMount() {
+        this.initPanZoom();
+
+        $(window).on('resize', () => {
+            this.instance.pause();
+            this.initPanZoom();
+        });
 
     }
 

@@ -22,6 +22,10 @@ class GlobalStore extends EventEmitter {
         }
     }
 
+    track(category, action, label, value) {
+        console.log("track:", category, action, label, value);
+    }
+
 }
 
 const dataStore = new GlobalStore;

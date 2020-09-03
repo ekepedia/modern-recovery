@@ -58,6 +58,8 @@ class DesktopDiscoverPlayer extends React.Component {
         });
         this.audio.play();
 
+        GlobalStore.track("Discover", "Play", `${this.props.chapter} Audio`);
+
         dispatcher.dispatch({
             type: "PLAY",
             id: this.id,

@@ -12,7 +12,16 @@
   <component name="ChangeListManager">
     <list default="true" id="720a9696-f5d7-4acf-9118-f695a01651bb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/js/script.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/script.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/Home/Canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/Canvas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/Home/DesktopChapterPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/DesktopChapterPlayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/Home/DesktopDiscoverPlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/DesktopDiscoverPlayer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scenes/Home/DesktopSocial.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/DesktopSocial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/Home/MobileQuotes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/MobileQuotes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/Home/MobileShare.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/MobileShare.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/Home/MobileSocial.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/MobileSocial.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/store/GlobalStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/store/GlobalStore.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +77,9 @@
       <workItem from="1597264619733" duration="22025000" />
       <workItem from="1597708259665" duration="184000" />
       <workItem from="1597851187476" duration="56513000" />
-      <workItem from="1598360692507" duration="57963000" />
+      <workItem from="1598360692507" duration="58695000" />
+      <workItem from="1599097040535" duration="1136000" />
+      <workItem from="1599099839937" duration="6519000" />
     </task>
     <servers />
   </component>
@@ -92,14 +103,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="208" y="31" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1599058898106" />
-    <state x="323" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1598889420214">
+    <state x="323" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599106278222">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="323" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1598889420214" />
-    <state x="421" y="205" width="598" height="490" key="find.popup" timestamp="1599061528280">
+    <state x="323" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1599106278222" />
+    <state x="421" y="205" width="598" height="518" key="find.popup" timestamp="1599107409027">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="421" y="205" width="598" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599061528280" />
+    <state x="421" y="205" width="598" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599107409027" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1598903612362">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

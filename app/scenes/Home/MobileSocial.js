@@ -4,6 +4,7 @@ import injectSheet from 'react-jss';
 import { withRouter, Link } from 'react-router-dom';
 
 import { MEDIA } from "./copy";
+import GlobalStore from "../../store/GlobalStore";
 
 const SANS_SERIF_FONT_BODY = {
     fontFamily: "UntitledSans-Regular",
@@ -97,9 +98,9 @@ class MobileSocial extends React.Component {
                     </div>
                     <div style={{flex: 1, textAlign: "center", outline: "none", overflow: "hidden"}}>
                         <div className={'share-social-m' + this.id}>
-                            {MEDIA.map((media) => {
+                            {MEDIA.map((media, i) => {
                                 return (
-                                    <div key={media.link} style={{padding: "0 10px"}}>
+                                    <div key={media.link} style={{padding: "0 10px"}} onClick={() => {GlobalStore.track("Pillars", "Click", "Download Asset", i + 1)}}>
                                         <a style={{outline: "none"}} href={media.link} download={true} target={"_blank"}>
                                             <img style={{border: "1px solid white", width: "100%", maxWidth: "300px", margin: "auto"}} src={media.link}/>
                                         </a>

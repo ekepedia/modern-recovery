@@ -5,6 +5,7 @@ import { withRouter, Link } from 'react-router-dom';
 
 import Canvas from './Canvas';
 import DesktopChapterPlayer from "./DesktopChapterPlayer";
+import dispatcher from "../../dispatcher";
 
 import { STAGES, PILLARS } from "./copy";
 import MobileQuotes from "./MobileQuotes";
@@ -46,13 +47,19 @@ const Styles = {
             display: "block"
         },
     },
+    containerPadding: {
+        paddingTop: "calc((100vh - 476.88px - 53px)/2)",
+        '@media (min-width: 1900px)': {
+            paddingTop: "calc((100vh - 832.05px - 53px)/2)",
+        },
+    },
     heroBackground: {
         flex: "0 0 390px",
         '@media (max-width: 1370px)': {
             flex: "0 0 250px",
         },
-        '@media (min-width: 1500px)': {
-            flex: 0.75
+        '@media (min-width: 1900px)': {
+            flex: 0.45
         },
     },
     mainBoxContainer: {
@@ -60,14 +67,15 @@ const Styles = {
         '@media (max-width: 1370px)': {
             flex: 1
         },
-        '@media (min-width: 1500px)': {
-            flex: 1,
+        '@media (min-width: 1900px)': {
+            // flex: "0 0 852px",
+            flex: 1
         },
     },
     sideNavContainer: {
         flex: 1,
-        '@media (min-width: 1500px)': {
-            flex: "0 0 360px"
+        '@media (min-width: 1900px)': {
+            flex: 1
         },
     },
     tabNameMobile: {
@@ -90,6 +98,13 @@ const Styles = {
                 fontSize: "40px",
             },
         },
+        '@media (min-width: 1900px)': {
+            fontSize: "44px",
+            marginBottom: "125px",
+            "&:hover": {
+                fontSize: "50px",
+            },
+        },
     },
     tabBigName: {
         fontFamily: "Casta Regular",
@@ -100,6 +115,62 @@ const Styles = {
         transition: "0.25s",
         '@media (max-width: 1370px)': {
             fontSize: "55px",
+        },
+        '@media (min-width: 1900px)': {
+            fontSize: "120px",
+            marginBottom: "125px",
+        },
+    },
+    stageDefinition: {
+        fontSize: "16px",
+        maxWidth: "300px",
+        lineHeight: "24px",
+        fontFamily: "Albra Text Regular",
+        paddingRight: "5px",
+        '@media (min-width: 1900px)': {
+            fontSize: "28px",
+            lineHeight: "42px",
+            maxWidth: "579.52px"
+        },
+    },
+    stageQuoteMark: {
+        marginTop: "80px",
+        fontSize: "118px",
+        lineHeight: "0px",
+        fontFamily: "MADE Soulmaze Outline",
+        '@media (min-width: 1900px)': {
+            fontSize: "206px",
+            marginTop: "128px",
+        },
+    },
+    quoteBox: {
+        padding: "50px",
+        width: "100%",
+        height: "476.88px",
+        position: "relative",
+        borderRadius: "7px",
+        background: "rgba(255,255, 255, 0.1)",
+        '@media (min-width: 1900px)': {
+            height: "832.05px",
+            padding: "80px",
+
+        },
+    },
+    stageQuote: {
+        marginTop: "20px",
+        height: "145px",
+        paddingRight: "10px",
+        overflowY: "scroll",
+        maxWidth: "395px",
+        fontSize: "16px",
+        lineHeight: "26px",
+        fontFamily: "Albra Text Regular",
+        '@media (min-width: 1900px)': {
+            fontSize: "28px",
+            lineHeight: "42px",
+            maxWidth: "none",
+            height: "314px",
+            marginTop: "40px",
         },
     },
     dot: {
@@ -113,6 +184,11 @@ const Styles = {
         transition: "0.5s",
         "&:hover": {
             opacity: "0.5",
+        },
+        '@media (min-width: 1900px)': {
+            height: "14px",
+            width: "14px",
+            marginBottom: "15px",
         },
     },
     pillarBar: {
@@ -246,6 +322,24 @@ const Styles = {
         letterSpacing: "1px",
         background: "white",
         color: "black"
+    },
+    playerContainer: {
+        padding: "30px",
+        paddingLeft: "50px",
+        paddingRight: "26px",
+        '@media (min-width: 1900px)': {
+            padding: "85px",
+            paddingRight: "45px",
+            paddingBottom: "45px"
+        },
+    },
+    dotsContainer: {
+        top: 50,
+        right: 40,
+        '@media (min-width: 1900px)': {
+            top: 85,
+            right: 69,
+        },
     }
 };
 
@@ -313,6 +407,10 @@ class Home extends React.Component {
 
         if (this.state.chapterBot) return;
 
+        dispatcher.dispatch({
+            type: "PAUSE-ALL",
+        });
+
         this.setState({
             mounted: false,
             chapterBot: true,
@@ -336,6 +434,10 @@ class Home extends React.Component {
     setDiscoverMode() {
 
         if (!this.state.chapterBot) return;
+
+        dispatcher.dispatch({
+            type: "PAUSE-ALL",
+        });
 
         this.setState({
             mounted: false,
@@ -388,6 +490,8 @@ class Home extends React.Component {
 
         const form = e.target;
         const data = new FormData(form);
+
+        GlobalStore.track("Pillars", "Submit", "Sign Up");
 
         fetch('https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8', {
             method: 'POST',
@@ -479,16 +583,16 @@ class Home extends React.Component {
                         <div style={{display: "flex", padding: "0 22px", height: "53px"}}>
 
                             <div style={{flex: 1, lineHeight: "53px", fontFamily: "GT-America-Mono-Trial-Regular", fontSize: "14px", position: "relative"}}>
-                                <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><img className={classes.logoImage} onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer", position: "absolute", top: 21, left: 72, }} src={"/img/tempest-logo.svg"}/>
+                                <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><img className={classes.logoImage} onClick={() => {window.open("http://jointempest.com/"); GlobalStore.track("Nav", "Click", "Tempest Logo")}} style={{height: "12px", cursor: "pointer", position: "absolute", top: 21, left: 72, }} src={"/img/tempest-logo.svg"}/>
                             </div>
 
                             <div style={{flex: 1, lineHeight: "53px", textAlign: "center", fontFamily: "NoeDisplay Medium", fontSize: "24px", textTransform: "capitalize", letterSpacing: "-0.25px"}}>
-                                <span className={classes.modernHeader} style={{cursor: "pointer"}} onClick={() => {this.setDiscoverMode()}}>Modern Recovery</span>
+                                <span className={classes.modernHeader} style={{cursor: "pointer"}} onClick={() => {this.setDiscoverMode(); GlobalStore.track("Nav", "Click", "Modern Recovery")}}>Modern Recovery</span>
                             </div>
 
                             <div style={{flex: 1, fontFamily: "Roboto", height: "100%", overflow: "hidden", textAlign: "right", fontSize: "14px"}}>
                                 <div style={{display: "inline-block", opacity: this.state.chapterBot ? 0 : 1, transition: "1s", padding: "11px 0", height: "100%", overflow: "hidden"}}>
-                                    <div onClick={() => {this.toggleLightDark()}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "110px", borderRadius: "15px"}}>
+                                    <div onClick={() => {this.toggleLightDark(); GlobalStore.track("Nav", "Click", this.state.dark ? "Light Mode" : "Dark Mode")}} style={{marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "110px", borderRadius: "15px"}}>
                                         <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: this.state.darkBot ? 84 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.darkBot ? "black" : "#efb83e", borderRadius: "100%"}}>
 
                                         </div>
@@ -500,7 +604,7 @@ class Home extends React.Component {
                                     </div>
                                 </div>
                                 <div  style={{display: "inline-block", padding: "11px 0", height: "100%", overflow: "hidden"}}>
-                                    <div className={classes.buttonShine} onClick={() => {this.toggleChapter()}} style={{background: this.state.chapter ? "none" : null, marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
+                                    <div className={classes.buttonShine} onClick={() => {this.toggleChapter(); GlobalStore.track("Nav", "Click", this.state.chapter ? "Discover Mode" : "Chapter Mode")}} style={{background: this.state.chapter ? "none" : null, marginLeft: "16px", textAlign: "left", cursor: "pointer", position: "relative", padding: "6px", display: "inline-block", fontSize: "14px", border: "1px solid", lineHeight: "30px", height: "100%", width: "120px", borderRadius: "15px"}}>
                                         <div style={{display: "inline-block", marginRight: "10px", height: "18px", position: "absolute", left: !this.state.chapterBot ? 94 : 6, transition: "all 1s", border: "1px solid black", width: "18px", background: this.state.chapterBot ? "url('/img/chapter-gradient.png')" : "url('/img/chapter-gradient.png')",
                                             animationName: "backgroundmove",
                                             animationDuration:  this.state.chapter ? "5s" : "10s",
@@ -531,28 +635,27 @@ class Home extends React.Component {
                                             <div style={{paddingLeft: "60px", paddingRight: "60px", width: "100%", height: "100%"}}>
                                                 <div style={{display: "flex", width: "100%", height: "100%"}}>
                                                     <div className={classes.mainBoxContainer} style={{height: "100%", opacity: this.state.changingState ? 0 : 1, transition: "0.5s"}}>
-                                                        <div style={{paddingTop: "calc((100vh - 476.88px - 53px)/2)"}}>
-                                                            <div style={{padding: "50px", width: "100%", height: "476.88px", position: "relative", borderRadius: "7px", background: "rgba(255,255, 255, 0.1)"}}>
-                                                                <div style={{position: "absolute", top: 50, right: 40}}>
+                                                        <div className={classes.containerPadding}>
+                                                            <div className={classes.quoteBox}>
+                                                                <div className={classes.dotsContainer} style={{position: "absolute",}}>
                                                                     {this.state.stage.quotes.map((q, i) => {
                                                                         return <div key={"q" + i} style={{opacity: this.state.textIndexBot === i ? 1 : null}} onClick={() => {this.setTextState(i)}} className={classes.dot}/>
                                                                     })}
                                                                 </div>
-                                                                <div style={{fontSize: "16px", maxWidth: "300px", lineHeight: "24px",  fontFamily: "Albra Text Regular", paddingRight: "5px"}}>
+                                                                <div className={classes.stageDefinition}>
                                                                     <span style={{fontFamily: null}}>{this.state.stage.name}:</span> {this.state.stage.definition}
                                                                 </div>
-                                                                <div style={{marginTop: "80px", fontSize: "118px", lineHeight: "0px", fontFamily: "MADE Soulmaze Outline"}}>
+                                                                <div className={classes.stageQuoteMark}>
                                                                     “
                                                                 </div>
-                                                                <div className={`quotes-holder`} style={{marginTop: "20px", height: "145px", paddingRight: "10px", overflowY: "scroll", maxWidth: "395px", fontSize: "16px", lineHeight: "26px", fontFamily: "Albra Text Regular", opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
+                                                                <div className={`quotes-holder ${classes.stageQuote}`} style={{opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
                                                                     {this.state.stage.quotes[this.state.textIndex].quote ? this.state.stage.quotes[this.state.textIndex].quote : this.state.stage.quotes[this.state.textIndex] }
                                                                     <br/>
-                                                                    <span style={{fontFamily: null}}>-{this.state.stage.quotes[this.state.textIndex].author ? this.state.stage.quotes[this.state.textIndex].author : null }</span>
+                                                                    <span>-{this.state.stage.quotes[this.state.textIndex].author ? this.state.stage.quotes[this.state.textIndex].author : null }</span>
                                                                 </div>
-                                                                <div style={{width: "100%", display: "flex", position: "absolute", bottom: 0, left: 0, padding: "30px", paddingLeft: "50px", paddingRight: "26px"}}>
+                                                                <div className={classes.playerContainer} style={{width: "100%", display: "flex", position: "absolute", bottom: 0, left: 0, }}>
                                                                     <div style={{flex: 1, textAlign: "right"}}>
-                                                                        <DesktopChapterPlayer audio={this.state.stage.quotes[this.state.textIndexBot].audio ? this.state.stage.quotes[this.state.textIndexBot].audio : "/img/test-audio.m4a"}/>
-
+                                                                        <DesktopChapterPlayer stage={this.state.stage.name} index={this.state.textIndex} audio={this.state.stage.quotes[this.state.textIndexBot].audio ? this.state.stage.quotes[this.state.textIndexBot].audio : "/img/test-audio.m4a"}/>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -560,9 +663,9 @@ class Home extends React.Component {
 
                                                     </div>
                                                     <div className={classes.sideNavContainer} style={{textAlign: "right", overflow: "hidden", height: "100%"}}>
-                                                        <div style={{paddingTop: "calc((100vh - 476.88px - 53px)/2)"}}>
+                                                        <div className={classes.containerPadding}>
                                                             {STAGES.map((stage, i) => {
-                                                                return (<div key={stage.name} onClick={() => {this.setIndex(i)}} className={this.state.stageIndex === i ? classes.tabBigName : classes.tabName}>{stage.name}</div>);
+                                                                return (<div key={stage.name} onClick={() => {this.setIndex(i); GlobalStore.track("Chapter", "Click", `${stage.name} Stage`)}} className={this.state.stageIndex === i ? classes.tabBigName : classes.tabName}>{stage.name}</div>);
                                                             })}
                                                         </div>
                                                     </div>
@@ -573,7 +676,7 @@ class Home extends React.Component {
                                 </div>
                                 <div style={{transition: "1s", flex: this.state.pillars ? 1 : "0 0 46px", overflow: "hidden", height: "100%"}}>
                                     <div style={{display: "flex", height: "100%"}}>
-                                        <div className={classes.pillarBar} style={{flex: "0 0 46px", border: this.state.pillars ? "none" : null, background: this.state.pillars ? "white" : null, transition: this.state.pillars ? "1s" : "0.25s", height: "100%"}} onClick={() => {this.setState({pillars: !this.state.pillars})}}>
+                                        <div className={classes.pillarBar} style={{flex: "0 0 46px", border: this.state.pillars ? "none" : null, background: this.state.pillars ? "white" : null, transition: this.state.pillars ? "1s" : "0.25s", height: "100%"}} onClick={() => {this.setState({pillars: !this.state.pillars}); GlobalStore.track("Chapter", "Click", "What is Modern Recovery?")}}>
                                             <div style={{textAlign: "center"}}>
                                                 <div className={classes.pillarsX} style={{width: "16px", height: "17px", transition: "opacity 1s, background 0.25s", opacity: this.state.pillars ? 1 : 0, marginTop: "15px", display: "inline-block", }}/>
                                             </div>
@@ -610,7 +713,7 @@ class Home extends React.Component {
                                                             This is Modern Recovery, and all are welcome.
                                                         </div>
                                                         <div style={{marginTop: "30px"}}>
-                                                            <div className={classes.joinButton}>
+                                                            <div className={classes.joinButton} onClick={() => {GlobalStore.track("Pillars", "Click", "Join the Movement")}}>
                                                                 Join the Movement
                                                             </div>
                                                         </div>
@@ -666,7 +769,7 @@ class Home extends React.Component {
                                                         </div>
                                                         <div style={{marginTop: "50px"}}>
                                                             <a href={"https://draperu.s3.amazonaws.com/public/social+media+assets/Social+Media+Assets.zip"} style={{textDecoration: "none"}} download={true}>
-                                                                <div className={classes.joinButton}>
+                                                                <div className={classes.joinButton} onClick={() => {GlobalStore.track("Pillars", "Click", "Download All")}}>
                                                                     Download All
                                                                 </div>
                                                             </a>
@@ -713,7 +816,7 @@ class Home extends React.Component {
                         :
                         <div id="canvas-holder" style={{flex: 1, background: this.state.darkBot ? "#272F46" : "#E4D7C4", height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s",  outline: "none"}}>
                             <Canvas closeModal={this.closeModal} holder="canvas-holder" dark={this.state.darkBot} src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
-                            <div style={{position: "fixed", top: 77, left: 44, cursor: "pointer", height: "25px", width: "25px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
+                            <div style={{position: "fixed", top: 77, left: 44, cursor: "pointer", height: "25px", width: "25px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal}); GlobalStore.track("Discover", "Click", "Information Icon")}}>
                                 <img style={{height: "100%", width: "100%", transition: "0.5s"}} src={this.state.darkBot ? "/img/info-icon-white.svg" : "/img/info-icon-black.svg"}/>
                             </div>
                             <div  style={{...SANS_SERIF_FONT_BODY, letterSpacing: "0", display: this.state.showInfoModal ? null : "none", opacity: this.state.showInfoModal ? 1 : 0, transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "12px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: 53, left: 92, height: "fit-content", width: "300px", boxShadow: "0px 1px 4px #00000011"}}>
@@ -745,17 +848,17 @@ class Home extends React.Component {
                     <div style={{flex: "0 0 84px", background: "white"}}>
                         <div style={{height: "48px", lineHeight: "48px", padding: "0 18px", display: "flex"}}>
                             <div style={{flex: 1, fontFamily: "NoeDisplay Medium", fontSize: "18px", letterSpacing: "-0.25px"}}>
-                                <span style={{cursor: "pointer"}} onClick={() => {this.setDiscoverMode()}}>Modern Recovery</span>
+                                <span style={{cursor: "pointer"}} onClick={() => {this.setDiscoverMode(); GlobalStore.track("Nav", "Click", "Modern Recovery")}}>Modern Recovery</span>
                             </div>
                             <div style={{flex: 1, textAlign: "right", postion: "relative"}}>
-                                <span style={{...SANS_SERIF_FONT, cursor: "pointer", fontSize: "14px", marginRight: "4px"}}>A Project by</span><img onClick={() => {window.open("http://jointempest.com/")}} style={{height: "12px", cursor: "pointer",}} src={"/img/tempest-logo.svg"}/>
+                                <span style={{...SANS_SERIF_FONT, cursor: "pointer", fontSize: "14px", marginRight: "4px"}}>A Project by</span><img onClick={() => {window.open("http://jointempest.com/"); GlobalStore.track("Nav", "Click", "Tempest Logo")}} style={{height: "12px", cursor: "pointer",}} src={"/img/tempest-logo.svg"}/>
                             </div>
                         </div>
                         <div style={{...SANS_SERIF_FONT_BODY, cursor: "pointer", fontSize: "12px", height: "36px", lineHeight: "36px", display: "flex", borderTop: "1px solid black", borderBottom: this.state.pillars ? null : "1px solid black"}}>
-                            <div style={{flex: 1, textAlign: "center", background: this.state.chapterBot ? "white" : "black", color: this.state.chapterBot ? "black" : "white" }} onClick={() => {this.setDiscoverMode()}}>
+                            <div style={{flex: 1, textAlign: "center", background: this.state.chapterBot ? "white" : "black", color: this.state.chapterBot ? "black" : "white" }} onClick={() => {this.setDiscoverMode(); GlobalStore.track("Nav", "Click", "Discover Mode")}}>
                                 Discover Mode
                             </div>
-                            <div style={{flex: 1, textAlign: "center", background: this.state.chapterBot ? "black" : "white", color: this.state.chapterBot ? "white" : "black"}} onClick={() => {this.setChapterMode()}}>
+                            <div style={{flex: 1, textAlign: "center", background: this.state.chapterBot ? "black" : "white", color: this.state.chapterBot ? "white" : "black"}} onClick={() => {this.setChapterMode(); GlobalStore.track("Nav", "Click", "Chapter Mode")}}>
                                 Chapter Mode
                             </div>
                         </div>
@@ -776,6 +879,9 @@ class Home extends React.Component {
                                                         if (index > STAGES.length - 1) index = 0;
 
                                                         this.setIndex(index);
+
+                                                        GlobalStore.track("Chapter", "Click", `${STAGES[index].name} Stage`)
+
                                                     }} style={{flex: 1, cursor: "pointer"}}>
 
 
@@ -789,6 +895,8 @@ class Home extends React.Component {
 
                                                         if (index < 0) index = STAGES.length - 1;
                                                         if (index > STAGES.length - 1) index = 0;
+
+                                                        GlobalStore.track("Chapter", "Click", `${STAGES[index].name} Stage`)
 
                                                         this.setIndex(index);
                                                     }} style={{flex: 1, cursor: "pointer", textAlign: "right"}}>
@@ -826,6 +934,7 @@ class Home extends React.Component {
                                                 this.setState({pillars: !this.state.pillars})
                                                 const scroll = document.getElementById('mobile-scroll-container');
                                                 if (scroll) scroll.scrollTop = 0;
+                                                GlobalStore.track("Chapter", "Click", "What is Modern Recovery?");
                                             }}>
                                                 <div style={{
                                                     display: "inline-block",
@@ -882,7 +991,7 @@ class Home extends React.Component {
                                 <div id="canvas-holder-mobile" style={{background: this.state.darkBot ? "#272F46" : "#E4D7C4", height: "100%", width: "100%", textAlign: "center", opacity: this.state.mounted ? 1 : 0, transition: "1s"}}>
                                     <Canvas closeModal={this.closeModal} holder="canvas-holder-mobile" dark={this.state.darkBot} src={this.state.darkBot ? "/img/mural-dark.jpg" : "/img/mural-light.jpg"}/>
                                 </div>
-                                <div style={{position: "fixed", top: 100, left: 20, cursor: "pointer", height: "19px", width: "19px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal})}}>
+                                <div style={{position: "fixed", top: 100, left: 20, cursor: "pointer", height: "19px", width: "19px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal}); GlobalStore.track("Discover", "Click", "Information Icon")}}>
                                     <img style={{height: "100%", width: "100%"}} src={this.state.darkBot ? "/img/info-icon-white.svg" : "/img/info-icon-black.svg"}/>
                                 </div>
                                 <div style={{...SANS_SERIF_FONT_BODY, display: this.state.showInfoModal ? null : "none", transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "11px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: "calc(50% - 183.5px)", left: "calc( 50% - 150px)", height: "320px", width: "300px", boxShadow: "0px 1px 4px #00000011"}}>
@@ -907,10 +1016,10 @@ class Home extends React.Component {
                                 </div>
                                 <div style={{position: "fixed", bottom: "0", left: "0", width: "100%", height: "36px",}}>
                                     <div style={{...SANS_SERIF_FONT_BODY, cursor: "pointer", fontSize: "12px", height: "36px", lineHeight: "36px", display: "flex", borderTop: "1px solid black"}}>
-                                        <div style={{flex: 1, textAlign: "center", background: this.state.darkBot ? "white" : "black", color: this.state.darkBot ? "black" : "white" }} onClick={() => {this.toggleLightDark(false)}}>
+                                        <div style={{flex: 1, textAlign: "center", background: this.state.darkBot ? "white" : "black", color: this.state.darkBot ? "black" : "white" }} onClick={() => {this.toggleLightDark(false); GlobalStore.track("Nav", "Click", "Light Mode")}}>
                                             Light Mode
                                         </div>
-                                        <div style={{flex: 1, textAlign: "center", background: this.state.darkBot ? "black" : "white", color: this.state.darkBot ? "white" : "black"}} onClick={() => {this.toggleLightDark(true)}}>
+                                        <div style={{flex: 1, textAlign: "center", background: this.state.darkBot ? "black" : "white", color: this.state.darkBot ? "white" : "black"}} onClick={() => {this.toggleLightDark(true); GlobalStore.track("Nav", "Click", "Dark Mode")}}>
                                             Dark Mode
                                         </div>
                                     </div>

@@ -13,6 +13,20 @@ const Styles = {
         "&:hover": {
             background: "black",
         },
+        height: "36px",
+        width: "36px",
+        lineHeight: "36px",
+        '@media (min-width: 1900px)': {
+            height: "63px",
+            width: "63px",
+            lineHeight: "63px",
+        },
+    },
+    playButtonSuperContainer: {
+        flex: "0 0 50px",
+        '@media (min-width: 1900px)': {
+            flex: "0 0 100px",
+        },
     },
     playButtonContainer: {
         background: "url('/img/play-icon-beige.svg') center / cover",
@@ -21,6 +35,36 @@ const Styles = {
             background: "url('/img/play-icon-black.svg') center / cover",
         },
     },
+    timeIndicator: {
+        flex: "0 0 15px",
+        '@media (min-width: 1900px)': {
+            fontSize: "20px",
+            lineHeight: "63px",
+        },
+    },
+    timeTrackContainer: {
+        width: "100%",
+        maxWidth: "316px",
+        '@media (min-width: 1900px)': {
+            maxWidth: "550px",
+        },
+    },
+    timeTrack: {
+        height: "3px",
+        top: "calc(50% - 1.5px)",
+        borderRadius: "5px",
+        '@media (min-width: 1900px)': {
+            height: "6px",
+            top: "calc(50% - 3px)",
+            borderRadius: "10px",
+        },
+    },
+    inputRange: {
+        '@media (min-width: 1900px)': {
+            height: "100%",
+        },
+    }
+
 };
 
 
@@ -48,10 +92,14 @@ class DesktopChapterPlayer extends React.Component {
     }
 
     playAudio() {
+        const { stage, index } = this.props;
+
         this.setState({
             playing: true
         });
         this.audio.play();
+
+        GlobalStore.track("Chapter", "Play", `${stage} Audio`, index + 1);
 
         dispatcher.dispatch({
             type: "PLAY",
@@ -140,27 +188,27 @@ class DesktopChapterPlayer extends React.Component {
         return (<div id={"audio" + this.id} >
             <div style={{display: "flex"}}>
                 <div style={{flex: 1}}>
-                    <div style={{width: "100%", maxWidth: "316px"}}>
+                    <div className={classes.timeTrackContainer}>
                         <div style={{display: "flex", fontFamily: "UntitledSans-Regular", lineHeight: "36px", fontSize: "11px"}}>
-                            <div style={{flex: "0 0 15px"}}>{time}</div>
+                            <div className={classes.timeIndicator}>{time}</div>
                             <div style={{flex: 1, margin: "0 8px", position: "relative"}}>
-                                <div style={{height: "3px", position: "absolute", top: "calc(50% - 1.5px)", width: "100%", background: "#84827b50", borderRadius: "5px"}}>
-                                    <input onChange={(e) => {
+                                <div className={classes.timeTrack} style={{ position: "absolute", width: "100%", background: "#84827b50"}}>
+                                    <input className={classes.inputRange} onChange={(e) => {
                                         this.setProgress(e.target.value)
                                     }} type={"range"} value={progress} min={0} max={1} step={0.0001}/>
                                 </div>
                             </div>
-                            <div style={{flex: "0 0 15px"}}>{end}</div>
+                            <div className={classes.timeIndicator}>{end}</div>
                         </div>
                     </div>
                 </div>
-                <div style={{flex: "0 0 50px"}}>
-                    <div onClick={() => {this.toggleAudio()}} className={classes.playButton} style={{ display: "inline-block", background: this.state.playing ? "url('/img/chapter-gradient.png')" : null, cursor:"pointer", height: "36px", lineHeight: "36px", textAlign: "center", width: "36px", borderRadius: "100%",
+                <div className={classes.playButtonSuperContainer}>
+                    <div onClick={() => {this.toggleAudio()}} className={classes.playButton} style={{ display: "inline-block", background: this.state.playing ? "url('/img/chapter-gradient.png')" : null, cursor:"pointer", textAlign: "center",  borderRadius: "100%",
                         animation: "backgroundmove 10s infinite",
                         backgroundPosition: "left",
                         animationTimingFunction: "ease-in-out"
                     }}>
-                        <div className={classes.playButtonContainer} style={{display: "inline-block", height: "100%", width: "100%", background: this.state.playing ? "url('/img/pause-icon.svg') center 11px / 10px no-repeat" : null, }}>
+                        <div className={classes.playButtonContainer} style={{display: "inline-block", height: "100%", width: "100%", background: this.state.playing ? "url('/img/pause-icon.svg') center center / 30% no-repeat" : null, }}>
 
                         </div>
                     </div>
