@@ -145,7 +145,7 @@ class MobileQuotes extends React.Component {
                                         {quote.quote}
                                         <br/>
                                         <span
-                                            style={{fontFamily: "Albra Text Bold"}}>-{quote.author}</span>
+                                            style={{fontFamily: "Albra Text Semi"}}>-{quote.author}</span>
                                     </div>
 
                                     <div style={{

@@ -403,9 +403,17 @@ class Home extends React.Component {
         }, 500);
     }
 
-    setChapterMode() {
+    setChapterMode(nav) {
 
-        if (this.state.chapterBot) return;
+        if (this.state.chapterBot) {
+            if (nav) {
+                this.setState({
+                    pillars: nav ? true : false
+                });
+            }
+
+            return
+        }
 
         dispatcher.dispatch({
             type: "PAUSE-ALL",
@@ -425,7 +433,7 @@ class Home extends React.Component {
                 chapter: true,
                 mounted: true,
                 changingMode: false,
-                pillars: false
+                pillars: nav ? true : false
             });
 
         }, 1000);
@@ -583,7 +591,12 @@ class Home extends React.Component {
                         <div style={{display: "flex", padding: "0 22px", height: "53px"}}>
 
                             <div style={{flex: 1, lineHeight: "53px", fontFamily: "GT-America-Mono-Trial-Regular", fontSize: "14px", position: "relative"}}>
-                                <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><img className={classes.logoImage} onClick={() => {window.open("http://jointempest.com/"); GlobalStore.track("Nav", "Click", "Tempest Logo")}} style={{height: "12px", cursor: "pointer", position: "absolute", top: 21, left: 72, }} src={"/img/tempest-logo.svg"}/>
+                                <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginRight: "8px"}}>A Project by</span><
+                                img className={classes.logoImage} onClick={() => {window.open("http://jointempest.com/"); GlobalStore.track("Nav", "Click", "Tempest Logo")}} style={{height: "12px", cursor: "pointer", position: "absolute", top: 21, left: 72, }} src={"/img/tempest-logo.svg"}/>
+                                <span style={{...SANS_SERIF_FONT, fontSize: "14px", marginLeft: "68px"}}>|<span style={{marginLeft: "13px", textDecoration: "underline", cursor: "pointer"}} onClick={() => {
+                                    this.setChapterMode(true);
+                                    GlobalStore.track("Nav", "Click", "What is Modern Recovery?");
+                                }}>What is Modern Recovery?</span></span>
                             </div>
 
                             <div style={{flex: 1, lineHeight: "53px", textAlign: "center", fontFamily: "NoeDisplay Medium", fontSize: "24px", textTransform: "capitalize", letterSpacing: "-0.25px"}}>
@@ -651,7 +664,7 @@ class Home extends React.Component {
                                                                 <div className={`quotes-holder ${classes.stageQuote}`} style={{opacity: this.state.changeText ? 0 : 1, transition: "0.5s"}}>
                                                                     {this.state.stage.quotes[this.state.textIndex].quote ? this.state.stage.quotes[this.state.textIndex].quote : this.state.stage.quotes[this.state.textIndex] }
                                                                     <br/>
-                                                                    <span>-{this.state.stage.quotes[this.state.textIndex].author ? this.state.stage.quotes[this.state.textIndex].author : null }</span>
+                                                                    <span style={{fontFamily: "Albra Text Semi"}}>-{this.state.stage.quotes[this.state.textIndex].author ? this.state.stage.quotes[this.state.textIndex].author : null }</span>
                                                                 </div>
                                                                 <div className={classes.playerContainer} style={{width: "100%", display: "flex", position: "absolute", bottom: 0, left: 0, }}>
                                                                     <div style={{flex: 1, textAlign: "right"}}>

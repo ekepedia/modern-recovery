@@ -260,9 +260,6 @@ export const PILLARS = [
 
 export const MEDIA = [
     {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/1+definition.png"
-    },
-    {
         link: "https://draperu.s3.amazonaws.com/public/social+media+assets/2+awareness.png"
     },
     {
@@ -313,5 +310,7 @@ export const MEDIA = [
     {
         link: "https://draperu.s3.amazonaws.com/public/social+media+assets/18+pillar+6.png"
     },
-
+    {
+        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/1+definition.png"
+    },
 ];
