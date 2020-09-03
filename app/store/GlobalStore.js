@@ -24,6 +24,22 @@ class GlobalStore extends EventEmitter {
 
     track(category, action, label, value) {
         console.log("track:", category, action, label, value);
+        
+        try {
+            let obj = {
+                hitType: 'event',
+                eventCategory: category,
+                eventAction: action,
+                eventLabel: label,
+            };
+
+            if (value)
+                obj.eventValue = value;
+
+            ga('send', obj);
+        } catch (e) {
+            
+        }
     }
 
 }

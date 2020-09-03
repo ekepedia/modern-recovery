@@ -17,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/app/scenes/Home/MobileQuotes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/MobileQuotes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scenes/Home/copy.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/copy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scenes/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/store/GlobalStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/store/GlobalStore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/main.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/main.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +76,7 @@
       <workItem from="1597851187476" duration="56513000" />
       <workItem from="1598360692507" duration="58695000" />
       <workItem from="1599097040535" duration="1136000" />
-      <workItem from="1599099839937" duration="9461000" />
+      <workItem from="1599099839937" duration="9892000" />
     </task>
     <servers />
   </component>
@@ -103,10 +104,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="323" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1599106278222" />
-    <state x="421" y="205" width="598" height="518" key="find.popup" timestamp="1599152394751">
+    <state x="421" y="205" width="598" height="518" key="find.popup" timestamp="1599152709342">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="421" y="205" width="598" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599152394751" />
+    <state x="421" y="205" width="598" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599152709342" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1598903612362">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
