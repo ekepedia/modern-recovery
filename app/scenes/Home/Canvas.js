@@ -52,6 +52,39 @@ class Canvas extends React.Component {
 
                 if (e.target.id === `scene${this.id}` && this.props.closeModal) {
                     this.props.closeModal();
+
+
+                    // console.log("TAP?", new Date().getTime());
+                    this.lastTap = new Date().getTime();
+
+                    setTimeout(() => {
+                        let tapped = true;
+
+                        if (!this.lastShift)
+                            tapped = true;
+                        else if (this.lastTap - this.lastShift < -50)
+                            tapped = false;
+                        else
+                            tapped = true
+
+                        // console.log("JUST A TAP?", tapped, this.lastTap - this.lastShift);
+
+                        if (tapped) {
+                            // this.setModal(e);
+                            var touch = e.touches[0] || e.changedTouches[0];
+                            let x = touch.pageX;
+                            let y = touch.pageY;
+
+                            const transform = this.instance.getTransform();
+
+                            x = x/transform.scale - transform.x/transform.scale - (x/width)*(1250 * transform.scale)/transform.scale;
+                            y = y/transform.scale - transform.y/transform.scale - 82/transform.scale;
+
+                            this.setModal(e.target.id, x, y);
+
+
+                        }
+                    }, 100);
                 }
 
                 if (e.target.id === `scene${this.id}`)
@@ -84,7 +117,6 @@ class Canvas extends React.Component {
 
         this.instance.on('zoom', (e) => {
             this.handleShift(e);
-
         });
 
         this.instance.on('pan', (e) => {
@@ -110,7 +142,11 @@ class Canvas extends React.Component {
 
         return  width < 768 ? height - 100 : height;
     }
+
     handleShift(e) {
+
+        this.lastShift = new Date().getTime();
+
         const holder = this.props.holder;
 
         const width  = document.getElementById(holder).clientWidth;
@@ -221,15 +257,12 @@ class Canvas extends React.Component {
             this.instance.pause();
     }
 
-    setModal(e) {
+    setModal(target, x, y) {
 
-        if (e.target.id !== `scene${this.id}`)
+        if (target !== `scene${this.id}`)
             return;
 
-        const x = e.nativeEvent.offsetX;
-        const y = e.nativeEvent.offsetY;
-
-        console.log("(", e.nativeEvent.offsetX, ",", e.nativeEvent.offsetY, ")")
+        console.log("(", x, ",", y, ")")
 
         let index = 0;
 
@@ -264,7 +297,10 @@ class Canvas extends React.Component {
 
         return (<div id={"scene" + this.id} onMouseDown={(e) => {this.move = false; this.moveTime = new Date().getTime()}} onMouseMove={(e) => {this.move = true; }} onMouseUp={(e) => {
             if (!this.move || (new Date().getTime() - this.moveTime) < 150) {
-                this.setModal(e);
+
+                const transform = this.instance.getTransform();
+
+                this.setModal(e.target.id, e.nativeEvent.offsetX - (0.5 * (1250 * transform.scale)/transform.scale), e.nativeEvent.offsetY);
             }
             this.move = false;
             this.moveTime = 0;

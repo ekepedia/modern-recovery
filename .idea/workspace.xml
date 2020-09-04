@@ -14,9 +14,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/public/js/script.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/script.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scenes/Home/Canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/Canvas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scenes/Home/MobilePillars.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/MobilePillars.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scenes/Home/MobileShare.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/MobileShare.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scenes/Home/MobileSocial.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/MobileSocial.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +71,7 @@
       <workItem from="1597851187476" duration="56513000" />
       <workItem from="1598360692507" duration="58695000" />
       <workItem from="1599097040535" duration="1136000" />
-      <workItem from="1599099839937" duration="15182000" />
+      <workItem from="1599099839937" duration="17235000" />
     </task>
     <servers />
   </component>
