@@ -103,8 +103,8 @@ class MobileSocial extends React.Component {
                                     <div key={media.link} style={{padding: "0 10px", position: "relative"}} onClick={() => {GlobalStore.track("Pillars", "Click", "Download Asset", i + 1)}}>
                                         <a style={{outline: "none"}} href={media.link} download={true} target={"_blank"}>
                                             <img style={{border: "1px solid white", width: "100%", maxWidth: "300px", margin: "auto"}} src={media.link}/>
+                                            <div style={{...SANS_SERIF_FONT_BODY, color: "white", fontFamily: "UntitledSans-Medium", textAlign: "left", fontSize: "12px", letterSpacing: "1px", paddingTop: "10px"}}>SAVE <img style={{ display: "inline-block", height: "12px", paddingBottom: "3px"}} src={"/img/download-icon.svg"} /></div>
                                         </a>
-                                        <div style={{...SANS_SERIF_FONT_BODY, fontFamily: "UntitledSans-Medium", textAlign: "left", fontSize: "12px", letterSpacing: "1px", paddingTop: "10px"}}>SAVE <img style={{ display: "inline-block", height: "12px", paddingBottom: "3px"}} src={"/img/download-icon.svg"} /></div>
                                     </div>
                                 )
                             })}

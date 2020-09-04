@@ -33,7 +33,7 @@ class Canvas extends React.Component {
         const element = document.querySelector('#scene' + this.id);
 
         const width  = document.getElementById(holder).clientWidth;
-        const height = document.getElementById(holder).clientHeight;
+        const height = this.getHeight();
 
         console.log(width, height, (height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2, (width/(IMG_WIDTH/IMG_HEIGHT)));
 
@@ -102,11 +102,19 @@ class Canvas extends React.Component {
 
     }
 
-    handleShift(e) {
+    getHeight() {
         const holder = this.props.holder;
 
         const width  = document.getElementById(holder).clientWidth;
         const height = document.getElementById(holder).clientHeight;
+
+        return  width < 768 ? height - 100 : height;
+    }
+    handleShift(e) {
+        const holder = this.props.holder;
+
+        const width  = document.getElementById(holder).clientWidth;
+        const height = this.getHeight();
 
         const transform = e.getTransform();
         const navHeight = 53;

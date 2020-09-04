@@ -111,15 +111,19 @@ class MobilePillars extends React.Component {
                     {this.pillars.map((pillar, index) => {
                         return (
                             <div key={"qm" + index} onClick={() => this.changeSlide(index)} style={{
-                                opacity: index === shareIndex ? 1 : 0.2,
-                                marginRight: index === (this.pillars.length - 1) ? 0 : "15px",
-                                height: "10px",
-                                width: "10px",
-                                borderRadius: "100%",
-                                background: "white",
-                                transition: "1s",
+                                paddingRight: index === (this.pillars.length - 1) ? 0 : "15px",
                                 display: "inline-block",
+                                height: "20px"
                             }}>
+                                <div style={{
+                                    opacity: index === shareIndex ? 1 : 0.2,
+                                    height: "10px",
+                                    width: "10px",
+                                    borderRadius: "100%",
+                                    background: "white",
+                                    transition: "1s",
+                                }}>
+                                </div>
                             </div>
                         )
                     })}
