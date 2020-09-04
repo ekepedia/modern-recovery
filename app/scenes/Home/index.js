@@ -900,7 +900,7 @@ class Home extends React.Component {
                             <div>
                                 <img style={{height: "14px", marginBottom: "18px"}} src={"/img/tempest-logo.svg"}/>
                             </div>
-                            <div style={{marginBottom: "36px", maxWidth: "230px", marginLeft: "auto", marginRight: "0px"}}>A project by <span style={{textDecoration: "underline" }} onClick={() => {window.open("http://jointempest.com/"); GlobalStore.track("Nav", "Click", "Tempest Logo")}}>Tempest</span> – empowering folks at every stage of their journey through a new interactive campaign.</div>
+                            <div style={{marginBottom: "36px", maxWidth: "230px", marginLeft: "auto", marginRight: "0px"}}>Modern Recovery is a project by <span style={{textDecoration: "underline" }} onClick={() => {window.open("http://jointempest.com/"); GlobalStore.track("Nav", "Click", "Tempest Logo")}}>Tempest</span> – empowering folks at every stage of their journey through a new interactive campaign.</div>
                             <div onClick={() => {
                                 this.setState({menu: false});
                                 this.setChapterMode(true);
