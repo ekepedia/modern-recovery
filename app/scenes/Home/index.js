@@ -864,9 +864,28 @@ class Home extends React.Component {
                                 <span style={{cursor: "pointer"}} onClick={() => {this.setDiscoverMode(); GlobalStore.track("Nav", "Click", "Modern Recovery")}}>Modern Recovery</span>
                             </div>
                             <div style={{flex: 1, textAlign: "right", postion: "relative"}}>
-                                <span style={{...SANS_SERIF_FONT, cursor: "pointer", fontSize: "14px", marginRight: "4px"}}>A Project by</span><img onClick={() => {window.open("http://jointempest.com/"); GlobalStore.track("Nav", "Click", "Tempest Logo")}} style={{height: "12px", cursor: "pointer",}} src={"/img/tempest-logo.svg"}/>
+                                <div style={{position: "absolute", top: 17, right: 15}}>
+                                    {this.state.menu ? <img onClick={() => {this.setState({menu: false})}} style={{height: "15px",}} src={"/img/close-icon-black.svg"}/>
+                                        : <div onClick={() => {this.setState({menu: true})}}>
+                                            <div style={{height: "2px", width: "18px", background: "black", marginBottom: "4px"}}></div>
+                                            <div style={{height: "2px", width: "18px", background: "black", marginBottom: "4px"}}></div>
+                                            <div style={{height: "2px", width: "18px", background: "black", marginBottom: "4px"}}></div>
+                                        </div>}
+                                </div>
                             </div>
                         </div>
+                        {this.state.menu &&
+                        <div style={{...SANS_SERIF_FONT, fontSize: "14px", lineHeight: "22px", position: "fixed", top: "48px", height: "252px", padding: "36px", width: "100%", background: "white", zIndex: 999, textAlign: "right",}}>
+                            <div>
+                                <img style={{height: "14px", marginBottom: "18px"}} src={"/img/tempest-logo.svg"}/>
+                            </div>
+                            <div style={{marginBottom: "36px", maxWidth: "230px", marginLeft: "auto", marginRight: "0px"}}>A project by <span style={{textDecoration: "underline" }} onClick={() => {window.open("http://jointempest.com/"); GlobalStore.track("Nav", "Click", "Tempest Logo")}}>Tempest</span> – empowering folks at every stage of their journey through a new interactive campaign.</div>
+                            <div onClick={() => {
+                                this.setState({menu: false});
+                                this.setChapterMode(true);
+                            }} style={{fontFamily: "UntitledSans-Medium", textDecoration: "underline"}}>Learn more about Modern Recovery</div>
+                        </div>
+                        }
                         <div style={{...SANS_SERIF_FONT_BODY, cursor: "pointer", fontSize: "12px", height: "36px", lineHeight: "36px", display: "flex", borderTop: "1px solid black", borderBottom: this.state.pillars ? null : "1px solid black"}}>
                             <div style={{flex: 1, textAlign: "center", background: this.state.chapterBot ? "white" : "black", color: this.state.chapterBot ? "black" : "white" }} onClick={() => {this.setDiscoverMode(); GlobalStore.track("Nav", "Click", "Discover Mode")}}>
                                 Discover Mode

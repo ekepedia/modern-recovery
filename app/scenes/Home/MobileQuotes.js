@@ -22,6 +22,8 @@ class MobileQuotes extends React.Component {
     }
 
     componentDidMount() {
+
+        console.log("HELLO????")
         $(document).ready(() => {
             this.startSlick();
         });
@@ -89,6 +91,8 @@ class MobileQuotes extends React.Component {
 
     componentWillUnmount() {
         this.stopSlick();
+        console.log("BYEEE!!!!????")
+
     }
 
     render() {
@@ -99,7 +103,7 @@ class MobileQuotes extends React.Component {
 
         return (
             <div>
-                <div style={{outline: "none"}} className={"quotes-mobile" + this.id}>
+                <div style={{outline: "none", height: "459px", overflowY: "hidden"}} className={"quotes-mobile" + this.id}>
                     {stage.quotes.map((quote, index) => {
                         return (
                             <div key={index + "Dd"} style={{padding: "24px 30px", outline: "none"}}>

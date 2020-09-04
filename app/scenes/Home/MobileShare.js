@@ -98,7 +98,7 @@ class MobileShare extends React.Component {
                             <br/><br/>
                             This is Modern Recovery, and all<br/> are welcome.
                         </div>
-                        <div style={{marginTop: "18px"}} onClick={() => {GlobalStore.track("Pillars", "Click", "Join the Movement")}} className={classes.joinButton}>
+                        <div style={{marginTop: "18px"}} onClick={() => {GlobalStore.track("Pillars", "Click", "Join the Movement"); this.changeSlide(1)}} className={classes.joinButton}>
                             Join the movement
                         </div>
                     </div>

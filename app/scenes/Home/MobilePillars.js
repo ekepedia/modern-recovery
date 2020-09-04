@@ -97,7 +97,7 @@ class MobilePillars extends React.Component {
                                         </div>
                                         <div style={{flex: 1}}>
                                             <div style={{...SANS_SERIF_FONT_BODY, margin: "auto", maxWidth: "335px", height: "150px", fontSize: "14px", lineHeight: "20px"}}>
-                                                <div style={{marginBottom: "6px", fontFamily: "UntitledSans-Medium",}}>{pillar.title}</div>
+                                                <div style={{margin: index === 1 ? "auto" : null, marginBottom: "6px", maxWidth: index === 1 ? "220px" : null, fontFamily: "UntitledSans-Medium",}}>{pillar.title}</div>
                                                 {pillar.body}
                                             </div>
                                         </div>
