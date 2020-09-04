@@ -357,8 +357,8 @@ class Home extends React.Component {
             stage: STAGES[0],
             stageIndex: 0,
             stageIndexDelayed: 0,
-            chapter: true,
-            chapterBot: true,
+            chapter: false,
+            chapterBot: false,
             changingMode: false,
 
             mobileIndex1: 0,
@@ -441,6 +441,7 @@ class Home extends React.Component {
                 pillars: nav ? true : false
             });
 
+            this.startSlick();
         }, 1000);
     }
 
@@ -568,6 +569,10 @@ class Home extends React.Component {
                 this.closeModal();
         });
 
+        this.startSlick();
+    }
+
+    startSlick() {
         $(document).ready(() => {
             console.log($("#mobile-slick"));
             $("#mobile-slick").slick({
@@ -913,7 +918,7 @@ class Home extends React.Component {
                     </div>
                     <div style={{flex: 1, overflow: "hidden"}}>
                         {this.state.chapter ?
-                            <div id="lcroll-container" style={{height: "100%", width: "100%", overflowY: "scroll", opacity: this.state.mounted ? 1 : 0, transition: "1s", outline: "none"}}>
+                            <div id="mobile-scroll-container" style={{height: "100%", width: "100%", overflowY: "scroll", opacity: this.state.mounted ? 1 : 0, transition: "1s", outline: "none"}}>
                                 <div style={{display: "flex", flexDirection: "column", outline: "none"}}>
                                     <div style={{flex: this.state.pillars ? 0 : 1, overflow: this.state.pillars ? "hidden" : null, display: this.state.pillars ? "none" : null}}>
                                         <div style={{height: "fit-content"}}>
@@ -945,7 +950,6 @@ class Home extends React.Component {
                                                         <svg width="18" height="8" viewBox="0 0 18 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M17 4.5C17.2761 4.5 17.5 4.27614 17.5 4C17.5 3.72386 17.2761 3.5 17 3.5V4.5ZM0.646446 3.64645C0.451185 3.84171 0.451185 4.15829 0.646446 4.35355L3.82843 7.53553C4.02369 7.7308 4.34027 7.7308 4.53553 7.53553C4.7308 7.34027 4.7308 7.02369 4.53553 6.82843L1.70711 4L4.53553 1.17157C4.7308 0.976311 4.7308 0.659728 4.53553 0.464466C4.34027 0.269204 4.02369 0.269204 3.82843 0.464466L0.646446 3.64645ZM17 3.5L1 3.5V4.5L17 4.5V3.5Z" fill="black"/>
                                                         </svg>
-
                                                     </div>
                                                     <div onClick={() => {
                                                         let index = this.state.stageIndex + 1;
@@ -992,8 +996,10 @@ class Home extends React.Component {
 
                                             }} onClick={() => {
                                                 this.setState({pillars: !this.state.pillars})
+
                                                 const scroll = document.getElementById('mobile-scroll-container');
                                                 if (scroll) scroll.scrollTop = 0;
+
                                                 GlobalStore.track("Chapter", "Click", "What is Modern Recovery?");
                                             }}>
                                                 <div style={{
