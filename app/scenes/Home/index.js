@@ -357,8 +357,8 @@ class Home extends React.Component {
             stage: STAGES[0],
             stageIndex: 0,
             stageIndexDelayed: 0,
-            chapter: false,
-            chapterBot: false,
+            chapter: true,
+            chapterBot: true,
             changingMode: false,
 
             mobileIndex1: 0,
@@ -376,6 +376,11 @@ class Home extends React.Component {
         this.setState({
             changingState: true,
             stageIndex: index,
+        });
+
+        $(document).ready(() => {
+            console.log($("#mobile-slick").length);
+            // $("#mobile-slick").slick('slickGoTo', index);
         });
 
         setTimeout(() => {
@@ -561,7 +566,18 @@ class Home extends React.Component {
         GlobalStore.on("pause-all", () => {
             if (!this.state.chapter)
                 this.closeModal();
-        })
+        });
+
+        $(document).ready(() => {
+            console.log($("#mobile-slick"));
+            $("#mobile-slick").slick({
+                arrows: false,
+                infinite: true,
+                slidesToShow: 1,
+            }).on('beforeChange', (event, slick, currentSlide, nextSlide) => {
+                this.setIndex(nextSlide);
+            });
+        });
     }
 
     setTextState(textIndex) {
@@ -897,11 +913,18 @@ class Home extends React.Component {
                     </div>
                     <div style={{flex: 1, overflow: "hidden"}}>
                         {this.state.chapter ?
-                            <div id="mobile-scroll-container" style={{height: "100%", width: "100%", overflowY: "scroll", opacity: this.state.mounted ? 1 : 0, transition: "1s", outline: "none"}}>
+                            <div id="lcroll-container" style={{height: "100%", width: "100%", overflowY: "scroll", opacity: this.state.mounted ? 1 : 0, transition: "1s", outline: "none"}}>
                                 <div style={{display: "flex", flexDirection: "column", outline: "none"}}>
                                     <div style={{flex: this.state.pillars ? 0 : 1, overflow: this.state.pillars ? "hidden" : null, display: this.state.pillars ? "none" : null}}>
-                                        <div style={{transition: "opacity 0.5s", opacity: this.state.changingState ? 0 : 1, width: "100%", height: "calc((100vh - 84px) * 0.60)", background: `url(${STAGES[this.state.stageIndexDelayed].img}) 0% 0% / cover no-repeat`}}/>
-                                        <div style={{height: "fit-content", background: false && STAGES[this.state.stageIndex].gradient}}>
+                                        <div style={{height: "fit-content"}}>
+
+                                            <div id={"mobile-slick"} style={{height: "calc((100vh - 84px) * 0.60)", overflow: "hidden"}}>
+                                                {STAGES.map((stage, i) => {
+                                                    return (<div key={"SSS" + i} style={{transition: "opacity 0.5s", opacity: 1, width: "100%", height: "calc((100vh - 84px) * 0.60)", background: `url(${stage.img}) 0% 0% / cover no-repeat`}}/>);
+                                                })}
+                                            </div>
+
+                                            {/*<div style={{transition: "opacity 0.5s", opacity: this.state.changingState ? 0 : 1, width: "100%", height: "calc((100vh - 84px) * 0.60)", background: `url(${STAGES[this.state.stageIndexDelayed].img}) 0% 0% / cover no-repeat`}}/>*/}
                                             <div style={{padding: "24px 30px"}}>
                                                 <div style={{display: "flex"}}>
                                                     <div onClick={() => {
@@ -909,6 +932,8 @@ class Home extends React.Component {
 
                                                         if (index < 0) index = STAGES.length - 1;
                                                         if (index > STAGES.length - 1) index = 0;
+
+                                                        $("#mobile-slick").slick('slickGoTo', index);
 
                                                         this.setIndex(index);
 
@@ -929,7 +954,7 @@ class Home extends React.Component {
                                                         if (index > STAGES.length - 1) index = 0;
 
                                                         GlobalStore.track("Chapter", "Click", `${STAGES[index].name} Stage`)
-
+                                                        $("#mobile-slick").slick('slickGoTo', index);
                                                         this.setIndex(index);
                                                     }} style={{flex: 1, cursor: "pointer", textAlign: "right"}}>
                                                         <svg width="18" height="8" viewBox="0 0 18 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -945,6 +970,9 @@ class Home extends React.Component {
                                                     {STAGES[this.state.stageIndex].name}
                                                 </div>
                                             </div>
+
+
+
                                             <div style={{height: "100px", width: "1px", margin: "auto", background: "black"}} />
 
                                             <div style={{paddingBottom: "100px"}}>

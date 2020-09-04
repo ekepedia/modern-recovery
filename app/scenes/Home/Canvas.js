@@ -46,13 +46,13 @@ class Canvas extends React.Component {
             bounds: false,
             // boundsPadding: 0.5,
             onTouch: (e) => {
-                // console.log(e);
+                console.log(e);
                 // console.log(e.target)
                 // console.log(e.target);
 
+
                 if (e.target.id === `scene${this.id}` && this.props.closeModal) {
                     this.props.closeModal();
-
 
                     // console.log("TAP?", new Date().getTime());
                     this.lastTap = new Date().getTime();
