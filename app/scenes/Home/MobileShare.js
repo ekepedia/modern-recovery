@@ -86,7 +86,7 @@ class MobileShare extends React.Component {
 
         return (
             <div>
-                <div style={{outline: "none",height: "595px" }} className={'share-mobile' + this.id}>
+                <div style={{outline: "none",height: "530px" }} className={'share-mobile' + this.id}>
                     <div style={{padding: "56px 30px", outline: "none", textAlign: "center"}}>
                         <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "24px"}}>
                             We do recovery differently.
@@ -139,7 +139,7 @@ class MobileShare extends React.Component {
 
                         </form>
                     </div>
-                    <div style={{padding: "56px 30px", outline: "none", textAlign: "center", height: "595px"}}>
+                    <div style={{padding: "56px 30px", outline: "none", textAlign: "center", height: "530px"}}>
                         <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Share</div>
                         <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>
                             Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you, use our new Instagram filter to share your recovery story, and download and share these posts to spread awareness.

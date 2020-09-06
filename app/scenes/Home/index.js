@@ -353,12 +353,12 @@ class Home extends React.Component {
         this.state = {
             textIndex: 0,
             textIndexBot: 0,
-            pillars: false,
+            pillars: true,
             stage: STAGES[0],
             stageIndex: 0,
             stageIndexDelayed: 0,
-            chapter: false,
-            chapterBot: false,
+            chapter: true,
+            chapterBot: true,
             changingMode: false,
 
             mobileIndex1: 0,
@@ -900,7 +900,7 @@ class Home extends React.Component {
                             <div>
                                 <img style={{height: "14px", marginBottom: "18px"}} src={"/img/tempest-logo.svg"}/>
                             </div>
-                            <div style={{marginBottom: "36px", maxWidth: "230px", marginLeft: "auto", marginRight: "0px"}}>Modern Recovery is a project by <span style={{textDecoration: "underline" }} onClick={() => {window.open("http://jointempest.com/"); GlobalStore.track("Nav", "Click", "Tempest Logo")}}>Tempest</span> – empowering folks at every stage of their journey through a new interactive campaign.</div>
+                            <div style={{marginBottom: "36px", maxWidth: "250px", marginLeft: "auto", marginRight: "0px"}}>Modern Recovery is a project by <span style={{textDecoration: "underline" }} onClick={() => {window.open("http://jointempest.com/"); GlobalStore.track("Nav", "Click", "Tempest Logo")}}>Tempest</span> – empowering folks at every stage of their journey through a new interactive campaign.</div>
                             <div onClick={() => {
                                 this.setState({menu: false});
                                 this.setChapterMode(true);
@@ -1003,17 +1003,34 @@ class Home extends React.Component {
                                                 GlobalStore.track("Chapter", "Click", "What is Modern Recovery?");
                                             }}>
                                                 <div style={{
-                                                    display: "inline-block",
-                                                    height: "15px",
-                                                    width: "15px",
-                                                    background: this.state.pillars ? "black" : "none",
-                                                    borderRadius: "100%",
-                                                    marginRight: "7px",
-                                                    border: "1px solid",
+                                                    width: "100%",
+                                                    position: "relative",
+                                                }}>
+                                                    <div style={{position: "absolute", left: 18, top: 19}}>
+                                                        <img src={"/img/close-icon-black.svg"}
+                                                            style={{
+                                                                height: "15px",
+                                                                width: "15px",
+                                                                opacity: this.state.pillars ? 1 : 0
+                                                            }}/>
+                                                    </div>
+                                                </div>
+                                                <div style={{width: "fit-content", position: "relative", margin: "auto", paddingLeft: "23px"}}>
+                                                    <div style={{
+                                                        display: "inline-block",
+                                                        height: "15px",
+                                                        width: "15px",
+                                                        background: this.state.pillars ? "black" : "none",
+                                                        borderRadius: "100px",
+                                                        marginRight: "7px",
+                                                        border: "1px solid",
+                                                        position: "absolute",
+                                                        left: "0",
+                                                        top: "19.5"
+                                                    }}/>
+                                                    What is Modern Recovery?
+                                                </div>
 
-
-                                                }}/>
-                                                What is Modern Recovery?
                                             </div>
 
                                             <div style={{background: "black", paddingTop: this.state.pillars ? "53px" : null,
@@ -1039,7 +1056,7 @@ class Home extends React.Component {
                                                         We have expanded the definition of what it means to be in recovery to include a diverse range of experiences and approaches to care. These six pillars of Modern Recovery encompass our mission to provide a holistic, trauma-informed approach to healing.
                                                     </div>
                                                 </div>
-                                                <div style={{width: "100%", overflow: "hidden",  paddingBottom: "200px"}}>
+                                                <div style={{width: "100%", overflow: "hidden",  paddingBottom: "100px"}}>
                                                     <MobilePillars {...{chapter: this.state.chapter, pillars: this.state.pillars }}/>
                                                 </div>
 
