@@ -86,8 +86,29 @@ class MobileShare extends React.Component {
 
         return (
             <div>
+                <div style={{textAlign: "center", marginTop: "38px"}}>
+                    {[0,1,2].map((pillar, index) => {
+                        return (
+                            <div key={"qm" + index} onClick={() => this.changeSlide(index)} style={{
+                                paddingRight: index === 2  ? 0 : "15px",
+                                display: "inline-block",
+                                height: "20px"
+                            }}>
+                                <div style={{
+                                    opacity: index === shareIndex ? 1 : 0.2,
+                                    height: "10px",
+                                    width: "10px",
+                                    borderRadius: "100%",
+                                    background: "white",
+                                    transition: "1s",
+                                }}>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
                 <div style={{outline: "none",height: "530px" }} className={'share-mobile' + this.id}>
-                    <div style={{padding: "56px 30px", outline: "none", textAlign: "center"}}>
+                    <div style={{padding: "28px 30px", outline: "none", textAlign: "center"}}>
                         <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "24px"}}>
                             We do recovery differently.
                         </div>
@@ -102,7 +123,7 @@ class MobileShare extends React.Component {
                             Join the movement
                         </div>
                     </div>
-                    <div style={{padding: "56px 30px", outline: "none", textAlign: "center"}}>
+                    <div style={{padding: "28px 30px", outline: "none", textAlign: "center"}}>
                         <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Sign Up</div>
                         <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>
                             Get involved with Modern Recovery, with stories and resources sent straight to your inbox. You’ll also receive a 15% discount to the Tempest Membership plan of your choice.
@@ -139,7 +160,7 @@ class MobileShare extends React.Component {
 
                         </form>
                     </div>
-                    <div style={{padding: "56px 30px", outline: "none", textAlign: "center", height: "530px"}}>
+                    <div style={{padding: "28px 30px", outline: "none", textAlign: "center", height: "530px"}}>
                         <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Share</div>
                         <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>
                             Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you, use our new Instagram filter to share your recovery story, and download and share these posts to spread awareness.
@@ -148,27 +169,6 @@ class MobileShare extends React.Component {
                             <MobileSocial {...{classes, pillars }}/>
                         </div>
                     </div>
-                </div>
-                <div style={{textAlign: "center"}}>
-                    {[0,1,2].map((pillar, index) => {
-                        return (
-                            <div key={"qm" + index} onClick={() => this.changeSlide(index)} style={{
-                                paddingRight: index === 2  ? 0 : "15px",
-                                display: "inline-block",
-                                height: "20px"
-                            }}>
-                                <div style={{
-                                    opacity: index === shareIndex ? 1 : 0.2,
-                                    height: "10px",
-                                    width: "10px",
-                                    borderRadius: "100%",
-                                    background: "white",
-                                    transition: "1s",
-                                }}>
-                                </div>
-                            </div>
-                        )
-                    })}
                 </div>
             </div>
         );

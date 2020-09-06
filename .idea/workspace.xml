@@ -10,7 +10,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="720a9696-f5d7-4acf-9118-f695a01651bb" name="Default Changelist" comment="" />
+    <list default="true" id="720a9696-f5d7-4acf-9118-f695a01651bb" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/js/script.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/script.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/scenes/Home/MobileShare.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/MobileShare.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,7 +71,7 @@
       <workItem from="1597851187476" duration="56513000" />
       <workItem from="1598360692507" duration="58695000" />
       <workItem from="1599097040535" duration="1136000" />
-      <workItem from="1599099839937" duration="21510000" />
+      <workItem from="1599099839937" duration="22008000" />
     </task>
     <servers />
   </component>
@@ -95,10 +99,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="323" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1599237143935" />
-    <state x="421" y="205" width="598" height="518" key="find.popup" timestamp="1599419013859">
+    <state x="421" y="205" width="598" height="518" key="find.popup" timestamp="1599420401035">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="421" y="205" width="598" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599419013859" />
+    <state x="421" y="205" width="598" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599420401035" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1599228174392">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
