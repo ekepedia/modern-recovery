@@ -108,10 +108,18 @@ class Canvas extends React.Component {
 
         });
 
-        const initY = ((height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2 - 53/2);
+        let initY = ((height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2 - 53/2);
+
+        if (width < 768) {
+            initY = 0;
+        } else if (initY < 0) {
+            console.log("SMOLLLLL")
+            initY = height/width < IMG_HEIGHT/IMG_WIDTH ? initY : 0
+        }
+
         this.instance.zoomAbs(
             width < 768 ? -150 : 0, // initial x position
-            width < 768 ? 0: initY < 0 ? 0 : initY,//(width/2), // initial y position
+            initY,
             minZoom // initial zoom
         );
 
