@@ -479,7 +479,56 @@ class Home extends React.Component {
             return this.setDiscoverMode();
         else
             return this.setChapterMode();
+    }
 
+    fallbackCopyTextToClipboard(text) {
+        var textArea = document.createElement("textarea");
+        textArea.value = text;
+
+        // Avoid scrolling to bottom
+        textArea.style.top = "0";
+        textArea.style.left = "0";
+        textArea.style.position = "fixed";
+
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+
+        try {
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Fallback: Copying text command was ' + msg);
+        } catch (err) {
+            console.error('Fallback: Oops, unable to copy', err);
+        }
+
+        document.body.removeChild(textArea);
+    }
+
+    copyTextToClipboard(text) {
+        if (!navigator.clipboard) {
+            this.fallbackCopyTextToClipboard(text);
+            return;
+        }
+        navigator.clipboard.writeText(text).then(function() {
+            console.log('Async: Copying to clipboard was successful!');
+        }, function(err) {
+            console.error('Async: Could not copy text: ', err);
+        });
+    }
+
+    copyToClipboard() {
+        this.copyTextToClipboard('#modernrecovery');
+
+        this.setState({
+            copied: true
+        });
+
+        setTimeout(() => {
+            this.setState({
+                copied: false
+            });
+        }, 1500);
     }
 
     toggleLightDark(mode) {
@@ -603,7 +652,7 @@ class Home extends React.Component {
 
     render() {
         let { classes } = this.props;
-        const { changingState, stage, changeText, textIndex, mobileIndex1,  sentBot, sent, changeSentText, } = this.state;
+        const { changingState, stage, changeText, textIndex, mobileIndex1, sentBot, sent, changeSentText, copied } = this.state;
 
         return (<div className={classes.container} style={{background: STAGES[this.state.stageIndex].gradient, transition: "1s"}}>
             <div className={classes.Desktop}>
@@ -827,7 +876,31 @@ class Home extends React.Component {
                                                         <hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>
                                                         <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Share</div>
                                                         <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>
-                                                            Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you, use our new Instagram filter to share your recovery story, and download and share these posts to spread awareness.
+                                                            Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <div style={{
+                                                                textDecoration: "underline",
+                                                                display: "inline-block",
+                                                                cursor: "pointer",
+                                                                position: "relative"
+                                                            }}
+
+                                                                 onClick={() => {this.copyToClipboard()}}
+                                                            >
+                                                                <div style={{
+                                                                    position: "absolute",
+                                                                    background: "white",
+                                                                    top: -30,
+                                                                    color: "black",
+                                                                    borderRadius: "15px",
+                                                                    padding: "5px 0px",
+                                                                    textAlign: "center",
+                                                                    width: "70px",
+                                                                    left: "calc(50% - 35px)",
+                                                                    opacity: this.state.copied ? 1 : 0,
+                                                                    transition: "0.5s"
+                                                                }}>Copied!
+                                                                </div>
+                                                                #modernrecovery
+                                                            </div> means to you, use our new Instagram filter to share your recovery story, and download and share these posts to spread awareness.
                                                         </div>
                                                         <div style={{padding: "0 40px"}}>
                                                             <DesktopSocial {...{classes, chapter: this.state.chapter, pillars: this.state.pillars}}/>
@@ -1067,7 +1140,7 @@ class Home extends React.Component {
                                             <div style={{background: "black", paddingTop: this.state.pillars ? "53px" : null,
                                                 height: "calc(100vh - 84px)", minHeight: "750px", color: "white", position: "relative"}}>
                                                 <div>
-                                                    <MobileShare {...{changingState, stage, changeText, textIndex, mobileIndex1, sentBot, sent, changeSentText, classes, handleSalesForceSubmit: this.handleSalesForceSubmit.bind(this), chapter: this.state.chapter, pillars: this.state.pillars}}/>
+                                                    <MobileShare {...{changingState, stage, changeText, textIndex, mobileIndex1, sentBot, sent, changeSentText, classes, copied, copyToClipboard: this.copyToClipboard.bind(this), handleSalesForceSubmit: this.handleSalesForceSubmit.bind(this), chapter: this.state.chapter, pillars: this.state.pillars}}/>
                                                 </div>
                                                 <div style={{position: "absolute", left: "calc(50% - 1px)", bottom: 0, height: "25px", background: "white", width: "1px"}}>
 

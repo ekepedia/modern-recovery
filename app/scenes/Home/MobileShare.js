@@ -80,7 +80,7 @@ class MobileShare extends React.Component {
 
     render() {
 
-        let {classes, handleSalesForceSubmit, sentBot, sent, changeSentText, pillars} = this.props;
+        let {classes, handleSalesForceSubmit, sentBot, sent, changeSentText, pillars, copyToClipboard, copied} = this.props;
 
         const { shareIndex } = this.state;
 
@@ -190,7 +190,34 @@ class MobileShare extends React.Component {
                     <div style={{padding: "28px 30px", outline: "none", textAlign: "center", height: "530px"}}>
                         <div style={{fontSize: "24px", fontFamily: "NoeDisplay Regular", lineHeight: "22px", marginBottom: "10px"}}>Share</div>
                         <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>
-                            Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <span style={{textDecoration: "underline"}}>#modernrecovery</span> means to you, use our new Instagram filter to share your recovery story, and download and share these posts to spread awareness.
+                            Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <div
+                            style={{
+                                textDecoration: "underline",
+                                display: "inline-block",
+                                cursor: "pointer",
+                                position: "relative"
+                            }}
+
+                            onClick={() => {
+                                copyToClipboard()
+                            }}
+                        >
+                            <div style={{
+                                position: "absolute",
+                                background: "white",
+                                top: -30,
+                                color: "black",
+                                borderRadius: "15px",
+                                padding: "5px 0px",
+                                textAlign: "center",
+                                width: "70px",
+                                left: "calc(50% - 35px)",
+                                opacity: copied ? 1 : 0,
+                                transition: "0.5s"
+                            }}>Copied!
+                            </div>
+                            #modernrecovery
+                        </div> means to you, use our new Instagram filter to share your recovery story, and download and share these posts to spread awareness.
                         </div>
                         <div style={{padding: "0"}}>
                             <MobileSocial {...{classes, pillars }}/>
