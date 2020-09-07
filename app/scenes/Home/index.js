@@ -353,12 +353,12 @@ class Home extends React.Component {
         this.state = {
             textIndex: 0,
             textIndexBot: 0,
-            pillars: true,
+            pillars: false,
             stage: STAGES[0],
             stageIndex: 0,
             stageIndexDelayed: 0,
-            chapter: true,
-            chapterBot: true,
+            chapter: false,
+            chapterBot: false,
             changingMode: false,
 
             mobileIndex1: 0,
