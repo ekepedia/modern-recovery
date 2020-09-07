@@ -300,7 +300,8 @@ const Styles = {
         "&:focus": {
             outline: "none"
         },
-        display: "block"
+        display: "block",
+        transition: "0.5s"
     },
     logoImage: {
         "&:hover": {
@@ -587,15 +588,53 @@ class Home extends React.Component {
         }, 1000);
     }
 
+    validateEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
     handleSalesForceSubmit(e) {
         e.preventDefault();
 
-        console.log(e);
 
         if (this.state.sent) return;
 
         const form = e.target;
         const data = new FormData(form);
+
+        let valid = true;
+
+        try {
+            for (let [key, value] of data.entries()) {
+                if (key === "last_name") {
+                    console.log(value, key)
+                    if (!value) {
+                        valid = false
+                        this.setState({badName: true});
+                    } else {
+                        console.log("SET TO SOMETHIGN ELSE")
+                        this.setState({badName: false});
+                    }
+                }
+
+                if (key === "email" ) {
+                    if (!value || !this.validateEmail(value)) {
+                        valid = false
+                        this.setState({badEmail: true});
+                    } else {
+                        this.setState({badEmail: false});
+                    }
+
+                }
+            }
+        } catch (e) {
+
+        }
+
+
+        console.log(valid);
+
+        if (!valid) return;
 
         GlobalStore.track("Pillars", "Submit", "Sign Up");
 
@@ -607,9 +646,11 @@ class Home extends React.Component {
             console.log("SS", e);
 
             this.setState({
-                sent: true
+                sent: true,
+                sending: true,
+                badName: false,
+                badEmaili: false
             });
-
 
             setTimeout(() => {
                 this.setState({
@@ -625,11 +666,17 @@ class Home extends React.Component {
 
             setTimeout(() => {
                 this.setState({
-                    sentBot: false,
-                    sent: false,
                     changeSentText: false,
+                    sending: false,
                 });
             }, 5500);
+
+            setTimeout(() => {
+                this.setState({
+                    sent: false,
+                    sentBot: false,
+                })
+            }, 7500);
         })
     }
 
@@ -695,7 +742,7 @@ class Home extends React.Component {
 
     render() {
         let { classes } = this.props;
-        const { changingState, stage, changeText, textIndex, mobileIndex1, sentBot, sent, changeSentText, copied } = this.state;
+        const { changingState, stage, changeText, textIndex, badName, badEmail, mobileIndex1, sentBot, sending, sent, changeSentText, copied } = this.state;
 
         return (<div className={classes.container} style={{background: STAGES[this.state.stageIndex].gradient, transition: "1s"}}>
             <div className={classes.Desktop}>
@@ -867,11 +914,11 @@ class Home extends React.Component {
                                                             {/*<input type="hidden" name="debugEmail"/>*/}
 
                                                             <input id="last_name" maxLength="80" name="last_name" size="20"
-                                                                   type="text" placeholder={"Enter Your Name"} className={classes.inputBox}/>
+                                                                   type="text" placeholder={"Enter Your Name"} className={classes.inputBox} style={{borderColor: badName ? "red" : null}}/>
 
                                                             <input id="email" maxLength="80" name="email"
                                                                    size="20"
-                                                                   type="text" placeholder={"Enter Your Email"} className={classes.inputBox}/>
+                                                                   type="text" placeholder={"Enter Your Email"} className={classes.inputBox} style={{borderColor: badEmail ? "red" : null}}/>
 
                                                            <div className={classes.signUpButton}
                                                                 style={{
@@ -1183,7 +1230,7 @@ class Home extends React.Component {
                                             <div style={{background: "black", paddingTop: this.state.pillars ? "53px" : null,
                                                 height: "calc(100vh - 84px)", minHeight: "750px", color: "white", position: "relative"}}>
                                                 <div>
-                                                    <MobileShare {...{changingState, stage, changeText, textIndex, mobileIndex1, sentBot, sent, changeSentText, classes, copied, copyToClipboard: this.copyToClipboard.bind(this), handleSalesForceSubmit: this.handleSalesForceSubmit.bind(this), chapter: this.state.chapter, pillars: this.state.pillars}}/>
+                                                    <MobileShare {...{changingState, badName, badEmail, stage, changeText, textIndex, mobileIndex1, sentBot, sending, sent, changeSentText, classes, copied, copyToClipboard: this.copyToClipboard.bind(this), handleSalesForceSubmit: this.handleSalesForceSubmit.bind(this), chapter: this.state.chapter, pillars: this.state.pillars}}/>
                                                 </div>
                                                 <div style={{position: "absolute", left: "calc(50% - 1px)", bottom: 0, height: "25px", background: "white", width: "1px"}}>
 

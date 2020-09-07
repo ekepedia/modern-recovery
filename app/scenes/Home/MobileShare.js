@@ -80,7 +80,7 @@ class MobileShare extends React.Component {
 
     render() {
 
-        let {classes, handleSalesForceSubmit, sentBot, sent, changeSentText, pillars, copyToClipboard, copied} = this.props;
+        let {classes, handleSalesForceSubmit, badName, badEmail, sentBot, sent, sending, changeSentText, pillars, copyToClipboard, copied} = this.props;
 
         const { shareIndex } = this.state;
 
@@ -142,11 +142,11 @@ class MobileShare extends React.Component {
                             {/*<input type="hidden" name="debugEmail"/>*/}
 
                             <input id="last_name" maxLength="80" name="last_name" size="20"
-                                   type="text" placeholder={"Enter Your Name"} className={classes.inputBox}/>
+                                   type="text" placeholder={"Enter Your Name"} className={classes.inputBox} style={{borderColor: badName ? "red" : null}}/>
 
                             <input id="email" maxLength="80" name="email"
                                    size="20"
-                                   type="text" placeholder={"Enter Your Email"} className={classes.inputBox}/>
+                                   type="text" placeholder={"Enter Your Email"} className={classes.inputBox} style={{borderColor: badEmail ? "red" : null}}/>
 
                             <div className={classes.signUpButton}
                                  style={{
@@ -154,7 +154,8 @@ class MobileShare extends React.Component {
                                      background: sent ? (sentBot ? "black" : "white") : null,
                                      overflow: "hidden",
                                      color: sentBot ? "white" : null,
-                                     transition: "0.5s"
+                                     transition: "0.5s",
+                                     boxSizing: "border-box"
                                  }}
                             >
                                 <input type="submit" name="submit"
@@ -174,16 +175,31 @@ class MobileShare extends React.Component {
                                     position: "absolute",
                                     height: "100%",
                                     width: "100%",
-                                    borderRadius: "100px",
-                                    left: sent ? "0" : "-100%",
-                                    opacity: sentBot ? 0 : (sent ? 1 : 0),
+                                    left: 0,
                                     top: 0,
-                                    transition: "left 2s, opacity 1s, color 0.5s",
-                                    background: "url('/img/discover-gradient.png') left center / 300% no-repeat",
-                                    animation: "backgroundmove 4s infinite",
-                                    animationTimingFunction: "ease-in-out",
-                                    color: changeSentText ? "white" : "rgba(0,0,0,0)"
-                                }}>SENT!</div>
+                                    background: "none",
+                                    borderRadius: "100px",
+                                    overflow: "hidden",
+                                    opacity: sentBot && sent ? 0 : 1,
+                                    transition: "1s"
+                                }}>
+                                    <button type={"submit"} style={{position: "relative", height: "100%", width: "100%", background: "none", border: "none"}}>
+                                        <div style={{
+                                            position: "absolute",
+                                            height: "100%",
+                                            width: "100%",
+                                            borderRadius: "100px",
+                                            left: sent && sending ? "0" : "-100%",
+                                            top: 0,
+                                            transition: "left 2s, opacity 1s, color 0.5s",
+                                            background: "url('/img/discover-gradient.png') left center / 300% no-repeat",
+                                            animation: "backgroundmove 4s infinite",
+                                            animationTimingFunction: "ease-in-out",
+                                            color: changeSentText ? "white" : "rgba(0,0,0,0)"
+                                        }}>SENT!</div>
+                                    </button>
+                                </div>
+
                             </div>
                         </form>
                     </div>

@@ -93,7 +93,7 @@ class MobileSocial extends React.Component {
         return (
             <div>
                 <div style={{display: "flex", padding: "0"}}>
-                    <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}} onClick={() => {this.prevSlide()}}>
+                    <div style={{flex: "0 0 34px", height: "calc(100vw - 148px)", maxHeight: "300px", cursor: "pointer", position: "relative"}} onClick={() => {this.prevSlide()}}>
                         <img style={{width: "70%", position: "absolute", left: 0, top: "calc(50% - 7px)"}} src={"/img/arrow-left.svg"}/>
                     </div>
                     <div style={{flex: 1, textAlign: "center", outline: "none", overflow: "hidden"}}>
@@ -110,7 +110,7 @@ class MobileSocial extends React.Component {
                             })}
                         </div>
                     </div>
-                    <div style={{flex: "0 0 34px", cursor: "pointer", position: "relative"}} onClick={() => {this.nextSlide()}}>
+                    <div style={{flex: "0 0 34px", height: "calc(100vw - 148px)", maxHeight: "300px", cursor: "pointer", position: "relative"}} onClick={() => {this.nextSlide()}}>
                         <img style={{width: "70%", position: "absolute", right: 0, top: "calc(50% - 7px)"}} src={"/img/arrow-right.svg"}/>
                     </div>
                 </div>
