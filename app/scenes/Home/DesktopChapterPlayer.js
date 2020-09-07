@@ -16,7 +16,12 @@ const Styles = {
         height: "36px",
         width: "36px",
         lineHeight: "36px",
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            height: "49.5px",
+            width: "49.5px",
+            lineHeight: "49.5px",
+        },
+        '@media (min-width: 2100px)': {
             height: "63px",
             width: "63px",
             lineHeight: "63px",
@@ -24,7 +29,10 @@ const Styles = {
     },
     playButtonSuperContainer: {
         flex: "0 0 50px",
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            flex: "0 0 75px",
+        },
+        '@media (min-width: 2100px)': {
             flex: "0 0 100px",
         },
     },
@@ -37,7 +45,11 @@ const Styles = {
     },
     timeIndicator: {
         flex: "0 0 15px",
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            fontSize: "15.5px",
+            lineHeight: "49.5px",
+        },
+        '@media (min-width: 2100px)': {
             fontSize: "20px",
             lineHeight: "63px",
         },
@@ -45,7 +57,10 @@ const Styles = {
     timeTrackContainer: {
         width: "100%",
         maxWidth: "316px",
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            maxWidth: "433px",
+        },
+        '@media (min-width: 2100px)': {
             maxWidth: "550px",
         },
     },
@@ -53,14 +68,19 @@ const Styles = {
         height: "3px",
         top: "calc(50% - 1.5px)",
         borderRadius: "5px",
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            height: "4.5px",
+            top: "calc(50% - 2.25px)",
+            borderRadius: "7.5px",
+        },
+        '@media (min-width: 2100px)': {
             height: "6px",
             top: "calc(50% - 3px)",
             borderRadius: "10px",
         },
     },
     inputRange: {
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
             height: "100%",
         },
     }

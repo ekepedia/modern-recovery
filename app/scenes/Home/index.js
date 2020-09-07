@@ -49,7 +49,10 @@ const Styles = {
     },
     containerPadding: {
         paddingTop: "calc((100vh - 476.88px - 53px)/2)",
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            paddingTop: "calc((100vh - 654.5px - 53px)/2)",
+        },
+        '@media (min-width: 2100px)': {
             paddingTop: "calc((100vh - 832.05px - 53px)/2)",
         },
     },
@@ -58,7 +61,10 @@ const Styles = {
         '@media (max-width: 1370px)': {
             flex: "0 0 250px",
         },
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            flex: 0.45
+        },
+        '@media (min-width: 2100px)': {
             flex: 0.45
         },
     },
@@ -67,16 +73,12 @@ const Styles = {
         '@media (max-width: 1370px)': {
             flex: 1
         },
-        '@media (min-width: 1900px)': {
-            // flex: "0 0 852px",
+        '@media (min-width: 1600px)': {
             flex: 1
         },
     },
     sideNavContainer: {
         flex: 1,
-        '@media (min-width: 1900px)': {
-            flex: 1
-        },
     },
     tabNameMobile: {
         fontFamily: "Casta Regular",
@@ -98,9 +100,16 @@ const Styles = {
                 fontSize: "40px",
             },
         },
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            fontSize: "34.5px",
+            marginBottom: "100px",
+            "&:hover": {
+                fontSize: "50px",
+            },
+        },
+        '@media (min-width: 2100px)': {
             fontSize: "44px",
-            marginBottom: "125px",
+            marginBottom: "135px",
             "&:hover": {
                 fontSize: "50px",
             },
@@ -116,9 +125,13 @@ const Styles = {
         '@media (max-width: 1370px)': {
             fontSize: "55px",
         },
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            fontSize: "92.5px",
+            marginBottom: "100px",
+        },
+        '@media (min-width: 2100px)': {
             fontSize: "120px",
-            marginBottom: "125px",
+            marginBottom: "135px",
         },
     },
     stageDefinition: {
@@ -127,7 +140,12 @@ const Styles = {
         lineHeight: "24px",
         fontFamily: "Albra Text Regular",
         paddingRight: "5px",
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            fontSize: "22px",
+            lineHeight: "33px",
+            maxWidth: "440px"
+        },
+        '@media (min-width: 2100px)': {
             fontSize: "28px",
             lineHeight: "42px",
             maxWidth: "579.52px"
@@ -138,7 +156,11 @@ const Styles = {
         fontSize: "118px",
         lineHeight: "0px",
         fontFamily: "MADE Soulmaze Outline",
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            fontSize: "162px",
+            marginTop: "104px",
+        },
+        '@media (min-width: 2100px)': {
             fontSize: "206px",
             marginTop: "128px",
         },
@@ -150,7 +172,11 @@ const Styles = {
         position: "relative",
         borderRadius: "7px",
         background: "rgba(255,255, 255, 0.1)",
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            height: "654.5px",
+            padding: "65px",
+        },
+        '@media (min-width: 2100px)': {
             height: "832.05px",
             padding: "80px",
 
@@ -165,7 +191,14 @@ const Styles = {
         fontSize: "16px",
         lineHeight: "26px",
         fontFamily: "Albra Text Regular",
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            fontSize: "22px",
+            lineHeight: "33px",
+            maxWidth: "none",
+            height: "230px",
+            marginTop: "30px",
+        },
+        '@media (min-width: 2100px)': {
             fontSize: "28px",
             lineHeight: "42px",
             maxWidth: "none",
@@ -185,9 +218,14 @@ const Styles = {
         "&:hover": {
             opacity: "0.5",
         },
-        '@media (min-width: 1900px)': {
-            height: "14px",
-            width: "14px",
+        '@media (min-width: 1600px)': {
+            height: "12.5px",
+            width: "12.5px",
+            marginBottom: "11.5px",
+        },
+        '@media (min-width: 2100px)': {
+            height: "12.5px",
+            width: "12.5px",
             marginBottom: "15px",
         },
     },
@@ -327,7 +365,12 @@ const Styles = {
         padding: "30px",
         paddingLeft: "50px",
         paddingRight: "26px",
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 1600px)': {
+            padding: "57.5px",
+            paddingRight: "35.5px",
+            paddingBottom: "37.5px"
+        },
+        '@media (min-width: 2100px)': {
             padding: "85px",
             paddingRight: "45px",
             paddingBottom: "45px"
@@ -336,7 +379,7 @@ const Styles = {
     dotsContainer: {
         top: 50,
         right: 40,
-        '@media (min-width: 1900px)': {
+        '@media (min-width: 2100px)': {
             top: 85,
             right: 69,
         },
