@@ -1047,7 +1047,7 @@ class Home extends React.Component {
                             <div style={{position: "fixed", top: 77, left: 44, cursor: "pointer", height: "25px", width: "25px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal}); GlobalStore.track("Discover", "Click", "Information Icon")}}>
                                 <img style={{height: "100%", width: "100%", transition: "0.5s"}} src={this.state.darkBot ? "/img/info-icon-white.svg" : "/img/info-icon-black.svg"}/>
                             </div>
-                            <div  style={{...SANS_SERIF_FONT_BODY, letterSpacing: "0", display: this.state.showInfoModal ? null : "none", opacity: this.state.showInfoModal ? 1 : 0, transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "12px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: 53, left: 92, height: "fit-content", width: "300px", boxShadow: "0px 1px 4px #00000011"}}>
+                            <div  style={{...SANS_SERIF_FONT_BODY, letterSpacing: "-0.25px", display: this.state.showInfoModal ? null : "none", opacity: this.state.showInfoModal ? 1 : 0, transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "12px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: 53, left: 92, height: "fit-content", width: "310px", boxShadow: "0px 1px 4px #00000011"}}>
                                 <div style={{position: "absolute", height: "10px", width: "10px", top: 12, right: 17, cursor: "pointer"}} onClick={() => {this.setState({showInfoModal: false})}}>
                                     <img style={{height: "100%", width: "100%", transition: "0.5s"}} src={this.state.darkBot ? "/img/close-button.png" : "/img/white-x.png"}/>
                                 </div>
@@ -1058,13 +1058,17 @@ class Home extends React.Component {
                                     At Tempest, we believe the recovery process begins the moment we become willing to question our relationship with alcohol. This mural captures a few of the many stories of personal recovery, and the key moments of clarity that occur before we stop drinking. We’re here to celebrate the individuality of recovery, as well as the universal experiences that unite us.
                                 </div>
                                 <div style={{ marginTop: "8px"}}>
-                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Discover:</span> Immerse yourself in these stories by clicking around on the mural.
+                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Discover:</span> Press and drag your mouse or finger to move around the mural, and pinch and pull to  zoom in and out, immersing yourself in the rich details of the artwork.
                                 </div>
                                 <div style={{ marginTop: "8px"}}>
-                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Read:</span> Each section contains a different story from a Tempest member.
+                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Listen:</span> Play the audio icons to hear narrative stories from real members.
                                 </div>
                                 <div style={{ marginTop: "8px"}}>
-                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Listen:</span> Press the play icon to hear audio narratives by our contributors.
+                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Tap:</span> Tap on different parts of mural to learn what stage of the journey you are on.
+                                </div>
+                                <div style={{ margin: "13px 0", height: "1px", background: "white", width: "95%" }}/>
+                                <div>
+                                    For the best experience, visit us on desktop.
                                 </div>
                             </div>
                         </div>
@@ -1271,7 +1275,7 @@ class Home extends React.Component {
                                 <div style={{position: "fixed", top: 100, left: 20, cursor: "pointer", height: "19px", width: "19px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal}); GlobalStore.track("Discover", "Click", "Information Icon")}}>
                                     <img style={{height: "100%", width: "100%"}} src={this.state.darkBot ? "/img/info-icon-white.svg" : "/img/info-icon-black.svg"}/>
                                 </div>
-                                <div style={{...SANS_SERIF_FONT_BODY, display: this.state.showInfoModal ? null : "none", transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "11px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: "calc(50% - 183.5px)", left: "calc( 50% - 150px)", height: "320px", width: "300px", boxShadow: "0px 1px 4px #00000011"}}>
+                                <div style={{...SANS_SERIF_FONT_BODY, display: this.state.showInfoModal ? null : "none", transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "11px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: "calc(50% - 23.5px - 392px/2)", left: "calc( 50% - 150px)", height: "392px", width: "300px", boxShadow: "0px 1px 4px #00000011"}}>
                                     <div style={{position: "absolute", height: "10px", width: "10px", top: 12, right: 17, cursor: "pointer"}} onClick={() => {this.setState({showInfoModal: false})}}>
                                         <img style={{height: "100%", width: "100%"}} src={this.state.darkBot ? "/img/close-button.png" : "/img/white-x.png"}/>
                                     </div>
@@ -1282,13 +1286,17 @@ class Home extends React.Component {
                                         At Tempest, we believe the recovery process begins the moment we become willing to question our relationship with alcohol. This mural captures a few of the many stories of personal recovery, and the key moments of clarity that occur before we stop drinking. We’re here to celebrate the individuality of recovery, as well as the universal experiences that unite us.
                                     </div>
                                     <div style={{ marginTop: "8px"}}>
-                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Discover:</span> Immerse yourself in these stories by clicking around on the mural.
+                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Discover:</span> Press and drag your mouse or finger to move around the mural, and pinch and pull to  zoom in and out, immersing yourself in the rich details of the artwork.
                                     </div>
                                     <div style={{ marginTop: "8px"}}>
-                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Read:</span> Each section contains a different story from a Tempest member.
+                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Listen:</span> Play the audio icons to hear narrative stories from real members.
                                     </div>
                                     <div style={{ marginTop: "8px"}}>
-                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Listen:</span> Press the play icon to hear audio narratives by our contributors.
+                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Tap:</span> Tap on different parts of mural to learn what stage of the journey you are on.
+                                    </div>
+                                    <div style={{ margin: "13px 0", height: "1px", background: "white", width: "95%" }}/>
+                                    <div>
+                                        For the best experience, visit us on desktop.
                                     </div>
                                 </div>
                                 <div style={{position: "fixed", bottom: "0", left: "0", width: "100%", height: "36px",}}>
