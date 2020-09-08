@@ -1064,7 +1064,7 @@ class Home extends React.Component {
                                     <span style={{fontFamily: "UntitledSans-Bold"}}>Listen:</span> Play the audio icons to hear narrative stories from real members.
                                 </div>
                                 <div style={{ marginTop: "8px"}}>
-                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Tap:</span> Tap on different parts of mural to learn what stage of the journey you are on.
+                                    <span style={{fontFamily: "UntitledSans-Bold"}}>Tap:</span> Touch different parts of the mural to learn about each stage of the journey.
                                 </div>
                                 <div style={{ margin: "13px 0", height: "1px", background: "white", width: "95%" }}/>
                                 <div>
@@ -1292,7 +1292,7 @@ class Home extends React.Component {
                                         <span style={{fontFamily: "UntitledSans-Bold"}}>Listen:</span> Play the audio icons to hear narrative stories from real members.
                                     </div>
                                     <div style={{ marginTop: "8px"}}>
-                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Tap:</span> Tap on different parts of mural to learn what stage of the journey you are on.
+                                        <span style={{fontFamily: "UntitledSans-Bold"}}>Tap:</span> Touch different parts of the mural to learn about each stage of the journey.
                                     </div>
                                     <div style={{ margin: "13px 0", height: "1px", background: "white", width: "95%" }}/>
                                     <div>
