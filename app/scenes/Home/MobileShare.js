@@ -128,7 +128,9 @@ class MobileShare extends React.Component {
                         <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "335px", margin: "auto", marginBottom: "50px"}}>
                             Get involved with Modern Recovery, with stories and resources sent straight to your inbox. You’ll also receive a 15% discount to the Tempest Membership plan of your choice.
                         </div>
+                        <iframe style={{height: 0, width: 0, border: 0, opacity: 0, overflow: "hidden"}} name="dummyframe" id="dummyframe"/>
                         <form onSubmit={(e) => handleSalesForceSubmit(e)}
+                              target="dummyframe"
                               action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
                               method="POST">
                             <input type="hidden" name="oid" value="00D1U000000rAh6"/>

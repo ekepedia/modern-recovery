@@ -605,10 +605,7 @@ class Home extends React.Component {
     }
 
     handleSalesForceSubmit(e) {
-        e.preventDefault();
-
-
-        if (this.state.sent) return;
+        if (this.state.sent) return e.preventDefault();
 
         const form = e.target;
         const data = new FormData(form);
@@ -618,12 +615,10 @@ class Home extends React.Component {
         try {
             for (let [key, value] of data.entries()) {
                 if (key === "last_name") {
-                    console.log(value, key)
                     if (!value) {
                         valid = false
                         this.setState({badName: true});
                     } else {
-                        console.log("SET TO SOMETHIGN ELSE")
                         this.setState({badName: false});
                     }
                 }
@@ -642,19 +637,9 @@ class Home extends React.Component {
 
         }
 
-
-        console.log(valid);
-
-        if (!valid) return;
+        if (!valid) return e.preventDefault();
 
         GlobalStore.track("Pillars", "Submit", "Sign Up");
-
-        fetch('https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8', {
-            method: 'POST',
-            body: data,
-            mode: 'no-cors'
-        }).then((e) => {
-            console.log("SS", e);
 
             this.setState({
                 sent: true,
@@ -688,7 +673,6 @@ class Home extends React.Component {
                     sentBot: false,
                 })
             }, 7500);
-        })
     }
 
     closeModal() {
@@ -697,6 +681,10 @@ class Home extends React.Component {
                 showInfoModal: false
             })
         }
+    }
+
+    joinTheMovement() {
+        document.getElementById("test-scroll-2").scroll({top: 725, behavior: 'smooth'})
     }
 
     componentDidMount() {
@@ -889,8 +877,8 @@ class Home extends React.Component {
                                         </div>
                                         <div style={{flex: "1", overflow: "hidden"}}>
                                             <div style={{display: "flex", height: "100%", width: "calc(100vw - 46px)"}}>
-                                                <div style={{flex: 1, overflow: "scroll", color: "white", textAlign: "center", height: "100%"}}>
-                                                    <div style={{paddingTop: "150px", paddingBottom: "150px", background: "black",}}>
+                                                <div id="test-scroll-2" style={{flex: 1, overflow: "scroll", color: "white", textAlign: "center", height: "100%"}}>
+                                                    <div id="test-scroll-1" style={{paddingTop: "150px", paddingBottom: "150px", background: "black",}}>
                                                         <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "50px"}}>We do recovery <br/>differently.</div>
                                                         <div style={{maxWidth: "400px", ...SANS_SERIF_FONT_BODY, margin: "auto", fontSize: "14px", lineHeight: "24px", }}>
                                                             Tempest is empowering folks at every stage of their journey to examine their relationship with alcohol— on their own terms. If alcohol is no longer serving you or helping you live the life you want, now’s the time to try something new.
@@ -900,7 +888,7 @@ class Home extends React.Component {
                                                             This is Modern Recovery, and all are welcome.
                                                         </div>
                                                         <div style={{marginTop: "30px"}}>
-                                                            <div className={classes.joinButton} onClick={() => {GlobalStore.track("Pillars", "Click", "Join the Movement")}}>
+                                                            <div className={classes.joinButton} onClick={() => {this.joinTheMovement(); GlobalStore.track("Pillars", "Click", "Join the Movement")}}>
                                                                 Join the Movement
                                                             </div>
                                                         </div>
@@ -911,7 +899,9 @@ class Home extends React.Component {
                                                         <div className={classes.modernRecoveryText} style={{...SANS_SERIF_FONT_BODY, maxWidth: "320px", margin: "auto", marginBottom: "50px"}}>
                                                             Get involved with Modern Recovery, with stories and resources sent straight to your inbox. You’ll also receive a 15% discount to the Tempest Membership plan of your choice.
                                                         </div>
-                                                        <form onSubmit={(e) => this.handleSalesForceSubmit(e)}
+
+                                                        <iframe style={{height: 0, width: 0, border: 0, opacity: 0, overflow: "hidden"}} name="dummyframe" id="dummyframe"/>
+                                                        <form id="salesforce-form" target="dummyframe" onSubmit={(e) => this.handleSalesForceSubmit(e)}
                                                             action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
                                                             method="POST">
                                                             <input type="hidden" name="oid" value="00D1U000000rAh6"/>
