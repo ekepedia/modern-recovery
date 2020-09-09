@@ -28,6 +28,7 @@ class MobileShare extends React.Component {
 
     startSlick() {
         $(this.slickClass).slick({
+            mobileFirst: true,
             arrows: false,
             infinite: false,
         }).on('beforeChange', (event, slick, currentSlide, nextSlide) => {

@@ -96,13 +96,13 @@ class DesktopSocial extends React.Component {
                         <img style={{width: "100%", position: "absolute", left: 0, top: "calc(50% - 7px)"}} src={"/img/arrow-left.svg"}/>
                     </div>
                     <div style={{flex: 1, textAlign: "center", outline: "none", overflow: "hidden"}}>
-                        <div className={'share-social-d' + this.id}>
+                        <div className={'share-social-d' + this.id} style={{height: "calc((100vw - 420px)/4)"}}>
                             {MEDIA.map((media, i) => {
                                 return (
                                     <div key={media.link} style={{padding: "0 10px", position: "relative"}} onClick={() => {GlobalStore.track("Pillars", "Click", "Download Asset", i + 1)}}>
                                         <a style={{outline: "none"}} href={media.link} download={true} target={"_blank"} >
                                             <div className={classes.imgHoverContainer} >
-                                                <div style={{position: "relative", height: "100%", width: "100%"}}>
+                                                <div style={{position: "relative", height: "calc((100vw - 420px)/4)", width: "100%"}}>
                                                     <div className={classes.imgHover}>DOWNLOAD</div>
                                                 </div>
                                             </div>

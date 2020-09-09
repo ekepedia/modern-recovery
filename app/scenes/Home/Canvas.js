@@ -32,10 +32,11 @@ class Canvas extends React.Component {
 
         const element = document.querySelector('#scene' + this.id);
 
+        if (!element || !document.getElementById(holder))
+            return;
+
         const width  = document.getElementById(holder).clientWidth;
         const height = this.getHeight();
-
-        console.log(width, height, (height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2, (width/(IMG_WIDTH/IMG_HEIGHT)));
 
         const minZoom = width < 768 ? height/IMG_HEIGHT : width/IMG_WIDTH;
 
@@ -46,15 +47,9 @@ class Canvas extends React.Component {
             bounds: false,
             // boundsPadding: 0.5,
             onTouch: (e) => {
-                console.log(e);
-                // console.log(e.target)
-                // console.log(e.target);
-
-
                 if (e.target.id === `scene${this.id}` && this.props.closeModal) {
                     this.props.closeModal();
 
-                    // console.log("TAP?", new Date().getTime());
                     this.lastTap = new Date().getTime();
 
                     setTimeout(() => {
@@ -67,10 +62,7 @@ class Canvas extends React.Component {
                         else
                             tapped = true
 
-                        // console.log("JUST A TAP?", tapped, this.lastTap - this.lastShift);
-
                         if (tapped) {
-                            // this.setModal(e);
                             var touch = e.touches[0] || e.changedTouches[0];
                             let x = touch.pageX;
                             let y = touch.pageY;
@@ -113,7 +105,6 @@ class Canvas extends React.Component {
         if (width < 768) {
             initY = 0;
         } else if (initY < 0) {
-            console.log("SMOLLLLL")
             initY = height/width < IMG_HEIGHT/IMG_WIDTH ? initY : 0
         }
 
@@ -132,14 +123,16 @@ class Canvas extends React.Component {
         })
     }
 
+
+    handleResize() {
+        this.instance.pause();
+        this.initPanZoom();
+    }
+
     componentDidMount() {
         this.initPanZoom();
 
-        $(window).on('resize', () => {
-            this.instance.pause();
-            this.initPanZoom();
-        });
-
+        $(window).on('resize', this.handleResize.bind(this));
     }
 
     getHeight() {
@@ -163,18 +156,8 @@ class Canvas extends React.Component {
         const transform = e.getTransform();
         const navHeight = 53;
 
-        // console.log(transform);
-        // console.log(transform.x, transform.x / transform.scale, width, IMG_WIDTH);
-        // console.log(transform.x / transform.scale + IMG_WIDTH, transform.x / transform.scale + IMG_WIDTH - width, transform.x + IMG_WIDTH);
-
         const xBoundScale = IMG_WIDTH * transform.scale - width + transform.x;
-
         const yBoundScale = IMG_HEIGHT * transform.scale - height + transform.y;
-
-        // console.log("PANN")
-        // console.log(IMG_HEIGHT * transform.scale - height, "\n\n", IMG_HEIGHT * transform.scale, height, "\n\n");
-        // console.log("bounds y:", transform.y, yBoundScale, "\n", transform.scale, height - IMG_HEIGHT * transform.scale);
-        // console.log("bounds y:", transform.y, yBoundScale, (height - (width/(IMG_WIDTH/IMG_HEIGHT)))/2 - 53/2);
 
         let xPos = transform.x;
         let yPos = transform.y;
@@ -183,37 +166,25 @@ class Canvas extends React.Component {
         const buffer = 0;
 
         if (transform.x > buffer) {
-            // console.log("FIRST CASE: X");
-
             xPos = 0;
             change = true;
         } else if (xBoundScale < (0 - buffer)) {
-            // console.log("SECOND CASE: X");
-
-            // console.log("moving x", transform.x, "to", width - IMG_WIDTH * transform.scale)
-            xPos = width - IMG_WIDTH * transform.scale;//transform.x + 1;
+            xPos = width - IMG_WIDTH * transform.scale;
             change = true;
         }
 
-        // console.log("CHECK:", IMG_HEIGHT*transform.scale , height)
-
         if (IMG_HEIGHT*transform.scale < height) {
-            // console.log("HEIGHT EXCEPTION!");
-            // console.log();
 
             const YScale = height - IMG_HEIGHT*transform.scale - transform.y - navHeight;
 
             if (transform.y < 0) {
-                // console.log("FIRST CASE 2: Y");
                 yPos = 0;
                 change = true;
             } else if (YScale < 0) {
-                // console.log("SECOND CASE 2: Y")
                 yPos = height - IMG_HEIGHT*transform.scale - navHeight;
 
                 if (yPos < 0) {
-                    // console.warn("SENDING Y TO BAD PLACE:", yPos);
-                    yPos = 0;//transform.y
+                    yPos = 0;
                     if (transform.y !== yPos)
                         change = true;
                 } else {
@@ -222,12 +193,10 @@ class Canvas extends React.Component {
             }
         } else {
             if (transform.y > buffer) {
-                // console.log("FIRST CASE: Y");
                 yPos = 0;
                 change = true;
             }
             else if (yBoundScale < buffer) {
-                // console.log("SECOND CASE: Y");
                 yPos = height - IMG_HEIGHT * transform.scale;
                 change = true;
             }
@@ -242,9 +211,8 @@ class Canvas extends React.Component {
                         this.waitTimeout = null;
                     }, 100);
 
-                return console.log("too many changes");
+                return console.warn("too many changes");
             }
-            // console.log(this.changes, "changiings to ", xPos, yPos, transform.x, transform.y)
 
             this.instance.moveTo(xPos, yPos);
 
@@ -263,14 +231,14 @@ class Canvas extends React.Component {
     componentWillUnmount() {
         if (this.instance)
             this.instance.pause();
+
+        $(window).off('resize', this.handleResize.bind(this));
     }
 
     setModal(target, x, y) {
 
         if (target !== `scene${this.id}`)
             return;
-
-        console.log("(", x, ",", y, ")")
 
         let index = 0;
 
@@ -315,26 +283,26 @@ class Canvas extends React.Component {
         }} style={{height: `${IMG_HEIGHT}px`, position: "relative", width: `${IMG_WIDTH}px`, transition: "background 1s", background: `url('${src}') 0% 0% / contain no-repeat`, }}>
             <div>
                 <div style={{position: "absolute", top: "850px", left: "441px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Ether_v2.mp3'} chapter={"Ether"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://modern-recovery.s3.amazonaws.com/public/audio/Discover/Ether_v2.mp3'} chapter={"Ether"}/>
                 </div>
 
                 <div style={{position: "absolute", top: "1678px", left: "1092px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Inkling_v2.mp3'} chapter={"Inkling"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://modern-recovery.s3.amazonaws.com/public/audio/Discover/Inkling_v2.mp3'} chapter={"Inkling"}/>
                 </div>
                 <div style={{position: "absolute", top: "264px", left: "2822px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Awareness_v2.mp3'} chapter={"Awareness"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://modern-recovery.s3.amazonaws.com/public/audio/Discover/Awareness_v2.mp3'} chapter={"Awareness"}/>
                 </div>
 
                 <div style={{position: "absolute", top: "2657px", left: "2990px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Reckoning_v2.mp3'} chapter={"Reckoning"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://modern-recovery.s3.amazonaws.com/public/audio/Discover/Reckoning_v2.mp3'} chapter={"Reckoning"}/>
                 </div>
 
                 <div style={{position: "absolute", top: "2417px", left: "4510px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Rebuilding_v2.mp3'} chapter={"Rebuilding"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://modern-recovery.s3.amazonaws.com/public/audio/Discover/Rebuilding_v2.mp3'} chapter={"Rebuilding"}/>
                 </div>
 
                 <div style={{position: "absolute", top: "300px", left: "4700px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Outpouring_V2.mp3'} chapter={"Outpouring"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://modern-recovery.s3.amazonaws.com/public/audio/Discover/Outpouring_V2.mp3'} chapter={"Outpouring"}/>
                 </div>
                 <div style={{position: "absolute", top: `${this.state.lastY}px`, left: `${this.state.lastX}px`, }}>
                     <div style={{height: "fit-content", position: "relative", width: "1250px", textAlign: "left", padding: "78px", background: dark ? "white" : "black", color: dark ? "black" : "white", display: this.state.showChapterModal ? "block" : "none"}}>

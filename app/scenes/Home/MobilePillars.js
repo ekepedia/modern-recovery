@@ -31,6 +31,7 @@ class MobilePillars extends React.Component {
         $(this.slickClass).slick({
             arrows: false,
             infinite: true,
+            mobileFirst: true
         }).on('beforeChange', (event, slick, currentSlide, nextSlide) => {
             this.setState({
                 shareIndex: nextSlide

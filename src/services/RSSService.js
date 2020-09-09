@@ -38,13 +38,6 @@ function getRSSData({state, offset, limit}) {
             const titles = tokenizer.tokenize(item.title);
             const sent_n = analyzer.getSentiment(titles);
 
-            // console.log(title);
-            // console.log(publisher);
-            // console.log(date);
-            // console.log(link);
-            // console.log("Sent S Score:", sent_s);
-            // console.log("Sent N Score:", sent_n);
-
             return {
                 title,
                 publisher,

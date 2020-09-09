@@ -23,7 +23,6 @@ class MobileQuotes extends React.Component {
 
     componentDidMount() {
 
-        console.log("HELLO????")
         $(document).ready(() => {
             this.startSlick();
         });
@@ -32,7 +31,8 @@ class MobileQuotes extends React.Component {
     startSlick() {
         $(this.slickClass).slick({
             arrows: false,
-            infinite: true
+            infinite: true,
+            mobileFirst: true
         }).on('beforeChange', (event, slick, currentSlide, nextSlide) => {
             dispatcher.dispatch({
                 type: "PAUSE-ALL",
@@ -44,8 +44,6 @@ class MobileQuotes extends React.Component {
     }
 
     stopSlick() {
-        // console.log("STOPPING")
-        // console.log($(this.slickClass))
         try {
             if ($(this.slickClass).slick)
                 $(this.slickClass).slick('unslick');
@@ -91,8 +89,6 @@ class MobileQuotes extends React.Component {
 
     componentWillUnmount() {
         this.stopSlick();
-        console.log("BYEEE!!!!????")
-
     }
 
     render() {

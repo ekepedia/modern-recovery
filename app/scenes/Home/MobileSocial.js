@@ -32,6 +32,9 @@ class MobileSocial extends React.Component {
             infinite: true,
             slidesToShow: 1,
             draggable: false,
+            touchMove: false,
+            swipe: false,
+            mobileFirst: true
             // centerMode: true,
         }).on('beforeChange', (event, slick, currentSlide, nextSlide) => {
             this.setState({

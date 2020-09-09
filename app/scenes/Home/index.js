@@ -351,7 +351,7 @@ const Styles = {
         top: 0,
         left: 0,
         background: "rgba(0,0,0,0.3)",
-        height: "100%",
+        height: "calc((100vw - 420px)/4)",
         width: "100%",
         opacity: 0,
         transition: "0.5s",
@@ -433,11 +433,6 @@ class Home extends React.Component {
             stageIndex: index,
         });
 
-        $(document).ready(() => {
-            console.log($("#mobile-slick").length);
-            // $("#mobile-slick").slick('slickGoTo', index);
-        });
-
         setTimeout(() => {
 
             this.setState({
@@ -454,12 +449,6 @@ class Home extends React.Component {
                 });
             }, 1);
 
-
-            // $(document).ready(function(){
-            //     $('.quotes-mobile').slick({
-            //         arrows: false,
-            //     });
-            // });
         }, 500);
     }
 
@@ -715,7 +704,6 @@ class Home extends React.Component {
 
     startSlick() {
         $(document).ready(() => {
-            console.log($("#mobile-slick"));
             $("#mobile-slick").slick({
                 arrows: false,
                 infinite: true,
@@ -997,7 +985,7 @@ class Home extends React.Component {
                                                             <DesktopSocial {...{classes, chapter: this.state.chapter, pillars: this.state.pillars}}/>
                                                         </div>
                                                         <div style={{marginTop: "50px"}}>
-                                                            <a href={"https://draperu.s3.amazonaws.com/public/social+media+assets/Social+Media+Assets.zip"} style={{textDecoration: "none"}} download={true}>
+                                                            <a href={"https://modern-recovery.s3.amazonaws.com/public/Social+Media+Assets.zip"} style={{textDecoration: "none"}} download={true}>
                                                                 <div className={classes.joinButton} onClick={() => {GlobalStore.track("Pillars", "Click", "Download All")}}>
                                                                     Download All
                                                                 </div>
@@ -1048,7 +1036,7 @@ class Home extends React.Component {
                             <div style={{position: "fixed", top: 77, left: 44, cursor: "pointer", height: "25px", width: "25px"}} onClick={() => {this.setState({showInfoModal: !this.state.showInfoModal}); GlobalStore.track("Discover", "Click", "Information Icon")}}>
                                 <img style={{height: "100%", width: "100%", transition: "0.5s"}} src={this.state.darkBot ? "/img/info-icon-white.svg" : "/img/info-icon-black.svg"}/>
                             </div>
-                            <div  style={{...SANS_SERIF_FONT_BODY, letterSpacing: "-0.25px", display: this.state.showInfoModal ? null : "none", opacity: this.state.showInfoModal ? 1 : 0, transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "12px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: 53, left: 92, height: "fit-content", width: "310px", boxShadow: "0px 1px 4px #00000011"}}>
+                            <div  style={{...SANS_SERIF_FONT_BODY, letterSpacing: "-0.25px", display: this.state.showInfoModal ? null : "none", opacity: this.state.showInfoModal ? 1 : 0, transition: "0.5s", padding: "25px", textAlign: "left", fontSize: "12px", background: this.state.darkBot ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)", color: this.state.darkBot ? "black" : "white", position: "fixed", bottom: 53, left: 92, height: "initial", width: "310px", boxShadow: "0px 1px 4px #00000011"}}>
                                 <div style={{position: "absolute", height: "10px", width: "10px", top: 12, right: 17, cursor: "pointer"}} onClick={() => {this.setState({showInfoModal: false})}}>
                                     <img style={{height: "100%", width: "100%", transition: "0.5s"}} src={this.state.darkBot ? "/img/close-button.png" : "/img/white-x.png"}/>
                                 </div>
