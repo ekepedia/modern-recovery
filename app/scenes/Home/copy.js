@@ -260,57 +260,18 @@ export const PILLARS = [
 
 export const MEDIA = [
     {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/2+awareness.png"
+        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/1+definition.png?new=true"
     },
     {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/3+ether.png"
+        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/2+awareness.png?new=true"
     },
     {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/4+rebuilding.png"
+        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/3+ether.png?new=true"
     },
     {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/5+reckoning.png"
+        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/4+rebuilding.png?new=true"
     },
     {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/6+quote_1-ether.png"
-    },
-    {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/7+quote_4-reckoning.png"
-    },
-    {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/8+MR_Write-In+Feed+1.png"
-    },
-    {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/9+MR_Write-In+Feed+2.png"
-    },
-    {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/10+MR_Write-In+Feed+8.png"
-    },
-    {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/11+MR_Write-In+Feed+3.png"
-    },
-    {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/12+MR_Write-In+Feed+4.png"
-    },
-    {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/13+MR_Write-In+Feed+5.png"
-    },
-    {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/14+MR_Write-In+Feed+6.png"
-    },
-    {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/15+MR_Write-In+Feed+7.png"
-    },
-    {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/16+pillar+3.png"
-    },
-    {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/17+pillar+4.png"
-    },
-    {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/18+pillar+6.png"
-    },
-    {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/1+definition.png"
+        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/5+reckoning.png?new=true"
     },
 ];

@@ -882,7 +882,7 @@ class Home extends React.Component {
                                                     <div style={{paddingTop: "150px", paddingBottom: "150px", background: "black",}}>
                                                         <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "50px"}}>We do recovery <br/>differently.</div>
                                                         <div style={{maxWidth: "400px", ...SANS_SERIF_FONT_BODY, margin: "auto", fontSize: "14px", lineHeight: "24px", }}>
-                                                            We’re empowering folks at every stage of their journey to examine their relationship with alcohol— on their own terms. If alcohol is no longer serving you or helping you live the life you want, now’s the time to try something new.
+                                                            Tempest is empowering folks at every stage of their journey to examine their relationship with alcohol— on their own terms. If alcohol is no longer serving you or helping you live the life you want, now’s the time to try something new.
                                                             <br/><br/>
                                                             We hope this movement inspires you to question drinking culture and shed outdated ideas around what it means to be sober or in recovery.
                                                             <br/><br/>
@@ -966,7 +966,7 @@ class Home extends React.Component {
                                                         <hr style={{height: "1px", width: "70%", borderTop: "1px dotted white", background: "none", margin:"auto", marginTop: "40px", marginBottom: "40px"}}></hr>
                                                         <div style={{fontSize: "48px", fontFamily: "NoeDisplay Regular", lineHeight: "60px", marginBottom: "10px"}}>Share</div>
                                                         <div style={{...SANS_SERIF_FONT_BODY, maxWidth: "350px", margin: "auto", marginBottom: "50px"}}>
-                                                            Let’s write the story of modern recovery together. Tag us at @jointempest and tell us what <div style={{
+                                                            Let’s write the story of modern recovery together. Tag us at <a style={{color: "white", cursor: "pointer", textDecoration: "underline"}} target={"_blank"} href={"https://www.instagram.com/jointempest/"}>@jointempest</a> and tell us what <div style={{
                                                                 textDecoration: "underline",
                                                                 display: "inline-block",
                                                                 cursor: "pointer",

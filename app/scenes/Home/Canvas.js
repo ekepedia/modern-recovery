@@ -315,38 +315,38 @@ class Canvas extends React.Component {
         }} style={{height: `${IMG_HEIGHT}px`, position: "relative", width: `${IMG_WIDTH}px`, transition: "background 1s", background: `url('${src}') 0% 0% / contain no-repeat`, }}>
             <div>
                 <div style={{position: "absolute", top: "850px", left: "441px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_Ether_v1.mp3'} chapter={"Ether"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Ether_v2.mp3'} chapter={"Ether"}/>
                 </div>
 
                 <div style={{position: "absolute", top: "1678px", left: "1092px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_+Inkling_v3.mp3'} chapter={"Inkling"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Inkling_v2.mp3'} chapter={"Inkling"}/>
                 </div>
                 <div style={{position: "absolute", top: "264px", left: "2822px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_+Awareness_v2.mp3'} chapter={"Awareness"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Awareness_v2.mp3'} chapter={"Awareness"}/>
                 </div>
 
                 <div style={{position: "absolute", top: "2657px", left: "2990px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_Reckoning_v2.mp3'} chapter={"Reckoning"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Reckoning_v2.mp3'} chapter={"Reckoning"}/>
                 </div>
 
                 <div style={{position: "absolute", top: "2417px", left: "4510px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_Rebuilding_v2.mp3'} chapter={"Rebuilding"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Rebuilding_v2.mp3'} chapter={"Rebuilding"}/>
                 </div>
 
                 <div style={{position: "absolute", top: "300px", left: "4700px"}}>
-                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Discover_Outpouring_V1.mp3'} chapter={"Outpouring"}/>
+                    <DesktopDiscoverPlayer dark={dark} audio={'https://draperu.s3.amazonaws.com/public/audio/Discover/Outpouring_V2.mp3'} chapter={"Outpouring"}/>
                 </div>
                 <div style={{position: "absolute", top: `${this.state.lastY}px`, left: `${this.state.lastX}px`, }}>
                     <div style={{height: "fit-content", position: "relative", width: "1250px", textAlign: "left", padding: "78px", background: dark ? "white" : "black", color: dark ? "black" : "white", display: this.state.showChapterModal ? "block" : "none"}}>
                         <div style={{position: "absolute", top: 52, right: 52, cursor: "pointer", height: "46px", width: "46px"}} onClick={() => {this.setState({showChapterModal: false})}}>
-                            <img style={{height: "100%", width: "100%"}} src={this.state.darkBot ? "/img/close-button.png" : "/img/white-x.png"}/>
+                            <img style={{height: "100%", width: "100%"}} src={dark ? "/img/close-icon-black.svg" : "/img/close-icon-white.svg"}/>
                         </div>
 
                         <div style={{fontSize: "60px", width: "fit-content", marginBottom: "25px", fontFamily: "Albra Text Regular", color: dark ? "white" : "black", background: dark ? "black" : "white", padding: "0 50px", height: "92px", lineHeight: "92px", borderRadius: "100px"}}>
                             {STAGES[this.state.showChapterModalIndex].name}
                         </div>
                         <div style={{fontFamily: "UntitledSans-Regular", fontSize: "55px"}}>
-                            We see our drinking in a new light and we wonder if things could be different.
+                            {STAGES[this.state.showChapterModalIndex].definition}
                         </div>
                     </div>
                 </div>
