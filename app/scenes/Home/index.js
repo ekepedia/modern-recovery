@@ -46,6 +46,17 @@ const Styles = {
         '@media (max-width: 1024px)': {
             display: "block"
         },
+        '@media screen and (orientation:landscape) and (max-height: 500px)': {
+            display: "none"
+        }
+    },
+    MobileLandscape: {
+        height: "100%",
+        width: "100%",
+        display: "none",
+        '@media screen and (orientation:landscape) and (max-height: 500px)': {
+            display: "block"
+        }
     },
     containerPadding: {
         paddingTop: "calc((100vh - 476.88px - 53px)/2)",
@@ -1311,6 +1322,16 @@ class Home extends React.Component {
                                 </div>
                             </div>
                         }
+                    </div>
+                </div>
+            </div>
+            <div className={classes.MobileLandscape}>
+                <div style={{position: "fixed", height: "100vh", width: "100vw", background: "black"}}>
+                    <div style={{position: "relative", height: "100%", width: "100%"}}>
+                        <div style={{position: "absolute", color: "white", width: "238px", height: "138px", top: "calc(50% - 69px)", left: "calc(50% - 119px)", textAlign: "center"}}>
+                            <div><img style={{marginBottom: "20px", width: "75px"}} src={"/img/rotate-icon.svg"}/></div>
+                            <div style={{...SANS_SERIF_FONT_BODY, letterSpacing: "-0.25px", fontSize: "16px", lineHeight: "18px"}}>Site best experienced in vertical orientation, please rotate!</div>
+                        </div>
                     </div>
                 </div>
             </div>

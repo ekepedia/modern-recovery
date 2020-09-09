@@ -260,18 +260,57 @@ export const PILLARS = [
 
 export const MEDIA = [
     {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/1+definition.png?new=true"
+        link: "/img/social/1 MR_Write-In Feed 1.png"
     },
     {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/2+awareness.png?new=true"
+        link: "/img/social/2 awareness.png"
     },
     {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/3+ether.png?new=true"
+        link: "/img/social/3 MR_Write-In Feed 2.png"
     },
     {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/4+rebuilding.png?new=true"
+        link: "/img/social/4 ether.png"
     },
     {
-        link: "https://draperu.s3.amazonaws.com/public/social+media+assets/5+reckoning.png?new=true"
+        link: "/img/social/5 rebuilding.png"
+    },
+    {
+        link: "/img/social/6 definition.png"
+    },
+    {
+        link: "/img/social/7 reckoning.png"
+    },
+    {
+        link: "/img/social/8 quote_1-ether.png"
+    },
+    {
+        link: "/img/social/9 quote_4-reckoning.png"
+    },
+    {
+        link: "/img/social/10 MR_Write-In Feed 8.png"
+    },
+    {
+        link: "/img/social/11 MR_Write-In Feed 3.png"
+    },
+    {
+        link: "/img/social/12 MR_Write-In Feed 4.png"
+    },
+    {
+        link: "/img/social/13 MR_Write-In Feed 5.png"
+    },
+    {
+        link: "/img/social/14 MR_Write-In Feed 6.png"
+    },
+    {
+        link: "/img/social/15 MR_Write-In Feed 7.png"
+    },
+    {
+        link: "/img/social/16 pillar 3.png"
+    },
+    {
+        link: "/img/social/17 pillar 4.png"
+    },
+    {
+        link: "/img/social/18 pillar 6.png"
     },
 ];
