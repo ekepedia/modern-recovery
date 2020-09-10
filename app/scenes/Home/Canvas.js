@@ -45,6 +45,7 @@ class Canvas extends React.Component {
             pinchSpeed: 1,
             minZoom,
             bounds: false,
+            zoomDoubleClickSpeed: width < 1024 ? 1 : null,
             // boundsPadding: 0.5,
             onTouch: (e) => {
                 if (e.target.id === `scene${this.id}` && this.props.closeModal) {
@@ -63,6 +64,15 @@ class Canvas extends React.Component {
                             tapped = true
 
                         if (tapped) {
+
+                            const now = new Date().getTime();
+
+                            if (!this.lastRealTap || Math.abs(this.lastRealTap - now) > 600) {
+                                return this.lastRealTap = new Date().getTime();
+                            }
+
+                            this.lastRealTap = null
+
                             var touch = e.touches[0] || e.changedTouches[0];
                             let x = touch.pageX;
                             let y = touch.pageY;
@@ -310,7 +320,7 @@ class Canvas extends React.Component {
                             <img style={{height: "100%", width: "100%"}} src={dark ? "/img/close-icon-black.svg" : "/img/close-icon-white.svg"}/>
                         </div>
 
-                        <div style={{fontSize: "60px", width: "fit-content", marginBottom: "25px", fontFamily: "Albra Text Regular", color: dark ? "white" : "black", background: dark ? "black" : "white", padding: "0 50px", height: "92px", lineHeight: "92px", borderRadius: "100px"}}>
+                        <div style={{fontSize: "60px", width: "max-content", marginBottom: "25px", fontFamily: "Albra Text Regular", color: dark ? "white" : "black", background: dark ? "black" : "white", padding: "0 50px", height: "92px", lineHeight: "92px", borderRadius: "100px"}}>
                             {STAGES[this.state.showChapterModalIndex].name}
                         </div>
                         <div style={{fontFamily: "UntitledSans-Regular", fontSize: "55px"}}>

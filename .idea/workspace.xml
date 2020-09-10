@@ -14,14 +14,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/public/js/script.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/js/script.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scenes/Home/Canvas.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/Canvas.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scenes/Home/DesktopSocial.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/DesktopSocial.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scenes/Home/MobilePillars.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/MobilePillars.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scenes/Home/MobileQuotes.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/MobileQuotes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scenes/Home/MobileShare.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/MobileShare.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scenes/Home/MobileSocial.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/MobileSocial.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/scenes/Home/copy.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/copy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/scenes/Home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/scenes/Home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/RSSService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/RSSService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/main.ejs" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/main.ejs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,7 +77,8 @@
       <workItem from="1599497031464" duration="10693000" />
       <workItem from="1599576631124" duration="220000" />
       <workItem from="1599589513150" duration="214000" />
-      <workItem from="1599597205536" duration="8314000" />
+      <workItem from="1599597205536" duration="8770000" />
+      <workItem from="1599768124287" duration="1975000" />
     </task>
     <servers />
   </component>
@@ -112,10 +106,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="323" y="67" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1440.900@0.0.1440.900" timestamp="1599514557204" />
-    <state x="421" y="205" width="598" height="518" key="find.popup" timestamp="1599688234893">
+    <state x="421" y="205" width="598" height="518" key="find.popup" timestamp="1599770845451">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="421" y="205" width="598" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599688234893" />
+    <state x="421" y="205" width="598" height="518" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1599770845451" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1599228174392">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
